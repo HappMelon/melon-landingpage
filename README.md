@@ -1,2 +1,3 @@
-references:
-https://hyoban.cc/post/react-2023
+# FlareZone
+
+An one-of-a-kind Hotspot Protocol and A Decentralized bystander community 🔔

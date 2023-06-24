@@ -58,7 +58,7 @@ export default function SimpleSidebar({ children }: { children: ReactNode }) {
 			</Drawer>
 			{/* mobilenav */}
 			<MobileNav display={{ base: "flex", md: "none" }} onOpen={onOpen} />
-			<Box ml={{ base: 0, md: "20vw" }} p="4">
+			<Box ml={{ base: 0, md: "20vw" }} p="4rem">
 				{children}
 			</Box>
 		</Box>
@@ -82,12 +82,17 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
 			paddingTop="2vh"
 			{...rest}
 		>
-			<Flex h="20" alignItems="center" mx="8" justifyContent="space-between">
+			<Flex
+				h="2.5rem"
+				alignItems="center"
+				mx="2rem"
+				justifyContent="space-between"
+			>
 				<Text
-					fontSize="2xl"
+					fontSize="2rem"
 					fontFamily="monospace"
 					fontWeight="bold"
-					marginBottom="2vh"
+					marginBottom="1.25rem"
 				>
 					Logo
 				</Text>
@@ -98,7 +103,12 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
 					{link.name}
 				</NavItem>
 			))}
-			<ButtonWithText marginTop="5" mx="4" text="Post" leftIcon={<BsStars />} />
+			<ButtonWithText
+				marginTop="1.25rem"
+				mx="1rem"
+				text="Post"
+				leftIcon={<BsStars />}
+			/>
 		</Box>
 	)
 }
@@ -116,8 +126,8 @@ const NavItem = ({ icon, children, ...rest }: NavItemProps) => {
 		>
 			<Flex
 				align="center"
-				p="5"
-				mx="4"
+				p="1.25rem"
+				mx="1rem"
 				borderRadius="lg"
 				role="group"
 				cursor="pointer"
@@ -128,8 +138,8 @@ const NavItem = ({ icon, children, ...rest }: NavItemProps) => {
 			>
 				{icon && (
 					<Icon
-						mr="4"
-						fontSize="16"
+						mr="1rem"
+						fontSize="1rem"
 						_groupHover={{
 							color: "#F9D423",
 						}}
@@ -155,12 +165,13 @@ const NavItem = ({ icon, children, ...rest }: NavItemProps) => {
 interface MobileProps extends FlexProps {
 	onOpen: () => void
 }
+
 const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
 	return (
 		<Flex
-			ml={{ base: 0, md: 60 }}
-			px={{ base: 4, md: 24 }}
-			height="20"
+			ml={{ base: 0, md: "3.75rem" }}
+			px={{ base: "1rem", md: "1.5rem" }}
+			height="3.75rem"
 			alignItems="center"
 			bg={useColorModeValue("white", "gray.900")}
 			borderBottomWidth="1px"
@@ -175,7 +186,7 @@ const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
 				icon={<FiMenu />}
 			/>
 
-			<Text fontSize="2xl" ml="8" fontFamily="monospace" fontWeight="bold">
+			<Text fontSize="2rem" ml="1rem" fontFamily="monospace" fontWeight="bold">
 				Logo
 			</Text>
 		</Flex>

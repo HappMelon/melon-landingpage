@@ -1,6 +1,5 @@
-import { Box, Button, Image, Spacer, Stack, Text } from "@chakra-ui/react"
+import { Box, Button, Flex, Image, Spacer, Stack, Text } from "@chakra-ui/react"
 import { BiEdit } from "react-icons/bi"
-
 export const AccountHeader = () => {
 	return (
 		<>
@@ -10,8 +9,8 @@ export const AccountHeader = () => {
 				m="5vh"
 				position="relative"
 			>
-				<Stack
-					spacing={4}
+				<Flex
+					w="100%"
 					direction="row"
 					align="center"
 					zIndex="2"
@@ -37,82 +36,89 @@ export const AccountHeader = () => {
 						alignSelf="start"
 						maxW="45%"
 						color="white"
-						p="2"
+						p="1rem"
 					>
-						<Text fontSize="24px" fontWeight="bold">
+						<Text fontSize="1.5rem" fontWeight="bold">
 							Chalette Helmet
 						</Text>
-						<Text fontSize="16px" fontWeight="normal">
+						<Text fontSize="1rem" fontWeight="normal">
 							@charlove520
 						</Text>
-						<Text fontSize="14px" fontWeight="normal" opacity="60%" mt="2">
+						<Text
+							fontSize="0.875rem"
+							fontWeight="normal"
+							opacity="60%"
+							mt="1rem"
+						>
 							A web3 enthusiast. Crypto Investor. Tech Girl. Flare Premium.
 							Invest for freedom. Multi-FIRE Advocate.
 						</Text>
 					</Stack>
+					<Spacer />
 					<Stack
 						direction="column"
 						justifySelf="right"
-						alignSelf="end"
-						maxW="50%"
-						w="50%"
+						alignSelf="flex-end"
+						maxW="40%"
+						w="40%"
 						h="15vh"
-						p="2"
+						mr="3vh"
+						p="1rem"
 						pb="5vh"
 					>
 						<Button
 							variant="outline"
 							rounded="full"
 							color="white"
-							border="1px"
+							border="solid"
 							borderColor="white"
 							leftIcon={<BiEdit />}
 							justifySelf="right"
 							alignSelf="end"
 							_hover={{ background: "none" }}
 						>
-							Edit Profie
+							Edit Profile
 						</Button>
 						<Spacer />
 						<Stack direction="row" color="white" justify="right" align="end">
 							<Stack direction="row" alignItems="end">
-								<Text fontSize="16px" fontWeight="semi-bold">
+								<Text fontSize="1rem" fontWeight="semi-bold">
 									Posts
 								</Text>
-								<Text fontSize="28px" fontWeight="bold">
+								<Text fontSize="1.75rem" fontWeight="bold">
 									3
 								</Text>
 							</Stack>
 							<Spacer />
 							<Stack spacing="2" direction="row" alignItems="end">
-								<Text fontSize="16px" fontWeight="semi-bold">
+								<Text fontSize="1rem" fontWeight="semi-bold">
 									Flare Vol
 								</Text>
-								<Text fontSize="28px" fontWeight="bold">
+								<Text fontSize="1.75rem" fontWeight="bold">
 									62
 								</Text>
 							</Stack>
 							<Spacer />
 							<Stack spacing="2" direction="row" alignItems="end">
-								<Text fontSize="16px" fontWeight="semi-bold">
+								<Text fontSize="1rem" fontWeight="semi-bold">
 									Subscribers
 								</Text>
-								<Text fontSize="28px" fontWeight="bold">
+								<Text fontSize="1.75rem" fontWeight="bold">
 									10k
 								</Text>
 							</Stack>
 							<Spacer />
 							<Stack spacing="2" direction="row" alignItems="end">
-								<Text fontSize="16px" fontWeight="semi-bold">
+								<Text fontSize="1rem" fontWeight="semi-bold">
 									Following
 								</Text>
-								<Text fontSize="28px" fontWeight="bold">
+								<Text fontSize="1.75rem" fontWeight="bold">
 									208
 								</Text>
 							</Stack>
 						</Stack>
 					</Stack>
-				</Stack>
+				</Flex>
 			</Box>
 		</>
 	)

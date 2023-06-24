@@ -17,7 +17,7 @@ function LandingHeader() {
 						paddingLeft: "10%",
 					}}
 				>
-					<img src="/landing-logo.png" alt="logo" width="4.625rem"></img>
+					<img src="/landing-logo.png" alt="logo" width="auto" height="74px"></img>
 					<div className={styles.headerTitle}>Flare Dapp</div>
 				</div>
 				<div className={styles.headerButtonContainer}>

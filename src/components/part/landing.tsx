@@ -60,6 +60,8 @@ function LandingContent() {
 	return (
 		<div className={styles.contentContainer}>
 			<div className={styles.page1Container}>
+				<div className={styles.page1Shape1}></div>
+				<div className={styles.page1Shape2}></div>
 				<div className={styles.page1Title}>
 					Socialize with trust and freedom
 				</div>
@@ -91,6 +93,7 @@ function LandingContent() {
 				</div>
 			</div>
 			<div className={styles.page3Container}>
+				<div className={styles.page3Shape}></div>
 				<LandingCard title="Decentralized Universe" logo="/page3-logo1.png">
 					As a service provider, we ensures a secure, anonymous and euphoric
 					<br />
@@ -267,6 +270,7 @@ function LandingContent() {
 					></img>
 				</div>
 				<div className={styles.page6Text}>Light mode & Dark mode</div>
+				<div className={styles.page6Shape}></div>
 			</div>
 			<div className={styles.page7Container}>
 				<div className={styles.page7Title}>Multi-Language</div>

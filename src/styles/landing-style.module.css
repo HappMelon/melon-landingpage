@@ -63,6 +63,7 @@
 	font-size: 64px;
 	font-weight: 750;
 	text-transform: capitalize;
+	z-index: 1;
 }
 .page1Text {
 	text-align: center;
@@ -71,11 +72,13 @@
 	line-height: 170%;
 	text-transform: capitalize;
 	padding-top: 42px;
+	z-index: 1;
 }
 .page1ButtonContainer {
 	display: flex;
 	flex-direction: row;
 	padding-top: 50px;
+	z-index: 1;
 }
 .page1Button1 {
 	border-radius: 50px;
@@ -111,6 +114,30 @@
 	box-shadow: 0px 4px 40px 0px rgba(255, 255, 255, 0.08),
 		0px -4px 40px 0px rgba(255, 255, 255, 0.08);
 	margin-top: 194px;
+	z-index: 1;
+}
+.page1Shape1 {
+	width: 550.078px;
+	height: 1160.491px;
+	transform: rotate(18.429deg);
+	border-radius: 1160.491px;
+	opacity: 0.6000000238418579;
+	background: rgba(255, 107, 0, 0.5);
+	filter: blur(250px);
+	position: absolute;
+	z-index: 0;
+}
+.page1Shape2 {
+	width: 494.229px;
+	height: 1100.533px;
+	transform: rotate(163.138deg);
+	background: rgba(121, 62, 218, 0.7);
+	filter: blur(250px);
+	opacity: 0.6000000238418579;
+	position: absolute;
+
+	right: 10%;
+	z-index: 0;
 }
 .page2Container {
 	display: flex;
@@ -142,6 +169,15 @@
 	padding-top: 210px;
 	justify-content: space-around;
 	padding-bottom: 100px;
+}
+.page3Shape {
+	width: 841.012px;
+	height: 1493.599px;
+	transform: rotate(75.234deg);
+	flex-shrink: 0;
+	background: rgba(255, 107, 0, 0.3);
+	filter: blur(250px);
+	position: absolute;
 }
 .page4Container {
 	display: flex;
@@ -258,9 +294,21 @@
 	line-height: 52px;
 	margin: 10%;
 	margin-top: 40%;
+	z-index: 1;
 }
-.page7Container{
-	margin-top:450px;
+.page6Shape {
+	width: 1414.704px;
+	height: 1103.87px;
+	transform: rotate(163.138deg);
+	flex-shrink: 0;
+	background: rgba(62, 143, 218, 0.2);
+	filter: blur(250px);
+	position: absolute;
+	right: -20px;
+
+}
+.page7Container {
+	margin-top: 450px;
 	height: 781px;
 }
 .page7Title {
@@ -270,10 +318,10 @@
 	font-weight: 700;
 	line-height: 68px;
 }
-.page8Container{
+.page8Container {
 	width: 100%;
 	height: 715px;
-	padding:163px;
+	padding: 163px;
 	align-content: left;
 }
 .page8Title {
@@ -308,6 +356,7 @@
 	border: 1px solid rgba(255, 255, 255, 0.2);
 	background: rgba(255, 255, 255, 0.08);
 	padding: 44px;
+	z-index: 1;
 }
 .landingCardTitle {
 	font-size: 36px;

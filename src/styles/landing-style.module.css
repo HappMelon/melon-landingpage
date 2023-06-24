@@ -1,17 +1,294 @@
-.backTitle {
+/* header */
+.headerContainer {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	position: fixed;
+	width: 100%;
+	background: #181127;
+	height: 160px;
+	left: 0;
+	top: 0;
+	z-index: 7;
+	align-items: center;
+}
+.headerTitle {
+	color: #f5f5f5;
+	font-size: 42px;
+	font-weight: 800;
+	text-transform: capitalize;
+}
+.headerButtonContainer {
+	display: flex;
+	flex-direction: row;
+	padding-right: 10%;
+}
+.headerLanguage {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	padding-right: 5%;
+	color: #fff;
+	font-size: 18px;
+	text-transform: capitalize;
+}
+.headerButton {
+	border-radius: 50px;
+	background: linear-gradient(0deg, #000 0%, #000 100%),
+		linear-gradient(159deg, #f9d423 0%, #f83600 100%);
+	height: 48px;
+	padding: 11px 28px;
+	text-align: center;
+	font-size: 18px;
+	font-weight: 700;
+}
+
+/* Content */
+.contentContainer {
+	width: 100%;
+	height: 100%;
+	padding: 10%;
+	display: flex;
+	flex-direction: column;
+}
+.page1Container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding-top: 373px;
+}
+.page1Title {
+	color: #fff;
+	text-align: center;
+	font-size: 64px;
+	font-weight: 750;
+	text-transform: capitalize;
+}
+.page1Text {
+	text-align: center;
+	font-size: 24px;
+	font-weight: 550;
+	line-height: 170%;
+	text-transform: capitalize;
+	padding-top: 42px;
+}
+.page1ButtonContainer {
+	display: flex;
+	flex-direction: row;
+	padding-top: 50px;
+}
+.page1Button1 {
+	border-radius: 50px;
+	background: linear-gradient(159deg, #f9d423 0%, #f83600 100%);
+	height: 60px;
+	padding: 11px 32px;
+	margin-right: 10%;
+	text-align: center;
+	font-size: 24px;
+	font-weight: 700;
+	white-space: nowrap;
+}
+.page1Button2 {
+	border-radius: 50px;
+	border: 1px solid;
+	border-color: transparent;
+	background: linear-gradient(159deg, #f9d423 0%, #f83600 100%);
+	-webkit-background-clip: text;
+	color: transparent;
+	height: 60px;
+	padding: 11px 32px;
+	margin-right: 10%;
+	text-align: center;
+	font-size: 24px;
+	font-weight: 700;
+	white-space: nowrap;
+}
+.page1Img {
+	border-radius: 15px;
+	background: lightgray 50% / cover no-repeat;
+	width: 1392px;
+	height: 783.554px;
+	box-shadow: 0px 4px 40px 0px rgba(255, 255, 255, 0.08),
+		0px -4px 40px 0px rgba(255, 255, 255, 0.08);
+	margin-top: 194px;
+}
+.page2Container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-top: 358px;
+}
+.page2Title {
+	text-align: center;
+	background: linear-gradient(159deg, #f9d423 0%, #f83600 100%);
+	-webkit-background-clip: text;
+	color: transparent;
+	text-shadow: 0px 4px 20px 0px rgba(255, 255, 255, 0.25);
+	font-size: 52px;
+	font-weight: 700;
+	line-height: 68px;
+	text-transform: capitalize;
+}
+.page2Text {
+	margin-top: 36px;
+	text-align: center;
+	font-size: 36px;
+	font-weight: 700;
+	line-height: 150%;
+}
+.page3Container {
+	display: flex;
+	flex-direction: row;
+	padding-top: 210px;
+	justify-content: space-around;
+	padding-bottom: 100px;
+}
+.page4Container {
+	display: flex;
+	flex-direction: row;
+	padding-top: 340px;
+	justify-content: space-around;
+	align-items: center;
+}
+.page4Img {
+	width: 967px;
+	height: 543.674px;
+	border-radius: 15px;
+	border: 1px solid rgba(255, 255, 255, 0.5);
+	background: lightgray 50% / cover no-repeat;
+	box-shadow: 0px 4px 40px 0px rgba(255, 255, 255, 0.08),
+		0px -4px 40px 0px rgba(255, 255, 255, 0.08);
+}
+.page4TextContainer {
+	width: 650px;
+}
+.page4TextTitle {
+	text-shadow: 0px 4px 20px 0px rgba(255, 255, 255, 0.25);
+	background: linear-gradient(159deg, #f9d423 0%, #f83600 100%);
+	color: transparent;
+	-webkit-background-clip: text;
+	font-size: 52px;
+	font-weight: 700;
+	line-height: 68px;
+}
+.page4TextSubTitle {
+	margin-top: 16px;
+	color: #fff;
+	text-shadow: 0px 4px 20px 0px rgba(255, 255, 255, 0.25);
+	font-size: 32px;
+	font-weight: 700;
+	line-height: 160%;
+}
+.page4TextContent {
+	margin-top: 48px;
+	color: #fff;
+	font-size: 20px;
+	font-family: Avenir LT Std;
+	line-height: 170%;
+}
+.page5Container {
+	display: flex;
+	height: 869px;
+	flex-direction: column;
+	margin-top: 362px;
+	border-radius: 15px;
+	border: 1px solid rgba(255, 255, 255, 0.2);
+	background: rgba(255, 255, 255, 0.08);
+	align-items: center;
+	padding: 91px 5%;
+}
+.page5SubContainer {
+	display: flex;
+	flex-direction: row;
+	margin-top: 83px;
+	justify-content: space-around;
+}
+.page5TextSubTitle {
+	text-shadow: 0px 4px 20px 0px rgba(255, 255, 255, 0.25);
+	font-size: 32px;
+	font-weight: 550;
+	line-height: 52px;
+	margin-bottom: 46px;
+}
+.page5TextContainer {
+	width: 70%;
+}
+.page5TextContent {
+	font-size: 16px;
+	line-height: 28px;
+}
+.page5ImgContainer {
+	padding-top: 40px;
+	margin-right: 7%;
+}
+.page5ImgBg {
+	z-index: 0;
+	width: 814px;
+	height: 458.84px;
+	border-radius: 15px;
+	border: 1px solid rgba(255, 255, 255, 0.5);
+	background: rgba(255, 255, 255, 0.1);
+}
+.page5Img {
+	position: relative;
+	top: -400px;
+	left: 60px;
+	z-index: 6;
+	width: 690.466px;
+	height: 460.366px;
+	border-radius: 15px;
+	border: 1px solid rgba(255, 255, 255, 0.5);
+	background: lightgray -191.692px -79.006px / 155.576% 131.018% no-repeat;
+}
+.page6container {
+	margin-top: 500px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+.page6ImgFront {
+	position: relative;
+	top: 50vh;
+	left: 5vw;
+}
+.page6Text {
+	text-shadow: 0px 4px 20px 0px rgba(255, 255, 255, 0.25);
+	font-size: 32px;
+	font-weight: 550;
+	line-height: 52px;
+	margin: 10%;
+	margin-top: 40%;
+}
+.page7Container{
+	margin-top:450px;
+	height: 781px;
+}
+.page7Title {
+	text-align: center;
+	text-shadow: 0px 4px 20px 0px rgba(255, 255, 255, 0.25);
+	font-size: 46px;
+	font-weight: 700;
+	line-height: 68px;
+}
+.page8Container{
+	width: 100%;
+	height: 715px;
+	padding:163px;
+	align-content: left;
+}
+.page8Title {
 	color: rgba(255, 255, 255, 0.6);
 	font-size: 24px;
 	font-family: Futura;
 	font-weight: 500;
 	letter-spacing: 2.4px;
 }
-.backText {
-	margin-top: 48px;
+.page8Text {
 	font-size: 52px;
 	font-family: Actor;
 }
 
-.backCardTitle {
+.page8CardTitle {
 	color: rgba(255, 255, 255, 0.6);
 	font-size: 16px;
 	font-family: Futura;
@@ -19,10 +296,32 @@
 	letter-spacing: 1.6px;
 }
 
-.backCardText {
+.page8CardText {
 	font-size: 100px;
 	font-family: Actor;
 }
+/*Landing Card*/
+.landingCardContainer {
+	width: 512px;
+	height: 617px;
+	border-radius: 15px;
+	border: 1px solid rgba(255, 255, 255, 0.2);
+	background: rgba(255, 255, 255, 0.08);
+	padding: 44px;
+}
+.landingCardTitle {
+	font-size: 36px;
+	font-weight: 700;
+	line-height: 48px;
+	text-transform: capitalize;
+}
+.landingCardText {
+	font-size: 20px;
+	font-weight: 550;
+	line-height: 170%;
+}
+
+/*Footer*/
 
 .footContainer {
 	width: 100%;

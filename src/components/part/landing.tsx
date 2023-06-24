@@ -207,7 +207,7 @@ function LandingContent() {
 							fontWeight: "750",
 						}}
 					>
-						Engage, Enlighten, Empower
+						Socialize with trust and freedom
 					</div>
 					<div
 						style={{
@@ -219,7 +219,7 @@ function LandingContent() {
 							lineHeight: "42px",
 						}}
 					>
-						Flare is an aggregated information platform that incorporates
+						Flare is an aggregated information platform that incorporates <br/>
 						decentralized technologies and philosophy.
 					</div>
 					<button
@@ -240,13 +240,16 @@ function LandingContent() {
 				<div
 					style={{
 						backgroundColor: "gray",
-						height: "800px",
+						height: "",
 						width: "1250px",
 						borderRadius: "15px",
 						marginTop: "150px",
+						position: "relative",
 					}}
 				>
-					This is the image
+					<img alt='' style={{borderRadius: 15}} src="/flare-dapp.io.png" className='z-10 absolute'/>
+					<img alt='' style={{borderTopLeftRadius: 15, borderTopRightRadius: 15}} src="/Trending.png" className='z-20 absolute top-4.6719rem'/>
+
 				</div>
 				<div
 					style={{
@@ -270,6 +273,7 @@ function LandingContent() {
 						paddingTop: "210px",
 						justifyContent: "space-around",
 					}}
+					className=""
 				>
 					<LandingCard title="Decentralized Universe" logo="/vite.svg">
 						As a service provider, we ensures a secure, anonymous and euphoric

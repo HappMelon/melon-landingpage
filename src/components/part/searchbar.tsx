@@ -16,29 +16,30 @@ export const SearchBar = () => {
 	const { isDarkMode, toggle } = useDarkMode()
 	return (
 		<>
-			<Stack spacing={4} h="5vh" direction="row" align="center" m="4">
+			<Stack spacing={4} h="3.125rem" direction="row" align="center" m="1rem">
 				<InputGroup size="md">
 					<InputLeftElement pointerEvents="none">
 						<BiSearch color="gray" />
 					</InputLeftElement>
 					<Input
-						maxW="40vw"
+						w="40rem"
+						maxW="50rem"
 						variant="filled"
 						borderRadius="full"
 						type="text"
 						placeholder="Search topics, news"
 					/>
 					<Button
-						marginLeft="1vw"
+						marginLeft="2rem"
 						variant="outline"
 						rounded="full"
-						border="2px"
-						borderColor="linear(to-r, #F9D423, #F83600)"
+						border="solid"
+						borderColor="black"
 					>
 						Chat with Flare AI
 					</Button>
 				</InputGroup>
-				<Stack spacing={4} direction="row" align="center" m="4">
+				<Stack spacing={4} direction="row" align="center" m="1rem">
 					<Button
 						background="none"
 						_hover={{ background: "none" }}
@@ -46,10 +47,17 @@ export const SearchBar = () => {
 							toggle
 						}}
 					>
-						{isDarkMode ? <BiMoon fontSize={25} /> : <BiSun fontSize={25} />}
+						{isDarkMode ? (
+							<BiMoon fontSize="1.5625rem" />
+						) : (
+							<BiSun fontSize="1.5625rem" />
+						)}
 					</Button>
-					<BiBell fontSize={25} />
-					<Avatar marginLeft="5" src="https://bit.ly/dan-abramov"></Avatar>
+					<BiBell fontSize="1.5625rem" />
+					<Avatar
+						marginLeft="0.3125rem"
+						src="https://bit.ly/dan-abramov"
+					></Avatar>
 				</Stack>
 			</Stack>
 			<Divider />

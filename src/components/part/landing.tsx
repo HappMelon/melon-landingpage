@@ -17,22 +17,27 @@ function LandingHeader() {
 						paddingLeft: "10%",
 					}}
 				>
-					<img src="/landing-logo.png" alt="logo" width="74px"></img>
+					<img src="/landing-logo.png" alt="logo" width="4.625rem"></img>
 					<div className={styles.headerTitle}>Flare Dapp</div>
 				</div>
 				<div className={styles.headerButtonContainer}>
 					<div className={styles.headerLanguage}>
-						<img src="/globe.svg" alt="logo" width="25px"></img>
-						<div>En</div>
+						<img
+							src="/globe.svg"
+							alt="logo"
+							width="32px"
+							className="mr-.3125rem"
+						></img>
+						<div>EN</div>
 					</div>
 					<div>
 						<button
 							style={{
-								borderRadius: "50px",
+								borderRadius: "3.125rem",
 								background: "linear-gradient(159deg, #F9D423 0%, #F83600 100%)",
-								height: "48px",
-								padding: "11px 28px",
-								fontSize: "18px",
+								height: "3rem",
+								padding: ".6875rem 1.75rem",
+								fontSize: "1.125rem",
 								fontWeight: "700",
 								whiteSpace: "nowrap",
 							}}
@@ -49,7 +54,7 @@ function LandingHeader() {
 function LandingCard(props: CardProps) {
 	return (
 		<div className={styles.landingCardContainer}>
-			<img alt="logo" width="154px" height="154px" src={props.logo}></img>
+			<img alt="logo" width="9.625rem" height="9.625rem" src={props.logo}></img>
 			<div className={styles.landingCardTitle}>{props.title}</div>
 			<div className={styles.landingCardText}>{props.children}</div>
 		</div>
@@ -138,7 +143,7 @@ function LandingContent() {
 				<div className={styles.page4TextContainer}>
 					<div className={styles.page4TextTitle}>Hotspot Timeline</div>
 					<div className={styles.page4TextSubTitle}>
-						Systematic Information features
+						Systematic Information Features
 					</div>
 					<div className={styles.page4TextContent}>
 						Flare not only provides a decentralized place to share and access
@@ -165,9 +170,9 @@ function LandingContent() {
 				<div className={styles.page4TextContainer}>
 					<div className={styles.page4TextTitle}>Wallet</div>
 					<div className={styles.page4TextSubTitle}>
-						Introduction to the on-chain and off-
+						Introduction To The On-Chain And Off-
 						<br />
-						chain paralleling incentive system
+						Chain Paralleling Incentive System
 					</div>
 					<div className={styles.page4TextContent}>
 						Users can use centralized authentication and receive incentives
@@ -203,8 +208,8 @@ function LandingContent() {
 					className={styles.page4Img}
 				></img>
 				<div className={styles.page4TextContainer}>
-					<div className={styles.page4TextTitle}>Pledge Forecast</div>
-					<div className={styles.page4TextSubTitle}>Unique pledge play</div>
+					<div className={styles.page4TextTitle}>Betting Prediction</div>
+					<div className={styles.page4TextSubTitle}>Unique Staking Play</div>
 					<div className={styles.page4TextContent}>
 						Freedom does not mean no responsibility. While users enjoy the
 						<br />
@@ -225,7 +230,9 @@ function LandingContent() {
 			</div>
 
 			<div className={styles.page5Container}>
-				<div className={styles.page4TextTitle}>More immersive experience</div>
+				<div className={styles.page4TextTitle}>
+					Explore immersive AI experience
+				</div>
 				<div className={styles.page5SubContainer}>
 					<div className={styles.page5ImgContainer}>
 						<div className={styles.page5ImgBg}></div>
@@ -237,7 +244,7 @@ function LandingContent() {
 					</div>
 					<div className={styles.page5TextContainer}>
 						<div className={styles.page5TextSubTitle}>
-							Enjoy flare AI assistant
+							Chat with flare AI assistant
 						</div>
 						<div className={styles.page5TextContent}>
 							With Flare AI, we help you filter news and articles based on
@@ -257,71 +264,139 @@ function LandingContent() {
 				</div>
 			</div>
 			<div className={styles.page6container}>
-				<div>
-					<img
-						alt="darkmode"
-						src="page6dark.png"
-						className={styles.page6ImgFront}
-					></img>
-					<img
-						alt="lightmode"
-						src="/page6light.png"
-						className={styles.page6ImgBack}
-					></img>
+				<div className={styles.page6Explore}>Explore More diversity</div>
+				<div className={styles.top}>
+					<div className={styles.page7dtdcl}>
+						<div className="absolute text-2rem font-700 pt-2.8125rem pb-2.375rem">
+							Dual-Tone Display
+						</div>
+						<div>
+							<img
+								alt=""
+								src="/page6light.png"
+								className="absolute z-30 w-42.3125rem top-8.375rem left-4.3125rem"
+							></img>
+							<img
+								alt=""
+								src="/page6dark.png"
+								className="absolute z-40 w-38.3125rem top-11.875rem left-7.4375rem"
+							></img>
+						</div>
+					</div>
+					<div className={styles.page7dtdcl}>
+						<div>Cultural Inclusivity</div>
+						<img
+							className="w-48.1875rem mt-3.125rem"
+							src="/country.svg"
+							alt="country"
+						></img>
+					</div>
 				</div>
-				<div className={styles.page6Text}>Light mode & Dark mode</div>
-				<div className={styles.page6Shape}></div>
-			</div>
-			<div className={styles.page7Container}>
-				<div className={styles.page7Title}>Multi-Language</div>
-			</div>
-			<div className={styles.page8Container}>
-				<div className={styles.page8Title}>TECHNOLOGY</div>
-				<div className={styles.page8Text}>A Trusted Way For Information</div>
-				<div
-					style={{
-						display: "flex",
-						flexDirection: "row",
-						alignContent: "center",
-						justifyContent: "space-between",
-						marginTop: "82px",
-					}}
-				>
-					<div>
-						<div className={styles.page8CardTitle}>PROOF OF STAKE</div>
-						<div className={styles.page8CardText}>99%</div>
-					</div>
-					<div>
-						<div className={styles.page8CardTitle}>LOW FEES</div>
-						<div className={styles.page8CardText}>$0.02</div>
-					</div>
-					<div>
-						<div className={styles.page8CardTitle}>FAST ENTRANSACTIONS</div>
-						<div className={styles.page8CardText}>8 Sec</div>
-					</div>
+				<div className={styles.page7Container}>
+					<div className={styles.page7Title}>Modular Design</div>
+					<img src="/modular.png" alt="modular" className="w-104.75rem"></img>
 				</div>
 			</div>
 			<div
 				style={{
 					width: "100%",
-					height: "715px",
+					height: "44.6875rem",
 					alignContent: "left",
-					padding: "163px",
 				}}
 			>
 				<div className={styles.page8Title}>FOUNDER TEAM</div>
+				<div className="flex mt-4.625rem flex-wrap justify-around">
+					<div className={styles.page8Item}>
+						<div className="text-1.75rem font-750">Oliver Wang</div>
+						<div className={styles.page8Founder}>Founder</div>
+						<div className="mt-1.75rem">
+							Serial Entrepreneur in web2&3, 4+ <br />
+							years of Growth Manager/ <br />
+							Operation Manager <br />
+						</div>
+					</div>
+					<div className={styles.page8Item}>
+						<div className="text-1.75rem font-750">Rice Cao</div>
+						<div className={styles.page8Founder}>Tech Advisor</div>
+						<div className="mt-1.75rem">
+							Former Tech Lead at Tiktok. <br />
+							5 years of web2 full-stack <br />
+							practical business scenario <br />
+							development experience. <br />
+							2 years of Ethereum smart <br />
+							contract development <br />
+							experience
+						</div>
+					</div>
+					<div className={styles.page8Item}>
+						<div className="text-1.75rem font-750">Bill M</div>
+						<div className={styles.page8Founder}>Head of Operation</div>
+						<div className="mt-1.75rem">
+							Earliest investment and mining <br />
+							@Compound, Yearn, Curve, <br />
+							Uniswap, Sushi, Algorithm <br />
+							stablecoin(BAC, AMPL)
+						</div>
+					</div>
+					<div className={styles.page8Item}>
+						<div className="text-1.75rem font-750">Ning</div>
+						<div className={styles.page8Founder}>Full Stack/ML</div>
+						<div className="mt-1.75rem">
+							full stack/ML--15 years of <br />
+							experience in multiple tech areas <br />
+							and companies, including Google, Microsoft, etc. Still passionate{" "}
+							<br />
+							about new ideas.
+						</div>
+					</div>
+					<div className={styles.page8Item}>
+						<div className="text-1.75rem font-750">Serafina Yu</div>
+						<div className={styles.page8Founder}>Head of Product</div>
+						<div className="mt-1.75rem">
+							Serial Entrepreneur, strategic product manager, 3+ years of
+							web3+AI experience.
+						</div>
+					</div>
+					<div className={styles.page8Item}>
+						<div className="text-1.75rem font-750">Ming Zhang</div>
+						<div className={styles.page8Founder}>Design Lead</div>
+						<div className="mt-1.75rem">
+							7 years of product design, <br />
+							specializing in UX design. <br />
+							successfully shaped innovative <br />
+							digital experiences and creating <br />
+							intuitive interfaces.
+						</div>
+					</div>
+					<div className={styles.page8Item}>
+						<div className="text-1.75rem font-750">Lena</div>
+						<div className={styles.page8Founder}>Chief Strategy Officer</div>
+						<div className="mt-1.75rem">Web3 Investor</div>
+					</div>
+					<div className={styles.page8Item}>
+						<div className="text-1.75rem font-750">Dr. Hunter</div>
+						<div className={styles.page8Founder}>Angel Investor</div>
+						<div className="mt-1.75rem">Angel Investor from Harvard</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	)
 }
+
 function LandingFoot() {
 	return (
 		<div className={styles.footContainer}>
 			<div
+				className="items-center"
 				style={{ display: "flex", flexDirection: "row", alignItems: "center" }}
 			>
-				<img src="/landing-logo.png" alt="logo"></img>
-				<div>Flare Dapp</div>
+				<img
+					src="/landing-logo.png"
+					alt="logo"
+					className="w-3.6875rem h-4.625rem"
+				></img>
+				<div className="text-2.625rem font-800">Flare Dapp</div>
 			</div>
 			<div className={styles.footText}>
 				© Flare Dapp 2023 | All Rights Reserved

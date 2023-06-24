@@ -15,7 +15,9 @@
 	"dependencies": {
 		"@radix-ui/react-avatar": "^1.0.3",
 		"@tanstack/query-core": "^4.29.15",
+		"@unocss/core": "^0.53.3",
 		"@unocss/reset": "^0.53.1",
+		"axios": "^1.4.0",
 		"class-variance-authority": "^0.6.0",
 		"clsx": "^1.2.1",
 		"framer-motion": "^10.12.16",
@@ -23,6 +25,7 @@
 		"jotai": "^2.2.1",
 		"jotai-tanstack-query": "^0.7.1",
 		"ky": "^0.33.3",
+		"mongoose": "^7.3.1",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",
 		"react-i18next": "^13.0.0",

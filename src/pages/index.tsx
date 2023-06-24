@@ -5,6 +5,7 @@ import { albumAtom, incAndDecAtom, photosStateAtom } from "@/state/demo"
 import { useAtom } from "jotai"
 import { Fragment, Suspense } from "react"
 import { useTranslation } from "react-i18next"
+import Register from "./register"
 
 function Controller() {
 	const [id, setId] = useAtom(incAndDecAtom)
@@ -92,16 +93,14 @@ export default function App() {
 
 	return (
 		<div className="p-4 flex flex-col gap-4 items-center justify-center font-mono">
-			<h1>{t("hello-world")}</h1>
-			<Suspense fallback="loading...">
-				<AlbumInfo />
-			</Suspense>
-			<Controller />
-			<Photos />
-			<div className="flex gap-4 items-center">
+			
+			<Register/>
+			
+			
+			{/* <div className="flex gap-4 items-center">
 				<AppearanceSwitch />
 				<LanguageSwitch />
-			</div>
+			</div> */}
 		</div>
 	)
 }

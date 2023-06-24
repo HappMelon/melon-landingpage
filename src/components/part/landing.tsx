@@ -54,7 +54,7 @@ function LandingHeader() {
 function LandingCard(props: CardProps) {
 	return (
 		<div className={styles.landingCardContainer}>
-			<img alt="logo" width="9.625rem" height="9.625rem" src={props.logo}></img>
+			<img alt="logo" width="154px" height="154px" src={props.logo}></img>
 			<div className={styles.landingCardTitle}>{props.title}</div>
 			<div className={styles.landingCardText}>{props.children}</div>
 		</div>

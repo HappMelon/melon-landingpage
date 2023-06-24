@@ -6,10 +6,6 @@ type CardProps = {
 	logo: string
 }
 
-type PageProps = {
-	children?: React.ReactNode
-	title: string
-}
 function LandingHeader() {
 	return (
 		<div>
@@ -26,7 +22,7 @@ function LandingHeader() {
 				</div>
 				<div className={styles.headerButtonContainer}>
 					<div className={styles.headerLanguage}>
-						<i className="iconfont icon-globe">&#xef3e;</i>
+						<img src="/globe.svg" alt="logo" width="25px"></img>
 						<div>En</div>
 					</div>
 					<div>
@@ -60,28 +56,6 @@ function LandingCard(props: CardProps) {
 	)
 }
 
-function LandingPage(props: PageProps) {
-	return (
-		<div
-			style={{
-				height: "1206px",
-				marginTop: "296px",
-			}}
-		>
-			<div
-				style={{
-					textAlign: "center",
-					textShadow: "0px 4px 20px 0px rgba(255, 255, 255, 0.25)",
-					fontSize: "48px",
-					fontWeight: "700",
-				}}
-			>
-				{props.title}
-			</div>
-			<div>{props.children}</div>
-		</div>
-	)
-}
 function LandingContent() {
 	return (
 		<div className={styles.contentContainer}>

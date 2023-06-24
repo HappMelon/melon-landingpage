@@ -1,4 +1,4 @@
-import App from "@/pages"
+import App from "@/pages/test"
 import { createBrowserRouter } from "react-router-dom"
 
 const router = createBrowserRouter([

@@ -6,7 +6,7 @@ export const AccountHeader = () => {
 			<Box
 				backgroundImage="src/assets/background.png"
 				h="14vh"
-				m="5vh"
+				m="2vh"
 				position="relative"
 			>
 				<Flex
@@ -24,8 +24,9 @@ export const AccountHeader = () => {
 						height="15vh"
 						width="15vh"
 						borderRadius="1vh"
-						border="2px"
+						border="solid"
 						borderColor="white"
+						boxShadow="lg"
 						fit="cover"
 					/>
 					<Stack

@@ -5,6 +5,7 @@
 import {
 	Box,
 	BoxProps,
+	Button,
 	CloseButton,
 	Drawer,
 	DrawerContent,
@@ -13,12 +14,15 @@ import {
 	Icon,
 	IconButton,
 	Link,
+	Spacer,
+	Stack,
 	Text,
 	useColorModeValue,
 	useDisclosure,
 } from "@chakra-ui/react"
 import { ReactNode, ReactText } from "react"
 import { IconType } from "react-icons"
+import { BiGlobe, BiMobile } from "react-icons/bi"
 import { BsStars } from "react-icons/bs"
 import { FaWallet } from "react-icons/fa"
 import { FiMenu, FiTag, FiTrendingUp } from "react-icons/fi"
@@ -98,17 +102,73 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
 				</Text>
 				<CloseButton display={{ base: "flex", md: "none" }} onClick={onClose} />
 			</Flex>
-			{LinkItems.map((link) => (
-				<NavItem key={link.name} icon={link.icon}>
-					{link.name}
-				</NavItem>
-			))}
-			<ButtonWithText
-				marginTop="1.25rem"
-				mx="1rem"
-				text="Post"
-				leftIcon={<BsStars />}
-			/>
+			<Flex direction="column" justifyContent="space-between" h="92vh">
+				{LinkItems.map((link) => (
+					<NavItem key={link.name} icon={link.icon}>
+						{link.name}
+					</NavItem>
+				))}
+				<ButtonWithText
+					w="6rem"
+					marginTop="1.25rem"
+					mx="1rem"
+					text="Post"
+					leftIcon={<BsStars />}
+				/>
+				<Spacer />
+				<Stack direction="column" justify="left" mx="2rem" spacing="2rem">
+					<Link
+						style={{
+							fontSize: "0.75rem",
+							color: "black",
+							textDecoration: "underline",
+						}}
+					>
+						Settings
+					</Link>
+					<Link
+						style={{
+							fontSize: "0.75rem",
+							color: "black",
+							textDecoration: "underline",
+						}}
+					>
+						Help
+					</Link>
+
+					<Stack
+						direction="row"
+						justify="left"
+						justifyItems="left"
+						align="center"
+						spacing="1rem"
+					>
+						<Button
+							fontSize="0.5rem"
+							leftIcon={<BiMobile style={{ marginRight: "-0.25rem" }} />}
+							p="0"
+							bg="none"
+							color="#9B9B9B"
+							_hover={{ bg: "none" }}
+						>
+							App
+						</Button>
+						<Button
+							fontSize="0.5rem"
+							leftIcon={<BiGlobe style={{ marginRight: "-0.25rem" }} />}
+							p="0"
+							bg="none"
+							color="#9B9B9B"
+							_hover={{ bg: "none" }}
+						>
+							US/EN
+						</Button>
+					</Stack>
+					<Text fontSize="0.5rem" color="#9B9B9B" mt="-2rem">
+						© Flare Dapp 2023 | All Rights Reserved
+					</Text>
+				</Stack>
+			</Flex>
 		</Box>
 	)
 }

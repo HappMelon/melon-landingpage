@@ -23,3 +23,4 @@ dist-ssr
 
 # package lock
 package-lock.json
+yarn.lock

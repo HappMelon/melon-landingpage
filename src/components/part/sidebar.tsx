@@ -93,7 +93,7 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
 				mx="2rem"
 				justifyContent="space-between"
 			>
-				<Image w="5rem" h="5rem" src="src\assets\Logo 1.png" alt="Logo" />
+				<Image w="5rem" h="5rem" src="/images/brands/Logo.png" alt="Logo" />
 				<CloseButton display={{ base: "flex", md: "none" }} onClick={onClose} />
 			</Flex>
 			<Flex direction="column" justifyContent="space-between" h="80vh">
@@ -132,17 +132,17 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
 					<Stack direction="row" spacing="0.75rem">
 						<IconButton
 							aria-label="twitter"
-							icon={<img src="src\assets\twitter.png" alt="Button" />}
+							icon={<img src="/images/brands/Twitter.png" alt="Button" />}
 							boxSize="2rem"
 						/>
 						<IconButton
 							aria-label="twitch"
-							icon={<img src="src\assets\Twitch.png" alt="Button" />}
+							icon={<img src="/images/brands/Discord.png" alt="Button" />}
 							boxSize="2rem"
 						/>
 						<IconButton
 							aria-label="lark"
-							icon={<img src="src\assets\Lark.png" alt="Button" />}
+							icon={<img src="/images/brands/Telegram.png" alt="Button" />}
 							boxSize="2rem"
 						/>
 					</Stack>

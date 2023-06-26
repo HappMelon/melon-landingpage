@@ -13,6 +13,7 @@ import {
 	FlexProps,
 	Icon,
 	IconButton,
+	Image,
 	Link,
 	Spacer,
 	Stack,
@@ -62,7 +63,7 @@ export default function SimpleSidebar({ children }: { children: ReactNode }) {
 			</Drawer>
 			{/* mobilenav */}
 			<MobileNav display={{ base: "flex", md: "none" }} onOpen={onOpen} />
-			<Box ml={{ base: 0, md: "20vw" }} p="4rem">
+			<Box ml={{ base: 0, md: "20vw" }} p="1rem 4rem">
 				{children}
 			</Box>
 		</Box>
@@ -87,22 +88,15 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
 			{...rest}
 		>
 			<Flex
-				h="2.5rem"
+				h="10rem"
 				alignItems="center"
 				mx="2rem"
 				justifyContent="space-between"
 			>
-				<Text
-					fontSize="2rem"
-					fontFamily="monospace"
-					fontWeight="bold"
-					marginBottom="1.25rem"
-				>
-					Logo
-				</Text>
+				<Image w="5rem" h="5rem" src="src\assets\Logo 1.png" alt="Logo" />
 				<CloseButton display={{ base: "flex", md: "none" }} onClick={onClose} />
 			</Flex>
-			<Flex direction="column" justifyContent="space-between" h="92vh">
+			<Flex direction="column" justifyContent="space-between" h="80vh">
 				{LinkItems.map((link) => (
 					<NavItem key={link.name} icon={link.icon}>
 						{link.name}
@@ -135,7 +129,23 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
 					>
 						Help
 					</Link>
-
+					<Stack direction="row" spacing="0.75rem">
+						<IconButton
+							aria-label="twitter"
+							icon={<img src="src\assets\twitter.png" alt="Button" />}
+							boxSize="2rem"
+						/>
+						<IconButton
+							aria-label="twitch"
+							icon={<img src="src\assets\Twitch.png" alt="Button" />}
+							boxSize="2rem"
+						/>
+						<IconButton
+							aria-label="lark"
+							icon={<img src="src\assets\Lark.png" alt="Button" />}
+							boxSize="2rem"
+						/>
+					</Stack>
 					<Stack
 						direction="row"
 						justify="left"

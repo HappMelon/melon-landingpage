@@ -5,7 +5,7 @@ import { BsThreeDotsVertical } from "react-icons/bs"
 export const ArticleBox = () => {
 	return (
 		<>
-			<Box w="50vw" h="20vh" bg="#F8F8F8" borderRadius="2rem">
+			<Box w="50vw" minH="25vh" bg="#F8F8F8" borderRadius="2rem">
 				<Stack
 					direction="row"
 					w="100%"
@@ -17,13 +17,18 @@ export const ArticleBox = () => {
 					<Image
 						src="https://images.ctfassets.net/pdf29us7flmy/7MAfLagu0g3iappEl8QH3S/5ebac5a5115d2ecd3eb357b992d949ee/GettyImages-643897728_optimized.jpg"
 						alt="image"
-						h="100%"
+						h="11.5rem"
 						aspectRatio="1"
 						borderRadius="1rem"
 						fit="cover"
 						boxShadow="xl"
 					/>
-					<Stack direction="column" spacing="1rem" justify="left" align="start">
+					<Stack
+						direction="column"
+						spacing="0.75rem"
+						justify="left"
+						align="start"
+					>
 						<Text color="#9B9B9B" fontSize="0.75rem">
 							Published 2 days ago
 						</Text>

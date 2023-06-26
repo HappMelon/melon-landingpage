@@ -8,12 +8,38 @@ import {
 	InputGroup,
 	InputLeftElement,
 	Stack,
+	Text,
 } from "@chakra-ui/react"
 import { BiBell, BiMoon, BiSearch, BiSun } from "react-icons/bi"
 import { useDarkMode } from "usehooks-ts"
 
 export const SearchBar = () => {
 	const { isDarkMode, toggle } = useDarkMode()
+	const bgColor = isDarkMode ? "black" : "white"
+	const lgFrom = "#FFC700"
+	const lgTo = "#F83600"
+	const gradientButtonStyle = {
+		color: "transparent",
+		border: "3px solid",
+		borderColor: "transparent",
+		borderRadius: "full",
+		background: `linear-gradient(${bgColor}, ${bgColor}) padding-box, 
+		linear-gradient(135deg, ${lgFrom}, ${lgTo}) border-box`,
+		"> *": {
+			background: `linear-gradient(135deg, ${lgFrom}, ${lgTo})`,
+			backgroundClip: "text",
+			textFillColor: "transparent",
+		},
+		_hover: {
+			background: `linear-gradient(${bgColor}, ${bgColor}) padding-box, 
+		linear-gradient(315deg, ${lgFrom}, ${lgTo}) border-box`,
+			"> *": {
+				background: `linear-gradient(315deg, ${lgFrom}, ${lgTo})`,
+				backgroundClip: "text",
+			},
+		},
+	}
+
 	return (
 		<>
 			<Stack spacing={4} h="3.125rem" direction="row" align="center" m="1rem">
@@ -29,14 +55,10 @@ export const SearchBar = () => {
 						type="text"
 						placeholder="Search topics, news"
 					/>
-					<Button
-						marginLeft="2rem"
-						variant="outline"
-						rounded="full"
-						border="solid"
-						borderColor="black"
-					>
-						Chat with Flare AI
+					<Button marginLeft="2rem" rounded="full" style={gradientButtonStyle}>
+						<Text bgGradient="linear(to-r, #F9D423, #F83600)" bgClip="text">
+							Chat with Flare AI
+						</Text>
 					</Button>
 				</InputGroup>
 				<Stack spacing={4} direction="row" align="center" m="1rem">

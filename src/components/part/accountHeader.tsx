@@ -5,8 +5,8 @@ export const AccountHeader = () => {
 		<>
 			<Box
 				backgroundImage="src/assets/background.png"
-				h="14vh"
-				m="2vh"
+				h="11rem"
+				m="1rem"
 				position="relative"
 			>
 				<Flex
@@ -15,15 +15,15 @@ export const AccountHeader = () => {
 					align="center"
 					zIndex="2"
 					position="absolute"
-					top="2.5vh"
-					left="2.5vh"
+					pl="1.75rem"
+					pt="1.5rem"
 				>
 					<Image
 						src="https://bit.ly/dan-abramov"
 						alt="pfp"
-						height="15vh"
-						width="15vh"
-						borderRadius="1vh"
+						height="12rem"
+						width="12rem"
+						borderRadius="1rem"
 						border="solid"
 						borderColor="white"
 						boxShadow="lg"
@@ -56,16 +56,16 @@ export const AccountHeader = () => {
 						</Text>
 					</Stack>
 					<Spacer />
-					<Stack
+					<Flex
 						direction="column"
+						justify="space-between"
 						justifySelf="right"
 						alignSelf="flex-end"
 						maxW="40%"
 						w="40%"
-						h="15vh"
-						mr="3vh"
-						p="1rem"
-						pb="5vh"
+						h="11rem"
+						pr="2rem"
+						pb="3.5rem"
 					>
 						<Button
 							variant="outline"
@@ -118,7 +118,7 @@ export const AccountHeader = () => {
 								</Text>
 							</Stack>
 						</Stack>
-					</Stack>
+					</Flex>
 				</Flex>
 			</Box>
 		</>

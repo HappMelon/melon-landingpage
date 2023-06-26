@@ -132,17 +132,17 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
 					<Stack direction="row" spacing="0.75rem">
 						<IconButton
 							aria-label="twitter"
-							icon={<img src="/images/brands/Twitter.png" alt="Button" />}
+							icon={<img src="/images/brands/twitter.png" alt="Button" />}
 							boxSize="2rem"
 						/>
 						<IconButton
 							aria-label="twitch"
-							icon={<img src="/images/brands/Discord.png" alt="Button" />}
+							icon={<img src="/images/brands/discord.png" alt="Button" />}
 							boxSize="2rem"
 						/>
 						<IconButton
 							aria-label="lark"
-							icon={<img src="/images/brands/Telegram.png" alt="Button" />}
+							icon={<img src="/images/brands/telegram.png" alt="Button" />}
 							boxSize="2rem"
 						/>
 					</Stack>

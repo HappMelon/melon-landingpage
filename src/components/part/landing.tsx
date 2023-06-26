@@ -17,14 +17,14 @@ function LandingHeader() {
 						paddingLeft: "10%",
 					}}
 				>
-					<img src="/landing-logo.png" alt="logo" width="auto" height="74px"></img>
+					<img src="/logo.png" alt="logo" width="auto" height="74px"></img>
 					<div className={styles.headerTitle}>Flare Dapp</div>
 				</div>
 				<div className={styles.headerButtonContainer}>
 					<div className={styles.headerLanguage}>
 						<img
-							src="/globe.svg"
-							alt="logo"
+							src="/images/pages/index/globe.svg"
+							alt="Language"
 							width="32px"
 							className="mr-.3125rem"
 						></img>
@@ -82,7 +82,7 @@ function LandingContent() {
 				<img
 					alt=""
 					style={{ borderTopLeftRadius: 15, borderTopRightRadius: 15 }}
-					src="/dapp.png"
+					src="/images/pages/index/flare-dapp.io.png"
 					className={styles.page1Img}
 				/>
 			</div>
@@ -99,7 +99,7 @@ function LandingContent() {
 			</div>
 			<div className={styles.page3Container}>
 				<div className={styles.page3Shape}></div>
-				<LandingCard title="Decentralized Universe" logo="/page3-logo1.png">
+				<LandingCard title="Decentralized Universe" logo="/images/pages/index/features-decentralized-universe.png">
 					As a service provider, we ensures a secure, anonymous and euphoric
 					<br />
 					experience through zk-SNARK Algorithm Encryption, Node-based Storage,
@@ -110,7 +110,7 @@ function LandingContent() {
 					<br />
 					and freedom.
 				</LandingCard>
-				<LandingCard title="Thriving Web3 Economy" logo="/page3-logo2.png">
+				<LandingCard title="Thriving Web3 Economy" logo="/images/pages/index/features-thriving-web3-economy.png">
 					We increase the playability of the spreading information by means of
 					<br />
 					stake verification, stake prediction, and NFT token-creation, etc.,
@@ -121,7 +121,7 @@ function LandingContent() {
 					<br />
 					rank at the top of your interest groups.
 				</LandingCard>
-				<LandingCard title="DAO Consensus" logo="/page3-logo3.png">
+				<LandingCard title="DAO Consensus" logo="/images/pages/index/features-dao-consensus.png">
 					We establish consensus in Flare Dapp, where we created mechanisms to
 					<br />
 					promote a transparent environment for content creation, distribution,
@@ -136,7 +136,7 @@ function LandingContent() {
 
 			<div className={styles.page4Container}>
 				<img
-					src="/page4feed1.png"
+					src="/images/pages/index/hotspot-timeline.png"
 					alt="hospot"
 					className={styles.page4Img}
 				></img>
@@ -196,14 +196,14 @@ function LandingContent() {
 					</div>
 				</div>
 				<img
-					src="/page4feed2.png"
+					src="/images/pages/index/wallet.png"
 					alt="hospot"
 					className={styles.page4Img}
 				></img>
 			</div>
 			<div className={styles.page4Container}>
 				<img
-					src="/page4feed3.png"
+					src="/images/pages/index/betting-prediction.png"
 					alt="hospot"
 					className={styles.page4Img}
 				></img>
@@ -238,7 +238,7 @@ function LandingContent() {
 						<div className={styles.page5ImgBg}></div>
 						<img
 							alt="app"
-							src="/page5img.png"
+							src="/images/pages/index/ai-experience.png"
 							className={styles.page5Img}
 						></img>
 					</div>
@@ -273,12 +273,12 @@ function LandingContent() {
 						<div>
 							<img
 								alt=""
-								src="/page6light.png"
+								src="/images/pages/index/dual-tone-dark.png"
 								className="absolute z-30 w-42.3125rem top-8.375rem left-4.3125rem"
 							></img>
 							<img
 								alt=""
-								src="/page6dark.png"
+								src="/images/pages/index/dual-tone-light.png"
 								className="absolute z-40 w-38.3125rem top-11.875rem left-7.4375rem"
 							></img>
 						</div>
@@ -287,14 +287,14 @@ function LandingContent() {
 						<div>Cultural Inclusivity</div>
 						<img
 							className="w-48.1875rem mt-3.125rem"
-							src="/country.svg"
+							src="/images/pages/index/cultural-inclusivity.svg"
 							alt="country"
 						></img>
 					</div>
 				</div>
 				<div className={styles.page7Container}>
 					<div className={styles.page7Title}>Modular Design</div>
-					<img src="/modular.png" alt="modular" className="w-104.75rem"></img>
+					<img src="/images/pages/index/modular-design.png" alt="modular" className="w-104.75rem"></img>
 				</div>
 			</div>
 			<div
@@ -392,7 +392,7 @@ function LandingFoot() {
 				style={{ display: "flex", flexDirection: "row", alignItems: "center" }}
 			>
 				<img
-					src="/landing-logo.png"
+					src="/logo.png"
 					alt="logo"
 					className="w-3.6875rem h-4.625rem"
 				></img>

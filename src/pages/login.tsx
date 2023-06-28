@@ -1,117 +1,100 @@
 import '@/styles/login.css'
-import React, { Component } from 'react';
+import React, { useState, ChangeEvent, FormEvent, MouseEvent } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-export default class LoginPage extends React.Component {
+export default function Login() {
+    const navigate = useNavigate();
+    const [user, setUser] = useState({
+        email: '',
+        password: '',
+    });
 
-    constructor(props:any) {
-        super(props);
-        this.state = {
-            email:"",
-            password:"",
-        }
+    const changeHandle = (event:ChangeEvent<HTMLInputElement>) => {
+        setUser(state => ({
+            ...state,
+            [event.target.name]: event.target.value,
+        }))
     }
 
-    onSubmit = (data:any) => {
-        data.preventDefault();
-        console.log(this.state)
+    const onSubmit = (event:FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
+        
+        navigate('/explore');
     }
 
-    changeHandle = (data:any) => {
-        this.setState({
-            [data.target.name]:data.target.value
-        })
+    const registerJump = (event:MouseEvent<HTMLAnchorElement>) => {
+        navigate('/register');
     }
     
-    render() {
-        const { email, password } = this.state
-        return (
-            <div className="loginBox">
-                <img src="/Logo 1.png" alt="logo"/>
-                <label className='formTitle'>
-                    Sign In To Your Flare Account
-                </label>
-                <div style={{display:'block'}}>
-                    <form onSubmit={this.onSubmit}>
-                        <div>
-                            <label className='formLabel'>Email address</label>
-                            <input
-                                className="formInput"
-                                type="text"
-                                name="email"
-                                value={ email }
-                                onChange={ this.changeHandle }
-                            />
-                        </div>
-                        <div>
-                            <label className='formLabel'>Password</label>
-                            <input
-                                className="formInput"
-                                type="text"
-                                name="password"
-                                value={ password }
-                                onChange={ this.changeHandle }
-                            />
-                        </div>
-                        <div>
-                            <button className='formSignInButton'>
-                                Sign In
-                            </button>
-                        </div>
-                        <div>
-                            <p style={{
-                                display: 'flex',
-                                width: '120px',
-                                flexDirection: 'column',
-                                flexShrink: 0,
-                                color: '#9B9B9B',
-                                fontSize: '14px',
-                                fontFamily: 'Avenir LT Std',
-                                lineHeight: '135%',
-                                letterSpacing: '-0.35px',
-                                }}
-                            >
-                                Not A Member Yet? 
-                                <a href="#" style={{
-                                                        fontSize: '14px',
-                                                        fontFamily: 'Avenir LT Std',
-                                                        lineHeight: '100%',
-                                                        letterSpacing: '0.28px',
-                                                        textDecorationLine: 'underline',
-                                                        backgroundImage: 'linear-gradient(159deg, #F9D423 0%, #F83600 100%)',
-                                                        color: 'transparent',
-                                                        WebkitBackgroundClip: 'text',
-                                                    }}
-                                                    >Register</a>
-                            </p>
-                        </div>
+    return (
+        <div className="login-box flex-c-c">
+            <div className='w-397px'>
+                <form className='flex-c-c' onSubmit={onSubmit}>
+                    <div className='login-form-title pb-47px'>
+                        <img src="/images/brands/Logo.png" alt="logo" width='82px' height='82px'/>
+                    </div>
+                    <div className='pb-26px'>
+                        <label className='form-title'>
+                            Sign In To Your Flare Account
+                        </label>
+                    </div>
+                    <div className='pb-24px'>
+                        <label className='form-label'>Email address</label>
+                        <input
+                            className="form-input"
+                            type="text"
+                            name="email"
+                            value={ user.email }
+                            onChange={ changeHandle }
+                        />
+                    </div>
+                    <div className='pb-33px'>
+                        <label className='form-label'>Password</label>
+                        <input
+                            className="form-input"
+                            type="password"
+                            name="password"
+                            value={ user.password }
+                            onChange={ changeHandle }
+                        />
+                    </div>
+                    <div className='pb-15px'>
+                        <button className='form-signin-button flex-c-c'  type='submit'>
+                            Sign In
+                        </button>
+                    </div>
+                    <div className='w-397px pb-24px'>
+                        <p className='form-para display-inline w-120px pr-11px'>
+                            Not A Member Yet?
+                        </p>
+                        <a className='form-register-link' onClick={registerJump}>Register</a>
+                    </div>
+                    <div className='flex-r-c pb-27px'>
                         <div>
                             <svg width="96" height="2" viewBox="0 0 96 2" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <line x1="8.74228e-08" y1="1" x2="96" y2="1.00001" stroke="#D9D9D9" stroke-width="2"/>
                             </svg>
-                            <p style={{
-                                color: '#9B9B9B',
-                                fontSize: '14px',
-                                fontFamily: 'Avenir LT Std',
-                                lineHeight: '135%',
-                                letterSpacing: '-0.35px',
-                            }
-                            }>
-                                Or Connect your crypto wallet
-                            </p>
+                        </div>
+                        <p className='form-para pl-13px pr-11px'>
+                            Or Connect your crypto wallet
+                        </p>
+                        <div>
                             <svg width="96" height="2" viewBox="0 0 96 2" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <line x1="8.74228e-08" y1="1" x2="96" y2="1.00001" stroke="#D9D9D9" stroke-width="2"/>
                             </svg>
                         </div>
-                        <div>
-                            <button className='border-box border-bg'>
-                                <span className='formWalletButtonLabel'>
-                                    Connect Wallet
-                                </span>
-                            </button>
-                        </div>
-                    </form>
-                </div>
+                    </div>
+                    <div>
+                        <button 
+                            className='formWalletButton'
+                            content="Connect Wallet"
+                            type='button'
+                        >
+                        </button>
+                    </div>
+                </form>
             </div>
-        )
-    }
+        </div>
+    )
+    
 }

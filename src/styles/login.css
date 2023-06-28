@@ -2,31 +2,45 @@
     --flare-color: linear-gradient(159deg, #F9D423 0%, #F83600 100%);
 }
 
-.loginBox {
-    display: flex;
+body {
+    color: #000;
+    font-family: Avenir LT Std;
+}
+
+.login-box {
     width: 1920px;
+    height: 1080px;
     padding: 238px 0px 280px 0px;
-    justify-content: center;
-    align-items: center;
     background-color: #fff;
 }
 
-.formTitle {
-    color: #000;
+.flex-r-c {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.flex-c-c {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-title {
     font-size: 20px;
-    font-family: Avenir LT Std;
     font-weight: 750;
     line-height: 100%;
 }
 
-.formLabel {
-    color: #000;
+.form-label {
     font-size: 16px;
-    font-family: Avenir LT Std;
     font-weight: 550;
+    display: block;
 }
 
-.formInput {
+.form-input {
     width: 397px;
     height: 42px;
     flex-shrink: 0;
@@ -34,14 +48,10 @@
     background: #F8F8F8;
 }
 
-.formSignInButton {
-    display: flex;
+.form-signin-button {
     width: 397px;
     height: 48px;
     padding: 8px 14px;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
     gap: 10px;
     flex-shrink: 0;
 
@@ -50,68 +60,77 @@
 
     color: #FFF;
     font-size: 18px;
-    font-family: Avenir LT Std;
     font-weight: 750;
+
+    animation-timing-function: ease-out;
+    animation-duration: 300ms;
 }
 
-.switch-button{
-    width: 168rpx;
-    height: 50rpx;
-    background-image: linear-gradient(to left, #F14D4D, #CC0D0D);
-    border-radius: 25rpx;
-    box-sizing: border-box;
-    padding: 6rpx;
-}
-.button-content{
-    width: 100%;
-    height: 100%;
-    border-radius: 25rpx;
-    background-color: #313131;
-}
+.form-register-link {
+    font-size: 14px;
+    line-height: 100%;
+    letter-spacing: 0.28px;
+    text-decoration-line: underline;
 
-.border-box {
-    width: 397px;
-    height: 48px;
-    flex-shrink: 0;
-    margin: 25px 0;
+    position: relative;
+    background-image: var(--flare-color);
+    color: transparent;
+    -webkit-background-clip: text;
+
+    animation-timing-function: ease-out;
+    animation-duration: 300ms;
 }
 
-.border-bg {
-    padding: 4px;
-    background: linear-gradient(to right, #8F41E9, #578AEF);
-    border-radius: 50px;
-  }
-
-.formWalletButton:after {
+.form-register-link::after {
     content: '';
     position: absolute;
-    top: -3px; bottom: -3px;
-    left: -3px; right: -3px;
-    z-index: -1;
-    background: linear-gradient(135deg,#000781, #23b7cb);
-    border-radius: inherit;
+    top: 100%;
+    width: 100%;
+    left: 0;
+    height: 1px;
+    background: var(--flare-color);
 }
 
-.formWalletButton1 {
+.form-para {
+    color: #9B9B9B;
+    font-size: 14px;
+    line-height: 135%;
+    letter-spacing: -0.35px;
+}
+
+.formWalletButton {
     width: 397px;
     height: 48px;
     flex-shrink: 0;
     
-    border: 2px solid transparent;
+    border: none;
     border-radius: 50px;
-    background-origin: padding-box, border-box;
-    background-clip: padding-box, border-box;
+    position: relative;
+    background: var(--flare-color);
+    z-index: 1;
+}
 
+.formWalletButton::before {
+    content: '';
+    top: 2px;
+    right: 2px;
+    bottom: 2px;
+    left: 2px;
+
+    position: absolute;
+    background-color: #fff;
+    border-radius: 48px;
+    z-index: -1;
+}
+
+.formWalletButton::after {
+    content: attr(content);
     font-size: 18px;
-    font-family: Avenir LT Std;
     font-weight: 700;
     line-height: 100%;
     letter-spacing: 0.36px;
 
-    background-image: var(--flare-color);
-    background-clip: padding-box, border-box;
+    background: var(--flare-color);
     -webkit-background-clip: text;
-    color:transparent;
-
-    position: relative;
+    color: transparent;
 }

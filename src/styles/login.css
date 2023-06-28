@@ -1,0 +1,136 @@
+:root {
+    --flare-color: linear-gradient(159deg, #F9D423 0%, #F83600 100%);
+}
+
+body {
+    color: #000;
+    font-family: Avenir LT Std;
+}
+
+.login-box {
+    width: 1920px;
+    height: 1080px;
+    padding: 238px 0px 280px 0px;
+    background-color: #fff;
+}
+
+.flex-r-c {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.flex-c-c {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-title {
+    font-size: 20px;
+    font-weight: 750;
+    line-height: 100%;
+}
+
+.form-label {
+    font-size: 16px;
+    font-weight: 550;
+    display: block;
+}
+
+.form-input {
+    width: 397px;
+    height: 42px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    background: #F8F8F8;
+}
+
+.form-signin-button {
+    width: 397px;
+    height: 48px;
+    padding: 8px 14px;
+    gap: 10px;
+    flex-shrink: 0;
+
+    border-radius: 40px;
+    background: var(--flare-color);
+
+    color: #FFF;
+    font-size: 18px;
+    font-weight: 750;
+
+    animation-timing-function: ease-out;
+    animation-duration: 300ms;
+}
+
+.form-register-link {
+    font-size: 14px;
+    line-height: 100%;
+    letter-spacing: 0.28px;
+    text-decoration-line: underline;
+
+    position: relative;
+    background-image: var(--flare-color);
+    color: transparent;
+    -webkit-background-clip: text;
+
+    animation-timing-function: ease-out;
+    animation-duration: 300ms;
+}
+
+.form-register-link::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    left: 0;
+    height: 1px;
+    background: var(--flare-color);
+}
+
+.form-para {
+    color: #9B9B9B;
+    font-size: 14px;
+    line-height: 135%;
+    letter-spacing: -0.35px;
+}
+
+.formWalletButton {
+    width: 397px;
+    height: 48px;
+    flex-shrink: 0;
+    
+    border: none;
+    border-radius: 50px;
+    position: relative;
+    background: var(--flare-color);
+    z-index: 1;
+}
+
+.formWalletButton::before {
+    content: '';
+    top: 2px;
+    right: 2px;
+    bottom: 2px;
+    left: 2px;
+
+    position: absolute;
+    background-color: #fff;
+    border-radius: 48px;
+    z-index: -1;
+}
+
+.formWalletButton::after {
+    content: attr(content);
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 100%;
+    letter-spacing: 0.36px;
+
+    background: var(--flare-color);
+    -webkit-background-clip: text;
+    color: transparent;
+}

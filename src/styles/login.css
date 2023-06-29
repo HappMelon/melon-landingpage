@@ -8,9 +8,8 @@ body {
 }
 
 .login-box {
-    width: 1920px;
-    height: 1080px;
-    padding: 238px 0px 280px 0px;
+    width: 120rem;
+    padding: 14.875rem 0rem 17.5rem 0rem;
     background-color: #fff;
 }
 
@@ -29,47 +28,54 @@ body {
 }
 
 .form-title {
-    font-size: 20px;
+    font-size: 1.25rem;
     font-weight: 750;
     line-height: 100%;
 }
 
 .form-label {
-    font-size: 16px;
+    font-size: 1rem;
     font-weight: 550;
     display: block;
 }
 
 .form-input {
-    width: 397px;
-    height: 42px;
+    width: 24.8125rem;
+    height: 2.625rem;
     flex-shrink: 0;
     border-radius: 10px;
     background: #F8F8F8;
 }
 
 .form-signin-button {
-    width: 397px;
-    height: 48px;
-    padding: 8px 14px;
-    gap: 10px;
+    width: 24.8125rem;
+    height: 3rem;
+    padding: 0.5rem 0.875rem;
+    gap: 0.625rem;
     flex-shrink: 0;
 
     border-radius: 40px;
     background: var(--flare-color);
 
     color: #FFF;
-    font-size: 18px;
+    font-size: 1.125rem;
     font-weight: 750;
 
     animation-timing-function: ease-out;
     animation-duration: 300ms;
 }
 
+.form-para {
+    color: #9B9B9B;
+    font-size: 0.875rem;
+    line-height: 135%;
+    letter-spacing: -0.02188rem;
+}
+
 .form-register-link {
-    font-size: 14px;
+    font-size: 0.875rem;
     line-height: 100%;
-    letter-spacing: 0.28px;
+    letter-spacing: 0.0175rem;
     text-decoration-line: underline;
 
     position: relative;
@@ -87,20 +93,13 @@ body {
     top: 100%;
     width: 100%;
     left: 0;
-    height: 1px;
+    height: 0.06rem;
     background: var(--flare-color);
 }
 
-.form-para {
-    color: #9B9B9B;
-    font-size: 14px;
-    line-height: 135%;
-    letter-spacing: -0.35px;
-}
-
 .formWalletButton {
-    width: 397px;
-    height: 48px;
+    width: 24.8125rem;
+    height: 3rem;
     flex-shrink: 0;
     
     border: none;
@@ -112,10 +111,10 @@ body {
 
 .formWalletButton::before {
     content: '';
-    top: 2px;
-    right: 2px;
-    bottom: 2px;
-    left: 2px;
+    top: 0.13rem;
+    right: 0.13rem;
+    bottom: 0.13rem;
+    left: 0.13rem;
 
     position: absolute;
     background-color: #fff;
@@ -125,11 +124,10 @@ body {
 
 .formWalletButton::after {
     content: attr(content);
-    font-size: 18px;
+    font-size: 1.125rem;
     font-weight: 700;
     line-height: 100%;
-    letter-spacing: 0.36px;
-
+    letter-spacing: 0.0225rem;
     background: var(--flare-color);
     -webkit-background-clip: text;
     color: transparent;

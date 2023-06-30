@@ -100,13 +100,13 @@ function LandingContent() {
 					the spread of meaningless information.
 				</div>
 				<div className={styles.page2TextS}>
-					Our goal is to create a trusted,<br/>
-					 free, and high-value social<br/>
-					network. Through mechanisms<br/>
+					Our goal is to create a trusted,
+					 free, and high-value social
+					network. Through mechanisms
 					such as staking, predictions, and
-					<br/> token incentives, Flare provides
-					<br/> you with the ability to express
-					<br/> themselves and prevents the<br/> spread of meaningless <br/>information.
+					 token incentives, Flare provides
+					 you with the ability to express
+					 themselves and prevents the spread of meaningless <br/>information.
 				</div>
 			</div>
 			<div className={styles.page3Container}>
@@ -150,7 +150,7 @@ function LandingContent() {
 				<img
 					src="/images/pages/index/hotspot-timeline.png"
 					alt="hospot"
-					className={styles.page4Img}
+					className={styles.page4Img} style={{ marginTop: "-3rem" }}
 				></img>
 				<div className={styles.page4TextContainer}>
 					<div className={styles.page4TextTitle}>Hotspot Timeline</div>
@@ -340,7 +340,7 @@ function LandingContent() {
 
 				<div className={styles.techPicture}>
 					<div className={styles.CardContainer}>
-						<img src="/images/pages/index/card-shape.svg" alt="" className="absolute rounded-0.938rem w-32.125rem h-17.125rem"></img>
+						<img src="/images/pages/index/card-shape.svg" alt="" className={styles.techCardShape1}></img>
 						
 						<div className={styles.techCard}>
 							<div className={styles.cardText}>
@@ -348,7 +348,7 @@ function LandingContent() {
 								<div className={styles.techCardContent}>Average block time</div>
 							</div>
 							<div className={styles.techCardImg}>
-							<img src="/images/pages/index/card-shape2.svg" alt="" className="absolute rounded-0.938rem w-20.063rem h-17.125rem" width="20.063rem" height="17.125rem"></img>
+							<img src="/images/pages/index/card-shape2.svg" alt="" className={styles.techCardShape2}></img>
 								<img src="/images/pages/index/tech-card-1.svg" alt="tech-card" className={styles.techImg}></img>
 							</div>
 						</div>
@@ -356,7 +356,7 @@ function LandingContent() {
 					</div>
 
 					<div className={styles.CardContainer}>
-						<img src="/images/pages/index/card-shape.svg" alt="" className="absolute rounded-0.938rem w-32.125rem h-17.125rem"></img>
+						<img src="/images/pages/index/card-shape.svg" alt="" className={styles.techCardShape1}></img>
 						
 						<div className={styles.techCard}>
 							<div className={styles.cardText}>
@@ -364,7 +364,7 @@ function LandingContent() {
 								<div className={styles.techCardContent}>Total transactions</div>
 							</div>
 							<div className={styles.techCardImg}>
-							<img src="/images/pages/index/card-shape2.svg" alt="" className="absolute rounded-0.938rem rounded-0.938rem w-20.063rem h-17.125rem"></img>
+							<img src="/images/pages/index/card-shape2.svg" alt="" className={styles.techCardShape2}></img>
 								<img src="/images/pages/index/tech-card-2.svg" alt="tech-card" className={styles.techImg}></img>
 							</div>
 						</div>
@@ -372,7 +372,7 @@ function LandingContent() {
 					</div>
 
 					<div className={styles.CardContainer}>
-						<img src="/images/pages/index/card-shape.svg" alt="" className="absolute rounded-0.938rem w-32.125rem h-17.125rem"></img>
+						<img src="/images/pages/index/card-shape.svg" alt="" className={styles.techCardShape1}></img>
 						
 						<div className={styles.techCard}>
 							<div className={styles.cardText}>
@@ -380,7 +380,7 @@ function LandingContent() {
 								<div className={styles.techCardContent}>Total blocks</div>
 							</div>
 							<div className={styles.techCardImg}>
-								<img src="/images/pages/index/card-shape2.svg" alt="" className="absolute rounded-0.938rem rounded-0.938rem w-20.063rem h-17.125rem"></img>
+								<img src="/images/pages/index/card-shape2.svg" alt="" className={styles.techCardShape2}></img>
 								<img src="/images/pages/index/tech-card-3.svg" alt="tech-card" className={styles.techImg}></img>
 							</div>
 						</div>

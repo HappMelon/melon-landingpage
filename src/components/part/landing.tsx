@@ -10,14 +10,8 @@ function LandingHeader() {
 	return (
 		<div>
 			<div className={styles.headerContainer}>
-				<div
-					style={{
-						display: "flex",
-						flexDirection: "row",
-						paddingLeft: "10%",
-					}}
-				>
-					<img src="/logo.png" alt="logo" width="auto" height="74px"></img>
+				<div className={styles.headerLeft}>
+					<img src="/logo.png" alt="logo" width="auto" height="4.625rem"></img>
 					<div className={styles.headerTitle}>Flare Dapp</div>
 				</div>
 				<div className={styles.headerButtonContainer}>
@@ -31,7 +25,7 @@ function LandingHeader() {
 						<div>EN</div>
 					</div>
 					<div>
-						<button
+						<button className={styles.headerButton}
 							style={{
 								borderRadius: "3.125rem",
 								background: "linear-gradient(159deg, #F9D423 0%, #F83600 100%)",
@@ -54,7 +48,7 @@ function LandingHeader() {
 function LandingCard(props: CardProps) {
 	return (
 		<div className={styles.landingCardContainer}>
-			<img alt="logo" width="154px" height="154px" src={props.logo}></img>
+			<img alt="logo" width="153.8px" height="153.8px" className="m-auto" src={props.logo}></img>
 			<div className={styles.landingCardTitle}>{props.title}</div>
 			<div className={styles.landingCardText}>{props.children}</div>
 		</div>
@@ -70,10 +64,20 @@ function LandingContent() {
 				<div className={styles.page1Title}>
 					Socialize with trust and freedom
 				</div>
+				<div className={styles.page1TitleS}>
+					Socialize with trust 
+					<br/>
+					and freedom
+				</div>
 				<div className={styles.page1Text}>
-					Flare is an aggregated information platform that incorporates
-					<br />
-					decentralized technologies and philosophy.
+				Flare is an aggregated information platform that combines 
+				<br/>
+				decentralized technology and principles.
+				</div>
+				<div className={styles.page1TextS}>
+				Flare is an aggregated information<br/>
+				 platform that combines decentralized 
+				 <br/>technology and principles.
 				</div>
 				<div className={styles.page1ButtonContainer}>
 					<button className={styles.page1Button1}>Launch Dapp</button>
@@ -88,48 +92,56 @@ function LandingContent() {
 			</div>
 			<div className={styles.page2Container}>
 				<div className={styles.page2Title}>Engage, Enlighten, Empower</div>
+				<div className={styles.page2TitleS}>Engage,<br/> Enlighten, <br/>Empower</div>
 				<div className={styles.page2Text}>
-					Our goal is to build a trustworthy, liberated and high-value social
-					<br />
-					network. Using mechanisms such as pledges, predictions, and token
-					<br />
-					incentives, we will provide users with the ability to have a voice and
-					<br />a channel to prevent meaningless information.
+					Our goal is to create a trusted, free, and high-value social network. 
+					Through mechanisms such as staking, predictions, and token incentives, 
+					Flare provides you with the ability to express themselves and prevents 
+					the spread of meaningless information.
+				</div>
+				<div className={styles.page2TextS}>
+					Our goal is to create a trusted,<br/>
+					 free, and high-value social<br/>
+					network. Through mechanisms<br/>
+					such as staking, predictions, and
+					<br/> token incentives, Flare provides
+					<br/> you with the ability to express
+					<br/> themselves and prevents the<br/> spread of meaningless <br/>information.
 				</div>
 			</div>
 			<div className={styles.page3Container}>
 				<div className={styles.page3Shape}></div>
 				<LandingCard title="Decentralized Universe" logo="/images/pages/index/features-decentralized-universe.png">
 					As a service provider, we ensures a secure, anonymous and euphoric
-					<br />
+					
 					experience through zk-SNARK Algorithm Encryption, Node-based Storage,
-					<br />
+					
 					RSS3, ML Algorithm, and AI Language Models. With us, you can post
-					<br />
+					
 					shocking news that you know, share your opinions, and vote for rights
-					<br />
+					
 					and freedom.
 				</LandingCard>
 				<LandingCard title="Thriving Web3 Economy" logo="/images/pages/index/features-thriving-web3-economy.png">
 					We increase the playability of the spreading information by means of
-					<br />
+					
 					stake verification, stake prediction, and NFT token-creation, etc.,
-					<br />
+					
 					all while promoting the recreation enthusiasm of KOLs. We also expand
-					<br />
+					
 					your rights and authorities when you have more tokens collected or
-					<br />
+					
 					rank at the top of your interest groups.
 				</LandingCard>
 				<LandingCard title="DAO Consensus" logo="/images/pages/index/features-dao-consensus.png">
 					We establish consensus in Flare Dapp, where we created mechanisms to
-					<br />
+					
 					promote a transparent environment for content creation, distribution,
-					<br />
+					
 					participation, verification, and feedback. By providing reasonable
-					<br />
+					
 					incentives and restrictive rules that support the dual-token model, we
-					<br />
+					
 					help you build your credibility and reputation.
 				</LandingCard>
 			</div>
@@ -143,56 +155,61 @@ function LandingContent() {
 				<div className={styles.page4TextContainer}>
 					<div className={styles.page4TextTitle}>Hotspot Timeline</div>
 					<div className={styles.page4TextSubTitle}>
-						Systematic Information Features
+						Systematized Information Display
 					</div>
 					<div className={styles.page4TextContent}>
-						Flare not only provides a decentralized place to share and access
-						<br />
-						information, but also hopes to build a system to structure complex
-						<br />
-						information and present it to users in an intuitive and effective
-						way. <br />
-						<br />
-						Flare allows users to participate in the process of information
-						<br />
-						verification, and any information can be evaluated or predicted by
-						<br />
-						community users. Through the collective wisdom of users, the most
-						<br />
-						valuable and truthful information is filtered out, while incorrect
-						<br />
-						or misleading information is dealt with.
+						Flare not only provides a decentralized space for sharing and
+						
+						accessing information but also aims to structure the complex
+						
+						ocean of information and present it to users in an intuitive and
+						
+						effective manner through a systematic approach.
+						<br/>
+						<br/>
+						Flare involves users in the information verification process, 
+						
+						allowing community members to evaluate or predict any 
+						
+						information. By harnessing collective wisdom, the platform filters 
+						
+						out the most valuable and authentic information while addressing 
+						
+						errors or misleading content.
 					</div>
 				</div>
 			</div>
 
-			<div className={styles.page4Container}>
+			<div className={styles.page4Container} >
 				<div className={styles.page4TextContainer}>
-					<div className={styles.page4TextTitle}>Wallet</div>
+					<div className={styles.page4TextTitle}>Flare Wallet</div>
 					<div className={styles.page4TextSubTitle}>
-						Introduction To The On-Chain And Off-
-						<br />
-						Chain Paralleling Incentive System
+					Introduction to the on-chain and off-
+					<br/>
+					chain incentive system
 					</div>
 					<div className={styles.page4TextContent}>
-						Users can use centralized authentication and receive incentives
-						<br />
-						generated by actions within the platform, i.e., earn off-chain
-						$Flare.
-						<br />
-						<br /> Off-chain $Flare can be circulated and consumed within the
-						<br />
-						platform, such as paid subscriptions, purchase of paid content or
-						<br />
-						participation in predictions.
-						<br />
-						<br /> Off-chain $Flare is stored on a centralized server and cannot
-						be <br />
-						exchanged for fiat currency or other virtual tokens, but web2 users
-						<br />
-						can withdraw off-chain $Flare to their wallet address after
-						<br />
-						establishing their DID to start their Web3 journey.
+						Users can utilize centralized identity authentication and earn off-
+						
+						chain $Flare rewards generated through platform activities.
+						<br/>
+						<br/>
+						Off-chain $Flare can be circulated and consumed within the 
+						
+						platform, such as for subscription payments, purchasing premium 
+						
+						content, or participating in predictions.
+						<br/>
+						<br/>
+						Off-chain $Flare is stored on centralized servers and cannot be 
+						
+						exchanged for fiat currency or other virtual tokens. However, 
+						
+						transitioning Web 2.0 users can withdraw off-chain $Flare to their 
+						
+						wallet addresses after establishing their DID, thus embarking on a 
+						
+						journey into Web3.
 					</div>
 				</div>
 				<img
@@ -209,22 +226,26 @@ function LandingContent() {
 				></img>
 				<div className={styles.page4TextContainer}>
 					<div className={styles.page4TextTitle}>Betting Prediction</div>
-					<div className={styles.page4TextSubTitle}>Unique Staking Play</div>
+					<div className={styles.page4TextSubTitle}>Unique Staking Gameplay</div>
 					<div className={styles.page4TextContent}>
-						Freedom does not mean no responsibility. While users enjoy the
-						<br />
-						ability to interact with content, they need to demonstrate that this
-						<br />
-						behaviour provides value, not just irresponsible the &quot keyboard
-						<br />
-						warrior &quot behaviour.
-						<br />
-						<br /> Flare wants users to consume content not as a waste of time,
-						but as <br />a step towards the truth. The mechanism of pledging
-						tokens to <br />
-						predict content provides incentives for insightful and capable
-						users, <br />
-						while leaving the direction of events in the hands of the community.
+						Freedom does not imply irresponsibility. While users enjoy the 
+						
+						interactive capabilities with content, they need to demonstrate 
+						
+						that their actions provide value rather than engaging in 
+						
+						irresponsible "keyboard warrior" behavior.
+						<br/>
+						<br/>
+						Flare hopes that users, in the process of consuming content, are 
+						
+						not wasting time but rather getting closer to the truth step by 
+						
+						step. Through the mechanism of staking tokens for content 
+						
+						predictions, Flare incentivizes insightful and capable users while 
+						
+						empowering the community to determine the direction of events.
 					</div>
 				</div>
 			</div>
@@ -264,29 +285,32 @@ function LandingContent() {
 				</div>
 			</div>
 			<div className={styles.page6container}>
-				<div className={styles.page6Explore}>Explore More diversity</div>
+				<div className={styles.page6Explore}>More diversity</div>
 				<div className={styles.top}>
 					<div className={styles.page7dtdcl}>
 						<div className="absolute text-2rem font-700 pt-2.8125rem pb-2.375rem">
 							Dual-Tone Display
 						</div>
-						<div>
+						<div className={styles.dtdisplay}>
+						
 							<img
 								alt=""
 								src="/images/pages/index/dual-tone-dark.png"
-								className="absolute z-30 w-42.3125rem top-8.375rem left-4.3125rem"
+								className="absolute z-10 w-38.3125rem top-10.675rem left-7.8375rem"
 							></img>
 							<img
 								alt=""
 								src="/images/pages/index/dual-tone-light.png"
-								className="absolute z-40 w-38.3125rem top-11.875rem left-7.4375rem"
-							></img>
+								className="absolute z-9 w-42.3125rem top-5.575rem left-3.3125rem"
+							></img>	
+
+								
 						</div>
 					</div>
 					<div className={styles.page7dtdcl}>
-						<div>Cultural Inclusivity</div>
+						<div className="absolute text-2rem font-700 pt-2.8125rem pb-2.375rem">Cultural Inclusivity</div>
 						<img
-							className="w-48.1875rem mt-3.125rem"
+							className="w-48.1875rem mt-7.625rem "
 							src="/images/pages/index/cultural-inclusivity.svg"
 							alt="country"
 						></img>
@@ -297,15 +321,87 @@ function LandingContent() {
 					<img src="/images/pages/index/modular-design.png" alt="modular" className="w-104.75rem"></img>
 				</div>
 			</div>
+
+
+			<div className={styles.tech}> 
+				<div className={styles.techText}>
+					<div className={styles.page4TextTitle}>A Robust Architecture</div>
+					<div className={styles.techTextContent}>
+						Flare's unique staking and prediction mechanism, along with the vision 
+						of "socialize with trust and freedom," make the team prioritize information 
+						security, reliability, and transparency. We use zk-SNARKs zero-knowledge 
+						proofs and on-chain data storage to ensure that users can experience social 
+						and content interaction in line with our slogan. Additionally, we aim to onboard 
+						more Web 2.0 users into the decentralized world, and we are concurrently 
+						developing and planning to deploy technologies that reduce interaction 
+						costs and time, creating a seamless Web3 user experience.
+					</div>
+				</div>
+
+				<div className={styles.techPicture}>
+					<div className={styles.CardContainer}>
+						<img src="/images/pages/index/card-shape.svg" alt="" className="absolute rounded-0.938rem w-32.125rem h-17.125rem"></img>
+						
+						<div className={styles.techCard}>
+							<div className={styles.cardText}>
+								<div className={styles.techCardTitle}>1 second</div>
+								<div className={styles.techCardContent}>Average block time</div>
+							</div>
+							<div className={styles.techCardImg}>
+							<img src="/images/pages/index/card-shape2.svg" alt="" className="absolute rounded-0.938rem w-20.063rem h-17.125rem" width="20.063rem" height="17.125rem"></img>
+								<img src="/images/pages/index/tech-card-1.svg" alt="tech-card" className={styles.techImg}></img>
+							</div>
+						</div>
+							
+					</div>
+
+					<div className={styles.CardContainer}>
+						<img src="/images/pages/index/card-shape.svg" alt="" className="absolute rounded-0.938rem w-32.125rem h-17.125rem"></img>
+						
+						<div className={styles.techCard}>
+							<div className={styles.cardText}>
+								<div className={styles.techCardTitle}>665,695</div>
+								<div className={styles.techCardContent}>Total transactions</div>
+							</div>
+							<div className={styles.techCardImg}>
+							<img src="/images/pages/index/card-shape2.svg" alt="" className="absolute rounded-0.938rem rounded-0.938rem w-20.063rem h-17.125rem"></img>
+								<img src="/images/pages/index/tech-card-2.svg" alt="tech-card" className={styles.techImg}></img>
+							</div>
+						</div>
+							
+					</div>
+
+					<div className={styles.CardContainer}>
+						<img src="/images/pages/index/card-shape.svg" alt="" className="absolute rounded-0.938rem w-32.125rem h-17.125rem"></img>
+						
+						<div className={styles.techCard}>
+							<div className={styles.cardText}>
+								<div className={styles.techCardTitle}>37,487,860</div>
+								<div className={styles.techCardContent}>Total blocks</div>
+							</div>
+							<div className={styles.techCardImg}>
+								<img src="/images/pages/index/card-shape2.svg" alt="" className="absolute rounded-0.938rem rounded-0.938rem w-20.063rem h-17.125rem"></img>
+								<img src="/images/pages/index/tech-card-3.svg" alt="tech-card" className={styles.techImg}></img>
+							</div>
+						</div>
+							
+					</div>
+
+				</div>
+
+			</div>
+
 			<div
 				style={{
 					width: "100%",
-					height: "44.6875rem",
+					height: "auto",
 					alignContent: "left",
 				}}
+
+				className={styles.page8Container}
 			>
 				<div className={styles.page8Title}>FOUNDER TEAM</div>
-				<div className="flex mt-4.625rem flex-wrap justify-around">
+				<div className={styles.team}>
 					<div className={styles.page8Item}>
 						<div className="text-1.75rem font-750">Oliver Wang</div>
 						<div className={styles.page8Founder}>Founder</div>
@@ -329,13 +425,12 @@ function LandingContent() {
 						</div>
 					</div>
 					<div className={styles.page8Item}>
-						<div className="text-1.75rem font-750">Bill M</div>
-						<div className={styles.page8Founder}>Head of Operation</div>
+						<div className="text-1.75rem font-750">Jokereven</div>
+						<div className={styles.page8Founder}>Founding Engineer</div>
 						<div className="mt-1.75rem">
-							Earliest investment and mining <br />
-							@Compound, Yearn, Curve, <br />
-							Uniswap, Sushi, Algorithm <br />
-							stablecoin(BAC, AMPL)
+						Front-end developer / Web3 <br />
+						developer 
+							
 						</div>
 					</div>
 					<div className={styles.page8Item}>
@@ -351,21 +446,21 @@ function LandingContent() {
 					</div>
 					<div className={styles.page8Item}>
 						<div className="text-1.75rem font-750">Serafina Yu</div>
-						<div className={styles.page8Founder}>Head of Product</div>
+						<div className={styles.page8Founder}>Head of Product & Design</div>
 						<div className="mt-1.75rem">
-							Serial Entrepreneur, strategic product manager, 3+ years of
-							web3+AI experience.
+							Serial Entrepreneur, strategic 
+							<br/>product manager, 3+ years of
+							<br/>web3+AI experience.
 						</div>
 					</div>
 					<div className={styles.page8Item}>
-						<div className="text-1.75rem font-750">Ming Zhang</div>
-						<div className={styles.page8Founder}>Design Lead</div>
+						<div className="text-1.75rem font-750">Rekko</div>
+						<div className={styles.page8Founder}>Staff Product Manager</div>
 						<div className="mt-1.75rem">
-							7 years of product design, <br />
-							specializing in UX design. <br />
-							successfully shaped innovative <br />
-							digital experiences and creating <br />
-							intuitive interfaces.
+							Web3 Serial Entreprenuer, 
+							<br/>
+							SeeDAO Web3 University S1/S2 
+							<br/>Speaker, DAO Governance <br/>Engineer
 						</div>
 					</div>
 					<div className={styles.page8Item}>
@@ -380,6 +475,10 @@ function LandingContent() {
 					</div>
 				</div>
 			</div>
+			
+
+			
+			
 		</div>
 	)
 }
@@ -396,10 +495,13 @@ function LandingFoot() {
 					alt="logo"
 					className="w-3.6875rem h-4.625rem"
 				></img>
-				<div className="text-2.625rem font-800">Flare Dapp</div>
+				<p className="text-2.625rem font-800">Flare Dapp</p>
 			</div>
 			<div className={styles.footText}>
 				© Flare Dapp 2023 | All Rights Reserved
+			</div>
+			<div className={styles.footTextS}>
+				© Flare Dapp 2023 All Rights Reserved
 			</div>
 		</div>
 	)

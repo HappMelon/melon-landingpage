@@ -161,6 +161,7 @@
 	flex-direction: column;
 	align-items: center;
 	margin-top: 22.375rem;
+	margin-bottom: 12rem;
 }
 .page2Title {
 	text-align: center;
@@ -194,7 +195,7 @@
 	display: flex;
 	flex-direction: row;
 	padding-top: 13.125rem;
-	justify-content: space-between;
+	justify-content: space-around;
 	padding-bottom: 6.25rem;
 }
 .page3Shape {
@@ -516,7 +517,7 @@
 	display: flex;
 	flex-direction: row;
 	width: 36.25rem;
-	height: auto;
+	height: 17.125rem;
 	border-radius: 15px;
 	border: 1px solid rgba(255, 255, 255, 0.2);
 
@@ -553,6 +554,20 @@
 	justify-content: center;
 	align-items: center;
 	
+}
+
+.techCardShape1 {
+	position: absolute;
+	border-radius: 0.938rem;
+	width: 32.125rem;
+	height: 17.125rem;
+}
+
+.techCardShape2 {
+	position: absolute;
+	border-radius: 0.938rem;
+	width: 20.063rem;
+	height: 17.125rem;
 }
 
 .techImg {
@@ -593,7 +608,7 @@
 		height: 3.375rem;
 		left: 0;
 		top: 0;
-
+		padding: 30px;
 	}
 	
 	.headerLeft {
@@ -675,6 +690,7 @@
 	display: flex;
 	flex-direction: column;
 	padding-top: 20px;
+	gap: 27px;
 }
 .page1Button1 {
 	border-radius: 50px;
@@ -699,7 +715,7 @@
 	
 	width: 344px;
 	height: 218px;
-	margin-top: 12.125rem;
+	margin-top: 19.125rem;
 	
 }
 .page1Shape1 {
@@ -747,8 +763,9 @@
 	
 	flex-direction: column;
 	padding-top: 13.125rem;
-	justify-content: space-between;
+	justify-content: center;
 	padding-bottom: 6.25rem;
+	gap: 30px;
 }
 .page3Shape {
 	display: none;
@@ -773,6 +790,7 @@
 	font-weight: 700;
 	line-height: 48px;
 	text-align: left;
+	width: auto;
 	
 }
 .landingCardText {
@@ -780,6 +798,7 @@
 	text-align: left;
 	line-height: 27.2px;
 	width: 269px;
+	padding-bottom: 20px;
 }
 
 
@@ -807,7 +826,7 @@
 
 .page4Img {
 	width: 427px;
-	margin-top: 2.5rem
+	margin-top: 32px;
 }
 .page4TextContainer {
 	margin-left: 0;
@@ -865,7 +884,7 @@
 }
 .page5TextContainer {
 	width: 100%;
-	margin-top: 150px;
+	margin-top: 20px;
 }
 .page5TextContent {
 	font-size: 16px;
@@ -887,8 +906,8 @@
 }
 .page5Img {
 	position: relative;
-	top: -31.5rem;
-	left: 1.865rem;
+	top: -140px;
+	left: 9px;
 	z-index: 6;
 	width: 273.78px;
 	height: 182.56px;
@@ -1148,10 +1167,18 @@
 	width: 146.39px;
 
 }
-.CardContainer img:nth-child(2) {
-	width: 22.5rem;
-	height: 41rem;
+.techCardShape1 {
+	position: absolute;
+	border-radius: 0.938rem;
+	width: 319.22px;
+	height: 205.5px;
 }
 
+.techCardShape2 {
+	position: absolute;
+	border-radius: 0.938rem;
+	width: 127px;
+    height: 205.5px;
+}
 
 }

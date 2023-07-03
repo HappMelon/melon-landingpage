@@ -17,14 +17,15 @@ function LandingHeader() {
 	}
 
 	return (
-		<div>
+		<div className="relative">
+			<div className={styles.topLeft}></div>
 			<div className={styles.headerContainer}>
 				<div className={styles.headerLeft}>
 					<img
 						src="/logo.png"
 						alt="Flare Dapp"
 						width="59px"
-						className="lt-xs:w-23px"
+						className="lt-sm:w-23px"
 					></img>
 					<div className={styles.headerTitle}>Flare Dapp</div>
 				</div>

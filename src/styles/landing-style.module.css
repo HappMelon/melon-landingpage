@@ -1,4 +1,18 @@
 /* header */
+.topLeft {
+	position: absolute;
+	top: 0;
+	left: 0;
+
+	width: 38rem;
+	height: 25rem;
+
+	background: rgba(62, 143, 218, 0.3);
+	opacity: 0.6;
+	filter: blur(250px);
+	transform: rotate(-151.76deg);
+}
+
 .headerContainer {
 	display: flex;
 	flex-direction: row;
@@ -39,10 +53,9 @@
 	text-transform: capitalize;
 }
 .headerButton {
-	border-radius: 3.125rem;
+	border-radius: 50px;
 	background: linear-gradient(0deg, #000 0%, #000 100%),
 		linear-gradient(159deg, #f9d423 0%, #f83600 100%);
-	height: 3rem;
 	padding: 0.6875rem 1.75rem;
 	text-align: center;
 	font-size: 1.125rem;
@@ -92,9 +105,8 @@
 	z-index: 1;
 }
 .page1Button1 {
-	border-radius: 3.125rem;
+	border-radius: 50px;
 	background: linear-gradient(159deg, #f9d423 0%, #f83600 100%);
-	height: 3.75rem;
 	padding: 0.6875rem 2rem;
 	margin-right: 10%;
 	text-align: center;
@@ -104,13 +116,12 @@
 }
 
 .page1Button2 {
-	border-radius: 3.125rem;
+	border-radius: 50px;
 	border: 2px solid transparent;
 	background: linear-gradient(159deg, #f9d423 0%, #f83600 100%);
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 	border-color: rgba(255, 107, 0, 0.5);
-	height: 3.75rem;
 	padding: 0.6875rem 2rem;
 	margin-right: 10%;
 	text-align: center;
@@ -273,7 +284,6 @@
 }
 .page5Container {
 	display: flex;
-	height: 54.3125rem;
 	flex-direction: column;
 	margin-top: 22.625rem;
 	border-radius: 15px;
@@ -602,7 +612,7 @@
 	}
 
 	.headerTitle {
-		font-size: 1.833rem;
+		font-size: 22px;
 		font-weight: 700;
 		line-height: 2.2rem;
 	}
@@ -615,13 +625,15 @@
 		line-height: 1.4rem;
 	}
 
-	.headerLanguage img {
-		width: 1.167rem;
-		height: 1.167rem;
+	/* Content */
+
+	.page1Container {
+		padding-top: 11.5rem;
 	}
-	.headerButton {
+	.page1Title {
 		display: none;
 	}
+
 
 	/* Content */
 
@@ -733,6 +745,7 @@
 		border-radius: 1.25rem;
 		border: 1px solid rgba(255, 255, 255, 0.2);
 		padding: 2.75rem;
+		line-height: 2.125rem;
 		z-index: 1;
 	}
 	.landingCardContainer img {
@@ -795,7 +808,6 @@
 	.page5Container {
 		display: flex;
 		width: 27.333rem;
-		height: auto;
 		margin-top: 22.625rem;
 	}
 
@@ -1089,5 +1101,11 @@
 		border-radius: 1.25rem;
 		width: 10.583rem;
 		height: 17.125rem;
+	}
+}
+
+@media only screen and (max-width: 576px) {
+	.headerButton {
+		display: none;
 	}
 }

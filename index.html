@@ -18,22 +18,22 @@
 				recalc = function () {
 					var clientWidth = docEI.clientWidth;
 					console.log(clientWidth)
-					if (!clientWidth) return; 
+					if (!clientWidth) return;
 					if (clientWidth<=400) {
 						docEI.style.fontSize = 12 * (clientWidth / 393) + 'px';
 					}
 					if (clientWidth>400) {
 						docEI.style.fontSize = 16 * (clientWidth / 1920) + 'px';
 					}
-					
+
 				}
-				
+
 			if (!doc.addEventListener) return;
 			win.addEventListener(resizeEvt, recalc, false);
 			doc.addEventListener('DOMContentLoaded', recalc, false);
 		})(document, window);
 	</script>
-	
+
 </body>
 
 </html>

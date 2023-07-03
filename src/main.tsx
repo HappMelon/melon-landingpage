@@ -1,6 +1,7 @@
 import "@unocss/reset/tailwind.css"
 import "virtual:uno.css"
 import "./styles/globals.css"
+import "./styles/font.css"
 
 import "./i18n"
 

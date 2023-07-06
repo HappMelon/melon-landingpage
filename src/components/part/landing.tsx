@@ -371,12 +371,12 @@ function LandingContent() {
 							</div>
 							<div className={styles.techCardImg}>
 								<img
-									src="/images/pages/index/card-shape2.svg"
+									src="/images/pages/index/card-shape-two.svg"
 									alt=""
 									className={styles.techCardShape2}
 								></img>
 								<img
-									src="/images/pages/index/tech-card-1.svg"
+									src="/images/pages/index/tech-card-one.svg"
 									alt="tech-card"
 									className={styles.techImg}
 								></img>
@@ -398,12 +398,12 @@ function LandingContent() {
 							</div>
 							<div className={styles.techCardImg}>
 								<img
-									src="/images/pages/index/card-shape2.svg"
+									src="/images/pages/index/card-shape-two.svg"
 									alt=""
 									className={styles.techCardShape2}
 								></img>
 								<img
-									src="/images/pages/index/tech-card-2.svg"
+									src="/images/pages/index/tech-card-two.svg"
 									alt="tech-card"
 									className={styles.techImg}
 								></img>
@@ -425,12 +425,12 @@ function LandingContent() {
 							</div>
 							<div className={styles.techCardImg}>
 								<img
-									src="/images/pages/index/card-shape2.svg"
+									src="/images/pages/index/card-shape-two.svg"
 									alt=""
 									className={styles.techCardShape2}
 								></img>
 								<img
-									src="/images/pages/index/tech-card-3.svg"
+									src="/images/pages/index/tetech-card-three.svg"
 									alt="tech-card"
 									className={styles.techImg}
 								></img>

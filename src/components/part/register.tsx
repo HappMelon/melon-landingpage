@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import axios from 'axios';
 import { ChangeEvent } from 'react';
+import { ConnectButton } from "@flarezone/connect-kit";
 
 function Register() {
   const [email, setEmail] = useState('');
@@ -41,6 +42,7 @@ function Register() {
   }
 
   return (
+		// OPTIMIZE use ui to repeat the from
     <div className="w-[397px] h-[562px] top-[238px] left-[762px] ">
       <div className="w-[82px] absolute h-[82px] top-[238px] left-[919px] ">
         <img src="/logo.svg" alt="Logo"/>
@@ -92,6 +94,13 @@ function Register() {
         type="button"
         onClick={handleWalletClick}>Connect to Wallet</button>
       </div>
+      	<ConnectButton>
+		{(status, { connect, disconnect }) => (
+			<button onClick={status.isConnected ? disconnect : connect}>
+				{status.isConnected ? "Disconnect" : "Connect"}
+			</button>
+		)}
+	</ConnectButton>
     </div>
   )
 }

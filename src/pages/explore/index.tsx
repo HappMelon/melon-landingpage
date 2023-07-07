@@ -1,16 +1,16 @@
-import { AccountHeader } from "@/components/part/accountHeader"
-import { AccountPageContainer } from "@/components/part/accountPageContainer"
 import { SearchBar } from "@/components/part/searchbar"
-import { ChakraProvider } from "@chakra-ui/react"
 import SimpleSidebar from "@/components/part/sidebar"
+import { TrendingPageContainer } from "@/components/part/trendingPageContainer"
+import { ChakraProvider } from "@chakra-ui/react"
 
 export default function App() {
 	return (
 		<ChakraProvider>
 			<SimpleSidebar>
 				<SearchBar />
-				<AccountHeader />
-				<AccountPageContainer />
+				{/* <AccountHeader />
+				<AccountPageContainer /> */}
+				<TrendingPageContainer />
 			</SimpleSidebar>
 		</ChakraProvider>
 	)

@@ -1,8 +1,12 @@
 import { Box, Stack, Text } from "@chakra-ui/react"
 import { FollowingMill } from "./followingMill"
 
-export const FollowingMillStack = () => {
-	const followingMillsCount = 9
+interface FollowingMillStackProps {
+	count: number
+}
+
+export const FollowingMillStack = ({ count }: FollowingMillStackProps) => {
+	const followingMillsCount = count || 5
 	const followingMills = Array.from({ length: followingMillsCount })
 
 	return (

@@ -1,5 +1,6 @@
 import App from "@/pages"
 import Explore from "@/pages/explore"
+import Mill from "@/pages/mail"
 import { createBrowserRouter } from "react-router-dom"
 
 const router = createBrowserRouter([
@@ -10,6 +11,10 @@ const router = createBrowserRouter([
 	{
 		path: "/explore",
 		element: <Explore />,
+	},
+	{
+		path: "/mill",
+		element: <Mill />,
 	},
 ])
 

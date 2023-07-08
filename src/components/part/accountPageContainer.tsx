@@ -13,7 +13,7 @@ export const AccountPageContainer = () => {
 			>
 				<ArticleStack />
 				<Spacer />
-				<FollowingMillStack />
+				<FollowingMillStack count={9} />
 			</Flex>
 		</>
 	)

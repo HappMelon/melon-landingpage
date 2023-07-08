@@ -11,7 +11,6 @@ const router = createBrowserRouter([
 		path: "/explore",
 		element: <Explore />,
 	},
-
 ])
 
 export default router

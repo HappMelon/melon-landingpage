@@ -32,12 +32,13 @@ import ButtonWithText from "../ui/button"
 interface LinkItemProps {
 	name: string
 	icon: IconType
+	path: string
 }
 const LinkItems: Array<LinkItemProps> = [
-	{ name: "Trending", icon: FiTrendingUp },
-	{ name: "Mill", icon: FiTag },
-	{ name: "Wallet", icon: FaWallet },
-	{ name: "Flare Premium", icon: BsStars },
+	{ name: "Trending", icon: FiTrendingUp, path: "explore"},
+	{ name: "Mill", icon: FiTag, path: "mill"},
+	{ name: "Wallet", icon: FaWallet, path: "wallet"},
+	{ name: "Flare Premium", icon: BsStars, path: "preemium"},
 ]
 
 export default function SimpleSidebar({ children }: { children: ReactNode }) {
@@ -93,12 +94,13 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
 				mx="2rem"
 				justifyContent="space-between"
 			>
-				<Image w="5rem" h="5rem" src="/images/brands/Logo.png" alt="Logo" />
+				<Image w="5rem" h="5rem" src="logo.png" alt="Logo" />
 				<CloseButton display={{ base: "flex", md: "none" }} onClick={onClose} />
 			</Flex>
 			<Flex direction="column" justifyContent="space-between" h="80vh">
+				{/* FIXME 页面使用link 页面重新加载 */}
 				{LinkItems.map((link) => (
-					<NavItem key={link.name} icon={link.icon}>
+					<NavItem key={link.name} icon={link.icon} path={link.path}>
 						{link.name}
 					</NavItem>
 				))}
@@ -185,12 +187,13 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
 
 interface NavItemProps extends FlexProps {
 	icon: IconType
+	path: string
 	children: ReactText
 }
-const NavItem = ({ icon, children, ...rest }: NavItemProps) => {
+const NavItem = ({ icon, path, children, ...rest }: NavItemProps) => {
 	return (
 		<Link
-			href="#"
+			href={path}
 			style={{ textDecoration: "none" }}
 			_focus={{ boxShadow: "none" }}
 		>

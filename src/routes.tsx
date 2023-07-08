@@ -1,6 +1,6 @@
 import App from "@/pages"
 import Explore from "@/pages/explore"
-import Mill from "@/pages/mail"
+import Mill from "@/pages/mill"
 import { createBrowserRouter } from "react-router-dom"
 
 const router = createBrowserRouter([

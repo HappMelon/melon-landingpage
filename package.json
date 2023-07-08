@@ -14,7 +14,8 @@
 	},
 	"dependencies": {
 		"@chakra-ui/react": "^2.7.1",
-		"@crossbell/connect-kit": "^1.4.9",
+		"@crossbell/ui": "^1.5.0",
+		"@crossbell/util-metadata": "^1.5.0",
 		"@emotion/react": "^11.11.1",
 		"@emotion/styled": "^11.11.0",
 		"@flarezone/connect-kit": "^1.4.9",
@@ -49,6 +50,7 @@
 		"@typescript-eslint/eslint-plugin": "6.0.0-alpha.121",
 		"@typescript-eslint/parser": "6.0.0-alpha.121",
 		"@vitejs/plugin-react-swc": "^3.3.2",
+		"dotenv": "^16.3.1",
 		"eslint": "^8.43.0",
 		"eslint-plugin-jsx-a11y": "^6.7.1",
 		"eslint-plugin-react": "^7.32.2",

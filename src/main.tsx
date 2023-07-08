@@ -1,3 +1,4 @@
+import "@flarezone/connect-kit/colors.css"
 import "@unocss/reset/tailwind.css"
 import "virtual:uno.css"
 import "./styles/font.css"
@@ -8,7 +9,7 @@ import "./i18n"
 import React from "react"
 import ReactDOM from "react-dom/client"
 
-import { createWagmiConfig, ConnectKitProvider } from "@flarezone/connect-kit"
+import { ConnectKitProvider, createWagmiConfig } from "@flarezone/connect-kit"
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
 import { WagmiConfig } from "wagmi"
 
@@ -16,10 +17,10 @@ import App from "./App"
 
 const queryClient = new QueryClient()
 const wagmiConfig = createWagmiConfig({
-	appName: "Crossbell Dev",
+	appName: "Flare Dapp",
 	// WalletConnect Project ID.
 	// You can create or find it at https://cloud.walletconnect.com
-	walletConnectV2ProjectId: "45f79da8dad1b543b61951d77fbba1c1",
+	walletConnectV2ProjectId: import.meta.env.VITE_WALLET_CONNECT_V2_PROJECT_ID as string,
 })
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(

@@ -27,7 +27,7 @@ import { BiGlobe, BiMobile } from "react-icons/bi"
 import { BsStars } from "react-icons/bs"
 import { FaWallet } from "react-icons/fa"
 import { FiMenu, FiTag, FiTrendingUp } from "react-icons/fi"
-import ButtonWithText from "../ui/button"
+import ButtonWithText from "../ui/buttonWithText"
 
 interface LinkItemProps {
 	name: string
@@ -35,10 +35,10 @@ interface LinkItemProps {
 	path: string
 }
 const LinkItems: Array<LinkItemProps> = [
-	{ name: "Trending", icon: FiTrendingUp, path: "explore"},
-	{ name: "Mill", icon: FiTag, path: "mill"},
-	{ name: "Wallet", icon: FaWallet, path: "wallet"},
-	{ name: "Flare Premium", icon: BsStars, path: "preemium"},
+	{ name: "Trending", icon: FiTrendingUp, path: "explore" },
+	{ name: "Mill", icon: FiTag, path: "mill" },
+	{ name: "Wallet", icon: FaWallet, path: "wallet" },
+	{ name: "Flare Premium", icon: BsStars, path: "preemium" },
 ]
 
 export default function SimpleSidebar({ children }: { children: ReactNode }) {

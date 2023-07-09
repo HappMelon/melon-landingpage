@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unsafe-call */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
+import AppearanceSwitch from "@/components/part/appearance-switch"
 import {
 	Button,
 	Divider,
@@ -11,29 +12,37 @@ import {
 } from "@chakra-ui/react"
 import { CharacterAvatar } from "@crossbell/ui"
 import { ConnectButton } from "@flarezone/connect-kit"
-import { BiBell, BiMoon, BiSearch, BiSun } from "react-icons/bi"
+import { BiSearch } from "react-icons/bi"
+import { useNavigate } from "react-router-dom"
 import { useDarkMode } from "usehooks-ts"
 
-export const Wallet = () => (
-	<ConnectButton>
-		{(status, { connect, selectCharacters }) => {
-			if (status.isConnected) {
-				const { character } = status.account
-				return (
-					<button onClick={selectCharacters} className="flex gap-1 hidden">
+function Avatar() {
+	const navigate = useNavigate()
+
+	const pushAccount = () => {
+		navigate(`/account`)
+	}
+
+	return (
+		<ConnectButton>
+			{(status, { connect }) => {
+				if (status.isConnected) {
+					const { character } = status.account
+					return (
 						<CharacterAvatar
-							size="24px"
+							onClick={() => pushAccount()}
+							size="2.5vw"
 							character={character}
-							className="bg-yellow-500"
+							className="cursor-pointer"
 						/>
-					</button>
-				)
-			} else {
-				return <button onClick={connect}>Connect</button>
-			}
-		}}
-	</ConnectButton>
-)
+					)
+				} else {
+					return <button onClick={connect}>Connect</button>
+				}
+			}}
+		</ConnectButton>
+	)
+}
 
 export const SearchBar = () => {
 	const { isDarkMode, toggle } = useDarkMode()
@@ -83,23 +92,11 @@ export const SearchBar = () => {
 						</Text>
 					</Button>
 				</InputGroup>
-				<Stack spacing={4} direction="row" align="center" m="1rem">
-					<Button
-						background="none"
-						_hover={{ background: "none" }}
-						onClick={() => {
-							toggle
-						}}
-					>
-						{isDarkMode ? (
-							<BiMoon fontSize="1.5625rem" />
-						) : (
-							<BiSun fontSize="1.5625rem" />
-						)}
-					</Button>
-					<BiBell fontSize="1.5625rem" />
-					<Wallet />
-				</Stack>
+				<div className="items-center flex flex-row mr-1rem gap-2.25rem box-content">
+					<AppearanceSwitch />
+					<div className="i-fa6-regular-bell w-24px h-24px" />
+					<Avatar />
+				</div>
 			</Stack>
 			<Divider />
 		</>

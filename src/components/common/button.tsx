@@ -4,7 +4,7 @@ interface ButtonWithTextProps extends ButtonProps {
 	text: string
 }
 
-export default function ButtonWithText({
+function ButtonWithText({
 	text,
 	...props
 }: ButtonWithTextProps) {
@@ -28,3 +28,5 @@ export default function ButtonWithText({
 		</Button>
 	)
 }
+
+export { ButtonWithText }

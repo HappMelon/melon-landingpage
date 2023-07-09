@@ -5,7 +5,7 @@ import { Flex, Spacer, VStack } from "@chakra-ui/react"
 export const TrendingPageContainer = () => {
 	return (
 		<>
-			<Flex direction="row" justifyContent="space-between" m="2vh">
+			<Flex className="justify-between m-2vh flex-row">
 				<TrendingNav />
 				<Spacer />
 				<VStack>

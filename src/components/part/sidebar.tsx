@@ -2,6 +2,7 @@
 /* eslint-disable @typescript-eslint/no-unsafe-return */
 /* eslint-disable @typescript-eslint/no-unsafe-call */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
+import { ButtonWithText } from "@/components/common/button"
 import {
 	Box,
 	BoxProps,
@@ -27,7 +28,7 @@ import { BiGlobe, BiMobile } from "react-icons/bi"
 import { BsStars } from "react-icons/bs"
 import { FaWallet } from "react-icons/fa"
 import { FiMenu, FiTag, FiTrendingUp } from "react-icons/fi"
-import ButtonWithText from "../ui/button"
+import { useNavigate } from "react-router-dom"
 
 interface LinkItemProps {
 	name: string
@@ -35,10 +36,10 @@ interface LinkItemProps {
 	path: string
 }
 const LinkItems: Array<LinkItemProps> = [
-	{ name: "Trending", icon: FiTrendingUp, path: "explore"},
-	{ name: "Mill", icon: FiTag, path: "mill"},
-	{ name: "Wallet", icon: FaWallet, path: "wallet"},
-	{ name: "Flare Premium", icon: BsStars, path: "preemium"},
+	{ name: "Trending", icon: FiTrendingUp, path: "explore" },
+	{ name: "Mill", icon: FiTag, path: "mill" },
+	{ name: "Wallet", icon: FaWallet, path: "wallet" },
+	{ name: "Flare Premium", icon: BsStars, path: "premium" },
 ]
 
 export default function SimpleSidebar({ children }: { children: ReactNode }) {
@@ -76,6 +77,12 @@ interface SidebarProps extends BoxProps {
 }
 
 const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
+	const navigate = useNavigate()
+
+	const pushExplore = () => {
+		navigate(`/explore`)
+	}
+
 	return (
 		<Box
 			bg={useColorModeValue("white", "gray.900")}
@@ -94,7 +101,14 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
 				mx="2rem"
 				justifyContent="space-between"
 			>
-				<Image w="5rem" h="5rem" src="logo.png" alt="Logo" />
+				<Image
+					onClick={() => pushExplore()}
+					w="5.125rem"
+					h="5.125rem"
+					src="/images/pages/explore/logo.png"
+					alt="Logo"
+					className="cursor-pointer"
+				/>
 				<CloseButton display={{ base: "flex", md: "none" }} onClick={onClose} />
 			</Flex>
 			<Flex direction="column" justifyContent="space-between" h="80vh">

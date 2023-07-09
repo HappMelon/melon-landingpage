@@ -29,6 +29,7 @@ import { BsStars } from "react-icons/bs"
 import { FaWallet } from "react-icons/fa"
 import { FiMenu, FiTag, FiTrendingUp } from "react-icons/fi"
 import { useNavigate } from "react-router-dom"
+import { useIsConnected, useXSettingsModal } from "@flarezone/connect-kit"
 
 interface LinkItemProps {
 	name: string
@@ -74,6 +75,26 @@ export default function SimpleSidebar({ children }: { children: ReactNode }) {
 
 interface SidebarProps extends BoxProps {
 	onClose: () => void
+}
+
+export function SettingsBtn() {
+	const isConnected = useIsConnected()
+	const { isActive, show, hide } = useXSettingsModal()
+
+	if (!isConnected) return null
+
+	return (
+		<Link
+			onClick={show}
+			style={{
+				fontSize: "0.75rem",
+				color: "black",
+				textDecoration: "underline",
+			}}
+		>
+			Settings
+		</Link>
+	)
 }
 
 const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
@@ -127,15 +148,7 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
 				/>
 				<Spacer />
 				<Stack direction="column" justify="left" mx="2rem" spacing="2rem">
-					<Link
-						style={{
-							fontSize: "0.75rem",
-							color: "black",
-							textDecoration: "underline",
-						}}
-					>
-						Settings
-					</Link>
+					<SettingsBtn />
 					<Link
 						style={{
 							fontSize: "0.75rem",

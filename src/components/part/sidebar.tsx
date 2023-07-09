@@ -29,7 +29,6 @@ import { BsStars } from "react-icons/bs"
 import { FaWallet } from "react-icons/fa"
 import { FiMenu, FiTag, FiTrendingUp } from "react-icons/fi"
 import { useNavigate } from "react-router-dom"
-import ButtonWithText from "../ui/buttonWithText"
 
 interface LinkItemProps {
 	name: string

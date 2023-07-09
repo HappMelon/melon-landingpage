@@ -13,7 +13,7 @@ export default function ButtonWithText({
 			{...props}
 			/* flex={1} */
 			px={5}
-			fontSize={"sm"}
+			fontSize={"1rem"}
 			rounded={"full"}
 			bgGradient={"linear(to-r, #F9D423, #F83600)"}
 			color={"white"}

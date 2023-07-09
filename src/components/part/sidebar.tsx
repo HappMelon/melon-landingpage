@@ -22,25 +22,27 @@ import {
 	useColorModeValue,
 	useDisclosure,
 } from "@chakra-ui/react"
+
 import { ReactNode, ReactText } from "react"
-import { IconType } from "react-icons"
 import { BiGlobe, BiMobile } from "react-icons/bi"
 import { BsStars } from "react-icons/bs"
-import { FaWallet } from "react-icons/fa"
-import { FiMenu, FiTag, FiTrendingUp } from "react-icons/fi"
+import { FiMenu } from "react-icons/fi"
 import { useNavigate } from "react-router-dom"
 import { useIsConnected, useXSettingsModal } from "@flarezone/connect-kit"
 
 interface LinkItemProps {
 	name: string
-	icon: IconType
+	icon: string
 	path: string
 }
+
+// TODO 页面缩放到一定程度, 页面只显示icon
+// FIXME 页面跳转, 有loading, 希望不要loading.
 const LinkItems: Array<LinkItemProps> = [
-	{ name: "Trending", icon: FiTrendingUp, path: "explore" },
-	{ name: "Mill", icon: FiTag, path: "mill" },
-	{ name: "Wallet", icon: FaWallet, path: "wallet" },
-	{ name: "Flare Premium", icon: BsStars, path: "premium" },
+	{ name: "Trending", icon: "i-fa6-solid-fire-flame-curved", path: "explore" },
+	{ name: "Mill", icon: "i-fa6-solid-tag", path: "mill" },
+	{ name: "Wallet", icon: "i-fa6-solid-wallet", path: "wallet" },
+	{ name: "Flare Premium", icon: "i-fa6-solid-ranking-star", path: "premium" },
 ]
 
 export default function SimpleSidebar({ children }: { children: ReactNode }) {
@@ -79,6 +81,7 @@ interface SidebarProps extends BoxProps {
 
 export function SettingsBtn() {
 	const isConnected = useIsConnected()
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	const { isActive, show, hide } = useXSettingsModal()
 
 	if (!isConnected) return null
@@ -104,16 +107,21 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
 		navigate(`/explore`)
 	}
 
+	const pushPost = () => {
+		navigate(`/post`)
+	}
+
 	return (
 		<Box
 			bg={useColorModeValue("white", "gray.900")}
-			borderRight="1px"
+			borderRight="2px"
 			borderRightColor={useColorModeValue("gray.200", "gray.700")}
 			w={{ base: "full", md: "20vw" }}
 			pos="fixed"
 			h="full"
 			paddingLeft="5vw"
 			paddingTop="2vh"
+			overflow="auto"
 			{...rest}
 		>
 			<Flex
@@ -124,8 +132,8 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
 			>
 				<Image
 					onClick={() => pushExplore()}
-					w="5.125rem"
-					h="5.125rem"
+					w="82px"
+					h="82px"
 					src="/images/pages/explore/logo.png"
 					alt="Logo"
 					className="cursor-pointer"
@@ -133,14 +141,15 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
 				<CloseButton display={{ base: "flex", md: "none" }} onClick={onClose} />
 			</Flex>
 			<Flex direction="column" justifyContent="space-between" h="80vh">
-				{/* FIXME 页面使用link 页面重新加载 */}
 				{LinkItems.map((link) => (
 					<NavItem key={link.name} icon={link.icon} path={link.path}>
 						{link.name}
 					</NavItem>
 				))}
 				<ButtonWithText
-					w="6rem"
+					onClick={() => pushPost()}
+					className="py-14px"
+					w="142px"
 					marginTop="1.25rem"
 					mx="1rem"
 					text="Post"
@@ -217,7 +226,7 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
 }
 
 interface NavItemProps extends FlexProps {
-	icon: IconType
+	icon: string
 	path: string
 	children: ReactText
 }
@@ -243,14 +252,15 @@ const NavItem = ({ icon, path, children, ...rest }: NavItemProps) => {
 				{icon && (
 					<Icon
 						mr="1rem"
-						fontSize="1rem"
+						fontSize="20px"
 						_groupHover={{
 							color: "#F9D423",
 						}}
-						as={icon}
+						className={icon}
 					/>
 				)}
 				<Text
+					className="text-20px font-750"
 					bgGradient="linear(to-r, #000000, #000000)"
 					bgClip="text"
 					fontWeight="semibold"

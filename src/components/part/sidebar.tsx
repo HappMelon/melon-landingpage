@@ -150,6 +150,7 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
 				<Stack direction="column" justify="left" mx="2rem" spacing="2rem">
 					<SettingsBtn />
 					<Link
+						href="mailto:flare-dapp@gmail.com"
 						style={{
 							fontSize: "0.75rem",
 							color: "black",
@@ -160,16 +161,19 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
 					</Link>
 					<Stack direction="row" spacing="0.75rem">
 						<IconButton
+							onClick={() => window.open("https://twitter.com/flaredapp")}
 							aria-label="twitter"
 							icon={<img src="/images/brands/twitter.png" alt="Button" />}
 							boxSize="2rem"
 						/>
 						<IconButton
+							onClick={() => window.open("https://discord.gg/9a48BTsNkC")}
 							aria-label="twitch"
 							icon={<img src="/images/brands/discord.png" alt="Button" />}
 							boxSize="2rem"
 						/>
 						<IconButton
+							onClick={() => window.open("https://t.me/+mrs5aIfdOPA3MGY1")}
 							aria-label="lark"
 							icon={<img src="/images/brands/telegram.png" alt="Button" />}
 							boxSize="2rem"

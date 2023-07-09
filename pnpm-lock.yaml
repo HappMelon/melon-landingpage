@@ -94,6 +94,9 @@ devDependencies:
   '@iconify-json/carbon':
     specifier: ^1.1.18
     version: 1.1.18
+  '@iconify-json/fa6-regular':
+    specifier: ^1.1.11
+    version: 1.1.11
   '@types/node':
     specifier: ^20.3.1
     version: 20.3.1
@@ -1993,6 +1996,12 @@ packages:
 
   /@iconify-json/carbon@1.1.18:
     resolution: {integrity: sha512-RbKET6KS9xUMeYVq1FUH3UUA7AYNcnApkHt2AccCwTWTQQs/O58ji4Of6z6PhRajGlbfvrJzT/Uqh19OKECRvA==}
+    dependencies:
+      '@iconify/types': 2.0.0
+    dev: true
+
+  /@iconify-json/fa6-regular@1.1.11:
+    resolution: {integrity: sha512-ekohCwqrZIbDJUHwZoiUO5O8bz/LiF1JIfHGHUbP+Y9IZwZqMac+1Td8xzQ+d/6FEIgVjmxccbph/wCCVznFyQ==}
     dependencies:
       '@iconify/types': 2.0.0
     dev: true

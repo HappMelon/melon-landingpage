@@ -6,9 +6,9 @@ export const TrendingNav = () => {
 	const [showTopics, toggleShowTopics] = useState(false)
 	return (
 		<>
-			<Stack direction="column" mt="5vh" mr="auto">
-				<Box display="flex" alignItems="center" width="100%">
-					<ButtonGroup gap="4">
+			<Stack className="mr-auto mt-5vh flex-col">
+				<Box className="flex items-center w-full">
+					<ButtonGroup className="gap-4">
 						<Button colorScheme="blackAlpha">Most Popular</Button>
 						<Button
 							colorScheme="blackAlpha"

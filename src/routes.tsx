@@ -2,6 +2,7 @@ import App from "@/pages"
 import Account from "@/pages/account"
 import Explore from "@/pages/explore"
 import Mill from "@/pages/mill"
+import Post from "@/pages/post"
 import { createBrowserRouter } from "react-router-dom"
 
 const router = createBrowserRouter([
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
 	{
 		path: "/account",
 		element: <Account />,
+	},
+	{
+		path: "/post",
+		element: <Post />,
 	},
 ])
 

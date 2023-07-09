@@ -150,7 +150,7 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
 				<Stack direction="column" justify="left" mx="2rem" spacing="2rem">
 					<SettingsBtn />
 					<Link
-						href="mailto:flare-dapp@gmail.com"
+						href="mailto:flare.dapp@gmail.com"
 						style={{
 							fontSize: "0.75rem",
 							color: "black",

@@ -1,44 +1,18 @@
 import { Box, Button, Flex, Image, Spacer, Stack, Text } from "@chakra-ui/react"
 import { BiEdit } from "react-icons/bi"
+
 export const AccountHeader = () => {
 	return (
 		<>
-			<Box
-				backgroundImage="src/assets/background.png"
-				h="11rem"
-				m="1rem"
-				position="relative"
-			>
-				<Flex
-					w="100%"
-					direction="row"
-					align="center"
-					zIndex="2"
-					position="absolute"
-					pl="1.75rem"
-					pt="1.5rem"
-				>
+			<Box className="h-11rem m-1rem relative">
+				<Flex className="flex w-full flex-row items-center z-10 absolute pl-1.75rem pt-1.5rem">
 					<Image
 						src="https://bit.ly/dan-abramov"
 						alt="pfp"
-						height="12rem"
-						width="12rem"
-						borderRadius="1rem"
-						border="solid"
-						borderColor="white"
-						boxShadow="lg"
-						fit="cover"
+						className="w-12rem h-12rem rounded-1rem border-solid border-#fff shadow-lg object-cover"
 					/>
 					<Stack
-						spacing="0"
-						direction="column"
-						justify="left"
-						align="start"
-						alignSelf="start"
-						maxW="45%"
-						color="white"
-						p="1rem"
-					>
+						className="flex flex-col justify-start items-start self-start max-w-45% bg-white text-white p-1rem">
 						<Text fontSize="1.5rem" fontWeight="bold">
 							Chalette Helmet
 						</Text>
@@ -57,16 +31,7 @@ export const AccountHeader = () => {
 					</Stack>
 					<Spacer />
 					<Flex
-						direction="column"
-						justify="space-between"
-						justifySelf="right"
-						alignSelf="flex-end"
-						maxW="40%"
-						w="40%"
-						h="11rem"
-						pr="2rem"
-						pb="3.5rem"
-					>
+						className="flex flex-col justify-between items-end self-end max-w-40% w-40% h-11rem pr-2rem pb-3.5rem">
 						<Button
 							variant="outline"
 							rounded="full"

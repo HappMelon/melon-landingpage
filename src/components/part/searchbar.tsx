@@ -3,18 +3,18 @@
 import AppearanceSwitch from "@/components/part/appearance-switch"
 import {
 	Button,
-	Divider,
 	Input,
 	InputGroup,
 	InputLeftElement,
 	Stack,
 	Text,
 } from "@chakra-ui/react"
+
+import { useNavigate } from "react-router-dom"
 import { CharacterAvatar } from "@crossbell/ui"
 import { ConnectButton } from "@flarezone/connect-kit"
-import { BiSearch } from "react-icons/bi"
-import { useNavigate } from "react-router-dom"
 import { useDarkMode } from "usehooks-ts"
+import { BiSearch } from "react-icons/bi"
 
 function Avatar() {
 	const navigate = useNavigate()
@@ -45,6 +45,7 @@ function Avatar() {
 }
 
 export const SearchBar = () => {
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	const { isDarkMode, toggle } = useDarkMode()
 	const bgColor = isDarkMode ? "black" : "white"
 	const lgFrom = "#FFC700"
@@ -73,18 +74,19 @@ export const SearchBar = () => {
 
 	return (
 		<>
-			<Stack spacing={4} h="3.125rem" direction="row" align="center" m="1rem">
+			<Stack
+				direction="row"
+				className="items-center py-2.6875rem h-8.375rem border-b-2px border-b-#D9D9D9"
+			>
 				<InputGroup size="md">
 					<InputLeftElement pointerEvents="none">
 						<BiSearch color="gray" />
 					</InputLeftElement>
 					<Input
-						w="40rem"
-						maxW="50rem"
 						variant="filled"
-						borderRadius="full"
 						type="text"
 						placeholder="Search topics, news"
+						className="w-40rem max-w-[50rem] !rounded-9999px"
 					/>
 					<Button marginLeft="2rem" rounded="full" style={gradientButtonStyle}>
 						<Text bgGradient="linear(to-r, #F9D423, #F83600)" bgClip="text">
@@ -98,7 +100,6 @@ export const SearchBar = () => {
 					<Avatar />
 				</div>
 			</Stack>
-			<Divider />
 		</>
 	)
 }

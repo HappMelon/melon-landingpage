@@ -5,49 +5,169 @@ export const TrendingHotTopics = () => {
 			<Stack direction="column" wrap="wrap" mt="2vh">
 				<Wrap spacing={4}>
 					<WrapItem>
-						<Button colorScheme="red">Red</Button>
+						<Button
+							colorScheme="red"
+							fontSize="0.75rem"
+							borderRadius="0.25rem"
+							h="1.5rem"
+							p="0.25rem 0.625rem "
+						>
+							Red
+						</Button>
 					</WrapItem>
 					<WrapItem>
-						<Button colorScheme="orange">Orange</Button>
+						<Button
+							colorScheme="orange"
+							fontSize="0.75rem"
+							borderRadius="0.25rem"
+							h="1.5rem"
+							p="0.25rem 0.625rem "
+						>
+							Orange
+						</Button>
 					</WrapItem>
 					<WrapItem>
-						<Button colorScheme="yellow">Yellow</Button>
+						<Button
+							colorScheme="yellow"
+							fontSize="0.75rem"
+							borderRadius="0.25rem"
+							h="1.5rem"
+							p="0.25rem 0.625rem "
+						>
+							Yellow
+						</Button>
 					</WrapItem>
 					<WrapItem>
-						<Button colorScheme="green">Green</Button>
+						<Button
+							colorScheme="green"
+							fontSize="0.75rem"
+							borderRadius="0.25rem"
+							h="1.5rem"
+							p="0.25rem 0.625rem "
+						>
+							Green
+						</Button>
 					</WrapItem>
 					<WrapItem>
-						<Button colorScheme="teal">Teal</Button>
+						<Button
+							colorScheme="teal"
+							fontSize="0.75rem"
+							borderRadius="0.25rem"
+							h="1.5rem"
+							p="0.25rem 0.625rem "
+						>
+							Teal
+						</Button>
 					</WrapItem>
 					<WrapItem>
-						<Button colorScheme="blue">Blue</Button>
+						<Button
+							colorScheme="blue"
+							fontSize="0.75rem"
+							borderRadius="0.25rem"
+							h="1.5rem"
+							p="0.25rem 0.625rem "
+						>
+							Blue
+						</Button>
 					</WrapItem>
 					<WrapItem>
-						<Button colorScheme="cyan">Cyan</Button>
+						<Button
+							colorScheme="cyan"
+							fontSize="0.75rem"
+							borderRadius="0.25rem"
+							h="1.5rem"
+							p="0.25rem 0.625rem "
+						>
+							Cyan
+						</Button>
 					</WrapItem>
 					<WrapItem>
-						<Button colorScheme="purple">Purple</Button>
+						<Button
+							colorScheme="purple"
+							fontSize="0.75rem"
+							borderRadius="0.25rem"
+							h="1.5rem"
+							p="0.25rem 0.625rem "
+						>
+							Purple
+						</Button>
 					</WrapItem>
 					<WrapItem>
-						<Button colorScheme="pink">Pink</Button>
+						<Button
+							colorScheme="pink"
+							fontSize="0.75rem"
+							borderRadius="0.25rem"
+							h="1.5rem"
+							p="0.25rem 0.625rem "
+						>
+							Pink
+						</Button>
 					</WrapItem>
 					<WrapItem>
-						<Button colorScheme="linkedin">Linkedin</Button>
+						<Button
+							colorScheme="linkedin"
+							fontSize="0.75rem"
+							borderRadius="0.25rem"
+							h="1.5rem"
+							p="0.25rem 0.625rem "
+						>
+							Linkedin
+						</Button>
 					</WrapItem>
 					<WrapItem>
-						<Button colorScheme="facebook">Facebook</Button>
+						<Button
+							colorScheme="facebook"
+							fontSize="0.75rem"
+							borderRadius="0.25rem"
+							h="1.5rem"
+							p="0.25rem 0.625rem "
+						>
+							Facebook
+						</Button>
 					</WrapItem>
 					<WrapItem>
-						<Button colorScheme="messenger">Messenger</Button>
+						<Button
+							colorScheme="messenger"
+							fontSize="0.75rem"
+							borderRadius="0.25rem"
+							h="1.5rem"
+							p="0.25rem 0.625rem "
+						>
+							Messenger
+						</Button>
 					</WrapItem>
 					<WrapItem>
-						<Button colorScheme="whatsapp">Whatsapp</Button>
+						<Button
+							colorScheme="whatsapp"
+							fontSize="0.75rem"
+							borderRadius="0.25rem"
+							h="1.5rem"
+							p="0.25rem 0.625rem "
+						>
+							Whatsapp
+						</Button>
 					</WrapItem>
 					<WrapItem>
-						<Button colorScheme="twitter">Twitter</Button>
+						<Button
+							colorScheme="twitter"
+							fontSize="0.75rem"
+							borderRadius="0.25rem"
+							h="1.5rem"
+							p="0.25rem 0.625rem "
+						>
+							Twitter
+						</Button>
 					</WrapItem>
 					<WrapItem>
-						<Button colorScheme="telegram">Telegram</Button>
+						<Button
+							colorScheme="telegram"
+							fontSize="0.75rem"
+							borderRadius="0.25rem"
+							h="1.5rem"
+							p="0.25rem 0.625rem "
+						>
+							Telegram
+						</Button>
 					</WrapItem>
 				</Wrap>
 			</Stack>

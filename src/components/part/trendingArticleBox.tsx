@@ -1,27 +1,40 @@
-import { Box, Button, Flex, Image, Stack, Text, VStack } from "@chakra-ui/react"
+import {
+	Box,
+	Button,
+	Flex,
+	Grid,
+	GridItem,
+	HStack,
+	Image,
+	Spacer,
+	Stack,
+	Text,
+	VStack,
+} from "@chakra-ui/react"
 import { AiOutlineComment, AiOutlineEye, AiOutlineHeart } from "react-icons/ai"
 import { BsThreeDotsVertical } from "react-icons/bs"
 
 export const TrendingArticleBox = () => {
 	return (
 		<>
-			<Box w="50vw" minH="25vh" bg="#F8F8F8" borderRadius="2rem">
+			<Box w="50vw" minH="25vh" bg="#F8F8F8" borderRadius="0.5rem">
 				<Stack
 					direction="row"
 					w="100%"
 					h="100%"
 					overflow="auto"
-					p="2.5vh"
+					p="2vh"
 					spacing="2rem"
 				>
 					<Image
 						src="https://images.ctfassets.net/pdf29us7flmy/7MAfLagu0g3iappEl8QH3S/5ebac5a5115d2ecd3eb357b992d949ee/GettyImages-643897728_optimized.jpg"
 						alt="image"
-						h="11.5rem"
+						h="200px"
 						aspectRatio="1"
 						borderRadius="1rem"
 						fit="cover"
 						boxShadow="xl"
+						mt="0.1rem"
 					/>
 					<Stack
 						direction="column"
@@ -32,32 +45,66 @@ export const TrendingArticleBox = () => {
 						<Flex w="100%" justify="space-between">
 							<Stack
 								direction="row"
-								spacing="0.5rem"
+								spacing="1rem"
 								alignItems="center"
-								w="75%"
+								w="100%"
 							>
 								<Image
 									src="https://i.pravatar.cc/300"
-									alt="coinbase"
-									h="2rem"
-									w="2rem"
+									h="3rem"
+									w="3rem"
 									borderRadius="full"
 									borderWidth="0.125rem"
 									borderColor="rgba(255, 255, 255, 0.80)"
 								/>
-								<VStack>
-									<Text size="1rem" color="#000" fontWeight="semibold">
-										AuthorName
-									</Text>
+								<VStack spacing="1px" align="stretch">
+									<Grid templateColumns="repeat(3, 1fr)" gap={6}>
+										<Text size="1rem" color="#000" fontWeight="semibold">
+											AuthorName
+										</Text>
+										<Text
+											color="#9B9B9B"
+											fontSize="0.75rem"
+											maxWidth="100%"
+										></Text>
+									</Grid>
 
-									<Text size="1rem" color="#000" fontWeight="semibold">
-										@UserName
+									<HStack>
+										<Text size="1rem" color="#000" fontWeight="semibold">
+											@UserName
+										</Text>
+										<Text color="#9B9B9B" fontSize="0.75rem">
+											2h ago
+										</Text>
+									</HStack>
+								</VStack>
+								<Box w="200%">
+									<Spacer />
+								</Box>
+								<VStack spacing="1px" w="full">
+									<Grid templateColumns="repeat(2, 1fr)" gap={1}>
+										<GridItem>
+											<Text
+												size="1rem"
+												color="#000"
+												fontWeight="bold"
+												fontSize="xl"
+											>
+												32222
+											</Text>
+										</GridItem>
+
+										<GridItem gridRow={1} gridColumn={2}>
+											<Text color="#9B9B9B" fontSize="xl" maxWidth="100%">
+												FLR
+											</Text>
+										</GridItem>
+									</Grid>
+									<Text color="#9B9B9B" fontSize="0.75rem">
+										= $65.2
 									</Text>
 								</VStack>
 							</Stack>
-							<Text color="#9B9B9B" fontSize="0.75rem">
-								Published 2 days ago
-							</Text>
 						</Flex>
 
 						<Text color="#000000" fontSize="1.125rem" fontWeight="semibold">

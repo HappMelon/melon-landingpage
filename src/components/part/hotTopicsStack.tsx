@@ -10,7 +10,7 @@ export const HotTopicsStack = () => {
 			alignSelf="flex-start"
 			mt="5vh"
 		>
-			<Stack direction="column" spacing="1.5rem" w="100%" p="1.75rem">
+			<Stack direction="column" spacing="0.5rem" w="100%" p="1.75rem">
 				<Flex alignItems="center" gap="5px">
 					<Text fontSize="1.5rem" fontWeight="bold" color="#000">
 						Hot Topics

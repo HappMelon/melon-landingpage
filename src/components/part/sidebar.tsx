@@ -37,7 +37,6 @@ interface LinkItemProps {
 }
 
 // TODO 页面缩放到一定程度, 页面只显示icon
-// FIXME 页面跳转, 有loading, 希望不要loading.
 const LinkItems: Array<LinkItemProps> = [
 	{ name: "Trending", icon: "i-fa6-solid-fire-flame-curved", path: "explore" },
 	{ name: "Mill", icon: "i-fa6-solid-tag", path: "mill" },
@@ -104,8 +103,8 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
 	const navigate = useNavigate()
 
 	const pushExplore = () => {
-		navigate(`/explore`)
-	}
+		navigate('/explore');
+	};
 
 	const pushPost = () => {
 		navigate(`/post`)
@@ -131,7 +130,7 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
 				justifyContent="space-between"
 			>
 				<Image
-					onClick={() => pushExplore()}
+					onClick={pushExplore}
 					w="82px"
 					h="82px"
 					src="/images/pages/explore/logo.png"
@@ -231,9 +230,10 @@ interface NavItemProps extends FlexProps {
 	children: ReactText
 }
 const NavItem = ({ icon, path, children, ...rest }: NavItemProps) => {
+	const navigate = useNavigate()
 	return (
 		<Link
-			href={path}
+			onClick={() => navigate(`/${path}`)}
 			style={{ textDecoration: "none" }}
 			_focus={{ boxShadow: "none" }}
 		>

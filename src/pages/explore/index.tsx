@@ -1,17 +1,10 @@
-import { SearchBar } from "@/components/part/searchbar"
-import SimpleSidebar from "@/components/part/sidebar"
+import Layout from "@/components/layouts/RootLayout"
 import { TrendingPageContainer } from "@/components/part/trendingPageContainer"
-import { ChakraProvider } from "@chakra-ui/react"
 
 export default function App() {
 	return (
-		<ChakraProvider>
-			<SimpleSidebar>
-				<SearchBar />
-				{/* <AccountHeader />
-				<AccountPageContainer /> */}
-				<TrendingPageContainer />
-			</SimpleSidebar>
-		</ChakraProvider>
+		<Layout>
+			<TrendingPageContainer />
+		</Layout>
 	)
 }

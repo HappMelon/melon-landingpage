@@ -4,6 +4,7 @@ import { Box, Button, ButtonGroup, Stack } from "@chakra-ui/react"
 import { useState } from "react"
 export const TrendingNav = () => {
 	const [showTopics, toggleShowTopics] = useState(false)
+	const [currentTap, setCurrentTap] = useState("TrendingArticle")
 	return (
 		<>
 			<Stack direction="column" mt="5vh" mr="auto">

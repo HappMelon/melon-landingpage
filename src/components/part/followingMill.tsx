@@ -6,44 +6,29 @@ import { PiNumberCircleOneFill } from "react-icons/pi"
 export const FollowingMill = () => {
 	return (
 		<>
-			<Flex w="100%" justify="space-between">
-				<Stack direction="row" spacing="0.5rem" alignItems="center">
-					<PiNumberCircleOneFill color="#000" fontSize="0.75rem" />
+			<Flex className="w-full justify-between">
+				<Stack className="flex !flex-row gap-0.5rem items-center">
+					<PiNumberCircleOneFill className="color-#000 text-0.75rem" />
 					<Image
+						className="h-1.5rem w-1.5rem rounded-full border-0.125rem border-#fff"
 						src="https://play-lh.googleusercontent.com/PjoJoG27miSglVBXoXrxBSLveV6e3EeBPpNY55aiUUBM9Q1RCETKCOqdOkX2ZydqVf0"
-						alt="coinbase"
-						h="1.5rem"
-						w="1.5rem"
-						borderRadius="full"
-						borderWidth="0.125rem"
-						borderColor="rgba(255, 255, 255, 0.80)"
 					/>
-					<Text size="1rem" color="#000" fontWeight="semibold">
-						CoinBase
-					</Text>
+					<Text className="text-1rem color-#000 font-700">CoinBase</Text>
 				</Stack>
 				<Spacer />
-				<Stack
-					direction="row"
-					justify="left"
-					justifyItems="left"
-					align="center"
-					spacing="1rem"
-				>
+				<Stack className="flex !flex-row justify-start justify-items-start items-center gap-1rem">
 					<Button
-						fontSize="0.75rem"
+						className="text-0.75rem p-0"
 						leftIcon={<FaComments style={{ marginRight: "-0.25rem" }} />}
-						p="0"
 						bg="none"
 						_hover={{ bg: "none" }}
 					>
 						1k participations
 					</Button>
 					<Button
+						className="color-#000 text-0.75rem p-0 bg-background-none"
 						color="#000000"
-						fontSize="0.75rem"
 						leftIcon={<IoIosPeople style={{ marginRight: "-0.25rem" }} />}
-						p="0"
 						bg="none"
 						_hover={{ bg: "none" }}
 					>

@@ -4,7 +4,7 @@ import { Stack } from "@chakra-ui/react"
 export const ArticleStack = () => {
 	return (
 		<>
-			<Stack spacing="1.5rem" direction="column" mt="5vh">
+			<Stack className="gap-1.5rem flex !flex-col mt-5vh">
 				<ArticleBox />
 				<ArticleBox />
 				<ArticleBox />

@@ -5,62 +5,35 @@ import { BsThreeDotsVertical } from "react-icons/bs"
 export const ArticleBox = () => {
 	return (
 		<>
-			<Box w="50vw" minH="25vh" bg="#F8F8F8" borderRadius="2rem">
-				<Stack
-					direction="row"
-					w="100%"
-					h="100%"
-					overflow="auto"
-					p="2.5vh"
-					spacing="2rem"
-				>
+			<Box className="w-50vw min-h-25vh bg-#F8F8F8 rounded-2rem">
+				<Stack className="flex !flex-row w-full h-full overflow-auto p-2.5vh gap-2rem">
 					<Image
+						className="h-11.5rem rounded-1rem object-cover shadow-xl aspect-ratio-1"
 						src="https://images.ctfassets.net/pdf29us7flmy/7MAfLagu0g3iappEl8QH3S/5ebac5a5115d2ecd3eb357b992d949ee/GettyImages-643897728_optimized.jpg"
-						alt="image"
-						h="11.5rem"
-						aspectRatio="1"
-						borderRadius="1rem"
-						fit="cover"
-						boxShadow="xl"
+						alt="Cover"
 					/>
-					<Stack
-						direction="column"
-						spacing="0.75rem"
-						justify="left"
-						align="start"
-					>
-						<Text color="#9B9B9B" fontSize="0.75rem">
+					<Stack className="flex flex-col gap-0.75rem justify-start items-start">
+						<Text className="color-#9B9B9B text-0.75rem">
 							Published 2 days ago
 						</Text>
-						<Text color="#000000" fontSize="1.125rem" fontWeight="semibold">
+						<Text className="color-#000 text-1.125rem font-700">
 							Backed by Wall Street consortium, what are the features of the EDX
 							Markets?
 						</Text>
-						<Text color="#9B9B9B" fontSize="1rem">
+						<Text className="color-#9B9B9B text-1rem">
 							Lorem ipsum dolor sit amet consectetur. Massa aliquet volutpat
 							libero nunc facilisi laoreet velit iaculis. Quam volutpat ipsum
 							tincidunt aliquet hendrerit proin facilisis ultrices odio. Gravida
 							a ac eget posuere facilisis nunc. Magna rhoncus odio et integer
 							at. Felis suspendisse sed pretium erat lacus.
 						</Text>
-						<Flex
-							direction="row"
-							justify="space-between"
-							align="center"
-							w="100%"
-						>
+						<Flex className="flex flex-row justify-between items-center w-full">
 							<Stack
-								direction="row"
-								justify="left"
-								justifyItems="left"
-								align="center"
-								spacing="1rem"
+								className="flex !flex-row justify-start justify-items-start items-center gap-1rem"
 							>
 								<Button
-									color="#000000"
-									fontSize="0.75rem"
+									className="color-#000 text-0.75rem p-0"
 									leftIcon={<AiOutlineEye />}
-									p="0"
 									bg="none"
 									_hover={{ bg: "none" }}
 								>

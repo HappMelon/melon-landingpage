@@ -2,6 +2,7 @@ import { TrendingArticleStack } from "@/components/part/trendingArticleStack"
 import { TrendingHotTopics } from "@/components/part/trendingHotTopics"
 import { Box, Button, ButtonGroup, Stack } from "@chakra-ui/react"
 import { useState } from "react"
+
 export const TrendingNav = () => {
 	const [showTopics, toggleShowTopics] = useState(false)
 	return (

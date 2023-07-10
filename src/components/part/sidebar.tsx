@@ -2,6 +2,7 @@
 /* eslint-disable @typescript-eslint/no-unsafe-return */
 /* eslint-disable @typescript-eslint/no-unsafe-call */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
+import { ButtonWithText } from "@/components/common/button"
 import {
 	Box,
 	BoxProps,
@@ -21,23 +22,26 @@ import {
 	useColorModeValue,
 	useDisclosure,
 } from "@chakra-ui/react"
+
 import { ReactNode, ReactText } from "react"
-import { IconType } from "react-icons"
 import { BiGlobe, BiMobile } from "react-icons/bi"
 import { BsStars } from "react-icons/bs"
-import { FaWallet } from "react-icons/fa"
-import { FiMenu, FiTag, FiTrendingUp } from "react-icons/fi"
-import ButtonWithText from "../ui/button"
+import { FiMenu } from "react-icons/fi"
+import { useNavigate } from "react-router-dom"
+import { useIsConnected, useXSettingsModal } from "@flarezone/connect-kit"
 
 interface LinkItemProps {
 	name: string
-	icon: IconType
+	icon: string
+	path: string
 }
+
+// TODO 页面缩放到一定程度, 页面只显示icon
 const LinkItems: Array<LinkItemProps> = [
-	{ name: "Trending", icon: FiTrendingUp },
-	{ name: "Mill", icon: FiTag },
-	{ name: "Wallet", icon: FaWallet },
-	{ name: "Flare Premium", icon: BsStars },
+	{ name: "Trending", icon: "i-fa6-solid-fire-flame-curved", path: "explore" },
+	{ name: "Mill", icon: "i-fa6-solid-tag", path: "mill" },
+	{ name: "Wallet", icon: "i-fa6-solid-wallet", path: "wallet" },
+	{ name: "Flare Premium", icon: "i-fa6-solid-ranking-star", path: "premium" },
 ]
 
 export default function SimpleSidebar({ children }: { children: ReactNode }) {
@@ -74,17 +78,49 @@ interface SidebarProps extends BoxProps {
 	onClose: () => void
 }
 
+export function SettingsBtn() {
+	const isConnected = useIsConnected()
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
+	const { isActive, show, hide } = useXSettingsModal()
+
+	if (!isConnected) return null
+
+	return (
+		<Link
+			onClick={show}
+			style={{
+				fontSize: "0.75rem",
+				color: "black",
+				textDecoration: "underline",
+			}}
+		>
+			Settings
+		</Link>
+	)
+}
+
 const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
+	const navigate = useNavigate()
+
+	const pushExplore = () => {
+		navigate('/explore');
+	};
+
+	const pushPost = () => {
+		navigate(`/post`)
+	}
+
 	return (
 		<Box
 			bg={useColorModeValue("white", "gray.900")}
-			borderRight="1px"
+			borderRight="2px"
 			borderRightColor={useColorModeValue("gray.200", "gray.700")}
 			w={{ base: "full", md: "20vw" }}
 			pos="fixed"
 			h="full"
 			paddingLeft="5vw"
 			paddingTop="2vh"
+			overflow="auto"
 			{...rest}
 		>
 			<Flex
@@ -93,17 +129,26 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
 				mx="2rem"
 				justifyContent="space-between"
 			>
-				<Image w="5rem" h="5rem" src="/images/brands/Logo.png" alt="Logo" />
+				<Image
+					onClick={pushExplore}
+					w="82px"
+					h="82px"
+					src="/images/pages/explore/logo.png"
+					alt="Logo"
+					className="cursor-pointer"
+				/>
 				<CloseButton display={{ base: "flex", md: "none" }} onClick={onClose} />
 			</Flex>
 			<Flex direction="column" justifyContent="space-between" h="80vh">
 				{LinkItems.map((link) => (
-					<NavItem key={link.name} icon={link.icon}>
+					<NavItem key={link.name} icon={link.icon} path={link.path}>
 						{link.name}
 					</NavItem>
 				))}
 				<ButtonWithText
-					w="6rem"
+					onClick={() => pushPost()}
+					className="py-14px"
+					w="142px"
 					marginTop="1.25rem"
 					mx="1rem"
 					text="Post"
@@ -111,16 +156,9 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
 				/>
 				<Spacer />
 				<Stack direction="column" justify="left" mx="2rem" spacing="2rem">
+					<SettingsBtn />
 					<Link
-						style={{
-							fontSize: "0.75rem",
-							color: "black",
-							textDecoration: "underline",
-						}}
-					>
-						Settings
-					</Link>
-					<Link
+						href="mailto:flare.dapp@gmail.com"
 						style={{
 							fontSize: "0.75rem",
 							color: "black",
@@ -131,16 +169,19 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
 					</Link>
 					<Stack direction="row" spacing="0.75rem">
 						<IconButton
+							onClick={() => window.open("https://twitter.com/flaredapp")}
 							aria-label="twitter"
 							icon={<img src="/images/brands/twitter.png" alt="Button" />}
 							boxSize="2rem"
 						/>
 						<IconButton
+							onClick={() => window.open("https://discord.gg/9a48BTsNkC")}
 							aria-label="twitch"
 							icon={<img src="/images/brands/discord.png" alt="Button" />}
 							boxSize="2rem"
 						/>
 						<IconButton
+							onClick={() => window.open("https://t.me/+mrs5aIfdOPA3MGY1")}
 							aria-label="lark"
 							icon={<img src="/images/brands/telegram.png" alt="Button" />}
 							boxSize="2rem"
@@ -184,13 +225,15 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
 }
 
 interface NavItemProps extends FlexProps {
-	icon: IconType
+	icon: string
+	path: string
 	children: ReactText
 }
-const NavItem = ({ icon, children, ...rest }: NavItemProps) => {
+const NavItem = ({ icon, path, children, ...rest }: NavItemProps) => {
+	const navigate = useNavigate()
 	return (
 		<Link
-			href="#"
+			onClick={() => navigate(`/${path}`)}
 			style={{ textDecoration: "none" }}
 			_focus={{ boxShadow: "none" }}
 		>
@@ -209,14 +252,15 @@ const NavItem = ({ icon, children, ...rest }: NavItemProps) => {
 				{icon && (
 					<Icon
 						mr="1rem"
-						fontSize="1rem"
+						fontSize="20px"
 						_groupHover={{
 							color: "#F9D423",
 						}}
-						as={icon}
+						className={icon}
 					/>
 				)}
 				<Text
+					className="text-20px font-750"
 					bgGradient="linear(to-r, #000000, #000000)"
 					bgClip="text"
 					fontWeight="semibold"

@@ -1,19 +1,51 @@
 /* eslint-disable @typescript-eslint/no-unsafe-call */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
+import AppearanceSwitch from "@/components/part/appearance-switch"
 import {
-	Avatar,
 	Button,
-	Divider,
 	Input,
 	InputGroup,
 	InputLeftElement,
 	Stack,
 	Text,
 } from "@chakra-ui/react"
-import { BiBell, BiMoon, BiSearch, BiSun } from "react-icons/bi"
+
+import { useNavigate } from "react-router-dom"
+import { CharacterAvatar } from "@crossbell/ui"
+import { ConnectButton } from "@flarezone/connect-kit"
 import { useDarkMode } from "usehooks-ts"
+import { BiSearch } from "react-icons/bi"
+
+function Avatar() {
+	const navigate = useNavigate()
+
+	const pushAccount = () => {
+		navigate(`/account`)
+	}
+
+	return (
+		<ConnectButton>
+			{(status, { connect }) => {
+				if (status.isConnected) {
+					const { character } = status.account
+					return (
+						<CharacterAvatar
+							onClick={() => pushAccount()}
+							size="2.5vw"
+							character={character}
+							className="cursor-pointer"
+						/>
+					)
+				} else {
+					return <button onClick={connect}>Connect</button>
+				}
+			}}
+		</ConnectButton>
+	)
+}
 
 export const SearchBar = () => {
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	const { isDarkMode, toggle } = useDarkMode()
 	const bgColor = isDarkMode ? "black" : "white"
 	const lgFrom = "#FFC700"
@@ -23,7 +55,7 @@ export const SearchBar = () => {
 		border: "3px solid",
 		borderColor: "transparent",
 		borderRadius: "full",
-		background: `linear-gradient(${bgColor}, ${bgColor}) padding-box, 
+		background: `linear-gradient(${bgColor}, ${bgColor}) padding-box,
 		linear-gradient(135deg, ${lgFrom}, ${lgTo}) border-box`,
 		"> *": {
 			background: `linear-gradient(135deg, ${lgFrom}, ${lgTo})`,
@@ -31,7 +63,7 @@ export const SearchBar = () => {
 			textFillColor: "transparent",
 		},
 		_hover: {
-			background: `linear-gradient(${bgColor}, ${bgColor}) padding-box, 
+			background: `linear-gradient(${bgColor}, ${bgColor}) padding-box,
 		linear-gradient(315deg, ${lgFrom}, ${lgTo}) border-box`,
 			"> *": {
 				background: `linear-gradient(315deg, ${lgFrom}, ${lgTo})`,
@@ -42,18 +74,19 @@ export const SearchBar = () => {
 
 	return (
 		<>
-			<Stack spacing={4} h="3.125rem" direction="row" align="center" m="1rem">
+			<Stack
+				direction="row"
+				className="items-center py-2.6875rem h-8.375rem border-b-2px border-b-#D9D9D9"
+			>
 				<InputGroup size="md">
 					<InputLeftElement pointerEvents="none">
 						<BiSearch color="gray" />
 					</InputLeftElement>
 					<Input
-						w="40rem"
-						maxW="50rem"
 						variant="filled"
-						borderRadius="full"
 						type="text"
 						placeholder="Search topics, news"
+						className="w-40rem max-w-[50rem] !rounded-9999px"
 					/>
 					<Button marginLeft="2rem" rounded="full" style={gradientButtonStyle}>
 						<Text bgGradient="linear(to-r, #F9D423, #F83600)" bgClip="text">
@@ -61,28 +94,12 @@ export const SearchBar = () => {
 						</Text>
 					</Button>
 				</InputGroup>
-				<Stack spacing={4} direction="row" align="center" m="1rem">
-					<Button
-						background="none"
-						_hover={{ background: "none" }}
-						onClick={() => {
-							toggle
-						}}
-					>
-						{isDarkMode ? (
-							<BiMoon fontSize="1.5625rem" />
-						) : (
-							<BiSun fontSize="1.5625rem" />
-						)}
-					</Button>
-					<BiBell fontSize="1.5625rem" />
-					<Avatar
-						marginLeft="0.3125rem"
-						src="https://bit.ly/dan-abramov"
-					></Avatar>
-				</Stack>
+				<div className="items-center flex flex-row mr-1rem gap-2.25rem box-content">
+					<AppearanceSwitch />
+					<div className="i-fa6-regular-bell w-24px h-24px" />
+					<Avatar />
+				</div>
 			</Stack>
-			<Divider />
 		</>
 	)
 }

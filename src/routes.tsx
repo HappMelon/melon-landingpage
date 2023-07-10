@@ -1,8 +1,10 @@
 import App from "@/pages"
+import Account from "@/pages/account"
 import Explore from "@/pages/explore"
-import Login from "@/pages/login"
+import Mill from "@/pages/mill"
+import Post from "@/pages/post"
+import Wallet from "@/pages/wallet"
 import { createBrowserRouter } from "react-router-dom"
-import { Register } from "./components/part/register"
 
 const router = createBrowserRouter([
 	{
@@ -14,12 +16,20 @@ const router = createBrowserRouter([
 		element: <Explore />,
 	},
 	{
-		path: "/login",
-		element: <Login />,
+		path: "/mill",
+		element: <Mill />,
 	},
 	{
-		path: "/register",
-		element: <Register />,
+		path: "/wallet",
+		element: <Wallet />,
+	},
+	{
+		path: "/account",
+		element: <Account />,
+	},
+	{
+		path: "/post",
+		element: <Post />,
 	},
 ])
 

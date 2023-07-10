@@ -6,14 +6,10 @@ export const AccountPageContainer = () => {
 	return (
 		<>
 			<Flex
-				direction="row"
-				alignItems="center"
-				justifyContent="space-between"
-				m="2vh"
-			>
+				className="flex flex-row items-center justify-between m-2vh">
 				<ArticleStack />
 				<Spacer />
-				<FollowingMillStack />
+				<FollowingMillStack title="Following Mills" count={9} />
 			</Flex>
 		</>
 	)

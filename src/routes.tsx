@@ -24,7 +24,7 @@ const router = createBrowserRouter([
 		element: <Wallet />,
 	},
 	{
-		path: "/account",
+		path: "/:username",
 		element: <Account />,
 	},
 	{

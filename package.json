@@ -28,6 +28,7 @@
 		"axios": "^1.4.0",
 		"class-variance-authority": "^0.6.0",
 		"clsx": "^1.2.1",
+		"crossbell": "^1.4.2",
 		"framer-motion": "^10.12.17",
 		"i18next": "^23.2.3",
 		"jotai": "^2.2.1",

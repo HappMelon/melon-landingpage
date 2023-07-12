@@ -1,6 +1,6 @@
 import { Box, Text } from "@chakra-ui/react"
 import { useState } from "react"
-import * as ReactQuill from "react-quill"
+import ReactQuill from "react-quill"
 import "react-quill/dist/quill.snow.css"
 
 const modules = {

@@ -4,26 +4,32 @@ import { BsThreeDotsVertical } from "react-icons/bs"
 export const PostPagePublishedBox = () => {
 	return (
 		<Box w="95%" h="25vh" ml="5px" mr="5px" bg="#F8F8F8" borderRadius="1rem">
-			<Stack direction="column" ml="10px" mt="10px" w="370px" h="80%">
+			<Stack direction="column" ml="5px" mt="20px" w="370px" h="80%">
 				<Text color="#9B9B9B" fontSize="sm">
 					Published 2 days ago
 				</Text>
-				<Text color="#000000" fontSize="1rem" fontWeight="semibold">
+				<Text
+					color="#000000"
+					fontSize="1rem"
+					fontWeight="semibold"
+					maxW="300px"
+				>
 					Backed by Wall Street consortium, what are the features of the EDX
 					Markets?
 				</Text>
-				<Text color="#9B9B9B" fontSize="sm" maxW="lg" h="50%">
+				<Text color="#9B9B9B" fontSize="sm" maxW="350" h="50%" noOfLines={3}>
 					Lorem ipsum dolor sit amet consectetur. Massa aliquet volutpat libero
 					nunc facilisi laoreet velit iaculis. Quam volutpat ipsum tincidunt
 					aliquet hendrerit proin facilisis ultrices odio. Gravida a ac eget
-					posuere facilisis nunc. Magna rhoncus odio et integer at.
+					posuere facilisis nunc. Magna rhoncus odio et integer at.posuere
+					facilisis nunc. Magna rhoncus odio et integer at.facilisis nunc. Magna
+					rhoncus odio et integer at.
 				</Text>
 				<Flex
 					direction="row"
 					justify="space-between"
 					align="center"
 					w="100%"
-					ml="5px"
 					mt="-5px"
 				>
 					<Stack

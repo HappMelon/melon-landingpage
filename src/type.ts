@@ -18,3 +18,19 @@ export interface Follow {
 }
 
 export interface Character extends CharacterEntity {}
+
+export interface Tx {
+	result: Result[]
+}
+
+export interface Result {
+	blockHash: string
+	blockNumber: number
+	from: string
+	gas: number
+	hash: string
+	nonce: number
+	timeStamp: number
+	to: string
+	value: number
+}

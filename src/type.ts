@@ -34,3 +34,29 @@ export interface Result {
 	to: string
 	value: number
 }
+
+export interface ArticleResult {
+	list:Article[]
+}
+export interface Article {
+	characterId: number
+	noteId: number
+	createdAt:string
+	deleted: boolean
+	locked: boolean
+	metadata: ArticleMeta
+}
+
+export interface ArticleMeta {
+	content: ArticleContent
+}
+
+export interface ArticleContent {
+	tags: string[]
+	title: string
+	content: string
+	sources: string[]
+	summary: string
+	authors?: string[]
+	date_published: string
+}

@@ -12,15 +12,17 @@ import {
 
 import { useNavigate } from "react-router-dom"
 import { CharacterAvatar } from "@crossbell/ui"
-import { ConnectButton } from "@flarezone/connect-kit"
+import { ConnectButton, useAccountCharacter } from "@flarezone/connect-kit"
 import { useDarkMode } from "usehooks-ts"
 import { BiSearch } from "react-icons/bi"
 
 function Avatar() {
+	const character = useAccountCharacter()
+
 	const navigate = useNavigate()
 
 	const pushAccount = () => {
-		navigate(`/account`)
+		navigate(`/@${character?.handle || ""}`)
 	}
 
 	return (

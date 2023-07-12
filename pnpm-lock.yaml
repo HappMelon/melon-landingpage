@@ -59,6 +59,9 @@ dependencies:
   clsx:
     specifier: ^1.2.1
     version: 1.2.1
+  crossbell:
+    specifier: ^1.4.2
+    version: 1.4.2(typescript@5.1.3)
   framer-motion:
     specifier: ^10.12.17
     version: 10.12.17(react-dom@18.2.0)(react@18.2.0)
@@ -98,6 +101,9 @@ dependencies:
   react-use:
     specifier: ^17.4.0
     version: 17.4.0(react-dom@18.2.0)(react@18.2.0)
+  swr:
+    specifier: ^2.2.0
+    version: 2.2.0(react@18.2.0)
   tailwind-merge:
     specifier: ^1.13.2
     version: 1.13.2
@@ -1523,7 +1529,7 @@ packages:
     dependencies:
       '@crossbell/indexer': 1.4.8(react-dom@18.2.0)(react@18.2.0)(typescript@5.1.3)
       '@crossbell/util-hooks': 1.4.4(react-dom@18.2.0)(react@18.2.0)(typescript@5.1.3)
-      crossbell: 1.4.1(typescript@5.1.3)
+      crossbell: 1.4.2(typescript@5.1.3)
       react: 18.2.0
       viem: 1.2.9(typescript@5.1.3)
     transitivePeerDependencies:
@@ -1539,7 +1545,7 @@ packages:
     resolution: {integrity: sha512-lQgAXnDjGG0PruiVQfE9G1XfRnL8krWyD/UKpfnkGn8Lkho9HcRo8ng4Izjz0/0Zti598Xdhoyy7xpMzT13/Cw==}
     dependencies:
       '@tanstack/react-query': 4.29.19(react-dom@18.2.0)(react@18.2.0)
-      crossbell: 1.4.1(typescript@5.1.3)
+      crossbell: 1.4.2(typescript@5.1.3)
       dayjs: 1.11.9
       lodash.compact: 3.0.1
       lru-cache: 10.0.0
@@ -1558,7 +1564,7 @@ packages:
     resolution: {integrity: sha512-8ltfjmRlCWO5FhPb7+cdGYLusntu7TfxnMfCMqmLDpO5ddmbIITyzAuetlZ2wg89foxi58n0qqQSUF/S2Obr8Q==}
     dependencies:
       '@tanstack/react-query': 4.29.19(react-dom@18.2.0)(react@18.2.0)
-      crossbell: 1.4.1(typescript@5.1.3)
+      crossbell: 1.4.2(typescript@5.1.3)
       dayjs: 1.11.9
       lodash.compact: 3.0.1
       lru-cache: 10.0.0
@@ -1589,7 +1595,7 @@ packages:
       '@crossbell/util-metadata': 1.5.0(typescript@5.1.3)
       '@tanstack/react-query': 4.29.19(react-dom@18.2.0)(react@18.2.0)
       check-password-strength: 2.0.7
-      crossbell: 1.4.1(typescript@5.1.3)
+      crossbell: 1.4.2(typescript@5.1.3)
       immer: 10.0.2
       lodash.debounce: 4.0.8
       react: 18.2.0
@@ -1617,7 +1623,7 @@ packages:
       '@crossbell/util-metadata': 1.5.0(typescript@5.1.3)
       '@tanstack/react-query': 4.29.19(react-dom@18.2.0)(react@18.2.0)
       classnames: 2.3.2
-      crossbell: 1.4.1(typescript@5.1.3)
+      crossbell: 1.4.2(typescript@5.1.3)
       facepaint: 1.2.1
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
@@ -1648,7 +1654,7 @@ packages:
       react: ^18
     dependencies:
       '@tanstack/react-query': 4.29.19(react-dom@18.2.0)(react@18.2.0)
-      crossbell: 1.4.1(typescript@5.1.3)
+      crossbell: 1.4.2(typescript@5.1.3)
       react: 18.2.0
     transitivePeerDependencies:
       - bufferutil
@@ -1665,7 +1671,7 @@ packages:
       react: ^18
     dependencies:
       '@tanstack/react-query': 4.29.19(react-dom@18.2.0)(react@18.2.0)
-      crossbell: 1.4.1(typescript@5.1.3)
+      crossbell: 1.4.2(typescript@5.1.3)
       react: 18.2.0
     transitivePeerDependencies:
       - bufferutil
@@ -1681,7 +1687,7 @@ packages:
     dependencies:
       '@crossbell/util-ethers': 1.5.0
       '@fastify/deepmerge': 1.3.0
-      crossbell: 1.4.1(typescript@5.1.3)
+      crossbell: 1.4.2(typescript@5.1.3)
     transitivePeerDependencies:
       - bufferutil
       - typescript
@@ -2080,7 +2086,7 @@ packages:
       canvas-confetti: 1.6.0
       check-password-strength: 2.0.7
       classnames: 2.3.2
-      crossbell: 1.4.1(typescript@5.1.3)
+      crossbell: 1.4.2(typescript@5.1.3)
       embla-carousel-react: 7.1.0(react@18.2.0)
       immer: 10.0.2
       lodash.compact: 3.0.1
@@ -4772,15 +4778,15 @@ packages:
       which: 2.0.2
     dev: true
 
-  /crossbell@1.4.1(typescript@5.1.3):
-    resolution: {integrity: sha512-GABNtAIDeKiAmbApKJO7eF5ReXgm8xQg6UvOZhQf26BEFNso7OKJkOVG/BFrR620+Z6jFG0poSPKTkLrBvL+0g==}
+  /crossbell@1.4.2(typescript@5.1.3):
+    resolution: {integrity: sha512-6wS6X3r3zWjQOL1v2dMJ8hIfzCl1hQ5AoVV6nFGngKuk+LPoZeZjrrD7KTRueFqwE9F6oJmg7S6vHJNYu3STqQ==}
     engines: {node: '>=16.14.0'}
     dependencies:
       '@crossbell/ipfs-fetch': 0.0.19
       async-retry: 1.3.3
       eip1193-types: 0.2.1
       p-limit: 3.1.0
-      viem: 1.2.9(typescript@5.1.3)
+      viem: 1.2.11(typescript@5.1.3)
     transitivePeerDependencies:
       - bufferutil
       - typescript
@@ -7855,6 +7861,15 @@ packages:
     engines: {node: '>=12.0.0'}
     dev: false
     optional: true
+    
+  /swr@2.2.0(react@18.2.0):
+    resolution: {integrity: sha512-AjqHOv2lAhkuUdIiBu9xbuettzAzWXmCEcLONNKJRba87WAefz8Ca9d6ds/SzrPc235n1IxWYdhJ2zF3MNUaoQ==}
+    peerDependencies:
+      react: ^16.11.0 || ^17.0.0 || ^18.0.0
+    dependencies:
+      react: 18.2.0
+      use-sync-external-store: 1.2.0(react@18.2.0)
+    dev: false
 
   /tabbable@6.2.0:
     resolution: {integrity: sha512-Cat63mxsVJlzYvN51JmVXIgNoUokrIaT2zLclCXjRd8boZ0004U4KCs/sToJ75C6sdlByWxpYnb5Boif1VSFew==}

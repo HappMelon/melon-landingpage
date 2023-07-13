@@ -3,7 +3,7 @@ import { AiOutlineComment, AiOutlineEye, AiOutlineHeart } from "react-icons/ai"
 import { CharacterAvatar } from "@crossbell/ui"
 import { BsThreeDotsVertical } from "react-icons/bs"
 import {ArticleTag} from "./articleTag"
-import {Article} from "../../type"
+import {Article} from "@/type"
 import { Remarkable } from "remarkable"
 
 

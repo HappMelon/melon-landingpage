@@ -23,12 +23,16 @@ import {
 	useDisclosure,
 } from "@chakra-ui/react"
 
+import {
+	useConnectModal,
+	useIsConnected,
+	useXSettingsModal,
+} from "@flarezone/connect-kit"
 import { ReactNode, ReactText } from "react"
 import { BiGlobe, BiMobile } from "react-icons/bi"
 import { BsStars } from "react-icons/bs"
 import { FiMenu } from "react-icons/fi"
 import { useNavigate } from "react-router-dom"
-import { useIsConnected, useXSettingsModal } from "@flarezone/connect-kit"
 
 interface LinkItemProps {
 	name: string
@@ -103,8 +107,8 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
 	const navigate = useNavigate()
 
 	const pushExplore = () => {
-		navigate('/explore');
-	};
+		navigate("/explore")
+	}
 
 	const pushPost = () => {
 		navigate(`/post`)
@@ -231,9 +235,22 @@ interface NavItemProps extends FlexProps {
 }
 const NavItem = ({ icon, path, children, ...rest }: NavItemProps) => {
 	const navigate = useNavigate()
+	const isConnected = useIsConnected()
+	const { isActive, show, hide } = useConnectModal()
+
 	return (
 		<Link
-			onClick={() => navigate(`/${path}`)}
+			onClick={() => {
+				if (path === "wallet") {
+					if (isConnected) {
+						navigate(`/${path}`)
+					} else {
+						show()
+					}
+				} else {
+					navigate(`/${path}`)
+				}
+			}}
 			style={{ textDecoration: "none" }}
 			_focus={{ boxShadow: "none" }}
 		>

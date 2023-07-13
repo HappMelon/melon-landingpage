@@ -55,7 +55,7 @@ export const PostPageHeader = () => {
 					</Heading>
 				</HStack>
 				<Spacer />
-				<HStack>
+				<HStack spacing="-1.5">
 					<Button
 						onClick={() => {
 							navigate("/explore")

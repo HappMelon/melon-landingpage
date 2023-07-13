@@ -28,7 +28,7 @@ export const ArticleStack = ({
 				{articles?.list
 					.filter((article) => !article.deleted)
 					.map((article, i) => (
-						<ArticleBox key={i} data={article} account={account} />
+						<ArticleBox key={i} data={article} account={account as Character} />
 					))}
 			</Stack>
 		</>

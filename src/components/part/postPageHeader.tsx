@@ -8,14 +8,15 @@ import {
 	Spacer,
 } from "@chakra-ui/react"
 import { CharacterAvatar } from "@crossbell/ui"
-import { ConnectButton } from "@flarezone/connect-kit"
+import { ConnectButton, useAccountCharacter } from "@flarezone/connect-kit"
 import { useNavigate } from "react-router-dom"
 
 function Avatar() {
 	const navigate = useNavigate()
+	const character = useAccountCharacter()
 
 	const pushAccount = () => {
-		navigate(`/account`)
+		navigate(`/@${character?.handle || ""}`)
 	}
 
 	return (

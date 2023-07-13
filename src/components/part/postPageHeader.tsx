@@ -6,7 +6,6 @@ import {
 	Heading,
 	Image,
 	Spacer,
-	Text,
 } from "@chakra-ui/react"
 import { CharacterAvatar } from "@crossbell/ui"
 import { ConnectButton } from "@flarezone/connect-kit"
@@ -71,10 +70,10 @@ export const PostPageHeader = () => {
 						marginLeft="2rem"
 						rounded="full"
 					>
-						<Text>Save as Draft</Text>
+						Save as Draft
 					</Button>
 					<Button marginLeft="2rem" rounded="full">
-						<Text>Publish</Text>
+						Publish
 					</Button>
 					<Button marginLeft="2rem" rounded="full">
 						<Avatar />

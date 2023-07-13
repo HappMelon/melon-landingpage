@@ -3,7 +3,7 @@
 
 <head>
 	<meta charset="UTF-8" />
-	<link rel="icon" type="image/svg+xml" href="/logo.png" />
+	<link rel="icon" type="image/svg+xml" href="logo.png" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>flare-dapp.io</title>
 </head>
@@ -12,25 +12,25 @@
 	<div id="root" class="h-full bg-background text-foreground"></div>
 	<script type="module" src="/src/main.tsx"></script>
 	<script>
-		(function (doc, win) {
-			var docEI = doc.documentElement,
-				resizeEvt = 'orientationchange' in window ? 'orientataionchange' : 'resize',
-				recalc = function () {
-					var clientWidth = docEI.clientWidth;
-					if (!clientWidth) return;
-					if (clientWidth <= 400) {
-						docEI.style.fontSize = 12 * (clientWidth / 393) + 'px';
-					}
-					if (clientWidth > 400) {
-						docEI.style.fontSize = 16 * (clientWidth / 1920) + 'px';
-					}
+		// (function (doc, win) {
+		// 	var docEI = doc.documentElement,
+		// 		resizeEvt = 'orientationchange' in window ? 'orientataionchange' : 'resize',
+		// 		recalc = function () {
+		// 			var clientWidth = docEI.clientWidth;
+		// 			if (!clientWidth) return;
+		// 			if (clientWidth <= 400) {
+		// 				docEI.style.fontSize = 12 * (clientWidth / 393) + 'px';
+		// 			}
+		// 			if (clientWidth > 400) {
+		// 				docEI.style.fontSize = 16 * (clientWidth / 1920) + 'px';
+		// 			}
 
-				}
+		// 		}
 
-			if (!doc.addEventListener) return;
-			win.addEventListener(resizeEvt, recalc, false);
-			doc.addEventListener('DOMContentLoaded', recalc, false);
-		})(document, window);
+		// 	if (!doc.addEventListener) return;
+		// 	win.addEventListener(resizeEvt, recalc, false);
+		// 	doc.addEventListener('DOMContentLoaded', recalc, false);
+		// })(document, window);
 	</script>
 
 </body>

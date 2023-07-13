@@ -13,7 +13,7 @@ export const AccountPageContainer = () => {
 	return (
 		<>
 			<Flex className="flex flex-row items-center justify-between m-2vh">
-				<ArticleStack userID={account?.characterId||10} />
+				<ArticleStack userID={account?.characterId || 10} account={account} />
 				<Spacer />
 				<FollowingMillStack title="Following Mills" count={9} />
 			</Flex>

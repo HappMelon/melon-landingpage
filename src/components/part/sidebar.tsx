@@ -28,6 +28,7 @@ import {
 	useIsConnected,
 	useXSettingsModal,
 } from "@flarezone/connect-kit"
+
 import { ReactNode, ReactText } from "react"
 import { BiGlobe, BiMobile } from "react-icons/bi"
 import { BsStars } from "react-icons/bs"
@@ -69,7 +70,6 @@ export default function SimpleSidebar({ children }: { children: ReactNode }) {
 					<SidebarContent onClose={onClose} />
 				</DrawerContent>
 			</Drawer>
-			{/* mobilenav */}
 			<MobileNav display={{ base: "flex", md: "none" }} onOpen={onOpen} />
 			<Box ml={{ base: 0, md: "20vw" }} p="1rem 4rem">
 				{children}
@@ -236,6 +236,7 @@ interface NavItemProps extends FlexProps {
 const NavItem = ({ icon, path, children, ...rest }: NavItemProps) => {
 	const navigate = useNavigate()
 	const isConnected = useIsConnected()
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	const { isActive, show, hide } = useConnectModal()
 
 	return (
@@ -247,6 +248,8 @@ const NavItem = ({ icon, path, children, ...rest }: NavItemProps) => {
 					} else {
 						show()
 					}
+				} else if (path === "premium") {
+					// TODO: add premium page
 				} else {
 					navigate(`/${path}`)
 				}

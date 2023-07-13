@@ -105,13 +105,20 @@ export function SettingsBtn() {
 
 const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
 	const navigate = useNavigate()
+	const isConnected = useIsConnected()
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
+	const { isActive, show, hide } = useConnectModal()
 
 	const pushExplore = () => {
 		navigate("/explore")
 	}
 
 	const pushPost = () => {
-		navigate(`/post`)
+		if (isConnected) {
+			navigate(`/post`)
+		} else {
+			show()
+		}
 	}
 
 	return (

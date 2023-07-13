@@ -3,13 +3,14 @@ import { Button, Grid, GridItem, Stack } from "@chakra-ui/react"
 import { PostPageEditor } from "@/components/part/postPageEditor"
 import { PostPageNav } from "@/components/part/postPageNav"
 import { CharacterAvatar } from "@crossbell/ui"
-import { ConnectButton } from "@flarezone/connect-kit"
+import { ConnectButton, useAccountCharacter } from "@flarezone/connect-kit"
 import { useNavigate } from "react-router-dom"
 function Avatar() {
 	const navigate = useNavigate()
+	const character = useAccountCharacter()
 
 	const pushAccount = () => {
-		navigate(`/account`)
+		navigate(`/@${character?.handle || ""}`)
 	}
 
 	return (

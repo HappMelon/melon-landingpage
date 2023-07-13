@@ -62,6 +62,7 @@
 		"@types/node": "^20.3.1",
 		"@types/react": "^18.2.14",
 		"@types/react-dom": "^18.2.6",
+		"@types/remarkable": "^2.0.3",
 		"@typescript-eslint/eslint-plugin": "6.0.0-alpha.121",
 		"@typescript-eslint/parser": "6.0.0-alpha.121",
 		"@vitejs/plugin-react-swc": "^3.3.2",

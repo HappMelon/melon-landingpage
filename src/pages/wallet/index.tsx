@@ -45,6 +45,7 @@ function formatTimeStamp(timeStamp: number) {
 
 export function CSBDetaiwlBtn() {
 	const isConnected = useIsConnected()
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	const { isActive, show, hide } = useCsbDetailModal()
 
 	if (!isConnected) return null

@@ -1,16 +1,56 @@
-import { Box, BoxProps, Button, Flex, Image, Stack, Text } from "@chakra-ui/react"
-import { AiOutlineComment, AiOutlineEye, AiOutlineHeart } from "react-icons/ai"
+import { ArticleTag } from "@/components/part/articleTag"
+import { Article, Character } from "@/type"
+import { Box, BoxProps, Stack, Text } from "@chakra-ui/react"
 import { CharacterAvatar } from "@crossbell/ui"
-import { BsThreeDotsVertical } from "react-icons/bs"
-import {ArticleTag} from "./articleTag"
-import {Article} from "@/type"
+import {
+	useIsNoteLiked,
+	useNoteLikeCount,
+	useToggleLikeNote,
+} from "@flarezone/connect-kit"
 import { Remarkable } from "remarkable"
 
-
-interface ArticleBoxProps extends BoxProps{
+interface ArticleBoxProps extends BoxProps {
 	data: Article
+	account: Character
 }
-export const ArticleBox = ({data,...props}:ArticleBoxProps) => {
+
+interface Props {
+	noteId: number
+	characterId: number
+}
+
+function NoteLikeCount({ noteId, characterId }: Props) {
+	const { data: likeCount } = useNoteLikeCount({
+		noteId: noteId,
+		characterId: characterId,
+	})
+	return <div>{likeCount}</div>
+}
+
+function IsNoteLiked({ noteId, characterId }: Props) {
+	const note = { characterId: characterId, noteId: noteId }
+	const toggleLikeNote = useToggleLikeNote()
+	const [{ isLiked }] = useIsNoteLiked({
+		noteId: noteId,
+		characterId: characterId,
+	})
+
+	return (
+		<button
+			onClick={() => {
+				toggleLikeNote.mutate(note)
+			}}
+		>
+			{isLiked ? (
+				<div className="i-ic-baseline-favorite !color-#F87171 w-1rem h-1rem" />
+			) : (
+				<div className="i-ic-baseline-favorite-border w-1rem h-1rem" />
+			)}
+		</button>
+	)
+}
+
+export const ArticleBox = ({ data, account, ...Props }: ArticleBoxProps) => {
 	const md = new Remarkable()
 	function renderMarkdownToHTML(markdown: string) {
 		// This is ONLY safe because the output HTML
@@ -19,87 +59,89 @@ export const ArticleBox = ({data,...props}:ArticleBoxProps) => {
 		const renderedHTML = md.render(markdown)
 		return { __html: renderedHTML }
 	}
-	function calculateDate(time: string) {
-		const date1 = new Date(time)
-		const date2 = new Date()
-		const difference = date2.getTime() - date1.getTime()
-		return Math.ceil(difference / (1000 * 3600 * 24))
+
+	function calculateDate(date: string) {
+		const now = new Date()
+		const diff = Number(now) - Number(new Date(date))
+
+		const seconds = Math.floor(diff / 1000)
+		const minutes = Math.floor(seconds / 60)
+		const hours = Math.floor(minutes / 60)
+		const days = Math.floor(hours / 24)
+		const weeks = Math.floor(days / 7)
+		const months = Math.floor(days / 30)
+		const years = Math.floor(days / 365)
+
+		if (seconds < 60) {
+			return `${seconds} seconds ago`
+		} else if (minutes < 60) {
+			return `${minutes} minute ago`
+		} else if (hours < 24) {
+			return `${hours} hour ago`
+		} else if (days < 7) {
+			return `${days} days ago`
+		} else if (weeks < 4) {
+			return `${weeks} weeks ago`
+		} else if (months < 12) {
+			return `${months} moons ago`
+		} else {
+			return `${years} years ago`
+		}
 	}
+
 	return (
 		<>
-			<Box className="w-50vw min-h-25vh bg-#F8F8F8 rounded-2rem">
-				<Stack className="flex !flex-row w-full h-full overflow-auto p-2.5vh gap-2rem">
-					{/* <CharacterAvatar
-						className="h-11.5rem rounded-1rem object-cover shadow-xl aspect-ratio-1"
-						size="11.5rem"
-						character={data.characterId}
-					/> */}
-					<Image
-						className="h-11.5rem rounded-1rem object-cover shadow-xl aspect-ratio-1"
-						src="https://images.ctfassets.net/pdf29us7flmy/7MAfLagu0g3iappEl8QH3S/5ebac5a5115d2ecd3eb357b992d949ee/GettyImages-643897728_optimized.jpg"
-						alt="Cover"
+			<Box className="flex w-full py-3 px-3 border-b border-gray/20 bg-hover cursor-pointer flex-row">
+				<Stack className="flex !flex-row">
+					<CharacterAvatar
+						className="!w-3rem !h-3rem !rounded-50% border-solid border-#fff shadow-lg object-cover"
+						size="4rem"
+						character={account}
 					/>
-					<Stack className="flex flex-col gap-0.75rem justify-start items-start">
-						<Text className="color-#9B9B9B text-0.75rem">
-							Published{" "}
-							{calculateDate(
-								data.metadata.content.date_published || data.createdAt
-							)}{" "}
-							days ago
-						</Text>
-						<Text className="color-#000 text-1.125rem font-700">
-							{data.metadata.content.title}
+					<div>
+						<Stack className="flex !flex-row !flex-wrap items-center">
+							<Text className="text-1rem font-bold">
+								{account ? account?.handle : ""}
+							</Text>
+							<Text className="text-0.875rem color-#868e96">
+								{account ? account?.metadata?.content?.name : ""}
+							</Text>
+							<Text className="color-#868e96">·</Text>
+							<Text className="color-#868e96">
+								{calculateDate(data.createdAt)}
+							</Text>
+						</Stack>
+						<Text className="color-#000 text-1.125rem font-700 my-2 break-words leading-1.25rem">
+							{data ? data?.metadata?.content?.title : ""}
 						</Text>
 						<Text
-							className="color-#9B9B9B text-1rem"
-							dangerouslySetInnerHTML={renderMarkdownToHTML(data.metadata.content.content)
-							}
+							className="color-#9B9B9B text-1rem my-2 break-words leading-1.25rem "
+							dangerouslySetInnerHTML={renderMarkdownToHTML(
+								data.metadata.content.content
+							)}
 						>
 							{}
 						</Text>
-						<Flex className="flex flex-row justify-between items-center w-full">
-							<Stack className="flex !flex-row justify-start justify-items-start items-center gap-1rem">
-								<Button
-									className="color-#000 text-0.75rem p-0"
-									leftIcon={<AiOutlineEye />}
-									bg="none"
-									_hover={{ bg: "none" }}
-								>
-									80k+
-								</Button>
-								<Button
-									color="#000000"
-									fontSize="0.75rem"
-									leftIcon={<AiOutlineHeart />}
-									p="0"
-									bg="none"
-									_hover={{ bg: "none" }}
-								>
-									50k+
-								</Button>
-								<Button
-									color="#000000"
-									fontSize="0.75rem"
-									leftIcon={<AiOutlineComment />}
-									p="0"
-									bg="none"
-									_hover={{ bg: "none" }}
-								>
-									88k+
-								</Button>
-							</Stack>
-							<Stack direction="row" align="center" spacing="1rem">
-								{data.metadata.content.tags ? (
-									data.metadata.content.tags.map((tag, i) => (
-										<ArticleTag num={i} key={i} content={tag} />
-									))
-								) : (
-									<></>
-								)}
-							</Stack>
-							<BsThreeDotsVertical fontSize="1.5rem" color="#9B9B9B" />
-						</Flex>
-					</Stack>
+						<Stack direction="row" align="center" spacing="1rem">
+							{data.metadata.content.sources ? (
+								data.metadata.content.sources.map((tag, i) => (
+									<ArticleTag num={i} key={i} content={tag} />
+								))
+							) : (
+								<></>
+							)}
+						</Stack>
+						<div className="flex gap-2 pt !items-center">
+							<IsNoteLiked
+								noteId={data.noteId}
+								characterId={data.characterId}
+							/>
+							<NoteLikeCount
+								noteId={data.noteId}
+								characterId={data.characterId}
+							/>
+						</div>
+					</div>
 				</Stack>
 			</Box>
 		</>

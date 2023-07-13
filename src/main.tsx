@@ -9,6 +9,7 @@ import "./i18n"
 import React from "react"
 import ReactDOM from "react-dom/client"
 
+import { NotificationModal } from "@crossbell/notification"
 import { ConnectKitProvider, createWagmiConfig } from "@flarezone/connect-kit"
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
 import { WagmiConfig } from "wagmi"
@@ -28,6 +29,7 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
 		<QueryClientProvider client={queryClient}>
 			<WagmiConfig config={wagmiConfig}>
 				<ConnectKitProvider>
+					<NotificationModal />
 					<App />
 				</ConnectKitProvider>
 			</WagmiConfig>

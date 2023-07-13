@@ -10,11 +10,25 @@ import {
 	Text,
 } from "@chakra-ui/react"
 
-import { useNavigate } from "react-router-dom"
+import { useShowNotificationModal } from "@crossbell/notification"
 import { CharacterAvatar } from "@crossbell/ui"
-import { ConnectButton, useAccountCharacter } from "@flarezone/connect-kit"
-import { useDarkMode } from "usehooks-ts"
+import {
+	ConnectButton,
+	useAccountCharacter,
+	useIsConnected,
+} from "@flarezone/connect-kit"
 import { BiSearch } from "react-icons/bi"
+import { useNavigate } from "react-router-dom"
+import { useDarkMode } from "usehooks-ts"
+
+export function NotificationBtn() {
+	const isConnected = useIsConnected()
+	const showNotificationModal = useShowNotificationModal()
+
+	if (!isConnected) return null
+
+	return <button onClick={showNotificationModal } className="i-fa6-regular-bell w-24px h-24px" />
+}
 
 function Avatar() {
 	const character = useAccountCharacter()
@@ -98,7 +112,7 @@ export const SearchBar = () => {
 				</InputGroup>
 				<div className="items-center flex flex-row mr-1rem gap-2.25rem box-content">
 					<AppearanceSwitch />
-					<div className="i-fa6-regular-bell w-24px h-24px" />
+					<NotificationBtn />
 					<Avatar />
 				</div>
 			</Stack>

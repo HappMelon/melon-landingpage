@@ -1,6 +1,7 @@
-import { Button, Grid, GridItem, Stack } from "@chakra-ui/react"
+import { Grid, GridItem } from "@chakra-ui/react"
 
 import { PostPageEditor } from "@/components/part/postPageEditor"
+import { PostPageHeader } from "@/components/part/postPageHeader"
 import { PostPageNav } from "@/components/part/postPageNav"
 import { CharacterAvatar } from "@crossbell/ui"
 import { ConnectButton, useAccountCharacter } from "@flarezone/connect-kit"
@@ -51,23 +52,7 @@ export const PostPageContainer = () => {
 				overflow="hidden"
 			>
 				<GridItem pl="3" area={"header"} ml="5%" mr="50px" h="100%">
-					<Stack
-						direction="row"
-						className="items-center py-2.6875rem h-8.375rem border-b-2px border-b-#D9D9D9"
-					>
-						<div className="items-center flex flex-row mr-1rem gap-2.25rem box-content">
-							<Button
-								onClick={() => {
-									navigate("/explore")
-								}}
-							>
-								Back
-							</Button>
-							<Button>Save as Draft</Button>
-							<Button>Publish</Button>
-							<Avatar />
-						</div>
-					</Stack>
+					<PostPageHeader />
 				</GridItem>
 				<GridItem
 					pl="2"
@@ -80,7 +65,7 @@ export const PostPageContainer = () => {
 				>
 					<PostPageNav />
 				</GridItem>
-				<GridItem area={"main"} w="75%" ml="20%" h="100%">
+				<GridItem area={"main"} w="75%" ml="15%" h="100%">
 					<PostPageEditor />
 				</GridItem>
 			</Grid>

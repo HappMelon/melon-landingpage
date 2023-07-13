@@ -1,8 +1,11 @@
-/* eslint-disable jsx-a11y/no-autofocus */
-/* eslint-disable @typescript-eslint/no-unsafe-return */
-/* eslint-disable @typescript-eslint/no-unsafe-call */
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import { ButtonWithText } from "@/components/common/button"
+
+import {
+	useConnectModal,
+	useIsConnected,
+	useXSettingsModal,
+} from "@flarezone/connect-kit"
+
 import {
 	Box,
 	BoxProps,
@@ -12,7 +15,6 @@ import {
 	DrawerContent,
 	Flex,
 	FlexProps,
-	Icon,
 	IconButton,
 	Image,
 	Link,
@@ -22,12 +24,6 @@ import {
 	useColorModeValue,
 	useDisclosure,
 } from "@chakra-ui/react"
-
-import {
-	useConnectModal,
-	useIsConnected,
-	useXSettingsModal,
-} from "@flarezone/connect-kit"
 
 import { ReactNode, ReactText } from "react"
 import { BiGlobe, BiMobile } from "react-icons/bi"
@@ -41,12 +37,27 @@ interface LinkItemProps {
 	path: string
 }
 
-// TODO 页面缩放到一定程度, 页面只显示icon
 const LinkItems: Array<LinkItemProps> = [
-	{ name: "Trending", icon: "i-fa6-solid-fire-flame-curved", path: "explore" },
-	{ name: "Mill", icon: "i-fa6-solid-tag", path: "mill" },
-	{ name: "Wallet", icon: "i-fa6-solid-wallet", path: "wallet" },
-	{ name: "Flare Premium", icon: "i-fa6-solid-ranking-star", path: "premium" },
+	{
+		name: "Trending",
+		icon: "/images/pages/explore/icon_fire_.svg",
+		path: "explore",
+	},
+	{
+		name: "Mill",
+		icon: "/images/pages/explore/icon_purchase_.svg",
+		path: "mill",
+	},
+	{
+		name: "Wallet",
+		icon: "/images/pages/explore/icon_wallet_.svg",
+		path: "wallet",
+	},
+	{
+		name: "Flare Premium",
+		icon: "/images/pages/explore/icon_premium_.svg",
+		path: "premium",
+	},
 ]
 
 export default function SimpleSidebar({ children }: { children: ReactNode }) {
@@ -58,7 +69,6 @@ export default function SimpleSidebar({ children }: { children: ReactNode }) {
 				display={{ base: "none", md: "block" }}
 			/>
 			<Drawer
-				autoFocus={false}
 				isOpen={isOpen}
 				placement="left"
 				onClose={onClose}
@@ -240,6 +250,7 @@ interface NavItemProps extends FlexProps {
 	path: string
 	children: ReactText
 }
+
 const NavItem = ({ icon, path, children, ...rest }: NavItemProps) => {
 	const navigate = useNavigate()
 	const isConnected = useIsConnected()
@@ -276,18 +287,9 @@ const NavItem = ({ icon, path, children, ...rest }: NavItemProps) => {
 				}}
 				{...rest}
 			>
-				{icon && (
-					<Icon
-						mr="1rem"
-						fontSize="20px"
-						_groupHover={{
-							color: "#F9D423",
-						}}
-						className={icon}
-					/>
-				)}
+				<img alt={""} src={icon} className="fill-red" />
 				<Text
-					className="text-20px font-750"
+					className="text-1.25rem font-750 pl-1.125rem"
 					bgGradient="linear(to-r, #000000, #000000)"
 					bgClip="text"
 					fontWeight="semibold"
@@ -308,6 +310,12 @@ interface MobileProps extends FlexProps {
 }
 
 const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
+	const navigate = useNavigate()
+
+	const pushExplore = () => {
+		navigate("/explore")
+	}
+
 	return (
 		<Flex
 			ml={{ base: 0, md: "3.75rem" }}
@@ -327,9 +335,12 @@ const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
 				icon={<FiMenu />}
 			/>
 
-			<Text fontSize="2rem" ml="1rem" fontFamily="monospace" fontWeight="bold">
-				Logo
-			</Text>
+			<Image
+				src="/images/pages/explore/logo.png"
+				alt="Logo"
+				className="cursor-pointer"
+				onClick={() => pushExplore()}
+			/>
 		</Flex>
 	)
 }

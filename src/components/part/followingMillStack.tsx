@@ -17,7 +17,6 @@ export const FollowingMillStack = ({
 	return (
 		<Box
 			{...props}
-			bg="#F8F8F8"
 			borderRadius="1rem"
 			alignSelf="flex-start"
 			mt="4vh"

@@ -6,7 +6,7 @@ import { PiNumberCircleOneFill } from "react-icons/pi"
 export const FollowingMill = () => {
 	return (
 		<>
-			<Flex className="w-full justify-between">
+			<Flex className="w-full justify-between gap-0.25rem">
 				<Stack className="flex !flex-row gap-0.5rem items-center">
 					<PiNumberCircleOneFill className="color-#000 text-0.75rem" />
 					<Image
@@ -16,23 +16,24 @@ export const FollowingMill = () => {
 					<Text className="text-1rem color-#000 font-700">CoinBase</Text>
 				</Stack>
 				<Spacer />
-				<Stack className="flex !flex-row justify-start justify-items-start items-center gap-1rem">
+				<Stack className="flex !flex-row items-center">
 					<Button
-						className="text-0.75rem p-0"
+						className="text-0.75rem"
 						leftIcon={<FaComments style={{ marginRight: "-0.25rem" }} />}
 						bg="none"
 						_hover={{ bg: "none" }}
 					>
 						1k participations
 					</Button>
+					{/* FIXME 这里不知道为什么一样有这么大的间距 */}
 					<Button
-						className="color-#000 text-0.75rem p-0 bg-background-none"
+						className="color-#000 text-0.75rem  bg-background-none ml--1.75rem"
 						color="#000000"
 						leftIcon={<IoIosPeople style={{ marginRight: "-0.25rem" }} />}
 						bg="none"
 						_hover={{ bg: "none" }}
 					>
-						329
+						211
 					</Button>
 				</Stack>
 			</Flex>

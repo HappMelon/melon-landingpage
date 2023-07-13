@@ -1,5 +1,13 @@
-import { Box, Text } from "@chakra-ui/react"
+import {
+	Box,
+	Button,
+	ButtonGroup,
+	HStack,
+	Spacer,
+	Text,
+} from "@chakra-ui/react"
 import { useState } from "react"
+import { IoCloudUploadOutline } from "react-icons/io5"
 import ReactQuill from "react-quill"
 import "react-quill/dist/quill.snow.css"
 
@@ -19,10 +27,19 @@ export const PostPageEditor = () => {
 				theme="snow"
 				value={value}
 				onChange={setValue}
-				style={{ height: "440px" }}
+				style={{ height: "40rem" }}
 				modules={modules}
 			/>
-			<Text>Buttons</Text>
+			<HStack>
+				<ButtonGroup>
+					<Button leftIcon={<IoCloudUploadOutline />}>
+						<Text>Upload Files*</Text>
+					</Button>
+					<Button leftIcon={<IoCloudUploadOutline />}>Upload Videos</Button>
+					<Spacer />
+					<Button>Add Betting Prediction</Button>
+				</ButtonGroup>
+			</HStack>
 		</Box>
 	)
 }

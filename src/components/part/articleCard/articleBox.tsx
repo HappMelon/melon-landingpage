@@ -50,6 +50,7 @@ function IsNoteLiked({ noteId, characterId }: Props) {
 	)
 }
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export const ArticleBox = ({ data, account, ...Props }: ArticleBoxProps) => {
 	const md = new Remarkable()
 	function renderMarkdownToHTML(markdown: string) {
@@ -92,7 +93,13 @@ export const ArticleBox = ({ data, account, ...Props }: ArticleBoxProps) => {
 	return (
 		<>
 			<Box className="flex w-full py-3 px-3 border-b border-gray/20 bg-hover cursor-pointer flex-row">
-				<Stack className="flex !flex-row">
+				<Stack
+					className="flex !flex-row w-full cursor-pointer hover-transition-opacity hover:bg-#9ca3af10 rounded-xl"
+					// OPTIMIZE 这里先这么写, 之后按照统一的方式 open page
+					onClick={() => {
+						window.location.href = `/@${account.handle}/status/${data.characterId}-${data.noteId}`
+					}}
+				>
 					<CharacterAvatar
 						className="!w-3rem !h-3rem !rounded-50% border-solid border-#fff shadow-lg object-cover"
 						size="4rem"

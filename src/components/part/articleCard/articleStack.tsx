@@ -11,14 +11,15 @@ interface ArticleStackProps extends StackProps {
 export const ArticleStack = ({
 	userID,
 	account,
-	...props
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
+	...Props
 }: ArticleStackProps) => {
 	// according to the id, fetch the result of article
 	const { data: articles } = useArticlesID(userID as number)
 	if (!articles) {
 		return (
 			<Stack className="gap-1.5rem flex !flex-col mt-5vh">
-				<>all lives matter</>
+				<></>
 			</Stack>
 		)
 	}

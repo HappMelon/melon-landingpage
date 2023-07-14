@@ -15,18 +15,13 @@ export const FollowingMillStack = ({
 	const followingMills = Array.from({ length: followingMillsCount })
 
 	return (
-		<Box
-			{...props}
-			borderRadius="1rem"
-			alignSelf="flex-start"
-			mt="4vh"
-		>
+		<Box {...props} borderRadius="1rem" alignSelf="flex-start" mt="4vh">
 			<Stack direction="column" spacing="1.5rem" w="100%" p="1.75rem">
 				<Text fontSize="1.5rem" fontWeight="bold" color="#000">
 					{title}
 				</Text>
 				{followingMills.map((_, index) => (
-					<FollowingMill key={index} />
+					<FollowingMill key={index} index={index} />
 				))}
 			</Stack>
 		</Box>

@@ -1,17 +1,17 @@
+import { GenerateRandomNumber } from "@/lib/utils"
 import { Button, Flex, Image, Spacer, Stack, Text } from "@chakra-ui/react"
 import { FaComments } from "react-icons/fa"
 import { IoIosPeople } from "react-icons/io"
-import { PiNumberCircleOneFill } from "react-icons/pi"
 
-export const FollowingMill = () => {
+export const FollowingMill = ({ index }: { index: number }) => {
 	return (
 		<>
 			<Flex className="w-full justify-between gap-0.25rem">
 				<Stack className="flex !flex-row gap-0.5rem items-center">
-					<PiNumberCircleOneFill className="color-#000 text-0.75rem" />
+					<Text className="text-1rem font-serif">{index}</Text>
 					<Image
 						className="h-1.5rem w-1.5rem rounded-full border-0.125rem border-#fff"
-						src="https://play-lh.googleusercontent.com/PjoJoG27miSglVBXoXrxBSLveV6e3EeBPpNY55aiUUBM9Q1RCETKCOqdOkX2ZydqVf0"
+						src="/images/pages/mill/avatar_coinbase.png"
 					/>
 					<Text className="text-1rem color-#000 font-700">CoinBase</Text>
 				</Stack>
@@ -33,7 +33,7 @@ export const FollowingMill = () => {
 						bg="none"
 						_hover={{ bg: "none" }}
 					>
-						211
+						{GenerateRandomNumber(1, 800)}
 					</Button>
 				</Stack>
 			</Flex>

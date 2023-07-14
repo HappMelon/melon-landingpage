@@ -106,7 +106,7 @@ export function SettingsBtn() {
 				fontSize: "0.75rem",
 				color: "black",
 				textDecoration: "underline",
-				marginTop:"2rem",
+				marginTop: "2rem",
 			}}
 		>
 			Settings
@@ -178,7 +178,7 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
 				/>
 				<Spacer />
 				<Stack direction="column" justify="left" mx="2rem" spacing="2rem">
-					<SettingsBtn/>
+					<SettingsBtn />
 					<Link
 						href="mailto:flare.dapp@gmail.com"
 						style={{
@@ -237,8 +237,8 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
 							US/EN
 						</Button>
 					</Stack>
-					<Text fontSize="0.5rem" color="#9B9B9B" mt="-2rem">
-						© Flare Dapp 2023 | All Rights Reserved
+					<Text fontSize="0.5rem" color="#9B9B9B" className="pb-2.375rem">
+						© Flare Dapp 2023 &nbsp; | &nbsp; All Rights Reserved
 					</Text>
 				</Stack>
 			</Flex>

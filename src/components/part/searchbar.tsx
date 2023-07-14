@@ -107,7 +107,7 @@ export const SearchBar = () => {
 					<Button
 						rounded="full"
 						style={gradientButtonStyle}
-						className="mx-1rem"
+						className="mx-1rem !pt-1.0625rem !pr-1.75rem !pb-0.8125rem !pl-1.6875rem"
 					>
 						<Text
 							bgGradient="linear(to-r, #F9D423, #F83600)"

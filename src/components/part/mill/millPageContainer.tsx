@@ -24,7 +24,7 @@ export const MillPageContainer = () => {
 				</Flex>
 
 				<Stack className="w-100%" overflowX="auto">
-					<Stack className="gap-1.5rem flex !flex-row mt-5vh w-200%">
+					<Stack className="gap-1.5rem flex !flex-row mt-5vh w-full">
 						<ArticleBoxWithImgBg
 							imageUrl="/images/pages/mill/one.png"
 							title="Coinbase has filed a formal request with the court to compel the SEC to establish clear rules for all digital assets."

@@ -2,6 +2,7 @@ import { ArticleBoxWithImgBg } from "@/components/part/articleBoxWithImgBg"
 import CompanyTitle from "@/components/part/companyTitle"
 import { FollowingMillStack } from "@/components/part/followingMillStack"
 import { CircleGradientButton } from "@/components/ui/circleGradientButton"
+import { GenerateRandomNumber } from "@/lib/utils"
 import { Box, Button, Flex, Spacer, Stack } from "@chakra-ui/react"
 
 export const MillPageContainer = () => {
@@ -83,20 +84,35 @@ export const MillPageContainer = () => {
 
 				<Flex direction="row" justify="space-between" w="100%">
 					<ArticleBoxWithImgBg
-						imageUrl="https://thebluebanner.net/wp-content/uploads/2018/04/DC7_1215.jpg"
+						imageUrl="/images/pages/mill/one.png"
 						title="Coinbase has filed a formal request with the court to compel the SEC to establish clear rules for all digital assets."
+						handle="@oliviaaaaoh_"
+						author="Coinbase"
+						tag={["#coinbase", "#crypto"]}
+						avatar="/images/pages/mill/avatar_coinbase.png"
+						number={GenerateRandomNumber(1, 800)}
 						w="26.375rem"
 						h="17.625rem"
 					/>
 					<ArticleBoxWithImgBg
-						imageUrl="https://thebluebanner.net/wp-content/uploads/2018/04/DC7_1215.jpg"
-						title="Coinbase has filed a formal request with the court to compel the SEC to establish clear rules for all digital assets."
+						imageUrl="/images/pages/mill/two.png"
+						title="The Economist is a British weekly newspaper printed in demitab format and published digitally."
+						handle="@jennyrose_"
+						author="Economist"
+						tag={["#finance", "#tech"]}
+						avatar="/images/pages/mill/avatar_e.png"
+						number={GenerateRandomNumber(1, 800)}
 						w="26.375rem"
 						h="17.625rem"
 					/>
 					<ArticleBoxWithImgBg
-						imageUrl="https://thebluebanner.net/wp-content/uploads/2018/04/DC7_1215.jpg"
-						title="Coinbase has filed a formal request with the court to compel the SEC to establish clear rules for all digital assets."
+						imageUrl="/images/pages/mill/three.png"
+						title="Fast Company articles with a unique editorial focus on innovation in technology, leadership, and design."
+						handle="@davidhoffmannn"
+						author="Fast Company"
+						tag={["#celarbrity", "#nyc"]}
+						avatar="/images/pages/mill/avatar_fc.png"
+						number={GenerateRandomNumber(1, 800)}
 						w="26.375rem"
 						h="17.625rem"
 					/>
@@ -200,9 +216,9 @@ export const MillPageContainer = () => {
 					>
 						<CompanyTitle
 							companyName="Coinbase"
-							companyLogoUrl="https://play-lh.googleusercontent.com/PjoJoG27miSglVBXoXrxBSLveV6e3EeBPpNY55aiUUBM9Q1RCETKCOqdOkX2ZydqVf0"
+							companyLogoUrl="/images/pages/mill/avatar_coinbase.png"
 							participation="1k participation"
-							people={329}
+							people={GenerateRandomNumber(1, 800)}
 						/>
 					</Box>
 					<Box
@@ -216,9 +232,9 @@ export const MillPageContainer = () => {
 					>
 						<CompanyTitle
 							companyName="Coinbase"
-							companyLogoUrl="https://play-lh.googleusercontent.com/PjoJoG27miSglVBXoXrxBSLveV6e3EeBPpNY55aiUUBM9Q1RCETKCOqdOkX2ZydqVf0"
+							companyLogoUrl="/images/pages/mill/avatar_coinbase.png"
 							participation="1k participation"
-							people={329}
+							people={GenerateRandomNumber(1, 800)}
 						/>
 					</Box>
 					<Box
@@ -232,9 +248,9 @@ export const MillPageContainer = () => {
 					>
 						<CompanyTitle
 							companyName="Coinbase"
-							companyLogoUrl="https://play-lh.googleusercontent.com/PjoJoG27miSglVBXoXrxBSLveV6e3EeBPpNY55aiUUBM9Q1RCETKCOqdOkX2ZydqVf0"
+							companyLogoUrl="/images/pages/mill/avatar_coinbase.png"
 							participation="1k participation"
-							people={329}
+							people={GenerateRandomNumber(1, 800)}
 						/>
 					</Box>
 				</Flex>

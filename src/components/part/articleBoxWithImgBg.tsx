@@ -1,4 +1,5 @@
 import CompanyTitle from "@/components/part/companyTitle"
+import { RandomHexColor } from "@/lib/utils"
 import {
 	Avatar,
 	Box,
@@ -12,11 +13,25 @@ import {
 interface ArticleBoxWithImgBgProps extends BoxProps {
 	imageUrl: string
 	title: string
+	author: string
+	tag: string[]
+	avatar: string
+	number: number
+	handle: string
 }
+
+const cl:string = RandomHexColor()
+
+const cr:string = RandomHexColor()
 
 export const ArticleBoxWithImgBg = ({
 	imageUrl,
 	title,
+	author,
+	tag,
+	avatar,
+	number,
+	handle,
 	...props
 }: ArticleBoxWithImgBgProps) => {
 	return (
@@ -40,7 +55,7 @@ export const ArticleBoxWithImgBg = ({
 						fontSize="0.875rem"
 						fontStyle="normal"
 					>
-						@oliviaaaaoh_
+						{handle}
 					</Text>
 					<Text
 						className="color-rgba(0, 0, 0, 0.40) text-0.875rem font-not-oblique font-400 line-height-normal"
@@ -67,24 +82,24 @@ export const ArticleBoxWithImgBg = ({
 					spacing="1rem"
 				>
 					<Button
-						color="#007AFF"
-						bg="rgba(0, 122, 255, 0.20)"
+						color={cl}
+						bg={`${cl}20`}
 						fontSize="0.75rem"
 						borderRadius="0.25rem"
 						h="1.5rem"
 						p="0.25rem 0.625rem "
 					>
-						#coinbase
+						{tag[0]}
 					</Button>
 					<Button
-						color="#AC3EEF"
-						bg="rgba(172, 62, 239, 0.20)"
+						color={cr}
+						bg={`${cl}20`}
 						fontSize="0.75rem"
 						borderRadius="0.25rem"
 						h="1.5rem"
 						p="0.25rem 0.625rem "
 					>
-						#crypto
+						{tag[1]}
 					</Button>
 				</Stack>
 			</Flex>
@@ -99,10 +114,10 @@ export const ArticleBoxWithImgBg = ({
 				justifyContent="flex-start"
 			>
 				<CompanyTitle
-					companyName="Coinbase"
-					companyLogoUrl="https://play-lh.googleusercontent.com/PjoJoG27miSglVBXoXrxBSLveV6e3EeBPpNY55aiUUBM9Q1RCETKCOqdOkX2ZydqVf0"
+					companyName={author}
+					companyLogoUrl={avatar}
 					participation="1k participation"
-					people={329}
+					people={number}
 				/>
 			</Flex>
 		</Box>

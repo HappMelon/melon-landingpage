@@ -1,92 +1,56 @@
-import {
-	Box,
-	Button,
-	Flex,
-	HStack,
-	Image,
-	Spacer,
-	Stack,
-	Text,
-	VStack,
-} from "@chakra-ui/react"
-import { AiOutlinePlus } from "react-icons/ai"
+import { Loading } from "@crossbell/ui"
+import { CharacterEntity } from "crossbell"
+import { useEffect, useState } from "react"
+
 export const TrendingUserBox = () => {
+	const [character, setCharacter] = useState<CharacterEntity[]>([])
+	const [isLoading, setIsLoading] = useState(true)
+
+	useEffect(() => {
+		fetch(
+			`https://recommend.crossbell.io/raw?type=character&rand=false&limit=20`
+		)
+			.then((res) => res.json())
+			.then(
+				(result: CharacterEntity[]) => {
+					setIsLoading(false)
+					setCharacter(result)
+					// console.log(result)
+					for (const c of result) {
+						console.log(c)
+					}
+				},
+				// Note: it's important to handle errors here
+				// instead of a catch() block so that we don't swallow
+				// exceptions from actual bugs in components.
+				(error) => {
+					setIsLoading(false)
+					console.log("fetch character data failed, error:", error)
+				}
+			)
+	}, [])
+
+	if (isLoading) {
+		return <Loading />
+	}
+
+	// https://recommend.crossbell.io/raw?type=character&rand=false&limit=20
+	// const { data: user, isLoading } = useTrendingUser("character", false, 20)
+
+	console.log(character.length)
+	// FIXME why character is not an array?
+	// FIXME why character is undefined
+	// TODO must popular show and user show
+
 	return (
 		<>
-			<Box w="50vw" minH="10vh" bg="#F8F8F8" borderRadius="0.5rem">
-				<Stack
-					direction="row"
-					w="100%"
-					h="100%"
-					overflow="auto"
-					p="2vh"
-					spacing="1rem"
-				>
-					<Image
-						src="https://i.pravatar.cc/300"
-						h="5rem"
-						w="5rem"
-						borderRadius="full"
-						borderWidth="0.125rem"
-						borderColor="rgba(255, 255, 255, 0.80)"
-					/>
-					<Flex w="100%" justify="space-between">
-						<Stack direction="row" spacing="1rem" alignItems="center" w="100%">
-							<VStack spacing="1px" align="stretch">
-								<Text color="#000" fontSize="lg">
-									AuthorName
-								</Text>
-								<Text fontSize="sm" color="#000" as="em">
-									@UserName
-								</Text>
-							</VStack>
-							<Box w="8%">
-								<Spacer />
-							</Box>
-							<HStack>
-								<Text fontSize="md" fontWeight="hairline">
-									Posts
-								</Text>
-								<Text fontSize="2xl" fontWeight="bold">
-									6
-								</Text>
-							</HStack>
-							<Box w="4%">
-								<Spacer />
-							</Box>
-							<HStack>
-								<Text fontSize="md" fontWeight="hairline">
-									Flare Vol
-								</Text>
-								<Text fontSize="2xl" fontWeight="bold">
-									1000
-								</Text>
-							</HStack>
-							<Box w="4%">
-								<Spacer />
-							</Box>
-							<HStack>
-								<Text fontSize="md" fontWeight="hairline">
-									Subscribers
-								</Text>
-								<Text fontSize="2xl" fontWeight="bold">
-									189
-								</Text>
-							</HStack>
-							<Box w="2%">
-								<Spacer />
-							</Box>
-							<Button
-								leftIcon={<AiOutlinePlus />}
-								colorScheme="orange"
-								borderRadius="2rem"
-							>
-								<Text>Follow</Text>
-							</Button>
-						</Stack>
-					</Flex>
-				</Stack>
-			</Box>
+			<div className="w-full bg-#F8F8F8">
+				{Array.isArray(character) && character.length > 0
+					? character.map((item: CharacterEntity, i: number) => (
+							<div key={i}>{item.handle}</div>
+					))
+					: ""}
+			</div>
 		</>
 	)
 }

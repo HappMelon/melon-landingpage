@@ -15,7 +15,7 @@ export const AccountPageContainer = () => {
 			<Flex className="flex flex-row items-center justify-between m-2vh">
 				<ArticleStack userID={account?.characterId || 10} account={account} />
 				<Spacer />
-				<FollowingMillStack title="Following Mills" count={8} />
+				<FollowingMillStack title="Following Mills" count={8} className="lt-xl:display-none" />
 			</Flex>
 		</>
 	)

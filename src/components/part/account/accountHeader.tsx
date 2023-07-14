@@ -48,7 +48,7 @@ export const AccountHeader = () => {
 							{account ? account?.metadata?.content?.name : ""}
 						</Text>
 						<Text className="text-1rem font-550 color-#868e96">
-							@{account ? account?.handle : ""}
+							@{account ? account?.handle : username?.replace("@", "") }
 						</Text>
 						<Text className="text-0.875rem font-400 leading-1.25em  color-#222 pt-1rem">
 							{account ? account?.metadata?.content?.bio : ""}

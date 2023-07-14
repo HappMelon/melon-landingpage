@@ -1,7 +1,7 @@
 import { TrendingArticleStack } from "@/components/part/trending/trendingArticleStack"
 import { TrendingHotTopics } from "@/components/part/trending/trendingHotTopics"
 import { TrendingUserStack } from "@/components/part/trending/trendingUserStack"
-import { Box, Button, ButtonGroup, Stack } from "@chakra-ui/react"
+import { Box, ButtonGroup, Stack } from "@chakra-ui/react"
 import { useState } from "react"
 
 export const TrendingNav = () => {
@@ -22,30 +22,30 @@ export const TrendingNav = () => {
 			<Stack className="mr-auto mt-5vh flex-col">
 				<Box className="flex items-center w-full">
 					<ButtonGroup className="gap-4">
-						<Button
-							colorScheme="blackAlpha"
+						<button
+							className="py-0.375rem px-0.625rem color-#9B9B9B bg-#f8f8f8 text-1rem font-700 hover:color-#000"
 							onClick={() => {
 								setCurrentTap("TrendingArticle")
 							}}
 						>
 							Most Popular
-						</Button>
-						<Button
-							colorScheme="blackAlpha"
+						</button>
+						<button
+							className="py-0.375rem px-0.625rem color-#9B9B9B bg-#f8f8f8 text-1rem font-700 hover:color-#000"
 							onClick={() => {
 								toggleShowTopics(!showTopics)
 							}}
 						>
 							Hot Topics
-						</Button>
-						<Button
-							colorScheme="blackAlpha"
+						</button>
+						<button
+							className="py-0.375rem px-0.625rem color-#9B9B9B bg-#f8f8f8 text-1rem font-700 hover:color-#000"
 							onClick={() => {
 								setCurrentTap("Users")
 							}}
 						>
 							Users
-						</Button>
+						</button>
 					</ButtonGroup>
 				</Box>
 				{showTopics && <TrendingHotTopics />}

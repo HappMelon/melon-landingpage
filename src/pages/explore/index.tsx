@@ -1,5 +1,5 @@
 import Layout from "@/components/layouts/RootLayout"
-import { TrendingPageContainer } from "@/components/part/trendingPageContainer"
+import { TrendingPageContainer } from "@/components/part/trending/trendingPageContainer"
 
 export default function App() {
 	return (

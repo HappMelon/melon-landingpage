@@ -12,7 +12,7 @@ export default function ButtonWithText({
 		<Button
 			{...props}
 			/* flex={1} */
-			px={5}
+			px={"2rem"}
 			fontSize={"1rem"}
 			rounded={"full"}
 			bgGradient={"linear(to-r, #F9D423, #F83600)"}

@@ -5,7 +5,7 @@ export default function AppearanceSwitch() {
 
 	return (
 		<button
-			className={isDark ? "i-carbon-moon w-24px h-24px" : "i-carbon-sun w-24px h-24px"}
+			className={isDark ? "i-carbon-moon w-3rem" : "i-carbon-sun w-3rem"}
 			onClick={toggleDark}
 		></button>
 	)

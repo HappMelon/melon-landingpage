@@ -37,12 +37,12 @@ export interface Result {
 }
 
 export interface ArticleResult {
-	list:Article[]
+	list: Article[]
 }
 export interface Article {
 	characterId: number
 	noteId: number
-	createdAt:string
+	createdAt: string
 	deleted: boolean
 	locked: boolean
 	metadata: ArticleMeta
@@ -60,4 +60,9 @@ export interface ArticleContent {
 	summary: string
 	authors?: string[]
 	date_published: string
+}
+
+export interface HotTopics {
+	list: string[]
+	count: number
 }

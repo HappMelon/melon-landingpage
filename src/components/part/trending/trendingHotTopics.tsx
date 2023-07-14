@@ -1,174 +1,29 @@
-import { Button, Stack, Wrap, WrapItem } from "@chakra-ui/react"
+import { RandomHexColor } from "@/lib/utils"
+import { useHotTopics } from "@/state/HotTopics"
+import { Stack, Wrap, WrapItem } from "@chakra-ui/react"
+
 export const TrendingHotTopics = () => {
+	const { data: topics } = useHotTopics(10)
 	return (
 		<>
 			<Stack direction="column" wrap="wrap" mt="2vh">
 				<Wrap spacing={4}>
-					<WrapItem>
-						<Button
-							colorScheme="red"
-							fontSize="0.75rem"
-							borderRadius="0.25rem"
-							h="1.5rem"
-							p="0.25rem 0.625rem "
-						>
-							Red
-						</Button>
-					</WrapItem>
-					<WrapItem>
-						<Button
-							colorScheme="orange"
-							fontSize="0.75rem"
-							borderRadius="0.25rem"
-							h="1.5rem"
-							p="0.25rem 0.625rem "
-						>
-							Orange
-						</Button>
-					</WrapItem>
-					<WrapItem>
-						<Button
-							colorScheme="yellow"
-							fontSize="0.75rem"
-							borderRadius="0.25rem"
-							h="1.5rem"
-							p="0.25rem 0.625rem "
-						>
-							Yellow
-						</Button>
-					</WrapItem>
-					<WrapItem>
-						<Button
-							colorScheme="green"
-							fontSize="0.75rem"
-							borderRadius="0.25rem"
-							h="1.5rem"
-							p="0.25rem 0.625rem "
-						>
-							Green
-						</Button>
-					</WrapItem>
-					<WrapItem>
-						<Button
-							colorScheme="teal"
-							fontSize="0.75rem"
-							borderRadius="0.25rem"
-							h="1.5rem"
-							p="0.25rem 0.625rem "
-						>
-							Teal
-						</Button>
-					</WrapItem>
-					<WrapItem>
-						<Button
-							colorScheme="blue"
-							fontSize="0.75rem"
-							borderRadius="0.25rem"
-							h="1.5rem"
-							p="0.25rem 0.625rem "
-						>
-							Blue
-						</Button>
-					</WrapItem>
-					<WrapItem>
-						<Button
-							colorScheme="cyan"
-							fontSize="0.75rem"
-							borderRadius="0.25rem"
-							h="1.5rem"
-							p="0.25rem 0.625rem "
-						>
-							Cyan
-						</Button>
-					</WrapItem>
-					<WrapItem>
-						<Button
-							colorScheme="purple"
-							fontSize="0.75rem"
-							borderRadius="0.25rem"
-							h="1.5rem"
-							p="0.25rem 0.625rem "
-						>
-							Purple
-						</Button>
-					</WrapItem>
-					<WrapItem>
-						<Button
-							colorScheme="pink"
-							fontSize="0.75rem"
-							borderRadius="0.25rem"
-							h="1.5rem"
-							p="0.25rem 0.625rem "
-						>
-							Pink
-						</Button>
-					</WrapItem>
-					<WrapItem>
-						<Button
-							colorScheme="linkedin"
-							fontSize="0.75rem"
-							borderRadius="0.25rem"
-							h="1.5rem"
-							p="0.25rem 0.625rem "
-						>
-							Linkedin
-						</Button>
-					</WrapItem>
-					<WrapItem>
-						<Button
-							colorScheme="facebook"
-							fontSize="0.75rem"
-							borderRadius="0.25rem"
-							h="1.5rem"
-							p="0.25rem 0.625rem "
-						>
-							Facebook
-						</Button>
-					</WrapItem>
-					<WrapItem>
-						<Button
-							colorScheme="messenger"
-							fontSize="0.75rem"
-							borderRadius="0.25rem"
-							h="1.5rem"
-							p="0.25rem 0.625rem "
-						>
-							Messenger
-						</Button>
-					</WrapItem>
-					<WrapItem>
-						<Button
-							colorScheme="whatsapp"
-							fontSize="0.75rem"
-							borderRadius="0.25rem"
-							h="1.5rem"
-							p="0.25rem 0.625rem "
-						>
-							Whatsapp
-						</Button>
-					</WrapItem>
-					<WrapItem>
-						<Button
-							colorScheme="twitter"
-							fontSize="0.75rem"
-							borderRadius="0.25rem"
-							h="1.5rem"
-							p="0.25rem 0.625rem "
-						>
-							Twitter
-						</Button>
-					</WrapItem>
-					<WrapItem>
-						<Button
-							colorScheme="telegram"
-							fontSize="0.75rem"
-							borderRadius="0.25rem"
-							h="1.5rem"
-							p="0.25rem 0.625rem "
-						>
-							Telegram
-						</Button>
-					</WrapItem>
+					{topics?.list.map((item: string, i: number) => {
+						const ht: string = RandomHexColor()
+						return (
+							<WrapItem key={i}>
+								<div
+									className="text-0.75rem rounded-0.25rem h-1.5rem !py-0.25rem !px-0.625rem"
+									style={{
+										color: `${ht}`,
+										backgroundColor: `${ht}20`,
+									}}
+								>
+									#{item}
+								</div>
+							</WrapItem>
+						)
+					})}
 				</Wrap>
 			</Stack>
 		</>

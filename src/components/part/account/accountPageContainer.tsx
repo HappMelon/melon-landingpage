@@ -2,13 +2,18 @@ import { ArticleStack } from "@/components/part/articleCard/articleStack"
 import { FollowingMillStack } from "@/components/part/mill/followingMillStack"
 import { useAccount } from "@/state/Account"
 import { Flex, Spacer } from "@chakra-ui/react"
+import { Loading } from "@crossbell/ui"
 import { useParams } from "react-router-dom"
 
 export const AccountPageContainer = () => {
 	const { username } = useParams()
-	const { data: account } = useAccount(
+	const { data: account, isLoading } = useAccount(
 		username ? username.replace("@", "") : ""
 	)
+
+	if (isLoading) {
+		return <Loading />
+	}
 
 	return (
 		<>

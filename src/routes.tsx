@@ -1,4 +1,5 @@
 import App from "@/pages"
+import NotFound from "@/pages/404"
 import Account from "@/pages/account"
 import Explore from "@/pages/explore"
 import Mill from "@/pages/mill"
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
 	{
 		path: "/post",
 		element: <Post />,
+	},
+	{
+		path: "*",
+		element: <NotFound />,
 	},
 ])
 

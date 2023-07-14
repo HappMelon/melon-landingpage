@@ -15,10 +15,10 @@ export const ArticleStack = ({
 }: ArticleStackProps) => {
 	// according to the id, fetch the result of article
 	const { data: articles } = useArticlesID(userID as number)
-	if (!articles || articles.list.length === 0) {
+	if (!articles) {
 		return (
 			<Stack className="gap-1.5rem flex !flex-col mt-5vh">
-				<></>
+				<>all lives matter</>
 			</Stack>
 		)
 	}

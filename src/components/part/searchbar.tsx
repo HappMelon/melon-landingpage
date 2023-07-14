@@ -27,7 +27,7 @@ export function NotificationBtn() {
 
 	if (!isConnected) return null
 
-	return <button onClick={showNotificationModal } className="i-fa6-regular-bell w-24px h-24px" />
+	return <button onClick={showNotificationModal } className="i-fa6-regular-bell w-3rem" />
 }
 
 function Avatar() {
@@ -104,8 +104,16 @@ export const SearchBar = () => {
 						placeholder="Search topics, news"
 						className="w-40rem max-w-[50rem] !rounded-9999px"
 					/>
-					<Button marginLeft="2rem" rounded="full" style={gradientButtonStyle}>
-						<Text bgGradient="linear(to-r, #F9D423, #F83600)" bgClip="text">
+					<Button
+						rounded="full"
+						style={gradientButtonStyle}
+						className="mx-1rem"
+					>
+						<Text
+							bgGradient="linear(to-r, #F9D423, #F83600)"
+							bgClip="text"
+							className="text-0.875rem mx-1rem"
+						>
 							Chat with Flare AI
 						</Text>
 					</Button>

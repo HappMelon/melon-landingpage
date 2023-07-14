@@ -106,6 +106,7 @@ export function SettingsBtn() {
 				fontSize: "0.75rem",
 				color: "black",
 				textDecoration: "underline",
+				marginTop:"2rem",
 			}}
 		>
 			Settings
@@ -177,7 +178,7 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
 				/>
 				<Spacer />
 				<Stack direction="column" justify="left" mx="2rem" spacing="2rem">
-					<SettingsBtn />
+					<SettingsBtn/>
 					<Link
 						href="mailto:flare.dapp@gmail.com"
 						style={{

@@ -2,7 +2,6 @@ import "@flarezone/connect-kit/colors.css"
 import "@unocss/reset/tailwind.css"
 import "virtual:uno.css"
 import "./styles/font.css"
-import "./styles/common.css"
 import "./styles/globals.css"
 
 import "./i18n"
@@ -22,7 +21,8 @@ const wagmiConfig = createWagmiConfig({
 	appName: "Flare Dapp",
 	// WalletConnect Project ID.
 	// You can create or find it at https://cloud.walletconnect.com
-	walletConnectV2ProjectId: import.meta.env.VITE_WALLET_CONNECT_V2_PROJECT_ID as string,
+	walletConnectV2ProjectId: import.meta.env
+		.VITE_WALLET_CONNECT_V2_PROJECT_ID as string,
 })
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(

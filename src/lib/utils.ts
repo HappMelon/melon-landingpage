@@ -1,5 +1,6 @@
 import { ClassValue, clsx } from "clsx"
 import { twMerge } from "tailwind-merge"
+import Web3 from "web3"
 
 export function cn(...inputs: ClassValue[]) {
 	return twMerge(clsx(inputs))
@@ -18,6 +19,7 @@ export function GenerateRandomNumber(min: number, max: number): number {
 	return Math.floor(Math.random() * (max - min + 1)) + min
 }
 
-// export const Gm = {
-// 	number: GenerateRandomNumber(1, 2000) as number,
-// }
+export function Tovalue(v: string): string {
+	const value = Web3.utils.fromWei(v, "ether")
+	return value
+}

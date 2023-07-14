@@ -27,12 +27,13 @@ export interface Result {
 	blockHash: string
 	blockNumber: number
 	from: string
+	input: string
 	gas: number
 	hash: string
 	nonce: number
 	timeStamp: number
 	to: string
-	value: number
+	value: string
 }
 
 export interface ArticleResult {

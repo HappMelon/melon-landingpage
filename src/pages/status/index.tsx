@@ -1,11 +1,19 @@
 import Layout from "@/components/layouts/RootLayout"
+import { ipfsLinkToHttpLink } from "@/share/ipfs"
 import { useAccount } from "@/state/Account"
 import { useStatus } from "@/state/Status"
 import { CharacterAvatar, Loading } from "@crossbell/ui"
-import { useParams } from "react-router-dom"
+import ReactMarkdown from "react-markdown"
+import { useNavigate, useParams } from "react-router-dom"
 
 export default function App() {
 	const { username, id } = useParams()
+
+	const navigate = useNavigate()
+
+	const pushAccount = () => {
+		navigate(`/@${account?.handle || ""}`)
+	}
 
 	const cid = id?.split("-")[0] as string
 	const nid = id?.split("-")[1] as string
@@ -18,6 +26,10 @@ export default function App() {
 
 	const { data: note, isLoading } = useStatus(cid, nid)
 
+	const transformLinkUri = (uri: string) => {
+		return ipfsLinkToHttpLink(uri, { origin: "https://ipfs.io" })
+	}
+
 	if (isLoading) {
 		return <Loading />
 	}
@@ -28,9 +40,10 @@ export default function App() {
 			<div className="pt-0.75rem">
 				<div className="flex flex-row">
 					<CharacterAvatar
-						className="!w-3rem !h-3rem !rounded-50% border-solid border-#fff shadow-lg object-cover"
+						className="!w-3rem !h-3rem !rounded-50% border-solid border-#fff shadow-lg object-cover cursor-pointer"
 						size="4rem"
 						character={account}
+						onClick={pushAccount}
 					/>
 					<div className="pl-0.625rem">
 						<div className="flex items-center">
@@ -41,7 +54,12 @@ export default function App() {
 								@{account?.metadata?.content?.name}
 							</div>
 						</div>
-						<div className="pt-0.5rem">{note?.metadata?.content?.content}</div>
+						<ReactMarkdown
+							className="overflow-hidden  !text-left pt-0.5rem"
+							transformImageUri={transformLinkUri}
+						>
+							{note?.metadata?.content?.content as string}
+						</ReactMarkdown>
 					</div>
 				</div>
 			</div>

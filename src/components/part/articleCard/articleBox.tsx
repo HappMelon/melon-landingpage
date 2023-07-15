@@ -97,7 +97,7 @@ export const ArticleBox = ({ data, account, ...Props }: ArticleBoxProps) => {
 					className="flex !flex-row w-full cursor-pointer hover-transition-opacity hover:bg-#9ca3af10 rounded-xl"
 					// OPTIMIZE 这里先这么写, 之后按照统一的方式 open page
 					onClick={() => {
-						window.location.href = `/@${account.handle}/status/${data.characterId}-${data.noteId}`
+						window.location.href = `/@${account?.handle}/status/${data?.characterId}-${data?.noteId}`
 					}}
 				>
 					<CharacterAvatar

@@ -5,7 +5,6 @@ export const TrendingUserStack = () => {
 		<>
 			<div className="flex flex-col">
 				<TrendingUserBox />
-				<TrendingUserBox />
 			</div>
 		</>
 	)

@@ -1,4 +1,8 @@
-import { BettingAtom, EnableBettingAtom, ValueAtom } from "@/components/part/post/postPageEditor"
+import {
+	BettingAtom,
+	EnableBettingAtom,
+	ValueAtom,
+} from "@/components/part/post/postPageEditor"
 import {
 	Button,
 	Divider,
@@ -14,8 +18,22 @@ import {
 	useAccountCharacter,
 	usePostNote,
 } from "@flarezone/connect-kit"
+import Web3 from "web3"
+import { ethers, providers } from "ethers"
+import { AbiItem } from "web3-utils"
 import { useAtom } from "jotai"
 import { useNavigate } from "react-router-dom"
+
+const web3 = new Web3("https://exchaintestrpc.okex.org")
+
+import contractABI from "@/contract/betting.json"
+
+const contractAddress = "0xB43da67840856167a627b5bfcdaB4a86Ba686A24"
+
+const contract = new web3.eth.Contract(
+	contractABI as AbiItem[],
+	contractAddress
+)
 
 function Avatar() {
 	const navigate = useNavigate()
@@ -54,22 +72,41 @@ export const PostPageHeader = () => {
 	const navigate = useNavigate()
 	const postNote = usePostNote()
 
+	const Conctract = () => {
+		const signer = Provider().getSigner()
+		const Contract = new ethers.Contract(contractAddress, contractABI, signer)
+		return Contract
+	}
+
 	// TODO 暂时无法显示换行
 	function Post() {
-		console.log(betting, enable);
+		console.log(betting, enable)
 
 		const cleanedData = value
 			.replace(/<\/?[a-z]+[^>]*>/gi, "")
 			.replace(/<[^>]+>/g, "\n")
 
-		// postNote.mutate({
-		// 	metadata: {
-		// 		content: cleanedData,
-		// 		sources: ["Crossbell Dev"],
-		// 		external_urls: ["https://flare-dapp.io"],
-		// 		tags: ["post"],
-		// 	},
-		// })
+		postNote.mutate(
+			{
+				metadata: {
+					content: cleanedData,
+					sources: ["Flare Dev"],
+					external_urls: ["https://flare-dapp.io"],
+					tags: ["post"],
+				},
+			},
+			{
+				// 掉对赌合约.
+				onSuccess: () => {
+					if (window.ethereum) {
+						window.ethereum.on("chainChanged", (chainId: any) => {
+							console.log("chainId:", chainId)
+							const FlareContract = Conctract()
+						})
+					}
+				},
+			}
+		)
 	}
 
 	return (

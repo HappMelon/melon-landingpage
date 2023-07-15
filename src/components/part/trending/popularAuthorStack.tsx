@@ -2,7 +2,7 @@ import { Box, Flex, Stack, Text } from "@chakra-ui/react"
 import { FiTrendingUp } from "react-icons/fi"
 import { PopularAuthors } from "./popularAuthors"
 export const PopularAuthorStack = () => {
-	const popular = Array.from({ length: 5 })
+	const popular = Array.from({ length: 1 })
 	return (
 		<Box
 			w="18vw"

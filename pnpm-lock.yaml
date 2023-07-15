@@ -17,6 +17,9 @@ dependencies:
   '@chakra-ui/react':
     specifier: ^2.7.1
     version: 2.7.1(@emotion/react@11.11.1)(@emotion/styled@11.11.0)(@types/react@18.2.14)(framer-motion@10.12.17)(react-dom@18.2.0)(react@18.2.0)
+  '@crossbell/indexer':
+    specifier: ^1.5.2
+    version: 1.5.2(react-dom@18.2.0)(react@18.2.0)(typescript@5.1.3)
   '@crossbell/notification':
     specifier: ^1.5.0
     version: 1.5.0(@tanstack/react-query@4.29.19)(@types/react@18.2.14)(react-dom@18.2.0)(react@18.2.0)(typescript@5.1.3)(wagmi@1.3.7)
@@ -127,7 +130,7 @@ dependencies:
     version: 2.9.1(react-dom@18.2.0)(react@18.2.0)
   wagmi:
     specifier: ^1.3.7
-    version: 1.3.7(react-dom@18.2.0)(react@18.2.0)(typescript@5.1.3)(viem@1.2.11)
+    version: 1.3.7(react-dom@18.2.0)(react@18.2.0)(typescript@5.1.3)(viem@1.2.15)
   web3:
     specifier: ^1.8.0
     version: 1.8.0
@@ -1549,7 +1552,7 @@ packages:
     peerDependencies:
       react: ^18
     dependencies:
-      '@crossbell/indexer': 1.4.8(react-dom@18.2.0)(react@18.2.0)(typescript@5.1.3)
+      '@crossbell/indexer': 1.5.2(react-dom@18.2.0)(react@18.2.0)(typescript@5.1.3)
       '@crossbell/util-hooks': 1.4.4(react-dom@18.2.0)(react@18.2.0)(typescript@5.1.3)
       crossbell: 1.4.2(typescript@5.1.3)
       react: 18.2.0
@@ -1568,7 +1571,7 @@ packages:
     peerDependencies:
       react: ^18
     dependencies:
-      '@crossbell/indexer': 1.5.0(react-dom@18.2.0)(react@18.2.0)(typescript@5.1.3)
+      '@crossbell/indexer': 1.5.2(react-dom@18.2.0)(react@18.2.0)(typescript@5.1.3)
       '@crossbell/util-hooks': 1.5.0(react-dom@18.2.0)(react@18.2.0)(typescript@5.1.3)
       crossbell: 1.4.2(typescript@5.1.3)
       react: 18.2.0
@@ -1582,34 +1585,15 @@ packages:
       - zod
     dev: false
 
-  /@crossbell/indexer@1.4.8(react-dom@18.2.0)(react@18.2.0)(typescript@5.1.3):
-    resolution: {integrity: sha512-lQgAXnDjGG0PruiVQfE9G1XfRnL8krWyD/UKpfnkGn8Lkho9HcRo8ng4Izjz0/0Zti598Xdhoyy7xpMzT13/Cw==}
+  /@crossbell/indexer@1.5.2(react-dom@18.2.0)(react@18.2.0)(typescript@5.1.3):
+    resolution: {integrity: sha512-yrYUKwzrOqDHFdILX75eNZ9s+znGvLqoyYXo/Y8vI5GnsqYu7QtUx/CpSeMDkDDRLOLnvxhdgC4GFSbcorlt4Q==}
     dependencies:
       '@tanstack/react-query': 4.29.19(react-dom@18.2.0)(react@18.2.0)
       crossbell: 1.4.2(typescript@5.1.3)
       dayjs: 1.11.9
       lodash.compact: 3.0.1
       lru-cache: 10.0.0
-      viem: 1.2.9(typescript@5.1.3)
-    transitivePeerDependencies:
-      - bufferutil
-      - react
-      - react-dom
-      - react-native
-      - typescript
-      - utf-8-validate
-      - zod
-    dev: false
-
-  /@crossbell/indexer@1.5.0(react-dom@18.2.0)(react@18.2.0)(typescript@5.1.3):
-    resolution: {integrity: sha512-8ltfjmRlCWO5FhPb7+cdGYLusntu7TfxnMfCMqmLDpO5ddmbIITyzAuetlZ2wg89foxi58n0qqQSUF/S2Obr8Q==}
-    dependencies:
-      '@tanstack/react-query': 4.29.19(react-dom@18.2.0)(react@18.2.0)
-      crossbell: 1.4.2(typescript@5.1.3)
-      dayjs: 1.11.9
-      lodash.compact: 3.0.1
-      lru-cache: 10.0.0
-      viem: 1.2.11(typescript@5.1.3)
+      viem: 1.2.15(typescript@5.1.3)
     transitivePeerDependencies:
       - bufferutil
       - react
@@ -1631,7 +1615,7 @@ packages:
       react: ^18
       wagmi: ^1.0.0
     dependencies:
-      '@crossbell/indexer': 1.5.0(react-dom@18.2.0)(react@18.2.0)(typescript@5.1.3)
+      '@crossbell/indexer': 1.5.2(react-dom@18.2.0)(react@18.2.0)(typescript@5.1.3)
       '@crossbell/react-account': 1.5.0(@tanstack/react-query@4.29.19)(react-dom@18.2.0)(typescript@5.1.3)
       '@crossbell/ui': 1.5.0(@types/react@18.2.14)(react-dom@18.2.0)(react@18.2.0)(typescript@5.1.3)
       '@crossbell/util-hooks': 1.5.0(react-dom@18.2.0)(react@18.2.0)(typescript@5.1.3)
@@ -1642,7 +1626,7 @@ packages:
       react: 18.2.0
       react-intersection-observer: 9.5.2(react@18.2.0)
       viem: 1.2.11(typescript@5.1.3)
-      wagmi: 1.3.7(react-dom@18.2.0)(react@18.2.0)(typescript@5.1.3)(viem@1.2.11)
+      wagmi: 1.3.7(react-dom@18.2.0)(react@18.2.0)(typescript@5.1.3)(viem@1.2.15)
       zustand: 4.3.9(immer@10.0.2)(react@18.2.0)
     transitivePeerDependencies:
       - '@types/react'
@@ -1661,7 +1645,7 @@ packages:
       '@tanstack/react-query': ^4
     dependencies:
       '@crossbell/contract': 1.4.8(react-dom@18.2.0)(react@18.2.0)(typescript@5.1.3)
-      '@crossbell/indexer': 1.4.8(react-dom@18.2.0)(react@18.2.0)(typescript@5.1.3)
+      '@crossbell/indexer': 1.5.2(react-dom@18.2.0)(react@18.2.0)(typescript@5.1.3)
       '@crossbell/util-ethers': 1.4.0
       '@crossbell/util-hooks': 1.4.4(react-dom@18.2.0)(react@18.2.0)(typescript@5.1.3)
       '@crossbell/util-metadata': 1.5.0(typescript@5.1.3)
@@ -1690,7 +1674,7 @@ packages:
       '@tanstack/react-query': ^4
     dependencies:
       '@crossbell/contract': 1.5.0(react-dom@18.2.0)(react@18.2.0)(typescript@5.1.3)
-      '@crossbell/indexer': 1.5.0(react-dom@18.2.0)(react@18.2.0)(typescript@5.1.3)
+      '@crossbell/indexer': 1.5.2(react-dom@18.2.0)(react@18.2.0)(typescript@5.1.3)
       '@crossbell/util-ethers': 1.5.0
       '@crossbell/util-hooks': 1.5.0(react-dom@18.2.0)(react@18.2.0)(typescript@5.1.3)
       '@crossbell/util-metadata': 1.5.0(typescript@5.1.3)
@@ -1719,7 +1703,7 @@ packages:
       react: ^18
       react-dom: ^18
     dependencies:
-      '@crossbell/indexer': 1.5.0(react-dom@18.2.0)(react@18.2.0)(typescript@5.1.3)
+      '@crossbell/indexer': 1.5.2(react-dom@18.2.0)(react@18.2.0)(typescript@5.1.3)
       '@crossbell/util-hooks': 1.5.0(react-dom@18.2.0)(react@18.2.0)(typescript@5.1.3)
       '@crossbell/util-metadata': 1.5.0(typescript@5.1.3)
       '@tanstack/react-query': 4.29.19(react-dom@18.2.0)(react@18.2.0)
@@ -2344,7 +2328,7 @@ packages:
       wagmi: ^1.0.0
     dependencies:
       '@crossbell/contract': 1.4.8(react-dom@18.2.0)(react@18.2.0)(typescript@5.1.3)
-      '@crossbell/indexer': 1.4.8(react-dom@18.2.0)(react@18.2.0)(typescript@5.1.3)
+      '@crossbell/indexer': 1.5.2(react-dom@18.2.0)(react@18.2.0)(typescript@5.1.3)
       '@crossbell/react-account': 1.4.9(@tanstack/react-query@4.29.19)(react-dom@18.2.0)(typescript@5.1.3)
       '@crossbell/ui': 1.5.0(@types/react@18.2.14)(react-dom@18.2.0)(react@18.2.0)(typescript@5.1.3)
       '@crossbell/util-ethers': 1.4.0
@@ -2373,7 +2357,7 @@ packages:
       rxjs: 7.8.1
       ts-essentials: 9.3.2(typescript@5.1.3)
       viem: 1.2.9(typescript@5.1.3)
-      wagmi: 1.3.7(react-dom@18.2.0)(react@18.2.0)(typescript@5.1.3)(viem@1.2.11)
+      wagmi: 1.3.7(react-dom@18.2.0)(react@18.2.0)(typescript@5.1.3)(viem@1.2.15)
       zustand: 4.3.9(immer@10.0.2)(react@18.2.0)
     transitivePeerDependencies:
       - '@react-native-async-storage/async-storage'
@@ -3192,7 +3176,7 @@ packages:
     resolution: {integrity: sha512-gYw0ki/EAuV1oSyMxpqandHjnthZjYYy+YWpTAzf8BqfXM3ItcZLpjxfg+3+mXW8HIO+3jw6T9iiqEXsqHaMMw==}
     dependencies:
       '@safe-global/safe-gateway-typescript-sdk': 3.7.3
-      viem: 1.2.9(typescript@5.1.3)
+      viem: 1.2.15(typescript@5.1.3)
     transitivePeerDependencies:
       - bufferutil
       - encoding
@@ -4080,7 +4064,7 @@ packages:
       typescript: 5.1.3
     dev: false
 
-  /@wagmi/connectors@2.6.5(@wagmi/chains@1.4.0)(react@18.2.0)(typescript@5.1.3)(viem@1.2.11):
+  /@wagmi/connectors@2.6.5(@wagmi/chains@1.4.0)(react@18.2.0)(typescript@5.1.3)(viem@1.2.15):
     resolution: {integrity: sha512-klF31togMDd0qQqEcLl5cCGxjMbL0RRXQ8I1vxmEa3KdGzw6Z3ICVzX7/bDfnNEZcOW7BKyAnZDq7rCt5jTOiw==}
     peerDependencies:
       '@wagmi/chains': '>=1.3.0'
@@ -4104,7 +4088,7 @@ packages:
       abitype: 0.8.7(typescript@5.1.3)
       eventemitter3: 4.0.7
       typescript: 5.1.3
-      viem: 1.2.11(typescript@5.1.3)
+      viem: 1.2.15(typescript@5.1.3)
     transitivePeerDependencies:
       - '@react-native-async-storage/async-storage'
       - bufferutil
@@ -4151,7 +4135,7 @@ packages:
       - zod
     dev: false
 
-  /@wagmi/core@1.3.6(react@18.2.0)(typescript@5.1.3)(viem@1.2.11):
+  /@wagmi/core@1.3.6(react@18.2.0)(typescript@5.1.3)(viem@1.2.15):
     resolution: {integrity: sha512-TXv9ZlRR5aySfERFuWMuo+lKXC/CoqtxVJZVHPqhK1jY+nldMx3AvrWzzF4CccRaMYcVdvPFepvmxzq2A2VvWg==}
     peerDependencies:
       typescript: '>=5.0.4'
@@ -4161,11 +4145,11 @@ packages:
         optional: true
     dependencies:
       '@wagmi/chains': 1.4.0(typescript@5.1.3)
-      '@wagmi/connectors': 2.6.5(@wagmi/chains@1.4.0)(react@18.2.0)(typescript@5.1.3)(viem@1.2.11)
+      '@wagmi/connectors': 2.6.5(@wagmi/chains@1.4.0)(react@18.2.0)(typescript@5.1.3)(viem@1.2.15)
       abitype: 0.8.7(typescript@5.1.3)
       eventemitter3: 4.0.7
       typescript: 5.1.3
-      viem: 1.2.11(typescript@5.1.3)
+      viem: 1.2.15(typescript@5.1.3)
       zustand: 4.3.9(immer@10.0.2)(react@18.2.0)
     transitivePeerDependencies:
       - '@react-native-async-storage/async-storage'
@@ -4559,7 +4543,7 @@ packages:
       '@wagmi/core': '>=1'
       viem: '>=1'
     dependencies:
-      '@wagmi/core': 1.3.6(react@18.2.0)(typescript@5.1.3)(viem@1.2.11)
+      '@wagmi/core': 1.3.6(react@18.2.0)(typescript@5.1.3)(viem@1.2.15)
       viem: 1.2.9(typescript@5.1.3)
     dev: false
 
@@ -10223,6 +10207,30 @@ packages:
       - zod
     dev: false
 
+  /viem@1.2.15(typescript@5.1.3):
+    resolution: {integrity: sha512-M67YS3WQC/3vx12TvYxt9dlxqHjgXIwblyUdy7E6cZ2MNtyoSvq9HgkacfY0+SDZAbisVsUX8mi9Lb1bB5pUAQ==}
+    peerDependencies:
+      typescript: '>=5.0.4'
+    peerDependenciesMeta:
+      typescript:
+        optional: true
+    dependencies:
+      '@adraffy/ens-normalize': 1.9.0
+      '@noble/curves': 1.0.0
+      '@noble/hashes': 1.3.0
+      '@scure/bip32': 1.3.0
+      '@scure/bip39': 1.2.0
+      '@wagmi/chains': 1.2.0(typescript@5.1.3)
+      abitype: 0.8.11(typescript@5.1.3)
+      isomorphic-ws: 5.0.0(ws@8.12.0)
+      typescript: 5.1.3
+      ws: 8.12.0
+    transitivePeerDependencies:
+      - bufferutil
+      - utf-8-validate
+      - zod
+    dev: false
+
   /viem@1.2.9(typescript@5.1.3):
     resolution: {integrity: sha512-EnEbTuAAHv43unUgMISdQXbD9mrhZLvOdmf6eRGbDFl+XwP/PEzZAT79RaWAuDPnLXGMP1gBCJF++NFjSMukUw==}
     peerDependencies:
@@ -10293,7 +10301,7 @@ packages:
     resolution: {integrity: sha512-AFbieoL7a5LMqcnOF04ji+rpXadgOXnZsxQr//r83kLPr7biP7am3g9zbaZIaBGwBRWeSvoMD4mgPdX3e4NWBg==}
     dev: false
 
-  /wagmi@1.3.7(react-dom@18.2.0)(react@18.2.0)(typescript@5.1.3)(viem@1.2.11):
+  /wagmi@1.3.7(react-dom@18.2.0)(react@18.2.0)(typescript@5.1.3)(viem@1.2.15):
     resolution: {integrity: sha512-n4Qwby0QB8/JSGjc0gGn4MWZ0BT229agEg6saPGS6VswmPjJLdkLq9qxKn1JptXxPREmb/ZvwHxU++3Z+gQJVA==}
     peerDependencies:
       react: '>=17.0.0'
@@ -10306,12 +10314,12 @@ packages:
       '@tanstack/query-sync-storage-persister': 4.29.19
       '@tanstack/react-query': 4.29.19(react-dom@18.2.0)(react@18.2.0)
       '@tanstack/react-query-persist-client': 4.29.19(@tanstack/react-query@4.29.19)
-      '@wagmi/core': 1.3.6(react@18.2.0)(typescript@5.1.3)(viem@1.2.11)
+      '@wagmi/core': 1.3.6(react@18.2.0)(typescript@5.1.3)(viem@1.2.15)
       abitype: 0.8.7(typescript@5.1.3)
       react: 18.2.0
       typescript: 5.1.3
       use-sync-external-store: 1.2.0(react@18.2.0)
-      viem: 1.2.11(typescript@5.1.3)
+      viem: 1.2.15(typescript@5.1.3)
     transitivePeerDependencies:
       - '@react-native-async-storage/async-storage'
       - bufferutil

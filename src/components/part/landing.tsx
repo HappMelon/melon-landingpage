@@ -184,6 +184,7 @@ function LandingContent() {
 					alt="hospot"
 					className={styles.page4Img}
 					style={{ marginTop: "-3rem" }}
+					
 				></img>
 				<div className={styles.page4TextContainer}>
 					<div className={styles.page4TextTitle}>Hotspot Timeline</div>
@@ -206,8 +207,8 @@ function LandingContent() {
 				</div>
 			</div>
 
-			<div className={styles.page4Container}>
-				<div className={styles.page4TextContainer}>
+			<div className={styles.page4Container_wallet}>
+				<div className={styles.page4TextContainer_wallet}>
 					<div className={styles.page4TextTitle}>Flare Wallet</div>
 					<div className={styles.page4TextSubTitle}>
 						Introduction to the on-chain and off-
@@ -234,16 +235,16 @@ function LandingContent() {
 				<img
 					src="/images/pages/index/wallet.png"
 					alt="hospot"
-					className={styles.page4Img}
+					className={styles.page4Img_wallet}
 				></img>
 			</div>
 			<div className={styles.page4Container}>
 				<img
 					src="/images/pages/index/betting-prediction.png"
 					alt="hospot"
-					className={styles.page4Img}
+					className={styles.page4Img_prediction}
 				></img>
-				<div className={styles.page4TextContainer}>
+				<div className={styles.page4TextContainer_prediction}>
 					<div className={styles.page4TextTitle}>Betting Prediction</div>
 					<div className={styles.page4TextSubTitle}>
 						Unique Staking Gameplay
@@ -430,7 +431,7 @@ function LandingContent() {
 									className={styles.techCardShape2}
 								></img>
 								<img
-									src="/images/pages/index/tetech-card-three.svg"
+									src="/images/pages/index/tech-card-three.svg"
 									alt="tech-card"
 									className={styles.techImg}
 								></img>
@@ -451,7 +452,7 @@ function LandingContent() {
 				<div className={styles.page8Title}>FOUNDER TEAM</div>
 				<div className={styles.team}>
 					<div className={styles.page8Item}>
-						<div className="text-1.75rem font-750">Oliver Wang</div>
+						<div className="text-1.75rem font-750 mt-1rem">Oliver Wang</div>
 						<div className={styles.page8Founder}>Founder</div>
 						<div className="mt-1.75rem">
 							Serial Entrepreneur in web2&3, 4+ <br />
@@ -460,7 +461,7 @@ function LandingContent() {
 						</div>
 					</div>
 					<div className={styles.page8Item}>
-						<div className="text-1.75rem font-750">Rice Cao</div>
+						<div className="text-1.75rem font-750 mt-1rem">Rice Cao</div>
 						<div className={styles.page8Founder}>Tech Advisor</div>
 						<div className="mt-1.75rem">
 							Former Tech Lead at Tiktok. <br />
@@ -473,7 +474,7 @@ function LandingContent() {
 						</div>
 					</div>
 					<div className={styles.page8Item}>
-						<div className="text-1.75rem font-750">Jokereven</div>
+						<div className="text-1.75rem font-750 mt-1rem">Jokereven</div>
 						<div className={styles.page8Founder}>Founding Engineer</div>
 						<div className="mt-1.75rem">
 							Front-end developer / Web3 <br />
@@ -481,9 +482,9 @@ function LandingContent() {
 						</div>
 					</div>
 					<div className={styles.page8Item}>
-						<div className="text-1.75rem font-750">Ning</div>
+						<div className="text-1.75rem font-750 mt-1rem">Ning</div>
 						<div className={styles.page8Founder}>Full Stack/ML</div>
-						<div className="mt-1.75rem">
+						<div className="mt-1.75rem mt-1rem">
 							full stack/ML--15 years of <br />
 							experience in multiple tech areas <br />
 							and companies, including Google, Microsoft, etc. Still passionate{" "}
@@ -492,7 +493,7 @@ function LandingContent() {
 						</div>
 					</div>
 					<div className={styles.page8Item}>
-						<div className="text-1.75rem font-750">Serafina Yu</div>
+						<div className="text-1.75rem font-750 mt-1rem">Serafina Yu</div>
 						<div className={styles.page8Founder}>Head of Product & Design</div>
 						<div className="mt-1.75rem">
 							Serial Entrepreneur, strategic
@@ -503,7 +504,7 @@ function LandingContent() {
 						</div>
 					</div>
 					<div className={styles.page8Item}>
-						<div className="text-1.75rem font-750">Rekko</div>
+						<div className="text-1.75rem font-750 mt-1rem">Rekko</div>
 						<div className={styles.page8Founder}>Staff Product Manager</div>
 						<div className="mt-1.75rem">
 							Web3 Serial Entreprenuer,
@@ -515,12 +516,12 @@ function LandingContent() {
 						</div>
 					</div>
 					<div className={styles.page8Item}>
-						<div className="text-1.75rem font-750">Lena</div>
+						<div className="text-1.75rem font-750 mt-1rem">Lena</div>
 						<div className={styles.page8Founder}>Chief Strategy Officer</div>
 						<div className="mt-1.75rem">Web3 Investor</div>
 					</div>
 					<div className={styles.page8Item}>
-						<div className="text-1.75rem font-750">Dr. Hunter</div>
+						<div className="text-1.75rem font-750 mt-1rem">Dr. Hunter</div>
 						<div className={styles.page8Founder}>Angel Investor</div>
 						<div className="mt-1.75rem">Angel Investor from Harvard</div>
 					</div>

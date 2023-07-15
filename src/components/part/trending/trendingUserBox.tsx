@@ -32,10 +32,9 @@ const CharacterWithAccount = ({
 				<div>{character?.metadata?.content?.name}</div>
 				<div>@{character?.handle}</div>
 			</div>
-			<div className="flex items-center w-12rem">
-				<div className="text-1rem font-550">Posts</div>
-				<div className="pl-.5rem text-1.75rem font-700">
-					{character?.logIndex}
+			<div className="flex items-center w-16rem">
+				<div className="pl-.5rem text-1rem font-550 overflow-hidden">
+					{character?.metadata?.content?.bio}
 				</div>
 			</div>
 		</div>

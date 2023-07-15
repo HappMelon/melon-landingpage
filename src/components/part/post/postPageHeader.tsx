@@ -1,3 +1,4 @@
+import { BettingAtom, EnableBettingAtom, ValueAtom } from "@/components/part/post/postPageEditor"
 import {
 	Button,
 	Divider,
@@ -8,7 +9,12 @@ import {
 	Spacer,
 } from "@chakra-ui/react"
 import { CharacterAvatar } from "@crossbell/ui"
-import { ConnectButton, useAccountCharacter } from "@flarezone/connect-kit"
+import {
+	ConnectButton,
+	useAccountCharacter,
+	usePostNote,
+} from "@flarezone/connect-kit"
+import { useAtom } from "jotai"
 import { useNavigate } from "react-router-dom"
 
 function Avatar() {
@@ -41,7 +47,31 @@ function Avatar() {
 }
 
 export const PostPageHeader = () => {
+	const [value] = useAtom(ValueAtom)
+	const [betting] = useAtom(BettingAtom)
+	const [enable] = useAtom(EnableBettingAtom)
+
 	const navigate = useNavigate()
+	const postNote = usePostNote()
+
+	// TODO 暂时无法显示换行
+	function Post() {
+		console.log(betting, enable);
+
+		const cleanedData = value
+			.replace(/<\/?[a-z]+[^>]*>/gi, "")
+			.replace(/<[^>]+>/g, "\n")
+
+		// postNote.mutate({
+		// 	metadata: {
+		// 		content: cleanedData,
+		// 		sources: ["Crossbell Dev"],
+		// 		external_urls: ["https://flare-dapp.io"],
+		// 		tags: ["post"],
+		// 	},
+		// })
+	}
+
 	return (
 		<>
 			<Flex minWidth="max-content" alignItems="center" gap="2">
@@ -73,7 +103,7 @@ export const PostPageHeader = () => {
 					>
 						Save as Draft
 					</Button>
-					<Button marginLeft="2rem" rounded="full">
+					<Button marginLeft="2rem" rounded="full" onClick={Post}>
 						Publish
 					</Button>
 					<Button marginLeft="2rem" rounded="full">

@@ -19,6 +19,7 @@ export const PostPageNav = () => {
 				return <PostPagePublicStack />
 		}
 	}
+
 	return (
 		<>
 			<Stack className="mr-auto mt-2vh flex-col">

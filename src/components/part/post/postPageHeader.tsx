@@ -3,6 +3,9 @@ import {
 	EnableBettingAtom,
 	ValueAtom,
 } from "@/components/part/post/postPageEditor"
+import { useNoteIndex } from "@/state/Note"
+import { ethers } from "ethers"
+
 import {
 	Button,
 	Divider,
@@ -12,28 +15,18 @@ import {
 	Image,
 	Spacer,
 } from "@chakra-ui/react"
+
+import ABI from "@/contract/betting.json"
 import { CharacterAvatar } from "@crossbell/ui"
 import {
 	ConnectButton,
 	useAccountCharacter,
 	usePostNote,
 } from "@flarezone/connect-kit"
-import Web3 from "web3"
-import { ethers, providers } from "ethers"
-import { AbiItem } from "web3-utils"
 import { useAtom } from "jotai"
 import { useNavigate } from "react-router-dom"
 
-const web3 = new Web3("https://exchaintestrpc.okex.org")
-
-import contractABI from "@/contract/betting.json"
-
-const contractAddress = "0xB43da67840856167a627b5bfcdaB4a86Ba686A24"
-
-const contract = new web3.eth.Contract(
-	contractABI as AbiItem[],
-	contractAddress
-)
+const address = "0xB43da67840856167a627b5bfcdaB4a86Ba686A24"
 
 function Avatar() {
 	const navigate = useNavigate()
@@ -64,50 +57,110 @@ function Avatar() {
 	)
 }
 
+const provider = new ethers.providers.Web3Provider(window.ethereum)
+
+const Conctract = () => {
+	const signer = provider.getSigner()
+	const Contract = new ethers.Contract(address, ABI, signer)
+	return Contract
+}
+
+async function sleep() {
+	await new Promise((resolve) => setTimeout(resolve, 8000))
+}
+
+function NewPost({
+	value,
+	sources,
+	externalUrls,
+	tags,
+	isChecked = false,
+}: {
+	value: string
+	sources: string[]
+	externalUrls: string[]
+	tags: string[]
+	isChecked?: boolean
+}) {
+	const postNote = usePostNote()
+	const character = useAccountCharacter()
+
+	const [enable] = useAtom(EnableBettingAtom)
+	const [betting] = useAtom(BettingAtom)
+
+	const { data: note } = useNoteIndex(character?.characterId as number)
+
+	return (
+		<button
+			onClick={() => {
+				const newSources = isChecked ? [...sources, "gambling"] : sources
+				postNote.mutate(
+					{
+						metadata: {
+							content: value,
+							sources: newSources,
+							external_urls: externalUrls,
+							tags,
+						},
+					},
+					{
+						onSuccess: () => {
+							if (enable) {
+								if (betting) {
+									// 发起对赌
+									// 1. 切换到需要的链
+									const chainId = 97
+									const hexChainId = "0x" + chainId.toString(16)
+									void (
+										window.ethereum &&
+										window.ethereum.request({
+											method: "wallet_switchEthereumChain",
+											params: [
+												{
+													chainId: hexChainId,
+												},
+											],
+										})
+									)
+									// 2. 掉对赌合约
+									let FlareContract: any
+									window.ethereum &&
+										window.ethereum.on("chainChanged", (chainId: string) => {
+											FlareContract = Conctract()
+										})
+									sleep
+									// eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
+									FlareContract?.publishPost(
+										note?.noteId,
+										enable,
+										betting,
+										86400
+									)
+								}
+							}
+						},
+					}
+				)
+			}}
+		>
+			Publish
+		</button>
+	)
+}
+
 export const PostPageHeader = () => {
 	const [value] = useAtom(ValueAtom)
 	const [betting] = useAtom(BettingAtom)
 	const [enable] = useAtom(EnableBettingAtom)
 
 	const navigate = useNavigate()
-	const postNote = usePostNote()
-
-	const Conctract = () => {
-		const signer = Provider().getSigner()
-		const Contract = new ethers.Contract(contractAddress, contractABI, signer)
-		return Contract
-	}
 
 	// TODO 暂时无法显示换行
-	function Post() {
-		console.log(betting, enable)
+	console.log(betting, enable)
 
-		const cleanedData = value
-			.replace(/<\/?[a-z]+[^>]*>/gi, "")
-			.replace(/<[^>]+>/g, "\n")
-
-		postNote.mutate(
-			{
-				metadata: {
-					content: cleanedData,
-					sources: ["Flare Dev"],
-					external_urls: ["https://flare-dapp.io"],
-					tags: ["post"],
-				},
-			},
-			{
-				// 掉对赌合约.
-				onSuccess: () => {
-					if (window.ethereum) {
-						window.ethereum.on("chainChanged", (chainId: any) => {
-							console.log("chainId:", chainId)
-							const FlareContract = Conctract()
-						})
-					}
-				},
-			}
-		)
-	}
+	const cleanedData = value
+		.replace(/<\/?[a-z]+[^>]*>/gi, "")
+		.replace(/<[^>]+>/g, "\n")
 
 	return (
 		<>
@@ -140,9 +193,13 @@ export const PostPageHeader = () => {
 					>
 						Save as Draft
 					</Button>
-					<Button marginLeft="2rem" rounded="full" onClick={Post}>
-						Publish
-					</Button>
+					<NewPost
+						value={cleanedData}
+						sources={["FlareDapp Dev"]}
+						externalUrls={["https://crossbell.io"]}
+						tags={["post"]}
+						isChecked={enable}
+					/>
 					<Button marginLeft="2rem" rounded="full">
 						<Avatar />
 					</Button>

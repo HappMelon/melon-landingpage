@@ -140,9 +140,9 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
 			bg={useColorModeValue("white", "gray.900")}
 			borderRight="2px"
 			borderRightColor={useColorModeValue("gray.200", "gray.700")}
-			w={{ base: "full", md: "25rem" }}
+			w={{ base: "full", md: "27rem" }}
 			pos="fixed"
-			h="full"
+			// h="full"
 			paddingLeft="6.5rem"
 			paddingTop="2.25rem"
 			overflow="auto"
@@ -197,16 +197,6 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
 							textDecoration: "underline",
 						}}
 					>
-						Settings
-					</Link>
-					<Link
-						href="mailto:flare.dapp@gmail.com"
-						style={{
-							fontSize: "0.75rem",
-							color: "black",
-							textDecoration: "underline",
-						}}
-					>
 						Help
 					</Link>
 					<Stack direction="row" spacing="0.75rem">
@@ -238,7 +228,7 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
 							spacing="1rem"
 						>
 							<Button
-								fontSize="0.5rem"
+								fontSize="0.75rem"
 								leftIcon={<BiMobile style={{ marginRight: "-0.25rem" }} />}
 								p="0"
 								bg="none"
@@ -248,7 +238,7 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
 								App
 							</Button>
 							<Button
-								fontSize="0.5rem"
+								fontSize="0.75rem"
 								leftIcon={<BiGlobe style={{ marginRight: "-0.25rem" }} />}
 								p="0"
 								bg="none"

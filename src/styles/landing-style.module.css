@@ -1649,5 +1649,10 @@
 		border-radius: 1.25rem;
 		width: 14.083rem;
 		height: 16rem;
+}
+
+@media only screen and (max-width: 576px) {
+	.headerButton {
+		display: none;
 	}
 }

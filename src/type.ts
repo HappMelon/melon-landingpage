@@ -66,3 +66,8 @@ export interface HotTopics {
 	list: string[]
 	count: number
 }
+
+export interface BettingNote {
+	count: number
+	cursor: string
+}

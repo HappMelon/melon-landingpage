@@ -1,13 +1,30 @@
 import { ArticleTag } from "@/components/part/articleCard/articleTag"
+import { useStatus } from "@/state/Status"
 import { Article, Character } from "@/type"
 import { Box, BoxProps, Stack, Text } from "@chakra-ui/react"
 import { CharacterAvatar } from "@crossbell/ui"
 import {
+	useAccountCharacter,
 	useIsNoteLiked,
 	useNoteLikeCount,
 	useToggleLikeNote,
 } from "@flarezone/connect-kit"
 import { Remarkable } from "remarkable"
+
+import ABI from "@/contract/betting.json"
+import { useNoteIndex } from "@/state/Note"
+import { ethers } from "ethers"
+
+const address = "0xB43da67840856167a627b5bfcdaB4a86Ba686A24"
+
+// eslint-disable-next-line @typescript-eslint/no-unsafe-argument
+const provider = new ethers.providers.Web3Provider(window.ethereum)
+
+const Conctract = () => {
+	const signer = provider.getSigner()
+	const Contract = new ethers.Contract(address, ABI, signer)
+	return Contract
+}
 
 interface ArticleBoxProps extends BoxProps {
 	data: Article
@@ -90,15 +107,19 @@ export const ArticleBox = ({ data, account, ...Props }: ArticleBoxProps) => {
 		}
 	}
 
+	const character = useAccountCharacter()
+	const { data: bet } = useStatus(String(data.characterId), String(data.noteId))
+	const { data: note } = useNoteIndex(character?.characterId as number)
+
 	return (
 		<>
 			<Box className="flex w-full py-3 px-3 border-b border-gray/20 bg-hover cursor-pointer flex-row">
 				<Stack
-					className="flex !flex-row w-full cursor-pointer hover-transition-opacity hover:bg-#9ca3af10 rounded-xl"
+					className="flex !flex-row w-50rem cursor-pointer hover-transition-opacity hover:bg-#9ca3af10 rounded-xl"
 					// OPTIMIZE 这里先这么写, 之后按照统一的方式 open page
-					onClick={() => {
-						window.location.href = `/@${account.handle}/status/${data.characterId}-${data.noteId}`
-					}}
+					// onClick={() => {
+					// 	window.location.href = `/@${account?.handle}/status/${data?.characterId}-${data?.noteId}`
+					// }}
 				>
 					<CharacterAvatar
 						className="!w-3rem !h-3rem !rounded-50% border-solid border-#fff shadow-lg object-cover"
@@ -147,6 +168,55 @@ export const ArticleBox = ({ data, account, ...Props }: ArticleBoxProps) => {
 								noteId={data.noteId}
 								characterId={data.characterId}
 							/>
+							<div>
+								{data.metadata.content.sources &&
+								data.metadata.content.sources.includes("gambling") ? (
+									<div className="flex flex-row items-center">
+										<button
+											className="i-carbon-currency-dollar w-1rem h-1rem"
+											onClick={() => {
+												const chainId = 97
+												const hexChainId = "0x" + chainId.toString(16)
+												void (
+													window.ethereum &&
+													// eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
+													window.ethereum.request({
+														method: "wallet_switchEthereumChain",
+														params: [
+															{
+																chainId: hexChainId,
+															},
+														],
+													})
+												)
+												// eslint-disable-next-line @typescript-eslint/no-unused-vars
+												let FlareContract: any
+												window.ethereum &&
+													// eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
+													window.ethereum.on(
+														"chainChanged",
+														(chainId: string) => {
+															console.log("chainId:", chainId)
+															FlareContract = Conctract()
+															// eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call, @typescript-eslint/restrict-template-expressions
+															const postId = `${note?.count}${character?.characterId}`
+															// eslint-disable-next-line @typescript-eslint/restrict-template-expressions
+															if (FlareContract) {
+																// eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
+																FlareContract?.Participate(postId, {value: String(10000000000000000)})
+															} else {
+																console.log("contract is not ready")
+															}
+														}
+													)
+											}}
+										></button>
+										<div>GM</div>
+									</div>
+								) : (
+									<></>
+								)}
+							</div>
 						</div>
 					</div>
 				</Stack>

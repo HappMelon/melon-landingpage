@@ -1,4 +1,4 @@
-import { ButtonWithText } from "@/components/common/button"
+import ButtonWithText from "@/components/ui/buttonWithText"
 
 import {
 	useConnectModal,
@@ -27,7 +27,6 @@ import {
 
 import { ReactNode, ReactText } from "react"
 import { BiGlobe, BiMobile } from "react-icons/bi"
-import { BsStars } from "react-icons/bs"
 import { FiMenu } from "react-icons/fi"
 import { useNavigate } from "react-router-dom"
 
@@ -63,7 +62,11 @@ const LinkItems: Array<LinkItemProps> = [
 export default function SimpleSidebar({ children }: { children: ReactNode }) {
 	const { isOpen, onOpen, onClose } = useDisclosure()
 	return (
-		<Box minH="100vh" bg={useColorModeValue("white", "gray.900")}>
+		<Box
+			minH="100vh"
+			bg={useColorModeValue("white", "gray.900")}
+			fontFamily="Avenir LT Std"
+		>
 			<SidebarContent
 				onClose={() => onClose}
 				display={{ base: "none", md: "block" }}
@@ -81,7 +84,7 @@ export default function SimpleSidebar({ children }: { children: ReactNode }) {
 				</DrawerContent>
 			</Drawer>
 			<MobileNav display={{ base: "flex", md: "none" }} onOpen={onOpen} />
-			<Box ml={{ base: 0, md: "20vw" }} p="1rem 4rem">
+			<Box ml={{ base: 0, md: "25rem" }} p="1rem 4rem">
 				{children}
 			</Box>
 		</Box>
@@ -137,11 +140,11 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
 			bg={useColorModeValue("white", "gray.900")}
 			borderRight="2px"
 			borderRightColor={useColorModeValue("gray.200", "gray.700")}
-			w={{ base: "full", md: "20vw" }}
+			w={{ base: "full", md: "27rem" }}
 			pos="fixed"
-			h="full"
-			paddingLeft="5vw"
-			paddingTop="2vh"
+			// h="full"
+			paddingLeft="6.5rem"
+			paddingTop="2.25rem"
 			overflow="auto"
 			{...rest}
 		>
@@ -170,14 +173,21 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
 				<ButtonWithText
 					onClick={() => pushPost()}
 					className="py-14px"
-					w="142px"
+					w="8.875rem"
+					h="3rem"
 					marginTop="1.25rem"
 					mx="1rem"
 					text="Post"
-					leftIcon={<BsStars />}
+					textFontSize="1.25rem"
+					leftIcon={
+						<img
+							alt="icon"
+							src="/images/pages/explore/icon _dashboard_customize_.svg"
+						/>
+					}
 				/>
 				<Spacer />
-				<Stack direction="column" justify="left" mx="2rem" spacing="2rem">
+				<Stack direction="column" justify="left" mx="2rem" spacing="1.5rem">
 					<SettingsBtn />
 					<Link
 						href="mailto:flare.dapp@gmail.com"
@@ -209,37 +219,39 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
 							boxSize="2rem"
 						/>
 					</Stack>
-					<Stack
-						direction="row"
-						justify="left"
-						justifyItems="left"
-						align="center"
-						spacing="1rem"
-					>
-						<Button
-							fontSize="0.5rem"
-							leftIcon={<BiMobile style={{ marginRight: "-0.25rem" }} />}
-							p="0"
-							bg="none"
-							color="#9B9B9B"
-							_hover={{ bg: "none" }}
+					<Stack direction="column" spacing="0.25rem">
+						<Stack
+							direction="row"
+							justify="left"
+							justifyItems="left"
+							align="center"
+							spacing="1rem"
 						>
-							App
-						</Button>
-						<Button
-							fontSize="0.5rem"
-							leftIcon={<BiGlobe style={{ marginRight: "-0.25rem" }} />}
-							p="0"
-							bg="none"
-							color="#9B9B9B"
-							_hover={{ bg: "none" }}
-						>
-							US/EN
-						</Button>
+							<Button
+								fontSize="0.75rem"
+								leftIcon={<BiMobile style={{ marginRight: "-0.25rem" }} />}
+								p="0"
+								bg="none"
+								color="#9B9B9B"
+								_hover={{ bg: "none" }}
+							>
+								App
+							</Button>
+							<Button
+								fontSize="0.75rem"
+								leftIcon={<BiGlobe style={{ marginRight: "-0.25rem" }} />}
+								p="0"
+								bg="none"
+								color="#9B9B9B"
+								_hover={{ bg: "none" }}
+							>
+								US/EN
+							</Button>
+						</Stack>
+						<Text fontSize="0.5rem" color="#9B9B9B" className="pb-2.375rem">
+							© Flare Dapp 2023 &nbsp; | &nbsp; All Rights Reserved
+						</Text>
 					</Stack>
-					<Text fontSize="0.5rem" color="#9B9B9B" className="pb-2.375rem">
-						© Flare Dapp 2023 &nbsp; | &nbsp; All Rights Reserved
-					</Text>
 				</Stack>
 			</Flex>
 		</Box>

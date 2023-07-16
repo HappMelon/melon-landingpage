@@ -2,10 +2,12 @@ import { Button, ButtonProps } from "@chakra-ui/react"
 
 interface ButtonWithTextProps extends ButtonProps {
 	text: string
+	textFontSize?: string
 }
 
 export default function ButtonWithText({
 	text,
+	textFontSize = "1rem",
 	...props
 }: ButtonWithTextProps) {
 	return (
@@ -13,7 +15,7 @@ export default function ButtonWithText({
 			{...props}
 			/* flex={1} */
 			px={"2rem"}
-			fontSize={"1rem"}
+			fontSize={textFontSize}
 			rounded={"full"}
 			bgGradient={"linear(to-r, #F9D423, #F83600)"}
 			color={"white"}

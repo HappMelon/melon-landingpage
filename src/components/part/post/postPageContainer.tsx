@@ -11,8 +11,7 @@ export const PostPageContainer = () => {
 	return (
 		<>
 			<Grid
-				templateAreas={`"header header"
-				"nav main"`}
+				templateAreas={`"header header" "nav main"`}
 				gridTemplateRows={"100px 1fr 30px"}
 				gridTemplateColumns={"300px 1fr"}
 				gap="0"

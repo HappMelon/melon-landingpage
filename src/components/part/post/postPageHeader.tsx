@@ -135,16 +135,18 @@ function NewPost({
 										)
 										// eslint-disable-next-line @typescript-eslint/restrict-template-expressions
 										if (FlareContract) {
-											console.log(FlareContract)
+											const noteId = (Number(note?.count) || 0) + 1
+											// eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call, @typescript-eslint/restrict-template-expressions
+											const postId = `${noteId}${character?.characterId}`;
 											// eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
 											FlareContract?.publishPost(
-												note?.count,
+												postId,
 												enable,
 												_betAmount,
 												3600
 											)
 										} else {
-											console.log("FlareContract is not ready")
+											console.log("contract is not ready")
 										}
 									})
 							}

@@ -647,6 +647,11 @@
 	display: none;
 }
 
+
+
+
+
+
 /* 15 px */
 @media only screen and (max-width: 1200px) {
 	.landingCardContainer img{
@@ -1644,10 +1649,5 @@
 		border-radius: 1.25rem;
 		width: 14.083rem;
 		height: 16rem;
-}
-
-@media only screen and (max-width: 576px) {
-	.headerButton {
-		display: none;
 	}
 }

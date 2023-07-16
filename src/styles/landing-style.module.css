@@ -324,6 +324,7 @@
 }
 .page4TextContainer_prediction {
 	width: 38rem;
+	margin-left: 1rem;
 }
 
 
@@ -384,6 +385,8 @@
 	border: 0.063rem solid rgba(255, 255, 255, 0.5);
 	background: lightgray -191.692px -79.006px / 155.576% 131.018% no-repeat;
 }
+
+/* container 6 */
 .page6container {
 	margin-top: 25.563rem;
 	display: flex;
@@ -477,6 +480,7 @@
 	gap: 1rem;
 	text-align: left;
 	margin-top: 20rem;
+	margin-bottom: 10rem;
 }
 
 .team {
@@ -643,7 +647,457 @@
 	display: none;
 }
 
-@media only screen and (max-width: 400px) {
+
+
+
+
+
+/* 15 px */
+@media only screen and (max-width: 1200px) {
+	.landingCardContainer img{
+		width: 10rem;
+	}
+	
+	
+	.page4Img_wallet {
+		height: auto;
+		width: 45.26%;
+	}
+	.page4Img {
+		height:50.26%;
+		width: 56.26%;
+	}
+	.page4TextContainer {
+		width: 38rem;
+		margin: 2rem 3rem 0 -3rem;
+	}
+	
+	.page5Container {
+		width: 68rem;
+		padding: 3.6875rem 3%;
+	}
+	.page5SubContainer {
+		margin-top: 0.1875rem;
+		margin-bottom: -18rem;
+		
+	}
+	
+	.page5ImgBg {	
+		width: 34.875rem;
+		height: 23rem;
+	}
+	.page5Img {
+		top: -20rem;
+		width: 31.24rem;
+		height: 24rem;
+}
+
+/* container 6 */
+
+.top {
+	margin-top: 3.375rem;
+	height: 36.875rem;
+	
+}
+
+.page7dtdcl {
+	width: 33.8875rem;
+	height: 28.875rem;
+}
+.page7Container {
+	margin-top: -6rem;
+	width: 93%;
+}
+.dtdisplay img:nth-child(1) {
+	width: 29.3125rem;
+	top: 8.875rem;
+	left:3.2375rem;
+}
+.dtdisplay img:nth-child(2) {
+	width: 32.3125rem;
+	top: 5.675rem;
+	left:0.9375rem;
+}
+
+/* tech part */
+.tech {
+	width: 100vw;
+}
+
+.techText {	
+	width: 37.375rem;
+	gap: 1rem;
+	margin: 0 auto 3rem auto;
+}
+
+.techTextContent {
+	width: 58.375rem;
+	
+}
+.techPicture {	
+	gap: 0.75rem;
+	
+}
+
+.techCard {
+	width: 21.97rem;
+	height: 14rem;
+}
+
+.cardText {
+	width: 10.039rem;
+	height: auto;
+	margin: 2.5rem 0 2.5rem 1.289rem;
+	z-index: 4;
+}
+
+.techCardTitle {
+	height: 4.813rem;
+	font-size: 2.5rem;
+	line-height: 3.813rem;
+}
+
+.techCardContent {
+	font-size: 1.25rem;
+	font-weight: 700 lighter;
+	line-height: 2rem;
+	letter-spacing: 0em;
+	
+}
+
+
+.techCardShape1 {
+	
+	width: 21.97rem;
+	height: 14rem;
+}
+
+.techCardShape2 {
+	
+	width: 12.563rem;
+	height: 14rem;
+}
+
+.techImg {
+	width: 8.625rem;
+}
+.page1Shape2 {
+	width: 28.8893rem;
+    height: 58.7833rem;
+}
+
+
+}
+
+
+/* 14 px */
+@media only screen and (max-width: 992px) {
+	.headerTitle {
+		
+		font-size: 2.5rem;
+		
+	}
+	.page1Title {
+		font-size: 3.25rem;
+	}
+	
+	.page1Text {
+		text-align: center;
+		font-size: 1.5rem;
+		font-weight: 550 lighter;
+		line-height: 170%;
+		text-transform: capitalize;
+		padding-top: 2.625rem;
+		z-index: 1;
+	}
+	.landingCardContainer img{
+		width: 7.5rem;
+	}
+	
+	
+	.page4Img_wallet {
+		height: auto;
+		width: 40.26%;
+	}
+	.page4Img {
+		height:auto;
+		width: 50.26%;
+	}
+	.page4Img_prediction {
+		height: auto;
+		width: 40.26%;
+	}
+	.page4TextContainer {
+		width: 38rem;
+		margin: -1rem 3rem 0 -3rem;
+	}
+	
+	
+	
+	.page5Container {
+		width: 57rem;
+		padding: 2.6875rem 2%;
+	}
+	.page5SubContainer {
+		margin-top: 0.1875rem;
+		margin-bottom: -7.5rem;
+		
+	}
+	
+	.page5ImgBg {	
+		width: 27.875rem;
+		height: 19rem;
+	}
+	.page5Img {
+		top: -18rem;
+		width: 25.24rem;
+		height: 20rem;
+}
+
+/* container 6 */
+
+.top {
+	margin-top: 3.375rem;
+	height: 36.875rem;
+	
+}
+
+.page7dtdcl {
+	width: 27.6875rem;
+	height: 22.875rem;
+}
+.page7Container {
+	margin-top: -11rem;
+	width: 90%;
+}
+.dtdisplay img:nth-child(1) {
+	width: 22.3125rem;
+	top: 8.675rem;
+	left:3.8375rem;
+}
+.dtdisplay img:nth-child(2) {
+	width: 24.3125rem;
+	top: 5.675rem;
+	left:1.0375rem;
+}
+
+/* tech part */
+.tech {
+	width: 100vw;
+}
+
+.techText {	
+	width: 30.375rem;
+	gap: 1rem;
+	margin: 0 auto 3rem auto;
+}
+
+.techTextContent {
+	width: 51.375rem;
+	
+}
+.techPicture {	
+	gap: 0.5rem;
+	
+}
+
+.techCard {
+	width: 18.57rem;
+	height: 12rem;
+}
+
+.cardText {
+	width: 10.039rem;
+	height: auto;
+	margin: 2.5rem 0 2.5rem 1.289rem;
+	z-index: 4;
+}
+
+.techCardTitle {
+	height: 4.813rem;
+	font-size: 2.125rem;
+	line-height: 3.813rem;
+}
+
+.techCardContent {
+	font-size: 1rem;
+	line-height: 2rem;
+	letter-spacing: 0em;
+	
+}
+
+
+.techCardShape1 {
+	
+	width: 18.57rem;
+	height: 12rem;
+}
+
+.techCardShape2 {
+	
+	width: 7.263rem;
+	height: 12rem;
+}
+
+.techImg {
+	width: 7.625rem;
+}
+.page1Shape2 {
+	width: 20.8893rem;
+    height: 40.7833rem;
+}
+
+
+}
+
+
+
+
+
+/* 13 px */
+@media only screen and (max-width: 768px) {
+	.headerTitle {
+		font-size: 1.25rem;
+	}
+	.page1Title {
+		font-size: 2.25rem;
+	}
+	
+	.page1Text {
+		text-align: center;
+		font-size: 0.75rem;
+		font-weight: 550 lighter;
+		line-height: 170%;
+		text-transform: capitalize;
+		padding-top: 2.625rem;
+		z-index: 1;
+	}
+
+	.page1Button1 {
+		height: 3.083rem;
+		width: 9.417rem;
+		padding:auto;
+		/* margin-right: 10%; */
+		font-size: 1rem;
+	}
+
+	.page1Button2 {
+		height: 3.083rem;
+		width: 9.417rem;
+		padding: auto;
+		font-size: 1rem;
+		
+	}
+
+
+	.page2Title {
+		
+		font-size: 2.25rem;
+		
+	}
+	
+	.page2Text {
+		
+		font-size: 1rem;
+		
+	}
+
+	.landingCardContainer img{
+		width: 3.5rem;
+	}
+	.landingCardContainer {
+	
+		width: 32rem;
+		padding: 1.75rem 0.1rem;
+		z-index: 1;
+	}
+	.landingCardTitle {
+		font-size: 1.5rem;
+		margin: 1.589rem auto;
+		line-height: 2rem;
+		
+	}
+	.landingCardText {
+		font-size: 0.75rem;
+		line-height: 1.5rem;
+	}
+	
+	.page4TextTitle {
+		font-size: 2.25rem;
+		line-height: 2.8rem;
+	}
+	.page4TextSubTitle {
+		font-size: 1.5rem;
+		line-height: 2rem;
+	}
+	.page4TextContent {
+		font-size: 1rem;
+	}
+	
+	.page4Img {
+		height:100%;
+		width: 40.26%;
+		margin: auto 0;
+	}
+	.page4Img_wallet {
+		height: 100%;
+		width: 40.26%;
+	}
+	.page4Img_prediction {
+		height: 100%;
+		width: 40.26%;
+	}
+	.page4TextContainer {
+		width: 20rem;
+		margin: -10rem 1rem 0 1rem;
+	}
+	.page4TextContainer_wallet {
+		margin: -10rem 1rem 0 1rem;
+	}
+
+	.page4TextContainer_prediction {
+		margin: -10rem 1rem 0 1rem;
+	}
+	
+	
+	.page5Container {
+		width: 57rem;
+		padding: 2.6875rem 2%;
+	}
+	.page5SubContainer {
+		margin-top: 0.1875rem;
+		margin-bottom: -3.5rem;
+		
+	}
+
+	.page6Explore {
+		font-size: 2.25rem;;
+	}
+	.page7dtdcl div:nth-child(1) {
+		font-size: 1.5rem;
+	}
+	.page7Title {
+		font-size: 1.5rem;
+		margin-top: 0;
+	}
+}
+
+
+
+
+/* @media only screen and (max-width: 576px) {
+	.headerButton {
+		display: none;
+	}
+} */
+
+/* 12 px */
+@media only screen and (max-width: 576px) {
+
+	.headerButton {
+		display: none;
+	}
+
 	/* header */
 	.headerContainer {
 		height: 3.375rem;
@@ -731,6 +1185,13 @@
 		/* margin-right: 10%; */
 		font-size: 1.5rem;
 		line-height: 1.8rem;
+	}
+	.page1Button2 {
+		height: 4.083rem;
+		width: 13.417rem;
+		padding: 0.6875rem 2rem;
+		font-size: 1.5rem;
+
 	}
 
 	.page1Img {
@@ -902,6 +1363,7 @@
 		display: flex;
 		flex-direction: column;
 		margin-top: 2rem;
+		margin-bottom: -25rem;
 		justify-content: space-around;
 	}
 	.page5TextSubTitle {
@@ -927,6 +1389,7 @@
 	}
 	.page5ImgBg {
 		z-index: 0;
+		margin: 1rem;
 		width: 24.25rem;
 		height: 13.662rem;
 		border-radius: 1.25rem;
@@ -935,8 +1398,8 @@
 	}
 	.page5Img {
 		position: relative;
-		top: -11.667rem;
-		left: 0.75rem;
+		top: -13.667rem;
+		left: 1.75rem;
 		z-index: 6;
 		width: 22.815rem;
 		height: 15.213rem;
@@ -1016,6 +1479,7 @@
 		width: 100%;
 		height: auto;
 		align-content: left;
+		margin-bottom: 12rem;
 	}
 	.page8Title {
 		font-size: 1.5rem;
@@ -1137,8 +1601,8 @@
 	.techCard {
 		display: flex;
 		flex-direction: row;
-		width: 27.25rem;
-		height: auto;
+		width: 24.25rem;
+		height: 16rem;
 		border-radius: 1.25rem;
 		border: 1px solid rgba(255, 255, 255, 0.2);
 	}
@@ -1171,25 +1635,19 @@
 	}
 
 	.techImg {
-		width: 12.199rem;
+		width: 10.199rem;
 	}
 	.techCardShape1 {
 		position: absolute;
 		border-radius: 1.25rem;
-		width: 26.602rem;
-		height: 17.125rem;
+		width: 24.25rem;
+		height: 16rem;
 	}
 
 	.techCardShape2 {
 		position: absolute;
 		border-radius: 1.25rem;
-		width: 11.583rem;
-		height: 17.125rem;
-	}
-}
-
-@media only screen and (max-width: 576px) {
-	.headerButton {
-		display: none;
+		width: 14.083rem;
+		height: 16rem;
 	}
 }

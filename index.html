@@ -17,6 +17,7 @@
 				resizeEvt = 'orientationchange' in window ? 'orientataionchange' : 'resize',
 				recalc = function () {
 					var clientWidth = docEI.clientWidth;
+					
 					console.log(clientWidth)
 					if (!clientWidth) return;
 					if (clientWidth <= 576) {
@@ -31,7 +32,7 @@
 					if (clientWidth <= 1200&&clientWidth > 992) {
 						docEI.style.fontSize = 15 * (clientWidth / 1200) + 'px';
 					}
-					if (clientWidth >= 1200) {
+					if (clientWidth > 1200) {
 						docEI.style.fontSize = 16 * (clientWidth / 1920) + 'px';
 					}
 

@@ -73,7 +73,7 @@
 	flex-direction: column;
 	align-items: center;
 	padding-top:13.3125rem;
-	
+
 }
 .page1Title {
 	color: #fff;
@@ -165,7 +165,7 @@
 }
 .page2Container {
 	display: flex;
-	
+
 	width: 64.48%;
 	flex-direction: column;
 	justify-content: center;
@@ -192,7 +192,7 @@
 	display: none;
 }
 .page2Text {
-	
+
 	height: 14rem;
 	margin-top: 2.25rem;
 	text-align: center;
@@ -210,7 +210,7 @@
 	gap:3rem;
 	justify-content: space-around;
 	padding-bottom: 6.25rem;
-	
+
 }
 .page3Shape {
 	width: 32rem;
@@ -224,7 +224,7 @@
 
 /*Landing Card*/
 .landingCardContainer {
-	
+
 	width: 32rem;
 	height: auto;
 	border-radius: 0.938rem;
@@ -292,7 +292,7 @@
 	color: #fff;
 	font-size: 1.25rem;
 	line-height: 2.125rem;
-	
+
 	font-weight: 550 lighter;
 }
 
@@ -647,18 +647,13 @@
 	display: none;
 }
 
-
-
-
-
-
 /* 15 px */
 @media only screen and (max-width: 1200px) {
 	.landingCardContainer img{
 		width: 10rem;
 	}
-	
-	
+
+
 	.page4Img_wallet {
 		height: auto;
 		width: 45.26%;
@@ -671,7 +666,7 @@
 		width: 38rem;
 		margin: 2rem 3rem 0 -3rem;
 	}
-	
+
 	.page5Container {
 		width: 68rem;
 		padding: 3.6875rem 3%;
@@ -679,10 +674,10 @@
 	.page5SubContainer {
 		margin-top: 0.1875rem;
 		margin-bottom: -18rem;
-		
+
 	}
-	
-	.page5ImgBg {	
+
+	.page5ImgBg {
 		width: 34.875rem;
 		height: 23rem;
 	}
@@ -697,7 +692,7 @@
 .top {
 	margin-top: 3.375rem;
 	height: 36.875rem;
-	
+
 }
 
 .page7dtdcl {
@@ -724,7 +719,7 @@
 	width: 100vw;
 }
 
-.techText {	
+.techText {
 	width: 37.375rem;
 	gap: 1rem;
 	margin: 0 auto 3rem auto;
@@ -732,11 +727,11 @@
 
 .techTextContent {
 	width: 58.375rem;
-	
+
 }
-.techPicture {	
+.techPicture {
 	gap: 0.75rem;
-	
+
 }
 
 .techCard {
@@ -762,18 +757,18 @@
 	font-weight: 700 lighter;
 	line-height: 2rem;
 	letter-spacing: 0em;
-	
+
 }
 
 
 .techCardShape1 {
-	
+
 	width: 21.97rem;
 	height: 14rem;
 }
 
 .techCardShape2 {
-	
+
 	width: 12.563rem;
 	height: 14rem;
 }
@@ -793,14 +788,14 @@
 /* 14 px */
 @media only screen and (max-width: 992px) {
 	.headerTitle {
-		
+
 		font-size: 2.5rem;
-		
+
 	}
 	.page1Title {
 		font-size: 3.25rem;
 	}
-	
+
 	.page1Text {
 		text-align: center;
 		font-size: 1.5rem;
@@ -813,8 +808,8 @@
 	.landingCardContainer img{
 		width: 7.5rem;
 	}
-	
-	
+
+
 	.page4Img_wallet {
 		height: auto;
 		width: 40.26%;
@@ -831,9 +826,9 @@
 		width: 38rem;
 		margin: -1rem 3rem 0 -3rem;
 	}
-	
-	
-	
+
+
+
 	.page5Container {
 		width: 57rem;
 		padding: 2.6875rem 2%;
@@ -841,10 +836,10 @@
 	.page5SubContainer {
 		margin-top: 0.1875rem;
 		margin-bottom: -7.5rem;
-		
+
 	}
-	
-	.page5ImgBg {	
+
+	.page5ImgBg {
 		width: 27.875rem;
 		height: 19rem;
 	}
@@ -859,7 +854,7 @@
 .top {
 	margin-top: 3.375rem;
 	height: 36.875rem;
-	
+
 }
 
 .page7dtdcl {
@@ -886,7 +881,7 @@
 	width: 100vw;
 }
 
-.techText {	
+.techText {
 	width: 30.375rem;
 	gap: 1rem;
 	margin: 0 auto 3rem auto;
@@ -894,11 +889,11 @@
 
 .techTextContent {
 	width: 51.375rem;
-	
+
 }
-.techPicture {	
+.techPicture {
 	gap: 0.5rem;
-	
+
 }
 
 .techCard {
@@ -923,18 +918,18 @@
 	font-size: 1rem;
 	line-height: 2rem;
 	letter-spacing: 0em;
-	
+
 }
 
 
 .techCardShape1 {
-	
+
 	width: 18.57rem;
 	height: 12rem;
 }
 
 .techCardShape2 {
-	
+
 	width: 7.263rem;
 	height: 12rem;
 }
@@ -962,7 +957,7 @@
 	.page1Title {
 		font-size: 2.25rem;
 	}
-	
+
 	.page1Text {
 		text-align: center;
 		font-size: 0.75rem;
@@ -986,27 +981,27 @@
 		width: 9.417rem;
 		padding: auto;
 		font-size: 1rem;
-		
+
 	}
 
 
 	.page2Title {
-		
+
 		font-size: 2.25rem;
-		
+
 	}
-	
+
 	.page2Text {
-		
+
 		font-size: 1rem;
-		
+
 	}
 
 	.landingCardContainer img{
 		width: 3.5rem;
 	}
 	.landingCardContainer {
-	
+
 		width: 32rem;
 		padding: 1.75rem 0.1rem;
 		z-index: 1;
@@ -1015,13 +1010,13 @@
 		font-size: 1.5rem;
 		margin: 1.589rem auto;
 		line-height: 2rem;
-		
+
 	}
 	.landingCardText {
 		font-size: 0.75rem;
 		line-height: 1.5rem;
 	}
-	
+
 	.page4TextTitle {
 		font-size: 2.25rem;
 		line-height: 2.8rem;
@@ -1033,7 +1028,7 @@
 	.page4TextContent {
 		font-size: 1rem;
 	}
-	
+
 	.page4Img {
 		height:100%;
 		width: 40.26%;
@@ -1058,8 +1053,8 @@
 	.page4TextContainer_prediction {
 		margin: -10rem 1rem 0 1rem;
 	}
-	
-	
+
+
 	.page5Container {
 		width: 57rem;
 		padding: 2.6875rem 2%;
@@ -1067,7 +1062,7 @@
 	.page5SubContainer {
 		margin-top: 0.1875rem;
 		margin-bottom: -3.5rem;
-		
+
 	}
 
 	.page6Explore {
@@ -1299,7 +1294,7 @@
 		font-size: 2.5rem;
 		font-weight: 700;
 		line-height: 3.375rem;
-		
+
 		text-align: left;
 	}
 	.page4TextSubTitle {
@@ -1321,7 +1316,7 @@
 
 	/*  container4 1 for walllet */
 .page4Container_wallet {
-	flex-direction: column;	
+	flex-direction: column;
 }
 
 .page4Img_wallet {
@@ -1595,7 +1590,7 @@
 		flex-direction: column;
 		margin: auto;
 		gap: 4rem;
-		
+
 	}
 
 	.techCard {

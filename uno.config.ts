@@ -15,6 +15,10 @@ export default defineConfig({
 			scale: 1.4,
 		}),
 	],
+	rules: [
+		["font-roboto", { "font-family": `"Roboto", sans-serif` }],
+		["font-deca", { "font-family": `"Lexend Deca", sans-serif` }],
+	],
 	transformers: [transformerVariantGroup(), transformerDirectives()],
 	theme: {
 		colors: {

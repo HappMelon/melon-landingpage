@@ -19,11 +19,10 @@ import App from "./App"
 
 const queryClient = new QueryClient()
 const wagmiConfig = createWagmiConfig({
-	appName: "Flare Dapp",
+	appName: "flare-dapp.io",
 	// WalletConnect Project ID.
 	// You can create or find it at https://cloud.walletconnect.com
-	walletConnectV2ProjectId: import.meta.env
-		.VITE_WALLET_CONNECT_V2_PROJECT_ID as string,
+	// walletConnectV2ProjectId: import.meta.env.VITE_WALLET_CONNECT_V2_PROJECT_ID as string,
 })
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(

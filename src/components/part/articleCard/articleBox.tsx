@@ -17,14 +17,20 @@ import { ethers } from "ethers"
 
 const address = "0xB43da67840856167a627b5bfcdaB4a86Ba686A24"
 
-// eslint-disable-next-line @typescript-eslint/no-unsafe-argument
-const provider = new ethers.providers.Web3Provider(window.ethereum)
+let Conctract: any
 
-const Conctract = () => {
-	const signer = provider.getSigner()
-	const Contract = new ethers.Contract(address, ABI, signer)
-	return Contract
+if (typeof window.ethereum !== 'undefined') {
+	// eslint-disable-next-line @typescript-eslint/no-unsafe-argument
+	const provider = new ethers.providers.Web3Provider(window?.ethereum)
+
+	Conctract = () => {
+		const signer = provider.getSigner()
+		const Contract = new ethers.Contract(address, ABI, signer)
+		return Contract
+	}
 }
+
+
 
 interface ArticleBoxProps extends BoxProps {
 	data: Article
@@ -197,6 +203,7 @@ export const ArticleBox = ({ data, account, ...Props }: ArticleBoxProps) => {
 														"chainChanged",
 														(chainId: string) => {
 															console.log("chainId:", chainId)
+															// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call
 															FlareContract = Conctract()
 															// eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call, @typescript-eslint/restrict-template-expressions
 															const postId = `${note?.count}${character?.characterId}`

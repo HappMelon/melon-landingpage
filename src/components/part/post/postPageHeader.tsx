@@ -59,13 +59,16 @@ function Avatar() {
 	)
 }
 
-// eslint-disable-next-line @typescript-eslint/no-unsafe-argument
-const provider = new ethers.providers.Web3Provider(window.ethereum)
+let Conctract: any
+if (typeof window.ethereum !== "undefined") {
+	// eslint-disable-next-line @typescript-eslint/no-unsafe-argument
+	const provider = new ethers.providers.Web3Provider(window?.ethereum)
 
-const Conctract = () => {
-	const signer = provider.getSigner()
-	const Contract = new ethers.Contract(address, ABI, signer)
-	return Contract
+	Conctract = () => {
+		const signer = provider.getSigner()
+		const Contract = new ethers.Contract(address, ABI, signer)
+		return Contract
+	}
 }
 
 function NewPost({
@@ -128,6 +131,7 @@ function NewPost({
 									// eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
 									window.ethereum.on("chainChanged", (chainId: string) => {
 										console.log("chainId:", chainId)
+										// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call
 										FlareContract = Conctract()
 										const _betAmount = web3.utils.toWei(
 											betting.toString(),
@@ -137,7 +141,7 @@ function NewPost({
 										if (FlareContract) {
 											const noteId = (Number(note?.count) || 0) + 1
 											// eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call, @typescript-eslint/restrict-template-expressions
-											const postId = `${noteId}${character?.characterId}`;
+											const postId = `${noteId}${character?.characterId}`
 											// eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
 											FlareContract?.publishPost(
 												postId,

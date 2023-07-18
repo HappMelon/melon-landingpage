@@ -1,4 +1,6 @@
 // https://unocss.dev
+import { FileSystemIconLoader } from "@iconify/utils/lib/loader/node-loaders"
+import * as path from "path"
 import {
 	defineConfig,
 	presetIcons,
@@ -10,6 +12,15 @@ import { breakpoints } from "./breakpoints"
 
 export default defineConfig({
 	presets: [
+		presetIcons({
+			collections: {
+				flare: FileSystemIconLoader(
+					path.join(__dirname, "/public/icons/"),
+					(svg) => svg
+				),
+				// Usage example: <Text className="i-flare:back" />
+			},
+		}),
 		presetUno(),
 		presetIcons({
 			scale: 1.4,
@@ -20,6 +31,12 @@ export default defineConfig({
 		["font-deca", { "font-family": `"Lexend Deca", sans-serif` }],
 	],
 	transformers: [transformerVariantGroup(), transformerDirectives()],
+	shortcuts: [
+		// you could still have object style
+		{
+			text: "bg-gradient-to-br bg-clip-text from-yellow-400 to-red-600 text-transparent",
+		},
+	],
 	theme: {
 		colors: {
 			border: "hsl(var(--border))",
@@ -56,6 +73,7 @@ export default defineConfig({
 				foreground: "hsl(var(--card-foreground))",
 			},
 		},
+
 		borderRadius: {
 			lg: `var(--radius)`,
 			md: `calc(var(--radius) - 2px)`,

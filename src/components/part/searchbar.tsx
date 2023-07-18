@@ -1,24 +1,14 @@
-/* eslint-disable @typescript-eslint/no-unsafe-call */
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
-import AppearanceSwitch from "@/components/part/appearance-switch"
-import {
-	Button,
-	Input,
-	InputGroup,
-	InputLeftElement,
-	Stack,
-	Text,
-} from "@chakra-ui/react"
-
 import { useShowNotificationModal } from "@crossbell/notification"
 import { CharacterAvatar } from "@crossbell/ui"
+import { Button, Divider, Text, TextInput } from "@mantine/core"
+import { useNavigate } from "react-router-dom"
+
+import AppearanceSwitch from "@/components/common/appearance-switch"
 import {
 	ConnectButton,
 	useAccountCharacter,
 	useIsConnected,
 } from "@flarezone/connect-kit"
-import { BiSearch } from "react-icons/bi"
-import { useNavigate } from "react-router-dom"
 import { useDarkMode } from "usehooks-ts"
 
 export function NotificationBtn() {
@@ -27,7 +17,12 @@ export function NotificationBtn() {
 
 	if (!isConnected) return null
 
-	return <button onClick={showNotificationModal } className="i-fa6-regular-bell w-3rem" />
+	return (
+		<button
+			onClick={showNotificationModal}
+			className="i-fa6-regular-bell w-3rem"
+		/>
+	)
 }
 
 function Avatar() {
@@ -61,7 +56,6 @@ function Avatar() {
 }
 
 export const SearchBar = () => {
-	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	const { isDarkMode, toggle } = useDarkMode()
 	const bgColor = isDarkMode ? "black" : "white"
 	const lgFrom = "#FFC700"
@@ -89,41 +83,27 @@ export const SearchBar = () => {
 	}
 
 	return (
-		<>
-			<Stack
-				direction="row"
-				className="items-center py-2.6875rem h-8.375rem border-b-2px border-b-#D9D9D9"
-			>
-				<InputGroup size="md">
-					<InputLeftElement pointerEvents="none">
-						<BiSearch color="gray" />
-					</InputLeftElement>
-					<Input
-						variant="filled"
-						type="text"
-						placeholder="Search topics, news"
-						className="w-40rem max-w-[50rem] !rounded-9999px"
-					/>
-					<Button
-						rounded="full"
-						style={gradientButtonStyle}
-						className="mx-1rem !pt-1.0625rem !pr-1.75rem !pb-0.8125rem !pl-1.6875rem"
-					>
-						<Text
-							bgGradient="linear(to-r, #F9D423, #F83600)"
-							bgClip="text"
-							className="text-0.875rem mx-1rem"
-						>
-							Chat with Flare AI
-						</Text>
-					</Button>
-				</InputGroup>
-				<div className="items-center flex flex-row mr-1rem gap-2.25rem box-content">
-					<AppearanceSwitch />
-					<NotificationBtn />
-					<Avatar />
-				</div>
-			</Stack>
-		</>
+		<div className="w-full h-10rem flex flex-row items-center justify-between">
+			<div className="flex flex-row items-center">
+				<TextInput
+					icon={<Text className="i-flare:search" />}
+					type="text"
+					placeholder="Search topics, news"
+					className="w-42rem mr-1.5rem"
+					size="md"
+				/>
+				<Button style={gradientButtonStyle} className="rounded-50px">
+					<div className="btn text-1.125rem font-700 text">
+						Chat with Flare AI
+					</div>
+				</Button>
+			</div>
+			<div className="items-center flex flex-row mr-1rem gap-2.25rem box-content">
+				<NotificationBtn />
+				<AppearanceSwitch />
+				<Avatar />
+			</div>
+			<Divider size="sm" />
+		</div>
 	)
 }

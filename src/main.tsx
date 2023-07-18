@@ -1,7 +1,6 @@
 import "@flarezone/connect-kit/colors.css"
 import "@unocss/reset/tailwind.css"
 import "virtual:uno.css"
-import "./styles/font.css"
 import "./styles/globals.css"
 
 import "./i18n"

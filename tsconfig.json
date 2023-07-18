@@ -18,9 +18,10 @@
 		"baseUrl": ".",
 		"paths": {
 			"@/*": ["./src/*"],
-			"@/public/*": ["public/*"],
+			"@/public/*": ["./public/*"],
+			"~/scripts/*": ["./scripts/*"],
 		}
 	},
-	"include": ["src"],
+	"include": ["src", "uno.config.ts"],
 	"references": [{ "path": "./tsconfig.node.json" }]
 }

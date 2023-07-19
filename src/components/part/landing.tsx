@@ -1,4 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
+import { useState } from "react"
 import styles from "../../styles/landing-style.module.css"
 
 import { useNavigate } from "react-router-dom"
@@ -16,6 +17,11 @@ function LandingHeader() {
 		navigate(`/explore`)
 	}
 
+	const [isEnglish, setIsEnglish] = useState(true);
+	const handleLanguageClick = () => {
+		setIsEnglish(!isEnglish);
+	}
+
 	return (
 		<div className="relative">
 			<div className={styles.topLeft}></div>
@@ -24,37 +30,22 @@ function LandingHeader() {
 					<img
 						src="/logo.png"
 						alt="Flare Dapp"
-						width="59px"
-						className="lt-sm:w-23px"
+						className="lt-sm:w-23px w-3.69rem"
 					></img>
 					<div className={styles.headerTitle}>Flare Dapp</div>
 				</div>
 				<div className={styles.headerButtonContainer}>
-					<div className={styles.headerLanguage}>
+					<div className={styles.headerLanguage} onClick={handleLanguageClick}>
 						<img
 							src="/images/pages/index/globe.svg"
 							alt="Language"
-							width="18px"
-							className="mr-.3125rem lt-xs:w-14px"
+							
+							className="mr-.3125rem lt-xs:w-14px w-2rem"
 						></img>
-						<div className="text-18px font-400">EN</div>
+						<div className="text-1.25rem font-400 lh-1.25rem">{isEnglish? "EN": "CN"}</div>
 					</div>
 					<div>
-						<button
-							style={{
-								borderRadius: "50px",
-								background: "linear-gradient(159deg, #F9D423 0%, #F83600 100%)",
-								height: "auto",
-								padding: "11px 28px",
-								fontSize: "18px",
-								fontWeight: "700",
-								whiteSpace: "nowrap",
-							}}
-							className={styles.headerButton}
-							onClick={() => pushExplore()}
-						>
-							Launch Dapp
-						</button>
+					<button className={styles.headerButton}>Join Waitlist</button>
 					</div>
 				</div>
 			</div>
@@ -89,6 +80,7 @@ function LandingContent() {
 			<div className={styles.page1Container}>
 				<div className={styles.page1Shape1}></div>
 				<div className={styles.page1Shape2}></div>
+				<img src="images/pages/index/page1shape4.svg" alt="" className={styles.page1Shape4}></img>
 				<div className={styles.page1Title}>
 					Socialize with trust and freedom
 				</div>
@@ -110,10 +102,8 @@ function LandingContent() {
 					technology and principles.
 				</div>
 				<div className={styles.page1ButtonContainer}>
-					<button className={styles.page1Button1} onClick={() => pushExplore()}>
-						Launch Dapp
-					</button>
-					<button className={styles.page1Button2}>Join Whitelist</button>
+					
+				    <button className={styles.page1Button2} onClick={pushExplore}>Join Whitelist</button>
 					<div></div>
 				</div>
 				<img
@@ -122,8 +112,11 @@ function LandingContent() {
 					src="/images/pages/index/flare-dapp.io.png"
 					className={styles.page1Img}
 				/>
+				<img src="images/pages/index/page1shape3.svg"className={styles.page1Shape3}></img>
 			</div>
+			
 			<div className={styles.page2Container}>
+			<img src="images/pages/index/page2shape1.svg" alt="" className={styles.page2Shape1}></img>
 				<div className={styles.page2Title}>Engage, Enlighten, Empower</div>
 				<div className={styles.page2TitleS}>
 					Engage,
@@ -146,6 +139,9 @@ function LandingContent() {
 			</div>
 			<div className={styles.page3Container}>
 				<div className={styles.page3Shape}></div>
+				<img src="images/pages/index/page3shape1.svg" alt="" className={styles.page3Shape1}></img>
+				<img src="images/pages/index/page3shape2.svg" alt="" className={styles.page3Shape2}></img>
+				<img src="images/pages/index/page3shape3.svg" alt="" className={styles.page3Shape3}></img>
 				<LandingCard
 					title="Decentralized Universe"
 					logo="/images/pages/index/features-decentralized-universe.png"
@@ -176,9 +172,13 @@ function LandingContent() {
 					incentives and restrictive rules that support the dual-token model, we
 					help you build your credibility and reputation.
 				</LandingCard>
+				
 			</div>
 
 			<div className={styles.page4Container}>
+			<img src="images/pages/index/hotspot1.svg" alt="" className={styles.hotspotShape1}></img>
+			<img src="images/pages/index/hotspot2.svg" alt="" className={styles.hotspotShape2}></img>
+			<img src="images/pages/index/hotspot3.svg" alt="" className={styles.hotspotShape3}></img>
 				<img
 					src="/images/pages/index/hotspot-timeline.png"
 					alt="hospot"
@@ -208,6 +208,12 @@ function LandingContent() {
 			</div>
 
 			<div className={styles.page4Container_wallet}>
+			<img src="images/pages/index/wallet1.svg" alt="" className={styles.walletShape1}></img>
+			<img src="images/pages/index/wallet2.svg" alt="" className={styles.walletShape2}></img>
+			<img src="images/pages/index/wallet3.svg" alt="" className={styles.walletShape3}></img>
+			<img src="images/pages/index/wallet4.svg" alt="" className={styles.walletShape4}></img>
+			
+			
 				<div className={styles.page4TextContainer_wallet}>
 					<div className={styles.page4TextTitle}>Flare Wallet</div>
 					<div className={styles.page4TextSubTitle}>
@@ -245,6 +251,7 @@ function LandingContent() {
 					className={styles.page4Img_prediction}
 				></img>
 				<div className={styles.page4TextContainer_prediction}>
+				<img src="images/pages/index/prediction1.svg" alt="" className={styles.predictionShape1}></img>
 					<div className={styles.page4TextTitle}>Betting Prediction</div>
 					<div className={styles.page4TextSubTitle}>
 						Unique Staking Gameplay
@@ -266,6 +273,7 @@ function LandingContent() {
 			</div>
 
 			<div className={styles.page5Container}>
+			<img src="images/pages/index/page5shape1.svg" alt="" className={styles.page5Shape1}></img>
 				<div className={styles.page4TextTitle}>
 					Explore immersive AI experience
 				</div>
@@ -280,7 +288,7 @@ function LandingContent() {
 					</div>
 					<div className={styles.page5TextContainer}>
 						<div className={styles.page5TextSubTitle}>
-							Chat with flare AI assistant
+							Chat With Flare AI Assistant
 						</div>
 						<div className={styles.page5TextContent}>
 							With Flare AI, we help you filter news and articles based on
@@ -299,7 +307,12 @@ function LandingContent() {
 					</div>
 				</div>
 			</div>
+
 			<div className={styles.page6container}>
+			<img src="images/pages/index/page6shape1.svg" alt="" className={styles.page6Shape1}></img>
+			<div className={styles.page6Shape2}></div>
+			<img src="images/pages/index/page6shape3.svg" alt="" className={styles.page6Shape3}></img>
+				
 				<div className={styles.page6Explore}>More diversity</div>
 				<div className={styles.top}>
 					<div className={styles.page7dtdcl}>
@@ -341,19 +354,22 @@ function LandingContent() {
 			</div>
 
 			<div className={styles.tech}>
+			<img src="images/pages/index/techdecshape1.svg" alt="" className={styles.techdecShape1}></img>
+			<img src="images/pages/index/techdecshape2.svg" alt="" className={styles.techdecShape2}></img>
+				
 				<div className={styles.techText}>
 					<div className={styles.page4TextTitle}>A Robust Architecture</div>
 					<div className={styles.techTextContent}>
-						Flare's unique staking and prediction mechanism, along with the
-						vision of "socialize with trust and freedom," make the team
-						prioritize information security, reliability, and transparency. We
-						use zk-SNARKs zero-knowledge proofs and on-chain data storage to
-						ensure that users can experience social and content interaction in
-						line with our slogan. Additionally, we aim to onboard more Web 2.0
-						users into the decentralized world, and we are concurrently
-						developing and planning to deploy technologies that reduce
-						interaction costs and time, creating a seamless Web3 user
-						experience.
+					Flare's unique staking and prediction mechanism, along with the 
+					vision of "socialize with trust and freedom," 
+					make the team prioritize information security, reliability, 
+					and transparency. We use zk-SNARKs zero-knowledge proofs 
+					and on-chain data storage to ensure that users can experience 
+					social and content interaction in line with our slogan. Additionally,
+					 we aim to onboard more Web 2.0 users into the decentralized world, 
+					 and we are concurrently developing and planning to deploy technologies
+					  that reduce interaction costs and time, creating a seamless Web3 
+					  user experience.
 					</div>
 				</div>
 
@@ -449,82 +465,61 @@ function LandingContent() {
 				}}
 				className={styles.page8Container}
 			>
-				<div className={styles.page8Title}>FOUNDER TEAM</div>
+				<div className={styles.page8Title}>TEAM</div>
 				<div className={styles.team}>
 					<div className={styles.page8Item}>
-						<div className="text-1.75rem font-750 mt-1rem">Oliver Wang</div>
-						<div className={styles.page8Founder}>Founder</div>
+						<div className="text-1.75rem font-750 mt-1rem">Oliver</div>
+						<div className={styles.page8Founder}>CEO</div>
 						<div className="mt-1.75rem">
-							Serial Entrepreneur in web2&3, 4+ <br />
-							years of Growth Manager/ <br />
-							Operation Manager <br />
+							<ul>
+								<li>Serial Entrepreneur in Tech</li>
+								<li>Former X2E Market Director</li>
+								<li>TikTok Livestream E-commerce Operation Partner for 0-1 building and operation</li>
+								<li>>4 Years of SDE and ML</li>
+								<li>Top math instructor of education agency</li>
+							</ul>
 						</div>
 					</div>
 					<div className={styles.page8Item}>
-						<div className="text-1.75rem font-750 mt-1rem">Rice Cao</div>
-						<div className={styles.page8Founder}>Tech Advisor</div>
+						<div className="text-1.75rem font-750 mt-1rem">Serafina</div>
+						<div className={styles.page8Founder}>CMO</div>
 						<div className="mt-1.75rem">
-							Former Tech Lead at Tiktok. <br />
-							5 years of web2 full-stack <br />
-							practical business scenario <br />
-							development experience. <br />
-							2 years of Ethereum smart <br />
-							contract development <br />
-							experience
-						</div>
-					</div>
-					<div className={styles.page8Item}>
-						<div className="text-1.75rem font-750 mt-1rem">Jokereven</div>
-						<div className={styles.page8Founder}>Founding Engineer</div>
-						<div className="mt-1.75rem">
-							Front-end developer / Web3 <br />
-							developer
-						</div>
-					</div>
-					<div className={styles.page8Item}>
-						<div className="text-1.75rem font-750 mt-1rem">Ning</div>
-						<div className={styles.page8Founder}>Full Stack/ML</div>
-						<div className="mt-1.75rem mt-1rem">
-							full stack/ML--15 years of <br />
-							experience in multiple tech areas <br />
-							and companies, including Google, Microsoft, etc. Still passionate{" "}
-							<br />
-							about new ideas.
-						</div>
-					</div>
-					<div className={styles.page8Item}>
-						<div className="text-1.75rem font-750 mt-1rem">Serafina Yu</div>
-						<div className={styles.page8Founder}>Head of Product & Design</div>
-						<div className="mt-1.75rem">
-							Serial Entrepreneur, strategic
-							<br />
-							product manager, 3+ years of
-							<br />
-							web3+AI experience.
+							<ul className="team_exp">
+								<li>Serial Entrepreneur in Tech</li>
+								<li>Alum from Top3 design schools in the US with minors in business and design matters</li>
+								<li>INSEAD MBA Design Coach</li>
+								<li>ex-TCL/ex-NetEase</li>
+								<li>Responsible for digital product creation radiant to >1M users</li>
+							</ul>
 						</div>
 					</div>
 					<div className={styles.page8Item}>
 						<div className="text-1.75rem font-750 mt-1rem">Rekko</div>
-						<div className={styles.page8Founder}>Staff Product Manager</div>
+						<div className={styles.page8Founder}>COO</div>
 						<div className="mt-1.75rem">
-							Web3 Serial Entreprenuer,
-							<br />
-							SeeDAO Web3 University S1/S2
-							<br />
-							Speaker, DAO Governance <br />
-							Engineer
+							<ul className="team_exp">
+								<li>Serial Entrepreneur in Web3</li>
+								<li>>3 Years of Experiences in Web3</li>
+								<li>SeeDAO Web3 University Season1/Season 2 Lecturer</li>
+								<li>Co-founder of Lantern DAO</li>
+								<li>DAO Governance Engineer</li>
+							</ul>
 						</div>
 					</div>
 					<div className={styles.page8Item}>
-						<div className="text-1.75rem font-750 mt-1rem">Lena</div>
-						<div className={styles.page8Founder}>Chief Strategy Officer</div>
-						<div className="mt-1.75rem">Web3 Investor</div>
+						<div className="text-1.75rem font-750 mt-1rem">Jeremy</div>
+						<div className={styles.page8Founder}>Advisor</div>
+						<div className="mt-1.75rem mt-1rem">
+						<ul className="team_exp">
+								<li>Founder of Redblock</li>
+								<li>GP of 42DAO Web3 Investment Fund</li>
+								<li>Entered the investment field after two startups in Silicon Valley in 2015</li>
+								<li>Former investor at APlus Labs</li>
+								<li>Former Director of Investment at UCF Group</li>
+							</ul>
+						</div>
 					</div>
-					<div className={styles.page8Item}>
-						<div className="text-1.75rem font-750 mt-1rem">Dr. Hunter</div>
-						<div className={styles.page8Founder}>Angel Investor</div>
-						<div className="mt-1.75rem">Angel Investor from Harvard</div>
-					</div>
+
 				</div>
 			</div>
 		</div>
@@ -534,6 +529,8 @@ function LandingContent() {
 function LandingFoot() {
 	return (
 		<div className={styles.footContainer}>
+			<img src="images/pages/index/footshape1.svg" alt="" className={styles.footShape1}></img>
+			<img src="images/pages/index/footshape2.svg" alt="" className={styles.footShape2}></img>
 			<div
 				className="items-center"
 				style={{ display: "flex", flexDirection: "row", alignItems: "center" }}
@@ -543,7 +540,7 @@ function LandingFoot() {
 					alt="logo"
 					className="w-3.6875rem h-4.625rem"
 				></img>
-				<p className="text-2.625rem font-800">Flare Dapp</p>
+				<p className="text-2.625rem font-600">Flare Dapp</p>
 			</div>
 			<div className={styles.footText}>
 				© Flare Dapp 2023 | All Rights Reserved

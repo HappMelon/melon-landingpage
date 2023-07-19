@@ -25,14 +25,14 @@
 .headerLeft {
 	display: flex;
 	flex-direction: row;
-	padding-left: 10%;
+	padding-left: 5%;
 	align-items: center;
 }
 
 .headerTitle {
 	color: #f5f5f5;
-	font-size: 42px;
-	font-weight: 800;
+	font-size: 2.625rem;
+	font-weight: 600;
 	line-height: 3.15rem;
 	text-transform: capitalize;
 }
@@ -40,7 +40,7 @@
 	display: flex;
 	flex-direction: row;
 	align-items: center;
-	padding-right: 10%;
+	padding-right: 5%;
 }
 .headerLanguage {
 	display: flex;
@@ -54,12 +54,17 @@
 }
 .headerButton {
 	border-radius: 50px;
-	background: linear-gradient(0deg, #000 0%, #000 100%),
-		linear-gradient(159deg, #f9d423 0%, #f83600 100%);
-	padding: 0.6875rem 1.75rem;
+	border: 2px solid transparent;
+	background: linear-gradient(159deg, #f9d423 0%, #f83600 100%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	border-color: rgba(255, 107, 0, 0.5);
+	padding: 0.6995rem 1.525rem;
+	margin-right: 10%;
 	text-align: center;
 	font-size: 1.125rem;
 	font-weight: 700;
+	white-space: nowrap;
 }
 
 /* Content */
@@ -122,7 +127,7 @@
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 	border-color: rgba(255, 107, 0, 0.5);
-	padding: 0.6875rem 2rem;
+	padding: 0.9275rem 2rem;
 	margin-right: 10%;
 	text-align: center;
 	font-size: 1.5rem;
@@ -150,6 +155,7 @@
 	filter: blur(15.625rem);
 	position: absolute;
 	z-index: 0;
+	overflow: hidden;
 }
 .page1Shape2 {
 	width: 30.8893rem;
@@ -159,13 +165,30 @@
 	filter: blur(15.625rem);
 	opacity: 0.6000000238418579;
 	position: absolute;
-
 	right: 10%;
 	z-index: 0;
+	overflow: hidden;
+}
+.page1Shape3 {
+	max-width: 100%;
+    max-height: 100%;
+	position: absolute;
+	z-index: 0;
+	left: -20%;
+	top: 80%;
+	overflow: hidden;
+}
+
+.page1Shape4 {
+	position: absolute;
+	z-index: 0;
+	left: -20%;
+    top: -40%;
+	overflow: hidden;
 }
 .page2Container {
 	display: flex;
-
+	position: relative;
 	width: 64.48%;
 	flex-direction: column;
 	justify-content: center;
@@ -173,6 +196,13 @@
 	margin: 0 auto;
 	margin-top: 22.375rem;
 	margin-bottom: 12rem;
+}
+.page2Shape1 {
+	position: absolute;
+	z-index: 0;
+	left: -40%;
+    top: -150%;
+	overflow: hidden;
 }
 .page2Title {
 	text-align: center;
@@ -197,7 +227,7 @@
 	margin-top: 2.25rem;
 	text-align: center;
 	font-size: 2.25rem;
-	font-weight: 700;
+	font-weight: 450 ;
 	line-height: 3.375rem;
 }
 .page3Container {
@@ -210,6 +240,7 @@
 	gap:3rem;
 	justify-content: space-around;
 	padding-bottom: 6.25rem;
+	position: relative;
 
 }
 .page3Shape {
@@ -220,6 +251,31 @@
 	background: rgba(255, 107, 0, 0.3);
 	filter: blur(15.625rem);
 	position: absolute;
+	overflow: hidden;
+}
+.page3Shape1 {
+	
+	position: absolute;
+	z-index: 0;
+	left: 30%;
+    top: -70%;
+	overflow: hidden;
+}
+.page3Shape2 {
+	
+	position: absolute;
+	z-index: 0;
+	left: 20%;
+	top: 50%;
+	overflow: hidden;
+}
+.page3Shape3 {
+	
+	position: absolute;
+	z-index: 0;
+	left: 20%;
+	top: 30%;
+	overflow: hidden;
 }
 
 /*Landing Card*/
@@ -232,6 +288,10 @@
 	background: rgba(255, 255, 255, 0.08);
 	padding: 2.75rem 0.6rem;
 	z-index: 1;
+	transition: transform 1s ease;;
+}
+.landingCardContainer:hover {
+	transform: scale(1.2);
 }
 .landingCardTitle {
 	font-size: 2.25rem;
@@ -249,7 +309,32 @@
 }
 
 /* container4 1 for Hotspot */
+.hotspotShape1 {
+	
+	position: absolute;
+	z-index: 0;
+	left: -30%;
+	top: -10%;
+	overflow: hidden;
+}
+.hotspotShape2 {
+	
+	position: absolute;
+	z-index: 0;
+	left: 21%;
+    top: 5%;
+	overflow: hidden;
+}
+.hotspotShape3 {
+	
+	position: absolute;
+	z-index: 0;
+	left: 10%;
+    top: 40%;
+	overflow: hidden;
+}
 .page4Container {
+	position: relative;
 	width: 100vw;
 	display: flex;
 	flex-direction: row;
@@ -266,7 +351,7 @@
 }
 .page4TextContainer {
 	width: 38rem;
-	margin: 5rem 3rem 0 -3rem;
+	margin: 7.5rem 3rem 0 -3rem;
 }
 
 .page4TextTitle {
@@ -298,7 +383,36 @@
 
 
 /*  container4 1 for walllet */
+.walletShape1 {
+	position: absolute;
+	z-index: 0;
+	left: 20%;
+    top: -30%;
+	overflow: hidden;
+}
+.walletShape2 {
+	position: absolute;
+	z-index: 0;
+	left: -25%;
+    top: 10%;
+	overflow: hidden;
+}
+.walletShape3 {
+	position: absolute;
+	z-index: 0;
+	left: 25%;
+    top: 30%;
+	overflow: hidden;
+}
+.walletShape4 {
+	position: absolute;
+	z-index: 0;
+	left: 35%;
+    top: 60%;
+	overflow: hidden;
+}
 .page4Container_wallet {
+	position: relative;
 	width: 100vw;
 	display: flex;
 	flex-direction: row;
@@ -321,15 +435,29 @@
 .page4Img_prediction {
 	height: auto;
 	width: 50.78%;
+	border-radius: 40px;
+	border: 4px solid #FFF;
+	box-shadow: 0px 4px 20px 0px rgba(223, 214, 214, 0.807),
+		0px 4px 20px 0px rgba(232, 223, 223, 0.772);
+	
 }
 .page4TextContainer_prediction {
 	width: 38rem;
 	margin-left: 1rem;
+	position: relative;
+}
+.predictionShape1 {
+	position: absolute;
+	z-index: 0;
+	left: -45%;
+    top: 50%;
+	overflow: hidden;
 }
 
 
 /* container5 */
 .page5Container {
+	position: relative;
 	width: 104.875rem;
 	margin: 0 auto;
 	display: flex;
@@ -340,6 +468,13 @@
 	background: rgba(255, 255, 255, 0.08);
 	align-items: center;
 	padding: 5.6875rem 5%;
+}
+.page5Shape1 {
+	position: absolute;
+	z-index: 0;
+	
+    top: -70%;
+	overflow: hidden;
 }
 .page5SubContainer {
 	display: flex;
@@ -353,13 +488,15 @@
 	font-size: 2rem;
 	font-weight: 550;
 	line-height: 3.25rem;
-	margin-bottom: 2.875rem;
+	margin-bottom: 2rem;
 }
 .page5TextContainer {
-	width: 70%;
+	/* width: 70%; */
+	padding: 1.5rem 0 0 0;
 }
 .page5TextContent {
-	font-size: 1rem;
+	
+	font-size: 1.25rem;
 	line-height: 1.75rem;
 }
 .page5ImgContainer {
@@ -393,7 +530,38 @@
 	flex-direction: column;
 	align-items: center;
 	padding: 2rem;
+	position: relative;
 }
+.page6Shape1 {
+	position: absolute;
+	z-index: 0;
+	left: 40%;
+    top: -60%;
+	overflow: hidden;
+}
+.page6Shape2 {
+	position: absolute;
+	z-index: 0;
+	width: 550.078px;
+	height: 1160.491px;
+	transform: rotate(18.429deg);
+	flex-shrink: 0;
+	border-radius: 1160.491px;
+	opacity: 0.6000000238418579;
+	background: rgba(255, 107, 0, 0.50);
+	filter: blur(250px);
+	left: 40%;
+    top: -20%;
+	overflow: hidden;
+}
+.page6Shape3 {
+	position: absolute;
+	z-index: 0;
+	left: -40%;
+    top: 10%;
+	overflow: hidden;
+}
+
 .page6ImgFront {
 	position: relative;
 	top: 50vh;
@@ -419,10 +587,11 @@
 	right: -1.25rem;
 }
 .top {
-	margin-top: 6.375rem;
+	margin-top: 3.375rem;
 	display: flex;
 	height: 36.875rem;
 	font-size: 2rem;
+	gap: 1.5rem;
 	font-weight: 700;
 	justify-content: center;
 }
@@ -434,14 +603,12 @@
 	font-size: 3.25rem;
 	text-align: center;
 	text-transform: capitalize;
-
 	/* Orange Gradient */
 	background: linear-gradient(100.02deg, #f9d423 -12.68%, #f83600 147.82%);
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 	background-clip: text;
 	text-fill-color: transparent;
-
 	text-shadow: 0px 4px 20px rgba(255, 255, 255, 0.25);
 }
 .page7dtdcl {
@@ -450,7 +617,7 @@
 	align-items: center;
 	text-align: center;
 	position: relative;
-	margin-right: 1.5rem;
+	
 	text-align: center;
 	background: rgba(255, 255, 255, 0.08);
 	border: 1px solid rgba(255, 255, 255, 0.2);
@@ -476,11 +643,11 @@
 .page8Container {
 	width: 100%;
 	height: auto;
-	padding: 10%;
-	gap: 1rem;
+	padding: 5%;
+	
 	text-align: left;
 	margin-top: 20rem;
-	margin-bottom: 10rem;
+	margin-bottom: 40rem;
 }
 
 .team {
@@ -492,7 +659,7 @@
 .page8Title {
 	color: rgba(255, 255, 255, 0.6);
 	font-size: 1.5rem;
-	padding: 0.988rem;
+	padding-left: 4rem;
 	font-weight: 500;
 	letter-spacing: 0.15rem;
 }
@@ -503,7 +670,6 @@
 .page8CardTitle {
 	color: rgba(255, 255, 255, 0.6);
 	font-size: 1rem;
-
 	font-weight: 500;
 	letter-spacing: 0.1rem;
 }
@@ -522,9 +688,14 @@
 	background-clip: text;
 	text-fill-color: transparent;
 }
-
+.page8Item ul {
+	list-style: disc;
+	color: white;
+	margin: 0 0 0 1.5rem;
+	width: 15.1rem;
+}
 .page8Item {
-	flex-basis: calc(25% - 2rem);
+	flex-basis: calc(25% - 8rem);
 	box-sizing: border-box;
 	padding: 0;
 	text-align: left;
@@ -539,14 +710,28 @@
 	padding: 0rem;
 	text-align: center;
 	margin-top: 20rem;
+	position: relative;
 }
-
+.techdecShape1 {
+	position: absolute;
+	z-index: 0;
+	left: -30%;
+    top: -120%;
+	overflow: hidden;
+}
+.techdecShape2 {
+	position: absolute;
+	z-index: 0;
+	left: 30%;
+    top: -50%;
+	overflow: hidden;
+}
 .techText {
 	display: flex;
 	flex-direction: column;
 	width: 77.375rem;
 	align-items: center;
-	gap: 3rem;
+	
 	margin: 0 auto 3rem auto;
 }
 
@@ -573,8 +758,15 @@
 	height: 17rem;
 	border-radius: 15px;
 	border: 1px solid rgba(255, 255, 255, 0.2);
+	
 }
 
+.CardContainer {
+	transition: transform 1s ease;
+}
+.CardContainer:hover{
+	transform: scale(1.2);
+}
 .cardText {
 	width: 14.639rem;
 	height: auto;
@@ -626,6 +818,7 @@
 
 .footContainer {
 	display: flex;
+	position: relative;
 	justify-content: space-between;
 	align-items: center;
 	width: 100vw;
@@ -635,7 +828,20 @@
 	bottom: 0;
 	padding: 0 7.5625rem 0 7.5625rem;
 }
-
+.footShape1 {
+	position: absolute;
+	z-index: 0;
+	left: 20%;
+    top: -420%;
+	overflow: hidden;
+}
+.footShape2 {
+	position: absolute;
+	z-index: 0;
+	left: 0%;
+    top: -320%;
+	overflow: hidden;
+}
 .footText {
 	color: #fff;
 	text-align: right;
@@ -669,7 +875,7 @@
 	}
 	.page4TextContainer {
 		width: 38rem;
-		margin: 2rem 3rem 0 -3rem;
+		margin: 2.5rem 3rem 0 -3rem;
 	}
 
 	.page5Container {
@@ -678,7 +884,7 @@
 	}
 	.page5SubContainer {
 		margin-top: 0.1875rem;
-		margin-bottom: -18rem;
+		margin-bottom: -10rem;
 
 	}
 
@@ -753,7 +959,7 @@
 
 .techCardTitle {
 	height: 4.813rem;
-	font-size: 2.5rem;
+	font-size: 2.4rem;
 	line-height: 3.813rem;
 }
 
@@ -829,7 +1035,7 @@
 	}
 	.page4TextContainer {
 		width: 38rem;
-		margin: -1rem 3rem 0 -3rem;
+		margin: 2.125rem 3rem 0 -3rem;
 	}
 
 
@@ -840,7 +1046,7 @@
 	}
 	.page5SubContainer {
 		margin-top: 0.1875rem;
-		margin-bottom: -7.5rem;
+		margin-bottom: -1.5rem;
 
 	}
 
@@ -945,6 +1151,14 @@
 .page1Shape2 {
 	width: 20.8893rem;
     height: 40.7833rem;
+}
+
+.page8Item {
+	flex-basis: calc(50% - 8rem);
+	box-sizing: border-box;
+	padding: 0;
+	text-align: left;
+	margin-bottom: 3rem;
 }
 
 
@@ -1480,10 +1694,12 @@
 		height: auto;
 		align-content: left;
 		margin-bottom: 12rem;
+		
 	}
 	.page8Title {
 		font-size: 1.5rem;
 		line-height: 1.8rem;
+		margin-left: 2rem;
 		padding: 0;
 		font-weight: 700;
 		letter-spacing: 10%;
@@ -1493,7 +1709,8 @@
 		height: auto;
 		display: flex;
 		flex-direction: column;
-		margin-top: 0;
+		margin: 0 auto;
+		
 	}
 	.page8Item {
 		width: 27.333rem;

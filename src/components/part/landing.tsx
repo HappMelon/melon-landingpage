@@ -11,15 +11,10 @@ type CardProps = {
 }
 
 function LandingHeader() {
-	const navigate = useNavigate()
 
-	const pushExplore = () => {
-		navigate(`/explore`)
-	}
-
-	const [isEnglish, setIsEnglish] = useState(true);
+	const [isEnglish, setIsEnglish] = useState(true)
 	const handleLanguageClick = () => {
-		setIsEnglish(!isEnglish);
+		setIsEnglish(!isEnglish)
 	}
 
 	return (
@@ -35,17 +30,28 @@ function LandingHeader() {
 					<div className={styles.headerTitle}>Flare Dapp</div>
 				</div>
 				<div className={styles.headerButtonContainer}>
-					<div className={styles.headerLanguage} onClick={handleLanguageClick}>
+					<button
+						className={styles.headerLanguage}
+						onClick={handleLanguageClick}
+					>
 						<img
 							src="/images/pages/index/globe.svg"
 							alt="Language"
-							
 							className="mr-.3125rem lt-xs:w-14px w-2rem"
 						></img>
-						<div className="text-1.25rem font-400 lh-1.25rem">{isEnglish? "EN": "CN"}</div>
-					</div>
+						<div className="text-1.25rem font-400 lh-1.25rem">
+							{isEnglish ? "EN" : "CN"}
+						</div>
+					</button>
 					<div>
-					<button className={styles.headerButton}>Join Waitlist</button>
+						<button
+							className={styles.headerButton}
+							onClick={() => {
+								window.open("https://forms.gle/sD5ZNZHnTUGQdMR7A")
+							}}
+						>
+							Join Waitlist
+						</button>
 					</div>
 				</div>
 			</div>
@@ -80,7 +86,11 @@ function LandingContent() {
 			<div className={styles.page1Container}>
 				<div className={styles.page1Shape1}></div>
 				<div className={styles.page1Shape2}></div>
-				<img src="images/pages/index/page1shape4.svg" alt="" className={styles.page1Shape4}></img>
+				<img
+					src="images/pages/index/page1shape4.svg"
+					alt=""
+					className={styles.page1Shape4}
+				></img>
 				<div className={styles.page1Title}>
 					Socialize with trust and freedom
 				</div>
@@ -102,8 +112,9 @@ function LandingContent() {
 					technology and principles.
 				</div>
 				<div className={styles.page1ButtonContainer}>
-					
-				    <button className={styles.page1Button2} onClick={pushExplore}>Join Whitelist</button>
+					<button className={styles.page1Button2} onClick={pushExplore}>
+						Join Whitelist
+					</button>
 					<div></div>
 				</div>
 				<img
@@ -112,11 +123,19 @@ function LandingContent() {
 					src="/images/pages/index/flare-dapp.io.png"
 					className={styles.page1Img}
 				/>
-				<img src="images/pages/index/page1shape3.svg"className={styles.page1Shape3}></img>
+				<img
+					alt=""
+					src="images/pages/index/page1shape3.svg"
+					className={styles.page1Shape3}
+				></img>
 			</div>
-			
+
 			<div className={styles.page2Container}>
-			<img src="images/pages/index/page2shape1.svg" alt="" className={styles.page2Shape1}></img>
+				<img
+					src="images/pages/index/page2shape1.svg"
+					alt=""
+					className={styles.page2Shape1}
+				></img>
 				<div className={styles.page2Title}>Engage, Enlighten, Empower</div>
 				<div className={styles.page2TitleS}>
 					Engage,
@@ -139,9 +158,21 @@ function LandingContent() {
 			</div>
 			<div className={styles.page3Container}>
 				<div className={styles.page3Shape}></div>
-				<img src="images/pages/index/page3shape1.svg" alt="" className={styles.page3Shape1}></img>
-				<img src="images/pages/index/page3shape2.svg" alt="" className={styles.page3Shape2}></img>
-				<img src="images/pages/index/page3shape3.svg" alt="" className={styles.page3Shape3}></img>
+				<img
+					src="images/pages/index/page3shape1.svg"
+					alt=""
+					className={styles.page3Shape1}
+				></img>
+				<img
+					src="images/pages/index/page3shape2.svg"
+					alt=""
+					className={styles.page3Shape2}
+				></img>
+				<img
+					src="images/pages/index/page3shape3.svg"
+					alt=""
+					className={styles.page3Shape3}
+				></img>
 				<LandingCard
 					title="Decentralized Universe"
 					logo="/images/pages/index/features-decentralized-universe.png"
@@ -172,19 +203,29 @@ function LandingContent() {
 					incentives and restrictive rules that support the dual-token model, we
 					help you build your credibility and reputation.
 				</LandingCard>
-				
 			</div>
 
 			<div className={styles.page4Container}>
-			<img src="images/pages/index/hotspot1.svg" alt="" className={styles.hotspotShape1}></img>
-			<img src="images/pages/index/hotspot2.svg" alt="" className={styles.hotspotShape2}></img>
-			<img src="images/pages/index/hotspot3.svg" alt="" className={styles.hotspotShape3}></img>
+				<img
+					src="images/pages/index/hotspot1.svg"
+					alt=""
+					className={styles.hotspotShape1}
+				></img>
+				<img
+					src="images/pages/index/hotspot2.svg"
+					alt=""
+					className={styles.hotspotShape2}
+				></img>
+				<img
+					src="images/pages/index/hotspot3.svg"
+					alt=""
+					className={styles.hotspotShape3}
+				></img>
 				<img
 					src="/images/pages/index/hotspot-timeline.png"
 					alt="hospot"
 					className={styles.page4Img}
 					style={{ marginTop: "-3rem" }}
-					
 				></img>
 				<div className={styles.page4TextContainer}>
 					<div className={styles.page4TextTitle}>Hotspot Timeline</div>
@@ -208,12 +249,27 @@ function LandingContent() {
 			</div>
 
 			<div className={styles.page4Container_wallet}>
-			<img src="images/pages/index/wallet1.svg" alt="" className={styles.walletShape1}></img>
-			<img src="images/pages/index/wallet2.svg" alt="" className={styles.walletShape2}></img>
-			<img src="images/pages/index/wallet3.svg" alt="" className={styles.walletShape3}></img>
-			<img src="images/pages/index/wallet4.svg" alt="" className={styles.walletShape4}></img>
-			
-			
+				<img
+					src="images/pages/index/wallet1.svg"
+					alt=""
+					className={styles.walletShape1}
+				></img>
+				<img
+					src="images/pages/index/wallet2.svg"
+					alt=""
+					className={styles.walletShape2}
+				></img>
+				<img
+					src="images/pages/index/wallet3.svg"
+					alt=""
+					className={styles.walletShape3}
+				></img>
+				<img
+					src="images/pages/index/wallet4.svg"
+					alt=""
+					className={styles.walletShape4}
+				></img>
+
 				<div className={styles.page4TextContainer_wallet}>
 					<div className={styles.page4TextTitle}>Flare Wallet</div>
 					<div className={styles.page4TextSubTitle}>
@@ -251,7 +307,11 @@ function LandingContent() {
 					className={styles.page4Img_prediction}
 				></img>
 				<div className={styles.page4TextContainer_prediction}>
-				<img src="images/pages/index/prediction1.svg" alt="" className={styles.predictionShape1}></img>
+					<img
+						src="images/pages/index/prediction1.svg"
+						alt=""
+						className={styles.predictionShape1}
+					></img>
 					<div className={styles.page4TextTitle}>Betting Prediction</div>
 					<div className={styles.page4TextSubTitle}>
 						Unique Staking Gameplay
@@ -273,7 +333,11 @@ function LandingContent() {
 			</div>
 
 			<div className={styles.page5Container}>
-			<img src="images/pages/index/page5shape1.svg" alt="" className={styles.page5Shape1}></img>
+				<img
+					src="images/pages/index/page5shape1.svg"
+					alt=""
+					className={styles.page5Shape1}
+				></img>
 				<div className={styles.page4TextTitle}>
 					Explore immersive AI experience
 				</div>
@@ -309,10 +373,18 @@ function LandingContent() {
 			</div>
 
 			<div className={styles.page6container}>
-			<img src="images/pages/index/page6shape1.svg" alt="" className={styles.page6Shape1}></img>
-			<div className={styles.page6Shape2}></div>
-			<img src="images/pages/index/page6shape3.svg" alt="" className={styles.page6Shape3}></img>
-				
+				<img
+					src="images/pages/index/page6shape1.svg"
+					alt=""
+					className={styles.page6Shape1}
+				></img>
+				<div className={styles.page6Shape2}></div>
+				<img
+					src="images/pages/index/page6shape3.svg"
+					alt=""
+					className={styles.page6Shape3}
+				></img>
+
 				<div className={styles.page6Explore}>More diversity</div>
 				<div className={styles.top}>
 					<div className={styles.page7dtdcl}>
@@ -354,22 +426,30 @@ function LandingContent() {
 			</div>
 
 			<div className={styles.tech}>
-			<img src="images/pages/index/techdecshape1.svg" alt="" className={styles.techdecShape1}></img>
-			<img src="images/pages/index/techdecshape2.svg" alt="" className={styles.techdecShape2}></img>
-				
+				<img
+					src="images/pages/index/techdecshape1.svg"
+					alt=""
+					className={styles.techdecShape1}
+				></img>
+				<img
+					src="images/pages/index/techdecshape2.svg"
+					alt=""
+					className={styles.techdecShape2}
+				></img>
+
 				<div className={styles.techText}>
 					<div className={styles.page4TextTitle}>A Robust Architecture</div>
 					<div className={styles.techTextContent}>
-					Flare's unique staking and prediction mechanism, along with the 
-					vision of "socialize with trust and freedom," 
-					make the team prioritize information security, reliability, 
-					and transparency. We use zk-SNARKs zero-knowledge proofs 
-					and on-chain data storage to ensure that users can experience 
-					social and content interaction in line with our slogan. Additionally,
-					 we aim to onboard more Web 2.0 users into the decentralized world, 
-					 and we are concurrently developing and planning to deploy technologies
-					  that reduce interaction costs and time, creating a seamless Web3 
-					  user experience.
+						Flare's unique staking and prediction mechanism, along with the
+						vision of "socialize with trust and freedom," make the team
+						prioritize information security, reliability, and transparency. We
+						use zk-SNARKs zero-knowledge proofs and on-chain data storage to
+						ensure that users can experience social and content interaction in
+						line with our slogan. Additionally, we aim to onboard more Web 2.0
+						users into the decentralized world, and we are concurrently
+						developing and planning to deploy technologies that reduce
+						interaction costs and time, creating a seamless Web3 user
+						experience.
 					</div>
 				</div>
 
@@ -474,8 +554,11 @@ function LandingContent() {
 							<ul>
 								<li>Serial Entrepreneur in Tech</li>
 								<li>Former X2E Market Director</li>
-								<li>TikTok Livestream E-commerce Operation Partner for 0-1 building and operation</li>
-								<li>>4 Years of SDE and ML</li>
+								<li>
+									TikTok Livestream E-commerce Operation Partner for 0-1
+									building and operation
+								</li>
+								<li>&gt;4 Years of SDE and ML</li>
 								<li>Top math instructor of education agency</li>
 							</ul>
 						</div>
@@ -486,10 +569,16 @@ function LandingContent() {
 						<div className="mt-1.75rem">
 							<ul className="team_exp">
 								<li>Serial Entrepreneur in Tech</li>
-								<li>Alum from Top3 design schools in the US with minors in business and design matters</li>
+								<li>
+									Alum from Top3 design schools in the US with minors in
+									business and design matters
+								</li>
 								<li>INSEAD MBA Design Coach</li>
 								<li>ex-TCL/ex-NetEase</li>
-								<li>Responsible for digital product creation radiant to >1M users</li>
+								<li>
+									Responsible for digital product creation radiant to &gt;1M
+									users
+								</li>
 							</ul>
 						</div>
 					</div>
@@ -499,7 +588,7 @@ function LandingContent() {
 						<div className="mt-1.75rem">
 							<ul className="team_exp">
 								<li>Serial Entrepreneur in Web3</li>
-								<li>>3 Years of Experiences in Web3</li>
+								<li>&gt;3 Years of Experiences in Web3</li>
 								<li>SeeDAO Web3 University Season1/Season 2 Lecturer</li>
 								<li>Co-founder of Lantern DAO</li>
 								<li>DAO Governance Engineer</li>
@@ -510,16 +599,18 @@ function LandingContent() {
 						<div className="text-1.75rem font-750 mt-1rem">Jeremy</div>
 						<div className={styles.page8Founder}>Advisor</div>
 						<div className="mt-1.75rem mt-1rem">
-						<ul className="team_exp">
+							<ul className="team_exp">
 								<li>Founder of Redblock</li>
 								<li>GP of 42DAO Web3 Investment Fund</li>
-								<li>Entered the investment field after two startups in Silicon Valley in 2015</li>
+								<li>
+									Entered the investment field after two startups in Silicon
+									Valley in 2015
+								</li>
 								<li>Former investor at APlus Labs</li>
 								<li>Former Director of Investment at UCF Group</li>
 							</ul>
 						</div>
 					</div>
-
 				</div>
 			</div>
 		</div>
@@ -529,8 +620,16 @@ function LandingContent() {
 function LandingFoot() {
 	return (
 		<div className={styles.footContainer}>
-			<img src="images/pages/index/footshape1.svg" alt="" className={styles.footShape1}></img>
-			<img src="images/pages/index/footshape2.svg" alt="" className={styles.footShape2}></img>
+			<img
+				src="images/pages/index/footshape1.svg"
+				alt=""
+				className={styles.footShape1}
+			></img>
+			<img
+				src="images/pages/index/footshape2.svg"
+				alt=""
+				className={styles.footShape2}
+			></img>
 			<div
 				className="items-center"
 				style={{ display: "flex", flexDirection: "row", alignItems: "center" }}

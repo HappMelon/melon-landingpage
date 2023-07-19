@@ -17,6 +17,7 @@
 		"@blocksuite/editor": "0.0.0-20230712111942-2ffb8985-nightly",
 		"@blocksuite/store": "0.0.0-20230712111942-2ffb8985-nightly",
 		"@chakra-ui/react": "^2.7.1",
+		"@clerk/clerk-react": "^4.22.1",
 		"@crossbell/indexer": "^1.5.2",
 		"@crossbell/notification": "^1.5.0",
 		"@crossbell/ui": "^1.5.0",

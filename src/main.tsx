@@ -15,6 +15,7 @@ import { ConnectKitProvider, createWagmiConfig } from "@flarezone/connect-kit"
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
 import { WagmiConfig } from "wagmi"
 
+import { ClerkProvider } from "@clerk/clerk-react"
 import App from "./App"
 
 const queryClient = new QueryClient()
@@ -26,6 +27,8 @@ const wagmiConfig = createWagmiConfig({
 		.VITE_WALLET_CONNECT_V2_PROJECT_ID as string,
 })
 
+const clerk_pub_key = "pk_test_ZGlyZWN0LXVyY2hpbi0xNC5jbGVyay5hY2NvdW50cy5kZXYk"
+
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
 	<React.StrictMode>
 		<QueryClientProvider client={queryClient}>
@@ -33,7 +36,9 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
 				<ConnectKitProvider>
 					<NotificationModal />
 					<MantineProvider withGlobalStyles withNormalizeCSS>
-						<App />
+						<ClerkProvider publishableKey={clerk_pub_key}>
+							<App />
+						</ClerkProvider>
 					</MantineProvider>
 				</ConnectKitProvider>
 			</WagmiConfig>

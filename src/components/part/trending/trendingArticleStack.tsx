@@ -7,7 +7,7 @@ export const TrendingArticleStack = () => {
 
 	return (
 		<>
-			<Stack spacing="1.5rem" direction="column" mt="5vh">
+			<Stack spacing="1.5rem" direction="column" mt="5vh" className="h-auto">
 				<TrendingArticleBox />
 			</Stack>
 		</>

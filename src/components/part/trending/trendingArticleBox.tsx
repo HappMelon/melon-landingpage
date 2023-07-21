@@ -4,7 +4,7 @@ import { useMostPopular } from "@/state/Character"
 import { useStatus } from "@/state/Status"
 import { CharacterAvatar, Loading } from "@crossbell/ui"
 import { Note } from "crossbell"
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import ReactMarkdown from "react-markdown"
 
 const NoteWithAccount = ({ note }: { note: Note }) => {
@@ -59,9 +59,12 @@ const NoteWithAccount = ({ note }: { note: Note }) => {
 export const TrendingArticleBox = () => {
 	const [note, setNote] = useState<Note[]>([])
 	const [isLoading, setIsLoading] = useState(true)
+	const [cursor, setCursor] = useState(503)
+
+	const Ref = useRef<HTMLDivElement>(null)
 
 	useEffect(() => {
-		fetch(`https://recommend.crossbell.io/raw?type=note&rand=false&limit=20`)
+		fetch(`https://recommend.crossbell.io/raw?type=note&rand=false&limit=10`)
 			.then((res) => res.json())
 			.then(
 				(result: { note: Note[] }) => {
@@ -75,17 +78,51 @@ export const TrendingArticleBox = () => {
 			)
 	}, [])
 
+	useEffect(() => {
+		if (Ref?.current) {
+			const observer = new IntersectionObserver(
+				(entries) => {
+					console.log(entries[entries.length - 1].isIntersecting)
+					if (entries[entries.length - 1].isIntersecting) {
+						console.log(cursor)
+						fetch(
+							`https://recommend.crossbell.io/raw?type=note&rand=false&limit=10&cursor=${cursor}`
+						)
+							.then((res) => res.json())
+							.then(
+								(result: { note: Note[] }) => {
+									console.log("result", result)
+									setIsLoading(false)
+									setNote([...note, ...result.note])
+									setCursor(cursor + 10)
+								},
+								(error) => {
+									setIsLoading(false)
+									console.log("fetch character data failed, error:", error)
+								}
+							)
+					}
+				},
+				{ threshold: 0.5 }
+			)
+			observer?.observe(Ref?.current)
+			return () => {
+				observer?.unobserve(Ref?.current as Element)
+			}
+		}
+	}, [Ref])
+
 	if (isLoading) {
-		return <Loading />
+		return <Loading className="loading" />
 	}
 
 	return (
-		<>
-			{note.slice(0, 20)?.map((item: Note, i: number) => (
-				<div key={i} className="flex">
+		<div>
+			{note.slice(0, note.length)?.map((item: Note, i: number) => (
+				<div key={i} className="flex" ref={Ref}>
 					<NoteWithAccount key={i} note={item} />
 				</div>
 			))}
-		</>
+		</div>
 	)
 }

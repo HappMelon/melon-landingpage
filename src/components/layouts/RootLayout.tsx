@@ -1,6 +1,7 @@
 import { SearchBar } from "@/components/part/searchbar"
 import SimpleSidebar from "@/components/part/sidebar"
-import { ChakraProvider } from "@chakra-ui/react"
+import theme from "@/themes/theme"
+import { ChakraProvider, ColorModeScript } from "@chakra-ui/react"
 
 type LayoutProps = {
 	children: React.ReactNode
@@ -8,7 +9,8 @@ type LayoutProps = {
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
 	return (
-		<ChakraProvider>
+		<ChakraProvider theme={theme}>
+			<ColorModeScript initialColorMode={theme.config.initialColorMode} />
 			<SimpleSidebar>
 				<SearchBar />
 				{children}

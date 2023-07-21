@@ -112,7 +112,7 @@ export const TrendingArticleBox = () => {
 				observer?.unobserve(Ref?.current as Element)
 			}
 		}
-	}, [cursor, Ref])
+	}, [cursor, Ref, note])
 
 	if (isLoading) {
 		return <Loading className="loading" />

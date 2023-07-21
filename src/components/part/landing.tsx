@@ -2,8 +2,6 @@
 import { useState } from "react"
 import styles from "../../styles/landing-style.module.css"
 
-import { useNavigate } from "react-router-dom"
-
 type CardProps = {
 	title: string
 	children: React.ReactNode
@@ -47,7 +45,7 @@ function LandingHeader() {
 						<button
 							className={styles.headerButton}
 							onClick={() => {
-								window.open("https://forms.gle/sD5ZNZHnTUGQdMR7A")
+								window.open("https://linktr.ee/flaredapp")
 							}}
 						>
 							Join Waitlist
@@ -76,11 +74,6 @@ function LandingCard(props: CardProps) {
 }
 
 function LandingContent() {
-	const navigate = useNavigate()
-
-	const pushExplore = () => {
-		navigate(`/explore`)
-	}
 	return (
 		<div className={styles.contentContainer}>
 			<div className={styles.page1Container}>
@@ -112,8 +105,10 @@ function LandingContent() {
 					technology and principles.
 				</div>
 				<div className={styles.page1ButtonContainer}>
-					<button className={styles.page1Button2} onClick={pushExplore}>
-						Join Whitelist
+					<button className={styles.page1Button2} onClick={() => {
+						window.open("https://linktr.ee/flaredapp")
+					}}>
+						Join Waitlist
 					</button>
 					<div></div>
 				</div>

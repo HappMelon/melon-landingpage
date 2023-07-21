@@ -91,7 +91,7 @@ export const TrendingArticleBox = () => {
 							.then((res) => res.json())
 							.then(
 								(result: { note: Note[] }) => {
-									console.log("result", result)
+									console.log("result", result
 									console.log("cursor", cursor)
 									setIsLoading(false)
 									setNote([...note, ...result.note])

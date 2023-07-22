@@ -27,6 +27,7 @@ import {
 import { useAtom } from "jotai"
 import { useNavigate } from "react-router-dom"
 import Web3 from "web3"
+import { ExternalProvider, JsonRpcFetchFunc } from "@ethersproject/providers"
 
 const web3 = new Web3("https://data-seed-prebsc-2-s2.bnbchain.org:8545")
 const address = "0xB43da67840856167a627b5bfcdaB4a86Ba686A24"
@@ -63,7 +64,7 @@ function Avatar() {
 let Conctract: any
 if (typeof window.ethereum !== "undefined") {
 	// eslint-disable-next-line @typescript-eslint/no-unsafe-argument
-	const provider = new ethers.providers.Web3Provider(window?.ethereum)
+	const provider = new ethers.providers.Web3Provider(window?.ethereum as ExternalProvider | JsonRpcFetchFunc)
 
 	Conctract = () => {
 		const signer = provider.getSigner()

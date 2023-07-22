@@ -1,9 +1,11 @@
 import { PostPageContainer } from "@/components/part/post/postPageContainer"
-import { ChakraProvider } from "@chakra-ui/react"
+import theme from "@/themes/theme"
+import { ChakraProvider, ColorModeScript } from "@chakra-ui/react"
 
 export default function App() {
 	return (
-		<ChakraProvider>
+		<ChakraProvider theme={theme}>
+			<ColorModeScript initialColorMode={theme.config.initialColorMode} />
 			<PostPageContainer />
 		</ChakraProvider>
 	)

@@ -16,6 +16,7 @@ import {
 	Spacer,
 } from "@chakra-ui/react"
 
+import ColorModeSwitch from "@/components/ui/colorModeSwitch"
 import ABI from "@/contract/betting.json"
 import { CharacterAvatar } from "@crossbell/ui"
 import {
@@ -213,6 +214,7 @@ export const PostPageHeader = () => {
 						tags={["post"]}
 						isChecked={enable}
 					/>
+					<ColorModeSwitch />
 					<Button marginLeft="2rem" rounded="full">
 						<Avatar />
 					</Button>

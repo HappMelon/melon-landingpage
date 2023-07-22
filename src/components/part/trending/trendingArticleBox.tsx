@@ -92,7 +92,7 @@ export const TrendingArticleBox = () => {
 							.then(
 								(result: { note: Note[] }) => {
 									console.log("result", result)
-									console.log('cursor', cursor);
+									console.log("cursor", cursor)
 									setIsLoading(false)
 									setNote([...note, ...result.note])
 									// 这里的cursor 是递减的.
@@ -107,9 +107,11 @@ export const TrendingArticleBox = () => {
 				},
 				{ threshold: 0.5 }
 			)
-			observer?.observe(Ref?.current)
-			return () => {
-				observer?.unobserve(Ref?.current as Element)
+			if (Ref?.current) {
+				observer?.observe(Ref?.current)
+				return () => {
+					observer?.unobserve(Ref?.current as Element)
+				}
 			}
 		}
 	}, [cursor, Ref, note])

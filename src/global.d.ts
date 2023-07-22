@@ -1,3 +1,4 @@
+import { ethers } from "ethers"
 interface Window {
-	ethereum: any
+	ethereum: ethers.providers.ExternalProvider | ethers.providers.JsonRpcFetchFunc
 }

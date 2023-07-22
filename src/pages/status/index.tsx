@@ -3,8 +3,11 @@ import { ipfsLinkToHttpLink } from "@/share/ipfs"
 import { useAccount } from "@/state/Account"
 import { useStatus } from "@/state/Status"
 import { CharacterAvatar, Loading } from "@crossbell/ui"
-import ReactMarkdown from "react-markdown"
+import ChakraUIRenderer from "chakra-ui-markdown-renderer"
+import ReactMarkdown, { Components } from "react-markdown"
 import { useNavigate, useParams } from "react-router-dom"
+import rehypeHighlight from "rehype-highlight"
+import remarkGfm from "remark-gfm"
 
 export default function App() {
 	const { username, id } = useParams()
@@ -25,6 +28,8 @@ export default function App() {
 	)
 
 	const { data: note, isLoading } = useStatus(cid, nid)
+
+	console.log(note?.metadata?.content?.content)
 
 	const transformLinkUri = (uri: string) => {
 		return ipfsLinkToHttpLink(uri, { origin: "https://ipfs.io" })
@@ -55,8 +60,12 @@ export default function App() {
 							</div>
 						</div>
 						<ReactMarkdown
-							className="overflow-hidden  !text-left pt-0.5rem"
+							className="overflow-hidden  !text-left pt-0.5rem w-60rem pb-8rem"
+							// eslint-disable-next-line @typescript-eslint/no-unsafe-call
+							components={ChakraUIRenderer() as Components}
+							rehypePlugins={[rehypeHighlight, remarkGfm]}
 							transformImageUri={transformLinkUri}
+							skipHtml
 						>
 							{note?.metadata?.content?.content as string}
 						</ReactMarkdown>

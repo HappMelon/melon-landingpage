@@ -8,14 +8,17 @@ import { useEffect, useRef, useState } from "react"
 import ReactMarkdown from "react-markdown"
 
 const NoteWithAccount = ({ note }: { note: Note }) => {
-	const cid = note.characterId
-	const nid = note.noteId
+	const cid = note?.characterId
+	const nid = note?.noteId
 
 	const { data: n } = useStatus(String(cid), String(nid))
 
-	const { data: h } = useMostPopular(String(n?.characterId))
+	const { data: h } = useMostPopular(
+		String(n?.characterId) != "undefined" ? String(n?.characterId) : "10"
+	)
 
 	const accountName = h?.metadata?.content?.name ? h.metadata.content.name : ""
+
 	const { data: account } = useAccount(accountName)
 
 	const transformLinkUri = (uri: string) => {
@@ -23,6 +26,7 @@ const NoteWithAccount = ({ note }: { note: Note }) => {
 	}
 
 	const content = n?.metadata?.content?.content as string
+
 	const truncatedContent =
 		content?.length > 160 ? content.slice(0, 160) + "..." : content
 
@@ -30,8 +34,9 @@ const NoteWithAccount = ({ note }: { note: Note }) => {
 		<button
 			className="flex flex-col w-full py-3 px-3 border-b border-gray/20 bg-hover cursor-pointer w-55rem hover:bg-#9ca3af10"
 			onClick={() => {
-				// eslint-disable-next-line @typescript-eslint/restrict-template-expressions
-				window.location.href = `/@${h?.handle}/status/${n?.characterId}-${n?.noteId}`
+				window.location.href = `/@${h?.handle as string}/status/${
+					n?.characterId as number
+				}-${n?.noteId as number}`
 			}}
 		>
 			<div className="flex">
@@ -79,23 +84,19 @@ export const TrendingArticleBox = () => {
 	}, [])
 
 	useEffect(() => {
+		const currentRef = Ref?.current
 		if (Ref?.current) {
 			const observer = new IntersectionObserver(
 				(entries) => {
-					console.log(entries[entries.length - 1].isIntersecting)
 					if (entries[entries.length - 1].isIntersecting) {
-						console.log(cursor)
 						fetch(
 							`https://recommend.crossbell.io/raw?type=note&rand=false&limit=10&cursor=${cursor}`
 						)
 							.then((res) => res.json())
 							.then(
 								(result: { note: Note[] }) => {
-									console.log("result", result)
-									console.log("cursor", cursor)
 									setIsLoading(false)
 									setNote([...note, ...result.note])
-									// 这里的cursor 是递减的.
 									setCursor(cursor - 10)
 								},
 								(error) => {
@@ -108,9 +109,9 @@ export const TrendingArticleBox = () => {
 				{ threshold: 0.5 }
 			)
 			if (Ref?.current) {
-				observer?.observe(Ref?.current)
+				observer?.observe(currentRef as Element)
 				return () => {
-					observer?.unobserve(Ref?.current as Element)
+					observer?.unobserve(currentRef as Element)
 				}
 			}
 		}

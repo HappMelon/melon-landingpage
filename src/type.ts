@@ -1,4 +1,4 @@
-import { CharacterEntity } from "crossbell"
+import { CharacterEntity, Note } from "crossbell"
 export interface Album {
 	id: number
 	userId: number
@@ -37,6 +37,8 @@ export interface Result {
 }
 
 export interface ArticleResult {
+	count: number
+	cursor: string
 	list: Article[]
 }
 export interface Article {
@@ -70,4 +72,5 @@ export interface HotTopics {
 export interface BettingNote {
 	count: number
 	cursor: string
+	list: Note[]
 }

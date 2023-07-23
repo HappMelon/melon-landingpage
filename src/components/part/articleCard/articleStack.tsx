@@ -1,12 +1,10 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { ArticleBox } from "@/components/part/articleCard/articleBox"
-import { useAccount } from "@/state/Account"
 import { useArticlesID } from "@/state/Article"
 import { Article, ArticleResult, Character } from "@/type"
 
 import { Stack, StackProps } from "@chakra-ui/react"
 import { useEffect, useRef, useState } from "react"
-import { useParams } from "react-router-dom"
 
 interface ArticleStackProps extends StackProps {
 	userID?: number
@@ -40,13 +38,18 @@ export const ArticleStack = ({
 				(entries) => {
 					if (entries[entries.length - 1].isIntersecting) {
 						fetch(
-							`https://indexer.crossbell.io/v1/notes?characterId=${account?.characterId as number}&cursor=${account?.characterId as number}_${cursor}&limit=10`
+							`https://indexer.crossbell.io/v1/notes?characterId=${
+								account?.characterId as number
+							}&cursor=${account?.characterId as number}_${cursor}&limit=10`
 						)
 							.then((res) => res.json())
 							.then(
 								(result: { list: ArticleResult }) => {
 									setIsLoading(false)
-									setArticle([...article, ...result.list as unknown as Article[]])
+									setArticle([
+										...article,
+										...(result.list as unknown as Article[]),
+									])
 									setCursor(cursor - 10)
 								},
 								(error) => {
@@ -68,11 +71,7 @@ export const ArticleStack = ({
 	}, [cursor, Ref, article, articles])
 
 	if (!articles) {
-		return (
-			<Stack className="gap-1.5rem flex !flex-col mt-5vh">
-				<></>
-			</Stack>
-		)
+		return <Stack className="gap-1.5rem flex !flex-col"></Stack>
 	}
 	return (
 		<>

@@ -1,8 +1,15 @@
 import { ArticleStack } from "@/components/part/articleCard/articleStack"
 import { FollowingMillStack } from "@/components/part/mill/followingMillStack"
 import { useAccount } from "@/state/Account"
-import { Flex, Spacer } from "@chakra-ui/react"
-import { Loading } from "@crossbell/ui"
+import {
+	Box,
+	Flex,
+	Skeleton,
+	SkeletonCircle,
+	SkeletonText,
+	Spacer,
+	Stack,
+} from "@chakra-ui/react"
 import { useParams } from "react-router-dom"
 
 export const AccountPageContainer = () => {
@@ -12,7 +19,26 @@ export const AccountPageContainer = () => {
 	)
 
 	if (isLoading) {
-		return <Loading />
+		return (
+			<div className="flex">
+				<Box className="mt-5vh py-2 px-4 w-full border-b">
+					<Stack className="flex !flex-row items-center">
+						<SkeletonCircle className="rounded-50px !w-3rem !h-3rem" />
+						<SkeletonText noOfLines={1} skeletonHeight="5" width={"20rem"} />
+					</Stack>
+					<Stack className="mt-1rem w-full">
+						<Skeleton height="20px" />
+						<Skeleton height="20px" />
+						<Skeleton height="20px" />
+					</Stack>
+				</Box>
+				<FollowingMillStack
+					title="Following Mills"
+					count={8}
+					className="lt-xl:display-none"
+				/>
+			</div>
+		)
 	}
 
 	return (

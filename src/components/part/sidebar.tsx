@@ -99,15 +99,15 @@ export function SettingsBtn() {
 	const isConnected = useIsConnected()
 	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	const { isActive, show, hide } = useXSettingsModal()
-
+	const linkColor = useColorModeValue("black", "white.800")
 	if (!isConnected) return null
 
 	return (
 		<Link
 			onClick={show}
+			color={linkColor}
 			style={{
 				fontSize: "0.75rem",
-				color: "black",
 				textDecoration: "underline",
 				marginTop: "2rem",
 			}}
@@ -122,6 +122,8 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
 	const isConnected = useIsConnected()
 	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	const { isActive, show, hide } = useConnectModal()
+
+	const linkColor = useColorModeValue("black", "white.800")
 
 	const pushExplore = () => {
 		navigate("/explore")
@@ -191,9 +193,9 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
 					<SettingsBtn />
 					<Link
 						href="mailto:flare.dapp@gmail.com"
+						color={linkColor}
 						style={{
 							fontSize: "0.75rem",
-							color: "black",
 							textDecoration: "underline",
 						}}
 					>
@@ -269,6 +271,7 @@ const NavItem = ({ icon, path, children, ...rest }: NavItemProps) => {
 	const isConnected = useIsConnected()
 	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	const { isActive, show, hide } = useConnectModal()
+	const linkColor = useColorModeValue("black", "white.800")
 
 	return (
 		<Link
@@ -307,6 +310,7 @@ const NavItem = ({ icon, path, children, ...rest }: NavItemProps) => {
 					bgClip="text"
 					fontWeight="semibold"
 					transition="background 0.2s"
+					color={linkColor}
 					_groupHover={{
 						bgGradient: "linear(to-r, #F9D423, #F83600)",
 					}}

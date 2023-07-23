@@ -36,9 +36,11 @@ export const PopularAuthors = () => {
 	const [character, setCharacter] = useState<CharacterEntity[]>([])
 	const [isLoading, setIsLoading] = useState(true)
 
+	const random = Math.floor(Math.random() * 4)
+
 	useEffect(() => {
 		fetch(
-			`https://recommend.crossbell.io/raw?type=character&rand=false&limit=10`
+			`https://recommend.crossbell.io/raw?type=character&rand=false&limit=20`
 		)
 			.then((res) => res.json())
 			.then(
@@ -59,7 +61,7 @@ export const PopularAuthors = () => {
 
 	return (
 		<>
-			{character.slice(0, 5)?.map((item: CharacterEntity, i: number) => (
+			{character.slice(random * 5, (random + 1) * 5 )?.map((item: CharacterEntity, i: number) => (
 				<div key={i} className="flex">
 					<CharacterWithAccount key={i} character={item} />
 				</div>

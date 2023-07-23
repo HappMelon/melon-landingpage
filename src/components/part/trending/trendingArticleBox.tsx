@@ -6,6 +6,7 @@ import { CharacterAvatar, Loading } from "@crossbell/ui"
 import { Note } from "crossbell"
 import { useEffect, useRef, useState } from "react"
 import ReactMarkdown from "react-markdown"
+import { useNavigate } from "react-router-dom"
 
 const NoteWithAccount = ({ note }: { note: Note }) => {
 	const cid = note?.characterId
@@ -14,10 +15,12 @@ const NoteWithAccount = ({ note }: { note: Note }) => {
 	const { data: n } = useStatus(String(cid), String(nid))
 
 	const { data: h } = useMostPopular(
-		String(n?.characterId) != "undefined" ? String(n?.characterId) : "10"
+		String(n?.characterId) != "undefined" ? String(n?.characterId) : "0"
 	)
 
-	const accountName = h?.metadata?.content?.name ? h.metadata.content.name : ""
+	const accountName = h?.handle ? h.handle : ""
+
+	console.log(accountName)
 
 	const { data: account } = useAccount(accountName)
 
@@ -30,13 +33,17 @@ const NoteWithAccount = ({ note }: { note: Note }) => {
 	const truncatedContent =
 		content?.length > 160 ? content.slice(0, 160) + "..." : content
 
+	const navigate = useNavigate()
+
 	return (
 		<button
 			className="flex flex-col w-full py-3 px-3 border-b border-gray/20 bg-hover cursor-pointer w-55rem hover:bg-#9ca3af10"
 			onClick={() => {
-				window.location.href = `/@${h?.handle as string}/status/${
-					n?.characterId as number
-				}-${n?.noteId as number}`
+				navigate(
+					`/@${h?.handle as string}/status/${n?.characterId as number}-${
+						n?.noteId as number
+					}`
+				)
 			}}
 		>
 			<div className="flex">
@@ -48,7 +55,6 @@ const NoteWithAccount = ({ note }: { note: Note }) => {
 				<div className="pl-0.25rem">
 					<div>{h?.handle}</div>
 					<div>{h?.metadata?.content?.name}</div>
-					<div></div>
 				</div>
 			</div>
 			<ReactMarkdown
@@ -69,7 +75,7 @@ export const TrendingArticleBox = () => {
 	const Ref = useRef<HTMLDivElement>(null)
 
 	useEffect(() => {
-		fetch(`https://recommend.crossbell.io/raw?type=note&rand=false&limit=10`)
+		fetch(`https://recommend.crossbell.io/raw?type=note&rand=false&limit=20`)
 			.then((res) => res.json())
 			.then(
 				(result: { note: Note[] }) => {
@@ -90,7 +96,7 @@ export const TrendingArticleBox = () => {
 				(entries) => {
 					if (entries[entries.length - 1].isIntersecting) {
 						fetch(
-							`https://recommend.crossbell.io/raw?type=note&rand=false&limit=10&cursor=${cursor}`
+							`https://recommend.crossbell.io/raw?type=note&rand=false&limit=20&cursor=${cursor}`
 						)
 							.then((res) => res.json())
 							.then(

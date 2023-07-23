@@ -1,4 +1,5 @@
 import type { Character } from "@/type"
+import { CharacterEntity } from "crossbell"
 import useSWR from "swr"
 
 const prefixUrl = "https://indexer.crossbell.io"
@@ -7,6 +8,6 @@ const fetcher = <T>(url: string) =>
 
 export function useAccount(handle: string) {
 	return useSWR(["character", handle], () =>
-		fetcher<Character>(`/v1/handles/${handle}/character`)
+		fetcher<CharacterEntity>(`/v1/handles/${handle}/character`)
 	)
 }

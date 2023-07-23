@@ -28,7 +28,7 @@ export const ArticleStack = ({
 
 	useEffect(() => {
 		if (articles) {
-			setCursor(articles?.count as number)
+			setCursor(articles?.count)
 			setArticle(articles.list as unknown as Article[])
 		}
 	}, [articles])

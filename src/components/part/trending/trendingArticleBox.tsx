@@ -3,10 +3,13 @@ import { useAccount } from "@/state/Account"
 import { useMostPopular } from "@/state/Character"
 import { useStatus } from "@/state/Status"
 import { CharacterAvatar, Loading } from "@crossbell/ui"
+import ChakraUIRenderer from "chakra-ui-markdown-renderer"
 import { Note } from "crossbell"
 import { useEffect, useRef, useState } from "react"
 import ReactMarkdown from "react-markdown"
 import { useNavigate } from "react-router-dom"
+import rehypeHighlight from "rehype-highlight"
+import remarkGfm from "remark-gfm"
 
 const NoteWithAccount = ({ note }: { note: Note }) => {
 	const cid = note?.characterId
@@ -20,8 +23,6 @@ const NoteWithAccount = ({ note }: { note: Note }) => {
 
 	const accountName = h?.handle ? h.handle : ""
 
-	console.log(accountName)
-
 	const { data: account } = useAccount(accountName)
 
 	const transformLinkUri = (uri: string) => {
@@ -31,7 +32,7 @@ const NoteWithAccount = ({ note }: { note: Note }) => {
 	const content = n?.metadata?.content?.content as string
 
 	const truncatedContent =
-		content?.length > 160 ? content.slice(0, 160) + "..." : content
+		content?.length > 300 ? content.slice(0, 300) + "..." : content
 
 	const navigate = useNavigate()
 
@@ -59,7 +60,10 @@ const NoteWithAccount = ({ note }: { note: Note }) => {
 			</div>
 			<ReactMarkdown
 				className="overflow-hidden pt-1rem !text-left"
+				components={ChakraUIRenderer()}
+				rehypePlugins={[rehypeHighlight, remarkGfm]}
 				transformImageUri={transformLinkUri}
+				skipHtml={true}
 			>
 				{truncatedContent}
 			</ReactMarkdown>
@@ -96,14 +100,15 @@ export const TrendingArticleBox = () => {
 				(entries) => {
 					if (entries[entries.length - 1].isIntersecting) {
 						fetch(
-							`https://recommend.crossbell.io/raw?type=note&rand=false&limit=20&cursor=${cursor}`
+							`https://recommend.crossbell.io/raw?type=note&rand=false&limit=10&cursor=${cursor}`
 						)
 							.then((res) => res.json())
 							.then(
 								(result: { note: Note[] }) => {
-									setIsLoading(false)
-									setNote([...note, ...result.note])
-									setCursor(cursor - 10)
+									result.note != null &&
+										(setIsLoading(false),
+										setNote([...note, ...result.note]),
+										setCursor(cursor - 10))
 								},
 								(error) => {
 									setIsLoading(false)

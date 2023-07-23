@@ -4,18 +4,16 @@ interface ArticleTagProps extends ButtonProps {
 	content: string | ""
 	num: number | 0
 }
-export const ArticleTag = ({ content, num, ...props }: ArticleTagProps) => {
-	const colors = ["#BD97FF", "#FF5925", "#F90", "#AC3EEF"]
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+export const ArticleTag = ({ content, num, ...Props }: ArticleTagProps) => {
+	const bgColors = ["#FAF3F0", "#D4E2D4", "#FFCACC", "#DBC4F0"]
 	return (
 		<Button
-			color={colors[num % 4]}
-			bg="rgba(222, 166, 250, 0.20)"
-			fontSize="0.75rem"
-			borderRadius="0.25rem"
-			h="1.5rem"
-			p="0.25rem 0.625rem "
+			className="!rounded-full text-0.75rem font-400 !px-0.625rem !py-0.25rem !h-1.25rem !hover:bg-transparent"
+			color="#000"
+			bg={bgColors[num % 4]}
 		>
-			#{content}
+			{content}
 		</Button>
 	)
 }

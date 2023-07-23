@@ -71,6 +71,10 @@ const NoteWithAccount = ({ note }: { note: Note }) => {
 	)
 }
 
+const handleScrollToTop = () => {
+	window.scrollTo({ top: 0, behavior: "smooth" })
+}
+
 export const TrendingArticleBox = () => {
 	const [note, setNote] = useState<Note[]>([])
 	const [isLoading, setIsLoading] = useState(true)
@@ -128,6 +132,17 @@ export const TrendingArticleBox = () => {
 		}
 	}, [cursor, Ref, note])
 
+	const [showScroll, setScroll] = useState(false)
+	useEffect(() => {
+		const handleScrollButtonVisible = () => {
+			window.scrollY > 300 ? setScroll(true) : setScroll(false)
+		}
+		window.addEventListener("scroll", handleScrollButtonVisible)
+		return () => {
+			window.removeEventListener("scroll", handleScrollButtonVisible)
+		}
+	})
+
 	if (isLoading) {
 		return <Loading className="loading" />
 	}
@@ -139,6 +154,16 @@ export const TrendingArticleBox = () => {
 					<NoteWithAccount key={i} note={item} />
 				</div>
 			))}
+			{showScroll && (
+				<div>
+					<button
+						className="fixed bottom-5 right-7 z-50 cursor-pointer p-4"
+						onClick={handleScrollToTop}
+					>
+						go to the top
+					</button>
+				</div>
+			)}
 		</div>
 	)
 }

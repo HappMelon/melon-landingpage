@@ -12,9 +12,14 @@ import {
 
 import ABI from "@/contract/betting.json"
 import { CalculateDate } from "@/lib/utils"
+import { ipfsLinkToHttpLink } from "@/share/ipfs"
 import { useNoteIndex } from "@/state/Note"
 import { ExternalProvider, JsonRpcFetchFunc } from "@ethersproject/providers"
+import ChakraUIRenderer from "chakra-ui-markdown-renderer"
 import { ethers } from "ethers"
+import { ReactMarkdown } from "react-markdown/lib/react-markdown"
+import rehypeHighlight from "rehype-highlight"
+import remarkGfm from "remark-gfm"
 import { Remarkable } from "remarkable"
 
 const address = "0xB43da67840856167a627b5bfcdaB4a86Ba686A24"
@@ -22,6 +27,10 @@ const address = "0xB43da67840856167a627b5bfcdaB4a86Ba686A24"
 let Conctract: any
 
 let provider: ethers.providers.Web3Provider
+
+const transformLinkUri = (uri: string) => {
+	return ipfsLinkToHttpLink(uri, { origin: "https://ipfs.io" })
+}
 
 if (typeof window.ethereum !== "undefined") {
 	provider = new ethers.providers.Web3Provider(
@@ -114,14 +123,14 @@ export const ArticleBox = ({ data, account }: ArticleBoxProps) => {
 						<Text className="color-#000 text-1.125rem font-700 my-2 break-words leading-1.25rem">
 							{data ? data?.metadata?.content?.title : ""}
 						</Text>
-						<Text
-							className="color-#9B9B9B text-1rem my-2 break-words leading-1.25rem "
-							dangerouslySetInnerHTML={renderMarkdownToHTML(
-								data.metadata.content.content
-							)}
+						<ReactMarkdown
+							components={ChakraUIRenderer()}
+							rehypePlugins={[rehypeHighlight, remarkGfm]}
+							transformImageUri={transformLinkUri}
+							skipHtml={true}
 						>
-							{}
-						</Text>
+							{data.metadata.content.content}
+						</ReactMarkdown>
 						<Stack direction="row" align="center" spacing="1rem">
 							{data.metadata.content.sources ? (
 								data.metadata.content.sources.map((tag, i) => (

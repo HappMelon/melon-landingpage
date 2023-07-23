@@ -2,23 +2,25 @@ import { useAccount } from "@/state/Account"
 import { CharacterAvatar, Loading } from "@crossbell/ui"
 import { CharacterEntity } from "crossbell"
 import { useEffect, useState } from "react"
+import { useNavigate } from "react-router-dom"
 
 const CharacterWithAccount = ({
 	character,
 }: {
 	character: CharacterEntity
 }) => {
-	const accountName = character?.metadata?.content?.name
-		? character.metadata.content.name
-		: ""
+	const accountName = character?.handle ? character.handle : ""
 	const { data: account } = useAccount(accountName)
+
+	const navigate = useNavigate()
 
 	return (
 		<div className="flex items-center gap-1rem overflow-hidden flex-nowrap">
 			<CharacterAvatar
-				className="!w-3rem !h-3rem !rounded-50% border-solid border-#fff shadow-lg object-cover"
+				className="!w-3rem !h-3rem !rounded-50% border-solid border-#fff shadow-lg object-cover cursor-pointer"
 				size="4rem"
 				character={account}
+				onClick={() => navigate(`/@${accountName}`)}
 			/>
 			<div className="!text-ellipsis flex-nowrap whitespace-nowrap">
 				{character?.metadata?.content?.name}
@@ -36,7 +38,7 @@ export const PopularAuthors = () => {
 
 	useEffect(() => {
 		fetch(
-			`https://recommend.crossbell.io/raw?type=character&rand=false&limit=20`
+			`https://recommend.crossbell.io/raw?type=character&rand=false&limit=10`
 		)
 			.then((res) => res.json())
 			.then(

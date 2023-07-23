@@ -18,9 +18,9 @@ import { ExternalProvider, JsonRpcFetchFunc } from "@ethersproject/providers"
 import ChakraUIRenderer from "chakra-ui-markdown-renderer"
 import { ethers } from "ethers"
 import { ReactMarkdown } from "react-markdown/lib/react-markdown"
+import { useNavigate } from "react-router-dom"
 import rehypeHighlight from "rehype-highlight"
 import remarkGfm from "remark-gfm"
-import { Remarkable } from "remarkable"
 
 const address = "0xB43da67840856167a627b5bfcdaB4a86Ba686A24"
 
@@ -47,6 +47,7 @@ if (typeof window.ethereum !== "undefined") {
 interface ArticleBoxProps extends BoxProps {
 	data: Article
 	account: Character
+	index: number
 }
 
 interface Props {
@@ -85,16 +86,8 @@ function IsNoteLiked({ noteId, characterId }: Props) {
 	)
 }
 
-export const ArticleBox = ({ data, account }: ArticleBoxProps) => {
-	const md = new Remarkable()
-	function renderMarkdownToHTML(markdown: string) {
-		// This is ONLY safe because the output HTML
-		// is shown to the same user, and because you
-		// trust this Markdown parser to not have bugs.
-		const renderedHTML = md.render(markdown)
-		return { __html: renderedHTML }
-	}
-
+export const ArticleBox = ({ index, data, account }: ArticleBoxProps) => {
+	const navigate = useNavigate()
 	const character = useAccountCharacter()
 	const { data: note } = useNoteIndex(character?.characterId as number)
 
@@ -109,12 +102,14 @@ export const ArticleBox = ({ data, account }: ArticleBoxProps) => {
 					/>
 					<div>
 						<Stack className="flex !flex-row !flex-wrap items-center">
-							<Text className="text-1rem font-bold">
-								{account ? account?.handle : ""}
-							</Text>
-							<Text className="text-0.875rem color-#868e96">
-								{account ? account?.metadata?.content?.name : ""}
-							</Text>
+							<button onClick={() => {navigate(`/@${account?.handle}/status/${note?.list[index].characterId as bigint}-${note?.list[index].noteId as bigint}`) }} className="flex gap-1 items-center">
+								<Text className="text-1rem font-bold">
+									{account ? account?.handle : ""}
+								</Text>
+								<Text className="text-0.875rem color-#868e96">
+									{account ? account?.metadata?.content?.name : ""}
+								</Text>
+							</button>
 							<Text className="color-#868e96">·</Text>
 							<Text className="color-#868e96">
 								{CalculateDate(data?.createdAt)}

@@ -82,6 +82,7 @@ export const ArticleStack = ({
 					.map((article, i) => (
 						<div key={i} ref={Ref}>
 							<ArticleBox
+								index={i}
 								key={i}
 								data={article}
 								account={account as Character}

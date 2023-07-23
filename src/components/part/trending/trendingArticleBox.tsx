@@ -6,6 +6,7 @@ import { CharacterAvatar, Loading } from "@crossbell/ui"
 import ChakraUIRenderer from "chakra-ui-markdown-renderer"
 import { Note } from "crossbell"
 import { useEffect, useRef, useState } from "react"
+import { FiArrowUp } from "react-icons/fi"
 import ReactMarkdown from "react-markdown"
 import { useNavigate } from "react-router-dom"
 import rehypeHighlight from "rehype-highlight"
@@ -157,10 +158,13 @@ export const TrendingArticleBox = () => {
 			{showScroll && (
 				<div>
 					<button
-						className="fixed bottom-5 right-7 z-50 cursor-pointer p-4"
+						className="fixed bottom-5 right-10% z-50 cursor-pointer p-5 b-rounded bg-yellow"
 						onClick={handleScrollToTop}
 					>
-						go to the top
+						<div className="flex justify-center gap-0.5rem ">
+							<FiArrowUp />
+							<span className="font-600">Scroll to top</span>
+						</div>
 					</button>
 				</div>
 			)}

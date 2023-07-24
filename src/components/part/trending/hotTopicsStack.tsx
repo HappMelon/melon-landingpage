@@ -6,7 +6,10 @@ export const HotTopicsStack = () => {
 	const TextColor = useColorModeValue("black", "white.800")
 	const BgColor = useColorModeValue("#F8F8F8", "grey")
 	return (
-		<Box className="w-18vw rounded-1rem self-start mt-5vh" bg={BgColor}>
+		<Box
+			className="w-18vw rounded-1rem self-start mt-5vh lt-xl:display-none"
+			bg={BgColor}
+		>
 			<Stack className="flex-col w-full p-1.75rem">
 				<Flex alignItems="center" gap="5px">
 					<Text

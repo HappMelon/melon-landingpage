@@ -39,7 +39,7 @@ const NoteWithAccount = ({ note }: { note: Note }) => {
 
 	return (
 		<button
-			className="flex flex-col w-full py-3 px-3 border-b border-gray/20 bg-hover cursor-pointer w-55rem hover:bg-#9ca3af10"
+			className="flex flex-col w-full py-3 px-3 border-b border-gray/20 bg-hover cursor-pointer hover:bg-#9ca3af10"
 			onClick={() => {
 				navigate(
 					`/@${h?.handle as string}/status/${n?.characterId as number}-${

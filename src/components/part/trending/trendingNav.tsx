@@ -20,7 +20,7 @@ export const TrendingNav = () => {
 	return (
 		<>
 			<Stack className="mr-auto mt-5vh flex-col">
-				<Box className="flex items-center w-full">
+				<Box className="flex items-center">
 					<ButtonGroup className="gap-4">
 						<Button
 							className="py-0.375rem px-0.625rem color-#9B9B9B bg-#f8f8f8 text-1rem font-700 hover:color-#000"

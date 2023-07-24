@@ -7,6 +7,7 @@ export const PopularAuthorStack = () => {
 	const BgColor = useColorModeValue("#F8F8F8", "grey")
 	return (
 		<Box
+			className="lt-xl:display-none"
 			w="18vw"
 			bg={BgColor}
 			borderRadius="1rem"

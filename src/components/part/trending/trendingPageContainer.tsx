@@ -4,15 +4,13 @@ import { TrendingNav } from "@/components/part/trending/trendingNav"
 import { Flex, Spacer, VStack } from "@chakra-ui/react"
 export const TrendingPageContainer = () => {
 	return (
-		<>
-			<Flex className="justify-between m-2vh flex-row">
-				<TrendingNav />
-				<Spacer />
-				<VStack>
-					<HotTopicsStack />
-					<PopularAuthorStack />
-				</VStack>
-			</Flex>
-		</>
+		<Flex className="flex !justify-between m-2vh flex-row !w-auto">
+			<TrendingNav />
+			<Spacer />
+			<VStack>
+				<HotTopicsStack />
+				<PopularAuthorStack />
+			</VStack>
+		</Flex>
 	)
 }

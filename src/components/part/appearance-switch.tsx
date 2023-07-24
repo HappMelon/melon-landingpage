@@ -7,8 +7,8 @@ export default function AppearanceSwitch() {
 		<button
 			className={isDark ? "i-carbon-moon w-3rem" : "i-carbon-sun w-3rem"}
 			onClick={() => {
-				toggleColorMode()
 				toggleDark()
+				toggleColorMode()
 			}}
 		></button>
 	)

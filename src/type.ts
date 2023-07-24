@@ -74,3 +74,7 @@ export interface BettingNote {
 	cursor: string
 	list: Note[]
 }
+
+export interface TrendingAuthors {
+	character: CharacterEntity[]
+}

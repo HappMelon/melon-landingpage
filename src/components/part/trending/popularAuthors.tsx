@@ -1,8 +1,33 @@
 import { useAccount } from "@/state/Account"
-import { CharacterAvatar, Loading } from "@crossbell/ui"
+import { useTrendingUser } from "@/state/TrendingUser"
+import { Box } from "@chakra-ui/react"
+import { CharacterAvatar } from "@crossbell/ui"
 import { CharacterEntity } from "crossbell"
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
+
+export const PopularAuthors = () => {
+	const [math, setMath] = useState(0)
+
+	useEffect(() => {
+		setMath(Math.floor(Math.random() * 4))
+	}, [])
+
+	const { data: account } = useTrendingUser("character", false, 20)
+
+	return (
+		<Box>
+			{account &&
+				(account?.character as CharacterEntity[])
+					.slice(math * 5, (math + 1) * 5)
+					.map((item: CharacterEntity, i: number) => (
+						<div key={i} className="flex">
+							<CharacterWithAccount key={i} character={item} />
+						</div>
+					))}
+		</Box>
+	)
+}
 
 const CharacterWithAccount = ({
 	character,
@@ -11,6 +36,7 @@ const CharacterWithAccount = ({
 }) => {
 	const accountName = character?.handle ? character.handle : ""
 	const { data: account } = useAccount(accountName)
+	console.log(account)
 
 	const navigate = useNavigate()
 
@@ -29,43 +55,5 @@ const CharacterWithAccount = ({
 				@{character?.handle}
 			</div>
 		</div>
-	)
-}
-
-export const PopularAuthors = () => {
-	const [character, setCharacter] = useState<CharacterEntity[]>([])
-	const [isLoading, setIsLoading] = useState(true)
-	const [math, setMath] = useState(0)
-
-	useEffect(() => {
-		fetch(
-			`https://recommend.crossbell.io/raw?type=character&rand=false&limit=20`
-		)
-			.then((res) => res.json())
-			.then(
-				(result: { character: CharacterEntity[] }) => {
-					setIsLoading(false)
-					setMath(Math.floor(Math.random() * 4))
-					setCharacter(result.character)
-				},
-				(error) => {
-					setIsLoading(false)
-					console.log("fetch character data failed, error:", error)
-				}
-			)
-	}, [])
-
-	if (isLoading) {
-		return <Loading />
-	}
-
-	return (
-		<>
-			{character.slice(math * 5, (math + 1) * 5 )?.map((item: CharacterEntity, i: number) => (
-				<div key={i} className="flex">
-					<CharacterWithAccount key={i} character={item} />
-				</div>
-			))}
-		</>
 	)
 }

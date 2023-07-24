@@ -3,9 +3,10 @@ import { atomWithStorage } from "jotai/utils"
 import { useEffect } from "react"
 import { useMedia } from "react-use"
 
+// OPTIMIZE use light to replace auto
 const appearanceAtom = atomWithStorage<"auto" | "light" | "dark">(
 	"use-dark",
-	"auto"
+	"light"
 )
 
 export function useDark() {

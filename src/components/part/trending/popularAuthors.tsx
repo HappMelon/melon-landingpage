@@ -35,8 +35,7 @@ const CharacterWithAccount = ({
 export const PopularAuthors = () => {
 	const [character, setCharacter] = useState<CharacterEntity[]>([])
 	const [isLoading, setIsLoading] = useState(true)
-
-	const random = Math.floor(Math.random() * 4)
+	const [math, setMath] = useState(0)
 
 	useEffect(() => {
 		fetch(
@@ -46,6 +45,7 @@ export const PopularAuthors = () => {
 			.then(
 				(result: { character: CharacterEntity[] }) => {
 					setIsLoading(false)
+					setMath(Math.floor(Math.random() * 4))
 					setCharacter(result.character)
 				},
 				(error) => {
@@ -61,7 +61,7 @@ export const PopularAuthors = () => {
 
 	return (
 		<>
-			{character.slice(random * 5, (random + 1) * 5 )?.map((item: CharacterEntity, i: number) => (
+			{character.slice(math * 5, (math + 1) * 5 )?.map((item: CharacterEntity, i: number) => (
 				<div key={i} className="flex">
 					<CharacterWithAccount key={i} character={item} />
 				</div>

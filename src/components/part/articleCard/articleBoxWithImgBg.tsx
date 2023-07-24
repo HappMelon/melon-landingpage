@@ -39,7 +39,7 @@ export const ArticleBoxWithImgBg = ({
 			{...props}
 			background={`linear-gradient(180deg, rgba(255, 255, 255, 0.00) 0%, rgba(255, 255, 255, 0.50) 67.71%, rgba(255, 255, 255, 0.80) 100%), url(${imageUrl}), lightgray 50% / contain no-repeat;
 `}
-			className="relative !bg-cover bg-center rounded-0.625rem mx-1rem w-80rem h-20rem"
+			className="relative !bg-cover bg-center rounded-0.625rem mx-1rem w-full h-20rem"
 		>
 			<Flex
 				className="absolute flex flex-col top-0 left-2.5% w-95% h-70% p-1.25rem items-start justify-between text-left text-white border-rd-10px "

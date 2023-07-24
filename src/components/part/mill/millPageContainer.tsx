@@ -9,8 +9,8 @@ import { FireIcon } from "./Icons"
 export const MillPageContainer = () => {
 	return (
 		<>
-			<Stack direction="column" spacing="1.5rem" w="100%" p="1.75rem">
-				<Flex direction="row" w="100%" justifyContent="space-between">
+			<Stack direction="column" spacing="1.5rem" w="full" p="1.75rem">
+				<Flex direction="row" w="full" justifyContent="space-between">
 					<Flex direction="row" align="center">
 						<FireIcon className="" />
 						<Text className="c-#F83600 text-1.5rem font-bold px-1rem">
@@ -23,43 +23,48 @@ export const MillPageContainer = () => {
 					<CircleGradientButton direction="right" />
 				</Flex>
 
-				<Stack className="w-100%" overflowX="auto">
-					<Stack className="gap-1.5rem flex !flex-row mt-5vh w-full">
-						<ArticleBoxWithImgBg
-							imageUrl="/images/pages/mill/one.png"
-							title="Coinbase has filed a formal request with the court to compel the SEC to establish clear rules for all digital assets."
-							handle="@oliviaaaaoh_"
-							author="Coinbase"
-							tag={["#coinbase", "#crypto"]}
-							avatar="/images/pages/mill/avatar_coinbase.png"
-							number={GenerateRandomNumber(1, 800)}
-						/>
-						<ArticleBoxWithImgBg
-							imageUrl="/images/pages/mill/two.png"
-							title="The Economist is a British weekly newspaper printed in demitab format and published digitally."
-							handle="@jennyrose_"
-							author="Economist"
-							tag={["#finance", "#tech"]}
-							avatar="/images/pages/mill/avatar_e.png"
-							number={GenerateRandomNumber(1, 800)}
-						/>
-						<ArticleBoxWithImgBg
-							imageUrl="/images/pages/mill/three.png"
-							title="Fast Company articles with a unique editorial focus on innovation in technology, leadership, and design."
-							handle="@davidhoffmannn"
-							author="Fast Company"
-							tag={["#celarbrity", "#nyc"]}
-							avatar="/images/pages/mill/avatar_fc.png"
-							number={GenerateRandomNumber(1, 800)}
-						/>
-					</Stack>
+				<Stack className="flex !flex-row gap-2rem mt-5vh !lt-xl:flex-col">
+					<ArticleBoxWithImgBg
+						className="!w-full !h-auto"
+						imageUrl="/images/pages/mill/one.png"
+						title="Coinbase has filed a formal request with the court to compel the SEC to establish clear rules for all digital assets."
+						handle="@oliviaaaaoh_"
+						author="Coinbase"
+						tag={["#coinbase", "#crypto"]}
+						avatar="/images/pages/mill/Coinbase.png"
+						number={GenerateRandomNumber(1, 800)}
+					/>
+					<ArticleBoxWithImgBg
+						className="!w-full !h-auto"
+						imageUrl="/images/pages/mill/two.png"
+						title="The Economist is a British weekly newspaper printed in demitab format and published digitally."
+						handle="@jennyrose_"
+						author="Economist"
+						tag={["#finance", "#tech"]}
+						avatar="/images/pages/mill/Economist.png"
+						number={GenerateRandomNumber(1, 800)}
+					/>
+					<ArticleBoxWithImgBg
+						className="!w-full !h-auto"
+						imageUrl="/images/pages/mill/three.png"
+						title="Fast Company articles with a unique editorial focus on innovation in technology, leadership, and design."
+						handle="@davidhoffmannn"
+						author="Fast Company"
+						tag={["#celarbrity", "#nyc"]}
+						avatar="/images/pages/mill/Fast Company.png"
+						number={GenerateRandomNumber(1, 800)}
+					/>
 				</Stack>
-				<Flex direction="row" justify="space-between" w="100%" overflowX="auto">
-					<FollowingMillStack title="Crypto" count={5} w="26.375rem" />
-					<FollowingMillStack title="Finance" count={5} w="26.375rem" />
-					<FollowingMillStack title="Celebrity" count={5} w="26.375rem" />
+				<Flex
+					direction="row"
+					justify="space-between"
+					className="!lt-xl:flex-col"
+				>
+					<FollowingMillStack title="Crypto" count={5} />
+					<FollowingMillStack title="Finance" count={5} />
+					<FollowingMillStack title="Celebrity" count={5} />
 				</Flex>
-				<Stack direction="row" spacing="1.5rem" overflowX="auto">
+				<Stack direction="row" spacing="1.5rem">
 					<Button
 						p="0.375rem 0.625rem"
 						justifyContent="center"
@@ -141,17 +146,21 @@ export const MillPageContainer = () => {
 						Lifestyle
 					</Button>
 				</Stack>
-				<Flex direction="row" justify="space-between" w="100%" overflowX="auto">
+				<Flex
+					direction="row"
+					justify="space-between"
+					className="!lt-xl:flex-col"
+				>
 					<Box
 						borderRadius="0.625rem"
 						background="#F8F8F8"
 						justifyContent="center"
 						alignItems="center"
-						className="w-40rem h-5rem p-1rem mx-1rem"
+						className="h-5rem p-1rem mx-1rem"
 					>
 						<CompanyTitle
 							companyName="Coinbase"
-							companyLogoUrl="/images/pages/mill/avatar_coinbase.png"
+							companyLogoUrl="/images/pages/mill/Coinbase.png"
 							participation="1k participation"
 							people={GenerateRandomNumber(1, 800)}
 						/>
@@ -161,11 +170,11 @@ export const MillPageContainer = () => {
 						background="#F8F8F8"
 						justifyContent="center"
 						alignItems="center"
-						className="w-40rem h-5rem p-1rem mx-1rem"
+						className="h-5rem p-1rem mx-1rem"
 					>
 						<CompanyTitle
 							companyName="Coinbase"
-							companyLogoUrl="/images/pages/mill/avatar_coinbase.png"
+							companyLogoUrl="/images/pages/mill/Economist.png"
 							participation="1k participation"
 							people={GenerateRandomNumber(1, 800)}
 						/>
@@ -175,11 +184,11 @@ export const MillPageContainer = () => {
 						background="#F8F8F8"
 						justifyContent="center"
 						alignItems="center"
-						className="w-40rem h-5rem p-1rem mx-1rem"
+						className="h-5rem p-1rem mx-1rem"
 					>
 						<CompanyTitle
 							companyName="Coinbase"
-							companyLogoUrl="/images/pages/mill/avatar_coinbase.png"
+							companyLogoUrl="/images/pages/mill/Fast Company.png"
 							participation="1k participation"
 							people={GenerateRandomNumber(1, 800)}
 						/>

@@ -14,14 +14,14 @@ import {
 export function Followers({ id }: { id: number }) {
 	const { data: follows } = useFollowers(id)
 	if (follows) {
-		return <div className="font-700 text-1.75rem">{follows.count}</div>
+		return <div className="font-700 text-1.5rem">{follows.count}</div>
 	}
 }
 
 export function Following({ id }: { id: number }) {
 	const { data: following } = useFollowing(id)
 	if (following) {
-		return <div className="font-700 text-1.75rem">{following.count}</div>
+		return <div className="font-700 text-1.5rem">{following.count}</div>
 	}
 }
 
@@ -39,7 +39,7 @@ export const AccountHeader = () => {
 			<Box className="h-11rem m-1rem relative">
 				<Flex className="flex w-full flex-row items-center z-10 absolute pl-1.75rem pt-1.5rem">
 					<CharacterAvatar
-						className="!w-11.875rem !h-11.875rem !rounded-20px border-solid border-#fff shadow-lg object-cover"
+						className="!w-11.875rem !h-11.875rem !rounded-50px border-solid border-#fff shadow-lg object-cover hover:!rounded-20px transition-all duration-300 ease-in-out"
 						size="11.875rem"
 						character={account}
 					/>
@@ -48,9 +48,9 @@ export const AccountHeader = () => {
 							{account ? account?.metadata?.content?.name : ""}
 						</Text>
 						<Text className="text-1rem font-550 color-#868e96">
-							@{account ? account?.handle : username?.replace("@", "") }
+							@{account ? account?.handle : username?.replace("@", "")}
 						</Text>
-						<Text className="text-0.875rem font-400 leading-1.25em  color-#222 pt-1rem">
+						<Text className="text-0.875rem font-400 leading-1.25em pt-1rem">
 							{account ? account?.metadata?.content?.bio : ""}
 						</Text>
 					</Stack>
@@ -60,7 +60,6 @@ export const AccountHeader = () => {
 							<Button
 								variant="outline"
 								rounded="full"
-								color="#222"
 								border="solid"
 								borderColor="white"
 								leftIcon={<BiEdit />}

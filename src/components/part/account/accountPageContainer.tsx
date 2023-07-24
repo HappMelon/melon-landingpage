@@ -34,7 +34,7 @@ export const AccountPageContainer = () => {
 				</Box>
 				<FollowingMillStack
 					title="Following Mills"
-					count={8}
+					count={11}
 					className="lt-xl:display-none"
 				/>
 			</div>
@@ -49,7 +49,7 @@ export const AccountPageContainer = () => {
 					<Spacer />
 					<FollowingMillStack
 						title="Following Mills"
-						count={8}
+						count={11}
 						className="lt-xl:display-none"
 					/>
 				</Flex>

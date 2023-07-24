@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/restrict-plus-operands */
 import Layout from "@/components/layouts/RootLayout"
 import { useTx } from "@/state/tx"
 import { Result, Tx } from "@/type"
@@ -14,6 +13,8 @@ import {
 } from "@/components/ui/table"
 
 import {
+	Box,
+	SkeletonText,
 	Tab,
 	TabIndicator,
 	TabList,
@@ -22,27 +23,13 @@ import {
 	Tabs,
 } from "@chakra-ui/react"
 
-import { Tovalue } from "@/lib/utils"
+import { FormatTimeStamp, Tovalue } from "@/lib/utils"
 import {
 	useAccountBalance,
 	useAccountCharacter,
 	useCsbDetailModal,
 	useIsConnected,
 } from "@flarezone/connect-kit"
-
-function formatTimeStamp(timeStamp: number) {
-	const date = new Date(timeStamp * 1000)
-
-	const year = date.getFullYear()
-	const month = ("0" + (date.getMonth() + 1)).slice(-2)
-	const day = ("0" + date.getDate()).slice(-2)
-	const hours = ("0" + date.getHours()).slice(-2)
-	const minutes = ("0" + date.getMinutes()).slice(-2)
-	const seconds = ("0" + date.getSeconds()).slice(-2)
-
-	const formattedTime = `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`
-	return formattedTime
-}
 
 export function CSBDetaiwlBtn() {
 	const isConnected = useIsConnected()
@@ -53,7 +40,7 @@ export function CSBDetaiwlBtn() {
 
 	return (
 		<button
-			className="color-#0f1419 font-600 flex gap-0.5rem items-center"
+			className="font-600 flex gap-0.5rem items-center"
 			onClick={show}
 		>
 			<div> CSB Detail</div>
@@ -62,10 +49,18 @@ export function CSBDetaiwlBtn() {
 	)
 }
 
-export function TableDemo() {
+export function TxTable() {
 	const character = useAccountCharacter()
 
 	const { data: tx } = useTx(character ? character?.owner : "") as { data: Tx }
+
+	if (!tx) {
+		return (
+			<Box padding="6" boxShadow="lg">
+				<SkeletonText mt="3" noOfLines={32} spacing="5" skeletonHeight="2" />
+			</Box>
+		)
+	}
 
 	return (
 		<Table className="font-serif">
@@ -86,14 +81,14 @@ export function TableDemo() {
 						<TableCell className="font-medium">
 							{transaction.hash.substring(0, 6) +
 								"..." +
-							transaction.hash.substring(transaction.hash.length - 6)}
+								transaction.hash.substring(transaction.hash.length - 6)}
 						</TableCell>
-						<TableCell>{formatTimeStamp(transaction.timeStamp)}</TableCell>
+						<TableCell>{FormatTimeStamp(transaction.timeStamp)}</TableCell>
 						<TableCell>{transaction.nonce}</TableCell>
 						<TableCell>
 							{transaction.to.substring(0, 6) +
 								"..." +
-							transaction.to.substring(transaction.to.length - 6)}
+								transaction.to.substring(transaction.to.length - 6)}
 						</TableCell>
 						<TableCell>{transaction.gas}</TableCell>
 						<TableCell>{Tovalue(transaction.value)}</TableCell>
@@ -120,14 +115,14 @@ export default function App() {
 					</Tab>
 				</TabList>
 				<TabIndicator
-					height="2px"
+					height="4px"
 					borderRadius="1px"
 					bg="linear-gradient(90deg, #F9D423 0%, #FF6B00 96.88%)"
 				/>
 				<TabPanels>
 					<TabPanel>
-						<div className="w-full relative">
-							<div className="flex !flex-col border border-solid border-[#E1E8F7] rounded-12px bg-[#FCFDFF] p-xy w-18rem gap-2rem">
+						<div className="w-full relative font-serif mt-1rem">
+							<div className="flex !flex-col border border-solid border-[#E1E8F7] rounded-12px p-xy w-18rem gap-2rem">
 								<div className="flex justify-between">
 									<div className="text-1rem font-700">On Chain</div>
 									<CSBDetaiwlBtn />
@@ -139,7 +134,7 @@ export default function App() {
 								</div>
 							</div>
 							<div className="flex justify-between pt-1rem pb-1.5rem font-serif">
-								<div className="text-1rem font-700">Transaction Detail</div>
+								<div className="text-1rem font-700 pt-1rem">Transaction Detail</div>
 								<a
 									href={scan}
 									target="_blank"
@@ -149,7 +144,7 @@ export default function App() {
 									See all &gt;{" "}
 								</a>
 							</div>
-							<TableDemo />
+							<TxTable />
 						</div>
 					</TabPanel>
 					<TabPanel>

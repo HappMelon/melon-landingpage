@@ -28,8 +28,6 @@ export default function App() {
 
 	const { data: note, isLoading } = useStatus(cid, nid)
 
-	console.log(note?.metadata?.content?.content)
-
 	const transformLinkUri = (uri: string) => {
 		return ipfsLinkToHttpLink(uri, { origin: "https://ipfs.io" })
 	}

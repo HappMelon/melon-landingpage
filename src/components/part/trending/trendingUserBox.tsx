@@ -8,6 +8,7 @@ import {
 	useUnfollowCharacter,
 } from "@flarezone/connect-kit"
 import { CharacterEntity } from "crossbell"
+import { useNavigate } from "react-router-dom"
 
 const CharacterWithAccount = ({
 	character,
@@ -18,14 +19,16 @@ const CharacterWithAccount = ({
 }) => {
 	const accountName = character?.handle ? character.handle : ""
 	const { data: account } = useAccount(accountName)
+	const navigate = useNavigate()
 
 	return (
 		<div className="flex flex-row w-full py-3 px-3 w-55rem justify-between border-b border-gray/20">
 			<div className="flex flex-row">
 				<CharacterAvatar
-					className="!w-3rem !h-3rem !rounded-50% border-solid border-#fff shadow-lg object-cover"
+					className="!w-3rem !h-3rem !rounded-50% border-solid border-#fff shadow-lg object-cover cursor-pointer"
 					size="4rem"
 					character={account}
+					onClick={() => { navigate(`/@${character.handle}`)  }}
 				/>
 				<div className="pl-0.75rem w-14rem overflow-hidden">
 					<div>{character?.metadata?.content?.name}</div>
@@ -93,7 +96,7 @@ export const Follow = ({ characterId }: Props) => {
 				}
 			}}
 		>
-			{data?.isFollowing ? "Unfollow" : "Follow"}
+			{data?.isFollowing ? <div className="text-center">UnFollow</div> : <div className="text-center" >Follow</div>}
 		</button>
 	)
 }

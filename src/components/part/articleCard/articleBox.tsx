@@ -92,7 +92,8 @@ function IsNoteLiked({ noteId, characterId }: Props) {
 export const ArticleBox = ({ index, data, account }: ArticleBoxProps) => {
 	const navigate = useNavigate()
 	const character = useAccountCharacter()
-	const { data: note } = useNoteIndex(character?.characterId as number)
+
+	const { data: note } = useNoteIndex(account.characterId)
 
 	return (
 		<Box className="py-2 px-4 w-full border-b border-gray/20 cursor-pointer hover-transition-opacity hover:bg-#9ca3af10 rounded-1">

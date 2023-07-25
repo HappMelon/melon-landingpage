@@ -7,6 +7,7 @@ import { useState } from "react"
 export const TrendingNav = () => {
 	const [showTopics, toggleShowTopics] = useState(false)
 	const [currentTap, setCurrentTap] = useState("TrendingArticle")
+	const [enableShow, setEnableShow] = useState(0)
 	const trendingBody = () => {
 		switch (currentTap) {
 			case "TrendingArticle":
@@ -23,25 +24,34 @@ export const TrendingNav = () => {
 				<Box className="flex items-center">
 					<ButtonGroup className="gap-4">
 						<Button
-							className="py-0.375rem px-0.625rem color-#9B9B9B bg-#f8f8f8 text-1rem font-700 hover:color-#000"
+							className={`py-0.375rem px-0.625rem !bg-#f8f8f8 text-1rem font-700 !hover:color-#000 ${
+								enableShow == 0 ? "!color-#000" : "!color-#9B9B9B"
+							}`}
 							onClick={() => {
 								setCurrentTap("TrendingArticle")
+								setEnableShow(0)
 							}}
 						>
 							Most Popular
 						</Button>
 						<Button
-							className="py-0.375rem px-0.625rem color-#9B9B9B bg-#f8f8f8 text-1rem font-700 hover:color-#000"
+							className={`py-0.375rem px-0.625rem !bg-#f8f8f8 text-1rem font-700 !hover:color-#000 ${
+								enableShow == 1 ? "!color-#000" : "!color-#9B9B9B"
+							}`}
 							onClick={() => {
 								toggleShowTopics(!showTopics)
+								setEnableShow(1)
 							}}
 						>
 							Hot Topics
 						</Button>
 						<Button
-							className="py-0.375rem px-0.625rem color-#9B9B9B bg-#f8f8f8 text-1rem font-700 hover:color-#000"
+							className={`py-0.375rem px-0.625rem !bg-#f8f8f8 text-1rem font-700 !hover:color-#000 ${
+								enableShow == 2 ? "!color-#000" : "!color-#9B9B9B"
+							}`}
 							onClick={() => {
 								setCurrentTap("Users")
+								setEnableShow(2)
 							}}
 						>
 							Users

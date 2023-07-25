@@ -1,23 +1,25 @@
-import { RandomHexColor } from "@/lib/utils"
-import { useHotTopics } from "@/state/HotTopics"
+import { HotTopics } from "@/type"
 import { Stack, Wrap, WrapItem } from "@chakra-ui/react"
 
-export const TrendingHotTopics = () => {
-	const { data: topics } = useHotTopics(10)
+interface TrendingHotTopicsProps extends HotTopics {
+	color?: string[]
+}
 
+export const TrendingHotTopics = ({ list, color }: TrendingHotTopicsProps) => {
 	return (
 		<>
 			<Stack direction="column" wrap="wrap" mt="2vh">
 				<Wrap spacing={4}>
-					{topics?.list.map((item: string, i: number) => {
-						const ht: string = RandomHexColor()
+					{list?.map((item: string, i: number) => {
 						return (
 							<WrapItem key={i}>
 								<div
-									className="text-0.75rem rounded-0.25rem h-1.5rem !py-0.25rem !px-0.625rem"
+									className="text-0.75rem rounded-0.25rem !py-0.25rem !px-0.625rem"
 									style={{
-										color: `${ht}`,
-										backgroundColor: `${ht}20`,
+										color: `${color ? color[i] : "#000"}`,
+										backgroundColor: `${
+											color ? String(color[i]) + String(20) : "#000"
+										}`,
 									}}
 								>
 									#{item}

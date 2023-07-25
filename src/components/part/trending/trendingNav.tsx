@@ -1,13 +1,27 @@
 import { TrendingArticleStack } from "@/components/part/trending/trendingArticleStack"
 import { TrendingHotTopics } from "@/components/part/trending/trendingHotTopics"
 import { TrendingUserStack } from "@/components/part/trending/trendingUserStack"
+import { RandomHexColor } from "@/lib/utils"
+import { useHotTopics } from "@/state/HotTopics"
 import { Box, Button, ButtonGroup, Stack } from "@chakra-ui/react"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 export const TrendingNav = () => {
 	const [showTopics, toggleShowTopics] = useState(false)
 	const [currentTap, setCurrentTap] = useState("TrendingArticle")
 	const [enableShow, setEnableShow] = useState(0)
+	const [color, setColor] = useState<string[]>([])
+	const [topic, setTopic] = useState<string[]>([])
+	const { data: topics } = useHotTopics(10)
+
+	useEffect(() => {
+		if (topics?.list) {
+			setTopic(topics.list)
+			const newColors = topics?.list?.map(() => RandomHexColor()) || []
+			setColor(newColors)
+		}
+	}, [])
+
 	const trendingBody = () => {
 		switch (currentTap) {
 			case "TrendingArticle":
@@ -58,7 +72,9 @@ export const TrendingNav = () => {
 						</Button>
 					</ButtonGroup>
 				</Box>
-				{showTopics && <TrendingHotTopics />}
+				{topic && showTopics && (
+					<TrendingHotTopics list={topic} count={13} color={color} />
+				)}
 				{trendingBody()}
 			</Stack>
 		</>

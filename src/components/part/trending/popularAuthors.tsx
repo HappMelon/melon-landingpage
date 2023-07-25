@@ -17,14 +17,15 @@ export const PopularAuthors = () => {
 
 	return (
 		<Box>
-			{account &&
-				(account?.character as CharacterEntity[])
-					.slice(math * 5, (math + 1) * 5)
-					.map((item: CharacterEntity, i: number) => (
-						<div key={i} className="flex">
-							<CharacterWithAccount key={i} character={item} />
-						</div>
-					))}
+			{account
+				? (account?.character ?? "")
+						.slice(math * 5, (math + 1) * 5)
+						.map((item: CharacterEntity, i: number) => (
+							<div key={i} className="flex">
+								<CharacterWithAccount key={i} character={item} />
+							</div>
+						))
+				: ""}
 		</Box>
 	)
 }
@@ -36,7 +37,6 @@ const CharacterWithAccount = ({
 }) => {
 	const accountName = character?.handle ? character.handle : ""
 	const { data: account } = useAccount(accountName)
-	console.log(account)
 
 	const navigate = useNavigate()
 

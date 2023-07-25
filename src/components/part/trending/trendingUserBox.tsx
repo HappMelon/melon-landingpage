@@ -1,15 +1,13 @@
-/* eslint-disable @typescript-eslint/no-unsafe-call */
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import { useAccount } from "@/state/Account"
+import { useTrendingUser } from "@/state/TrendingUser"
 import { useCharacterFollowRelation } from "@crossbell/indexer"
-import { CharacterAvatar, Loading } from "@crossbell/ui"
+import { CharacterAvatar } from "@crossbell/ui"
 import {
 	useAccountCharacter,
 	useFollowCharacter,
 	useUnfollowCharacter,
 } from "@flarezone/connect-kit"
 import { CharacterEntity } from "crossbell"
-import { useEffect, useState } from "react"
 
 const CharacterWithAccount = ({
 	character,
@@ -18,9 +16,7 @@ const CharacterWithAccount = ({
 	character: CharacterEntity
 	children: React.ReactNode
 }) => {
-	const accountName = character?.metadata?.content?.name
-		? character.metadata.content.name
-		: ""
+	const accountName = character?.handle ? character.handle : ""
 	const { data: account } = useAccount(accountName)
 
 	return (
@@ -48,40 +44,24 @@ const CharacterWithAccount = ({
 }
 
 export const TrendingUserBox = () => {
-	const [character, setCharacter] = useState<CharacterEntity[]>([])
-	const [isLoading, setIsLoading] = useState(true)
+	const { data: account } = useTrendingUser("character", false, 20)
 
-	useEffect(() => {
-		fetch(
-			`https://recommend.crossbell.io/raw?type=character&rand=false&limit=20`
-		)
-			.then((res) => res.json())
-			.then(
-				(result: { character: CharacterEntity[] }) => {
-					setIsLoading(false)
-					setCharacter(result.character)
-				},
-				(error) => {
-					setIsLoading(false)
-					console.log("fetch character data failed, error:", error)
-				}
-			)
-	}, [])
-
-	if (isLoading) {
-		return <Loading />
-	}
+	console.log(account)
 
 	return (
 		<>
 			<div className="w-full">
-				{character?.map((item: CharacterEntity, i: number) => (
-					<div key={i} className="flex">
-						<CharacterWithAccount key={i} character={item}>
-							<Follow characterId={item.characterId} />
-						</CharacterWithAccount>
-					</div>
-				))}
+				{account
+					? (account?.character ?? "").map(
+							(item: CharacterEntity, i: number) => (
+								<div key={i} className="flex">
+									<CharacterWithAccount key={i} character={item}>
+										<Follow characterId={item.characterId} />
+									</CharacterWithAccount>
+								</div>
+							)
+					)
+					: ""}
 			</div>
 		</>
 	)
@@ -89,7 +69,6 @@ export const TrendingUserBox = () => {
 
 interface CharacterFollowRelation {
 	isFollowing: boolean
-	// add other properties here if needed
 }
 
 interface Props {

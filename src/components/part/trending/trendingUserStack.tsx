@@ -3,9 +3,6 @@ import { Stack } from "@chakra-ui/react"
 export const TrendingUserStack = () => {
 	return (
 		<>
-			{/* <div className="flex flex-col">
-				<TrendingUserBox />
-			</div> */}
 			<Stack spacing="1.5rem" direction="column" mt="5vh" className="h-auto">
 				<TrendingUserBox />
 			</Stack>

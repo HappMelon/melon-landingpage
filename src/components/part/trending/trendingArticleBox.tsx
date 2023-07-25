@@ -2,6 +2,7 @@ import { ipfsLinkToHttpLink } from "@/share/ipfs"
 import { useAccount } from "@/state/Account"
 import { useMostPopular } from "@/state/Character"
 import { useStatus } from "@/state/Status"
+import { useTrendingNote, useTrendingNoteSlide } from "@/state/TrendingNote"
 import { CharacterAvatar, Loading } from "@crossbell/ui"
 import ChakraUIRenderer from "chakra-ui-markdown-renderer"
 import { Note } from "crossbell"
@@ -80,23 +81,17 @@ export const TrendingArticleBox = () => {
 	const [note, setNote] = useState<Note[]>([])
 	const [isLoading, setIsLoading] = useState(true)
 	const [cursor, setCursor] = useState(503)
-
 	const Ref = useRef<HTMLDivElement>(null)
 
+	const { data: nd } = useTrendingNote("note", false, 10)
+	const { data: slide } = useTrendingNoteSlide("note", false, 20, cursor)
+
 	useEffect(() => {
-		fetch(`https://recommend.crossbell.io/raw?type=note&rand=false&limit=20`)
-			.then((res) => res.json())
-			.then(
-				(result: { note: Note[] }) => {
-					setIsLoading(false)
-					setNote(result.note)
-				},
-				(error) => {
-					setIsLoading(false)
-					console.log("fetch character data failed, error:", error)
-				}
-			)
-	}, [])
+		setIsLoading(false)
+		if (nd) {
+			setNote(nd?.note)
+		}
+	}, [nd])
 
 	useEffect(() => {
 		const currentRef = Ref?.current
@@ -104,22 +99,12 @@ export const TrendingArticleBox = () => {
 			const observer = new IntersectionObserver(
 				(entries) => {
 					if (entries[entries.length - 1].isIntersecting) {
-						fetch(
-							`https://recommend.crossbell.io/raw?type=note&rand=false&limit=10&cursor=${cursor}`
-						)
-							.then((res) => res.json())
-							.then(
-								(result: { note: Note[] }) => {
-									result.note != null &&
-										(setIsLoading(false),
-										setNote([...note, ...result.note]),
-										setCursor(cursor - 10))
-								},
-								(error) => {
-									setIsLoading(false)
-									console.log("fetch character data failed, error:", error)
-								}
-							)
+						if (slide && slide.note) {
+							setIsLoading(false)
+							setNote([...note, ...slide.note])
+							setCursor(cursor - 10)
+						}
+						console.log(slide)
 					}
 				},
 				{ threshold: 0.5 }
@@ -131,7 +116,7 @@ export const TrendingArticleBox = () => {
 				}
 			}
 		}
-	}, [cursor, Ref, note])
+	}, [slide, cursor, note])
 
 	const [showScroll, setScroll] = useState(false)
 	useEffect(() => {
@@ -150,11 +135,13 @@ export const TrendingArticleBox = () => {
 
 	return (
 		<div>
-			{note.slice(0, note.length)?.map((item: Note, i: number) => (
-				<div key={i} className="flex" ref={Ref}>
-					<NoteWithAccount key={i} note={item} />
-				</div>
-			))}
+			{note
+				? (note ?? []).slice(0, note.length)?.map((item: Note, i: number) => (
+						<div key={i} className="flex" ref={Ref}>
+							<NoteWithAccount key={i} note={item} />
+						</div>
+				))
+				: ""}
 			{showScroll && (
 				<div>
 					<button

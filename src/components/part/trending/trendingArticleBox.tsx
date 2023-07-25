@@ -3,7 +3,8 @@ import { useAccount } from "@/state/Account"
 import { useMostPopular } from "@/state/Character"
 import { useStatus } from "@/state/Status"
 import { useTrendingNote, useTrendingNoteSlide } from "@/state/TrendingNote"
-import { CharacterAvatar, Loading } from "@crossbell/ui"
+import { Box, Skeleton, SkeletonCircle, SkeletonText } from "@chakra-ui/react"
+import { CharacterAvatar } from "@crossbell/ui"
 import ChakraUIRenderer from "chakra-ui-markdown-renderer"
 import { Note } from "crossbell"
 import { useEffect, useRef, useState } from "react"
@@ -79,15 +80,18 @@ const handleScrollToTop = () => {
 
 export const TrendingArticleBox = () => {
 	const [note, setNote] = useState<Note[]>([])
-	const [isLoading, setIsLoading] = useState(true)
 	const [cursor, setCursor] = useState(503)
 	const Ref = useRef<HTMLDivElement>(null)
 
 	const { data: nd } = useTrendingNote("note", false, 10)
-	const { data: slide } = useTrendingNoteSlide("note", false, 20, cursor)
+	const { data: slide, isLoading } = useTrendingNoteSlide(
+		"note",
+		false,
+		20,
+		cursor
+	)
 
 	useEffect(() => {
-		setIsLoading(false)
 		if (nd) {
 			setNote(nd?.note)
 		}
@@ -99,12 +103,13 @@ export const TrendingArticleBox = () => {
 			const observer = new IntersectionObserver(
 				(entries) => {
 					if (entries[entries.length - 1].isIntersecting) {
+						console.log(slide, slide?.note, cursor)
+
 						if (slide && slide.note) {
-							setIsLoading(false)
 							setNote([...note, ...slide.note])
-							setCursor(cursor - 10)
+							setCursor(cursor - 20)
+							console.log(cursor)
 						}
-						console.log(slide)
 					}
 				},
 				{ threshold: 0.5 }
@@ -130,7 +135,24 @@ export const TrendingArticleBox = () => {
 	})
 
 	if (isLoading) {
-		return <Loading className="loading" />
+		return Array.from({ length: 6 }).map((_, index) => (
+			<Box className="flex mt-2rem w-50rem" key={index}>
+				<SkeletonCircle size="3rem" />
+				<Box className="flex flex-col ml-1rem w-full">
+					<Box className="flex mt-1rem">
+						<Skeleton className="h-1rem w-4rem" />
+						<Skeleton className="h-1rem w-4rem ml-1rem" />
+					</Box>
+					<SkeletonText
+						width={"full"}
+						mt="4"
+						noOfLines={3}
+						spacing="3"
+						skeletonHeight="3"
+					/>
+				</Box>
+			</Box>
+		))
 	}
 
 	return (
@@ -141,7 +163,24 @@ export const TrendingArticleBox = () => {
 							<NoteWithAccount key={i} note={item} />
 						</div>
 				))
-				: ""}
+				: !isLoading && (
+						<Box className="flex w-50rem">
+							<SkeletonCircle size="3rem" />
+							<Box className="flex flex-col ml-1rem w-full">
+								<Box className="flex mt-1rem">
+									<Skeleton className="h-1rem w-4rem" />
+									<Skeleton className="h-1rem w-4rem ml-1rem" />
+								</Box>
+								<SkeletonText
+									width={"full"}
+									mt="4"
+									noOfLines={3}
+									spacing="3"
+									skeletonHeight="3"
+								/>
+							</Box>
+						</Box>
+				)}
 			{showScroll && (
 				<div>
 					<button

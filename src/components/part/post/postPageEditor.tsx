@@ -13,9 +13,9 @@ import {
 	ButtonGroup,
 	HStack,
 	Spacer,
-	Text,
 	useColorModeValue,
 } from "@chakra-ui/react"
+import { FileButton } from "@mantine/core"
 
 import { IoCloudUploadOutline } from "react-icons/io5"
 import ReactQuill from "react-quill"
@@ -24,14 +24,13 @@ import "react-quill/dist/quill.snow.css"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { atom, useAtom } from "jotai"
-import { ChangeEvent } from "react"
+import { ChangeEvent, useState } from "react"
 
 export const ValueAtom = atom("")
 export const BettingAtom = atom(0)
 export const EnableBettingAtom = atom(false)
 
 export function DialogBetting() {
-
 	const [betting, SetBetting] = useAtom(BettingAtom)
 	const [enable, SetEnable] = useAtom(EnableBettingAtom)
 
@@ -83,7 +82,7 @@ const modules = {
 		[{ header: [1, 2, 3, 4, 5, 6, false] }],
 		[{ font: [] }],
 		[{ size: [] }],
-		["bold", "italic", "underline", "strike", "blockquote"],
+		["bold", "italic", "underline", "strike", "blockquote", "image"],
 	],
 }
 
@@ -99,11 +98,18 @@ export const PostPageEditor = () => {
 	//   }
 
 	const [value, setValue] = useAtom(ValueAtom)
+	const [file, setFile] = useState<File | null>(null)
 	const TextColor = useColorModeValue("#000", "#fff")
 	const BgColor = useColorModeValue("#F8F8F8", "#181127")
 
 	return (
-		<Box bg={BgColor} color={TextColor} borderRadius="" h="100%" border={"none"}>
+		<Box
+			bg={BgColor}
+			color={TextColor}
+			borderRadius=""
+			h="100%"
+			border={"none"}
+		>
 			<ReactQuill
 				theme="snow"
 				onChange={(value) => setValue(value)}
@@ -113,7 +119,9 @@ export const PostPageEditor = () => {
 			<HStack>
 				<ButtonGroup className="ml-2">
 					<Button leftIcon={<IoCloudUploadOutline />}>
-						<Text>Upload Files*</Text>
+						<FileButton onChange={setFile} accept="image/png,image/jpeg">
+							{(props) => <Button {...props}>Upload Files*</Button>}
+						</FileButton>
 					</Button>
 					<Button leftIcon={<IoCloudUploadOutline />}>Upload Videos</Button>
 					<Spacer />

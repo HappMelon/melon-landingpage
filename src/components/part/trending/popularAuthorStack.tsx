@@ -1,18 +1,13 @@
 import { Box, Flex, Stack, Text, useColorModeValue } from "@chakra-ui/react"
-import { FiTrendingUp } from "react-icons/fi"
 import { PopularAuthors } from "./popularAuthors"
 export const PopularAuthorStack = () => {
 	const popular = Array.from({ length: 1 })
 	const TextColor = useColorModeValue("black", "white.800")
-	const BgColor = useColorModeValue("#F8F8F8", "grey")
+	const BgColor = useColorModeValue("#FFF", "#524B6220")
 	return (
 		<Box
-			className="lt-xl:display-none"
-			w="18vw"
+			className="w-18vw rounded-1rem self-start mt-5vh lt-xl:display-none ml-1rem"
 			bg={BgColor}
-			borderRadius="1rem"
-			alignSelf="flex-start"
-			mt="5vh"
 		>
 			<Stack
 				direction="column"
@@ -25,7 +20,7 @@ export const PopularAuthorStack = () => {
 					<Text fontSize="1.5rem" fontWeight="bold" color={TextColor}>
 						Popular Authors
 					</Text>
-					<FiTrendingUp />
+					<div className="i-icon-park-outline-arrow-right-up"></div>
 				</Flex>
 
 				{popular.map((_, index) => (

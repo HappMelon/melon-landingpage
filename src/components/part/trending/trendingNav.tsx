@@ -23,6 +23,7 @@ export const TrendingNav = () => {
 
 	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	const [tp, setTp] = useAtom(TpAtom)
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	const [co, setCo] = useAtom(ColorAtom)
 
 	useEffect(() => {

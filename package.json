@@ -79,6 +79,7 @@
 		"@iconify-json/fa6-regular": "^1.1.11",
 		"@iconify-json/fa6-solid": "^1.1.13",
 		"@iconify-json/ic": "^1.1.13",
+		"@iconify-json/icon-park-outline": "^1.1.11",
 		"@iconify-json/mdi": "^1.1.52",
 		"@types/react": "^18.2.14",
 		"@types/react-dom": "^18.2.6",

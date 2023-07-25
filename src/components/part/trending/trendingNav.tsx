@@ -5,7 +5,11 @@ import { TrendingUserStack } from "@/components/part/trending/trendingUserStack"
 import { RandomHexColor } from "@/lib/utils"
 import { useHotTopics } from "@/state/HotTopics"
 import { Box, Button, ButtonGroup, Skeleton, Stack } from "@chakra-ui/react"
+import { atom, useAtom } from "jotai"
 import { useEffect, useState } from "react"
+
+export const TpAtom = atom<string[]>([])
+export const ColorAtom = atom<string[]>([])
 
 export const TrendingNav = () => {
 	const { data: topics } = useHotTopics(10)
@@ -17,11 +21,17 @@ export const TrendingNav = () => {
 	const [color, setColor] = useState<string[]>([])
 	const [topic, setTopic] = useState<string[]>([])
 
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
+	const [tp, setTp] = useAtom(TpAtom)
+	const [co, setCo] = useAtom(ColorAtom)
+
 	useEffect(() => {
 		if (topics?.list) {
 			setTopic(topics.list)
+			setTp(topics.list)
 			const newColors = topics?.list?.map(() => RandomHexColor()) || []
 			setColor(newColors)
+			setCo(newColors)
 		}
 	}, [topics])
 

@@ -1,10 +1,16 @@
 import { TrendingHotTopics } from "@/components/part/trending/trendingHotTopics"
+import { ColorAtom, TpAtom } from "@/components/part/trending/trendingNav"
 import { Box, Flex, Stack, Text, useColorModeValue } from "@chakra-ui/react"
+import { useAtom } from "jotai"
 import { FiTrendingUp } from "react-icons/fi"
 
 export const HotTopicsStack = () => {
 	const TextColor = useColorModeValue("black", "white.800")
 	const BgColor = useColorModeValue("#F8F8F8", "grey")
+
+	const [list] = useAtom(TpAtom)
+	const [color] = useAtom(ColorAtom)
+
 	return (
 		<Box
 			className="w-18vw rounded-1rem self-start mt-5vh lt-xl:display-none"
@@ -20,7 +26,7 @@ export const HotTopicsStack = () => {
 					</Text>
 					<FiTrendingUp />
 				</Flex>
-				<TrendingHotTopics />
+				<TrendingHotTopics list={list} count={13} color={color}/>
 			</Stack>
 		</Box>
 	)

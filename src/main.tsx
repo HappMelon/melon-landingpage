@@ -6,7 +6,6 @@ import "./styles/globals.css"
 
 import "./i18n"
 
-import { MantineProvider } from "@mantine/core"
 import React from "react"
 import ReactDOM from "react-dom/client"
 
@@ -35,11 +34,9 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
 			<WagmiConfig config={wagmiConfig}>
 				<ConnectKitProvider>
 					<NotificationModal />
-					<MantineProvider withGlobalStyles withNormalizeCSS>
-						<ClerkProvider publishableKey={clerk_pub_key}>
-							<App />
-						</ClerkProvider>
-					</MantineProvider>
+					<ClerkProvider publishableKey={clerk_pub_key}>
+						<App />
+					</ClerkProvider>
 				</ConnectKitProvider>
 			</WagmiConfig>
 		</QueryClientProvider>

@@ -1,15 +1,20 @@
-import { Box, Button, Flex, Spacer, Stack, Text } from "@chakra-ui/react"
+import { Box, Button, Flex, Spacer, Stack, Text, useColorModeValue } from "@chakra-ui/react"
 import { AiOutlineComment, AiOutlineEye, AiOutlineHeart } from "react-icons/ai"
 import { BsThreeDotsVertical } from "react-icons/bs"
+
 export const PostPagePublishedBox = () => {
+	const bgColor = useColorModeValue("#fff", "#181127")
+	const TextColor = useColorModeValue("", "#9B9B9B")
+	const ValueColor = useColorModeValue("#000", "#fff")
+
 	return (
-		<Box w="95%" h="25vh" ml="5px" mr="5px" bg="#F8F8F8" borderRadius="1rem">
+		<Box w="95%" h="25vh" ml="5px" mr="5px" bg={bgColor} borderRadius="1rem">
 			<Stack direction="column" ml="5px" mt="20px" w="370px" h="80%">
-				<Text color="#9B9B9B" fontSize="sm">
+				<Text color={TextColor} fontSize="sm">
 					Published 2 days ago
 				</Text>
 				<Text
-					color="#000000"
+					color={ValueColor}
 					fontSize="1rem"
 					fontWeight="semibold"
 					maxW="300px"
@@ -40,7 +45,7 @@ export const PostPagePublishedBox = () => {
 						spacing="1rem"
 					>
 						<Button
-							color="#000000"
+							color={ValueColor}
 							fontSize="0.75rem"
 							leftIcon={<AiOutlineEye />}
 							p="0"
@@ -50,7 +55,7 @@ export const PostPagePublishedBox = () => {
 							80k+
 						</Button>
 						<Button
-							color="#000000"
+							color={ValueColor}
 							fontSize="0.75rem"
 							leftIcon={<AiOutlineHeart />}
 							p="0"
@@ -60,7 +65,7 @@ export const PostPagePublishedBox = () => {
 							50k+
 						</Button>
 						<Button
-							color="#000000"
+							color={ValueColor}
 							fontSize="0.75rem"
 							leftIcon={<AiOutlineComment />}
 							p="0"

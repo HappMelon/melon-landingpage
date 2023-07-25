@@ -16,7 +16,7 @@ import {
 	Spacer,
 } from "@chakra-ui/react"
 
-import ColorModeSwitch from "@/components/ui/colorModeSwitch"
+import AppearanceSwitch from "@/components/part/appearance-switch"
 import ABI from "@/contract/betting.json"
 import { CharacterAvatar } from "@crossbell/ui"
 import { ExternalProvider, JsonRpcFetchFunc } from "@ethersproject/providers"
@@ -97,7 +97,7 @@ function NewPost({
 	const { data: note } = useNoteIndex(character?.characterId as number)
 
 	return (
-		<button
+		<Button
 			onClick={() => {
 				const newSources = isChecked ? [...sources, "gambling"] : sources
 				postNote.mutate(
@@ -164,7 +164,7 @@ function NewPost({
 			}}
 		>
 			Publish
-		</button>
+		</Button>
 	)
 }
 
@@ -181,7 +181,13 @@ export const PostPageHeader = () => {
 	return (
 		<>
 			<Flex minWidth="max-content" alignItems="center" gap="2">
-				<HStack p="2">
+				<HStack
+					p="2"
+					className="cursor-pointer"
+					onClick={() => {
+						navigate("/explore")
+					}}
+				>
 					<Image src="/logo.png" alt="Logo" />
 					<Heading
 						size="md"
@@ -201,7 +207,6 @@ export const PostPageHeader = () => {
 						Back
 					</Button>
 					<Button
-						bgColor="#F8F8F8"
 						border="2px solid D9D9D9"
 						borderRadius="40px"
 						marginLeft="2rem"
@@ -216,7 +221,7 @@ export const PostPageHeader = () => {
 						tags={["post"]}
 						isChecked={enable}
 					/>
-					<ColorModeSwitch />
+					<AppearanceSwitch />
 					<Button marginLeft="2rem" rounded="full">
 						<Avatar />
 					</Button>

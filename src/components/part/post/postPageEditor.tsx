@@ -14,6 +14,7 @@ import {
 	HStack,
 	Spacer,
 	Text,
+	useColorModeValue,
 } from "@chakra-ui/react"
 
 import { IoCloudUploadOutline } from "react-icons/io5"
@@ -98,9 +99,11 @@ export const PostPageEditor = () => {
 	//   }
 
 	const [value, setValue] = useAtom(ValueAtom)
+	const TextColor = useColorModeValue("#000", "#fff")
+	const BgColor = useColorModeValue("#F8F8F8", "#181127")
 
 	return (
-		<Box bg="#F8F8F8" borderRadius="1rem" h="100%">
+		<Box bg={BgColor} color={TextColor} borderRadius="" h="100%" border={"none"}>
 			<ReactQuill
 				theme="snow"
 				onChange={(value) => setValue(value)}

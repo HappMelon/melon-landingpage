@@ -1,18 +1,21 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { TrendingArticleStack } from "@/components/part/trending/trendingArticleStack"
 import { TrendingHotTopics } from "@/components/part/trending/trendingHotTopics"
 import { TrendingUserStack } from "@/components/part/trending/trendingUserStack"
 import { RandomHexColor } from "@/lib/utils"
 import { useHotTopics } from "@/state/HotTopics"
-import { Box, Button, ButtonGroup, Stack } from "@chakra-ui/react"
+import { Box, Button, ButtonGroup, Skeleton, Stack } from "@chakra-ui/react"
 import { useEffect, useState } from "react"
 
 export const TrendingNav = () => {
-	const [showTopics, toggleShowTopics] = useState(false)
+	const { data: topics } = useHotTopics(10)
+
+	const [showTopics, setShowTopics] = useState(false)
 	const [currentTap, setCurrentTap] = useState("TrendingArticle")
 	const [enableShow, setEnableShow] = useState(0)
+
 	const [color, setColor] = useState<string[]>([])
 	const [topic, setTopic] = useState<string[]>([])
-	const { data: topics } = useHotTopics(10)
 
 	useEffect(() => {
 		if (topics?.list) {
@@ -20,7 +23,7 @@ export const TrendingNav = () => {
 			const newColors = topics?.list?.map(() => RandomHexColor()) || []
 			setColor(newColors)
 		}
-	}, [])
+	}, [topics])
 
 	const trendingBody = () => {
 		switch (currentTap) {
@@ -53,7 +56,7 @@ export const TrendingNav = () => {
 								enableShow == 1 ? "!color-#000" : "!color-#9B9B9B"
 							}`}
 							onClick={() => {
-								toggleShowTopics(!showTopics)
+								setShowTopics(!showTopics)
 								setEnableShow(1)
 							}}
 						>
@@ -72,8 +75,44 @@ export const TrendingNav = () => {
 						</Button>
 					</ButtonGroup>
 				</Box>
-				{topic && showTopics && (
-					<TrendingHotTopics list={topic} count={13} color={color} />
+				{/* showTopics  == true and  isLoading == true  */}
+				{showTopics && (
+					<>
+						{!topic ? (
+							<Stack className="mt-2ch w-auto h-auto">
+								<Stack className="!grid-cols-10" style={{ display: "grid" }}>
+									{Array.from({ length: 10 }).map((_, index) => (
+										<Skeleton
+											key={index}
+											className={`${
+												index % 3 == 0
+													? "w-2rem"
+													: index % 3 == 1
+													? "w-3rem"
+													: "w-4rem"
+											} h-1.5rem`}
+										/>
+									))}
+								</Stack>
+								<Stack className="!grid-cols-8" style={{ display: "grid" }}>
+									{Array.from({ length: 8 }).map((_, index) => (
+										<Skeleton
+											key={index}
+											className={`${
+												index % 3 == 0
+													? "w-2rem"
+													: index % 3 == 1
+													? "w-3rem"
+													: "w-4rem"
+											} h-1.5rem`}
+										/>
+									))}
+								</Stack>
+							</Stack>
+						) : (
+							<TrendingHotTopics list={topic} count={13} color={color} />
+						)}
+					</>
 				)}
 				{trendingBody()}
 			</Stack>

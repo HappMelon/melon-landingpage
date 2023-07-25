@@ -78,3 +78,7 @@ export interface BettingNote {
 export interface TrendingAuthors {
 	character: CharacterEntity[]
 }
+
+export interface TrendingNotes {
+	note: Note[]
+}

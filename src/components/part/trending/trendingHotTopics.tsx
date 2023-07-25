@@ -4,6 +4,7 @@ import { Stack, Wrap, WrapItem } from "@chakra-ui/react"
 
 export const TrendingHotTopics = () => {
 	const { data: topics } = useHotTopics(10)
+
 	return (
 		<>
 			<Stack direction="column" wrap="wrap" mt="2vh">

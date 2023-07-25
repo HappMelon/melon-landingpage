@@ -1,6 +1,6 @@
 import { ArticleTag } from "@/components/part/articleCard/articleTag"
 import { Article, Character } from "@/type"
-import { Box, BoxProps, Stack, Text } from "@chakra-ui/react"
+import { Box, BoxProps, Stack, Text, useToast } from "@chakra-ui/react"
 import { CharacterAvatar } from "@crossbell/ui"
 
 import { ethers } from "ethers"
@@ -92,8 +92,20 @@ function IsNoteLiked({ noteId, characterId }: Props) {
 export const ArticleBox = ({ index, data, account }: ArticleBoxProps) => {
 	const navigate = useNavigate()
 	const character = useAccountCharacter()
+	const toast = useToast()
 
 	const { data: note } = useNoteIndex(account.characterId)
+
+	const handleClick = async (text: string) => {
+		toast({
+			title: "Share Flare",
+			description: "Copied to clipboard",
+			status: "success",
+			duration: 9000,
+			isClosable: true,
+		})
+		await navigator.clipboard.writeText(text)
+	}
 
 	return (
 		<Box className="py-2 px-4 w-full border-b border-gray/20 cursor-pointer hover-transition-opacity hover:bg-#9ca3af10 rounded-1">
@@ -158,71 +170,80 @@ export const ArticleBox = ({ index, data, account }: ArticleBoxProps) => {
 								<></>
 							)}
 						</Stack>
-						<div className="grid grid-cols-4 w-full">
-							<div className="flex gap-0.25rem">
-								<IsNoteLiked
-									noteId={data.noteId}
-									characterId={data.characterId}
-								/>
-								<NoteLikeCount
-									noteId={data.noteId}
-									characterId={data.characterId}
-								/>
-							</div>
-							<div className="i-mdi-comment-text-outline w-1rem h-1rem"></div>
-							<div>
-								{data.metadata.content.sources &&
-								data.metadata.content.sources.includes("gambling") ? (
-									<div className="flex flex-row items-center">
-										<button
-											className="i-carbon-currency-dollar w-1rem h-1rem"
-											onClick={() => {
-												const chainId = 97
-												const hexChainId = "0x" + chainId.toString(16)
-												void (
-													window.ethereum &&
-													window.ethereum.request({
-														method: "wallet_switchEthereumChain",
-														params: [
-															{
-																chainId: hexChainId,
-															},
-														],
-													})
-												)
-												let FlareContract: any
-												window.ethereum &&
-													window.ethereum.on(
-														"chainChanged",
-														(chainId: string) => {
-															console.log("chainId:", chainId)
-															// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call
-															FlareContract = Conctract()
-															const postId = `${note?.count as number}${
-																character?.characterId as number
-															}}`
-															if (FlareContract) {
-																// eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
-																FlareContract?.Participate(postId, {
-																	// a fixed value, value == 0.01 BSC
-																	value: String(10000000000000000),
-																})
-															} else {
-																console.log("Contract Is Not Ready")
-															}
-														}
-													)
-											}}
-										></button>
-										<div>GM</div>
-									</div>
-								) : (
-									<>GM</>
-								)}
-							</div>
-							<div className="i-mdi-share-variant-outline w-1rem h-1rem"></div>
-						</div>
 					</Stack>
+					<div className="grid grid-cols-4 w-full">
+						<div className="flex gap-0.25rem">
+							<IsNoteLiked
+								noteId={data.noteId}
+								characterId={data.characterId}
+							/>
+							<NoteLikeCount
+								noteId={data.noteId}
+								characterId={data.characterId}
+							/>
+						</div>
+						<div className="i-mdi-comment-text-outline w-1rem h-1rem"></div>
+						<div>
+							{data.metadata.content.sources &&
+							data.metadata.content.sources.includes("gambling") ? (
+								<div className="flex flex-row items-center">
+									<button
+										className="i-carbon-currency-dollar w-1rem h-1rem"
+										onClick={() => {
+											const chainId = 97
+											const hexChainId = "0x" + chainId.toString(16)
+											void (
+												window.ethereum &&
+												window.ethereum.request({
+													method: "wallet_switchEthereumChain",
+													params: [
+														{
+															chainId: hexChainId,
+														},
+													],
+												})
+											)
+											let FlareContract: any
+											window.ethereum &&
+												window.ethereum.on(
+													"chainChanged",
+													(chainId: string) => {
+														console.log("chainId:", chainId)
+														// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call
+														FlareContract = Conctract()
+														const postId = `${note?.count as number}${
+															character?.characterId as number
+														}}`
+														if (FlareContract) {
+															// eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
+															FlareContract?.Participate(postId, {
+																// a fixed value, value == 0.01 BSC
+																value: String(10000000000000000),
+															})
+														} else {
+															console.log("Contract Is Not Ready")
+														}
+													}
+												)
+										}}
+									></button>
+									<div>GM</div>
+								</div>
+							) : (
+								<>GM</>
+							)}
+						</div>
+						<button
+							className="i-mdi-share-variant-outline w-1rem h-1rem"
+							onClick={() => {
+								void handleClick(
+									`${window.location.href}/status/${
+										note?.list[index].characterId as bigint
+									}-${note?.list[index].noteId as bigint}`
+								)
+							}}
+						></button>
+					</div>
 				</Stack>
 			</Stack>
 		</Box>

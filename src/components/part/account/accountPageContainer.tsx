@@ -8,7 +8,6 @@ import {
 	SkeletonCircle,
 	SkeletonText,
 	Spacer,
-	Stack,
 } from "@chakra-ui/react"
 import { useParams } from "react-router-dom"
 
@@ -22,15 +21,26 @@ export const AccountPageContainer = () => {
 		return (
 			<div className="flex">
 				<Box className="mt-5vh py-2 px-4 w-full border-b">
-					<Stack className="flex !flex-row items-center">
-						<SkeletonCircle className="rounded-50px !w-3rem !h-3rem" />
-						<SkeletonText noOfLines={1} skeletonHeight="5" width={"20rem"} />
-					</Stack>
-					<Stack className="mt-1rem w-full">
-						<Skeleton height="20px" />
-						<Skeleton height="20px" />
-						<Skeleton height="20px" />
-					</Stack>
+					<Box padding="6" boxShadow="lg">
+						{Array.from({ length: 6 }).map((_, index) => (
+							<Box className="flex mt-2rem" key={index}>
+								<SkeletonCircle size="3rem" />
+								<Box className="flex flex-col ml-1rem w-full">
+									<Box className="flex mt-1rem">
+										<Skeleton className="h-1rem w-4rem" />
+										<Skeleton className="h-1rem w-4rem ml-1rem" />
+									</Box>
+									<SkeletonText
+										width={"full"}
+										mt="4"
+										noOfLines={3}
+										spacing="3"
+										skeletonHeight="3"
+									/>
+								</Box>
+							</Box>
+						))}
+					</Box>
 				</Box>
 				<FollowingMillStack
 					title="Following Mills"

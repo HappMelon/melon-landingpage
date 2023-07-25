@@ -4,7 +4,14 @@ import { TrendingHotTopics } from "@/components/part/trending/trendingHotTopics"
 import { TrendingUserStack } from "@/components/part/trending/trendingUserStack"
 import { RandomHexColor } from "@/lib/utils"
 import { useHotTopics } from "@/state/HotTopics"
-import { Box, Button, ButtonGroup, Skeleton, Stack } from "@chakra-ui/react"
+import {
+	Box,
+	Button,
+	ButtonGroup,
+	Skeleton,
+	Stack,
+	useColorModeValue,
+} from "@chakra-ui/react"
 import { atom, useAtom } from "jotai"
 import { useEffect, useState } from "react"
 
@@ -25,6 +32,9 @@ export const TrendingNav = () => {
 	const [tp, setTp] = useAtom(TpAtom)
 	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	const [co, setCo] = useAtom(ColorAtom)
+
+	// TODO 得抽离出来.
+	const BgColor = useColorModeValue("#f8f8f8", "#524B6220")
 
 	useEffect(() => {
 		if (topics?.list) {
@@ -52,9 +62,10 @@ export const TrendingNav = () => {
 				<Box className="flex items-center">
 					<ButtonGroup className="gap-4">
 						<Button
-							className={`py-0.375rem px-0.625rem !bg-#f8f8f8 text-1rem font-700 !hover:color-#000 ${
+							className={`py-0.375rem px-0.625rem text-1rem font-700 !hover:color-#000 ${
 								enableShow == 0 ? "!color-#000" : "!color-#9B9B9B"
 							}`}
+							bg={BgColor}
 							onClick={() => {
 								setCurrentTap("TrendingArticle")
 								setEnableShow(0)
@@ -63,24 +74,26 @@ export const TrendingNav = () => {
 							Most Popular
 						</Button>
 						<Button
-							className={`py-0.375rem px-0.625rem !bg-#f8f8f8 text-1rem font-700 !hover:color-#000 ${
+							className={`py-0.375rem px-0.625rem text-1rem font-700 !hover:color-#000 ${
 								enableShow == 1 ? "!color-#000" : "!color-#9B9B9B"
 							}`}
 							onClick={() => {
 								setShowTopics(!showTopics)
 								setEnableShow(1)
 							}}
+							bg={BgColor}
 						>
 							Hot Topics
 						</Button>
 						<Button
-							className={`py-0.375rem px-0.625rem !bg-#f8f8f8 text-1rem font-700 !hover:color-#000 ${
+							className={`py-0.375rem px-0.625rem text-1rem font-700 !hover:color-#000 ${
 								enableShow == 2 ? "!color-#000" : "!color-#9B9B9B"
 							}`}
 							onClick={() => {
 								setCurrentTap("Users")
 								setEnableShow(2)
 							}}
+							bg={BgColor}
 						>
 							Users
 						</Button>

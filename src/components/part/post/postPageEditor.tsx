@@ -25,11 +25,12 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { useUploadFile } from "@/hooks/useUploadFile"
 import { atom, useAtom } from "jotai"
-import { ChangeEvent, useEffect, useState } from "react"
+import React, { ChangeEvent, useEffect, useState } from "react"
 
 export const ValueAtom = atom("")
 export const BettingAtom = atom(0)
 export const EnableBettingAtom = atom(false)
+export const IpfshashAtom = atom<string>("")
 
 export function DialogBetting() {
 	const [betting, SetBetting] = useAtom(BettingAtom)
@@ -100,23 +101,39 @@ export const PostPageEditor = () => {
 
 	const [value, setValue] = useAtom(ValueAtom)
 	const [file, setFile] = useState<File | null>(null)
+	const [name, setName] = useState("")
+	const [ipfsHash, setIpfsHash] = useAtom(IpfshashAtom)
+
 	const TextColor = useColorModeValue("#000", "#fff")
 	const BgColor = useColorModeValue("#F8F8F8", "#181127")
 
 	const uploadFile = useUploadFile()
+	const quillRef = React.useRef<ReactQuill>(null)
 
 	const handleFileUpload = (file: File) => {
 		uploadFile(file)
-			.then((result) => console.log(result.key))
+			.then((result) => setIpfsHash(result.key))
+			.then(() => setName(file.name))
 			.catch((error) => console.error(error))
 	}
 
 	useEffect(() => {
 		if (file) {
 			handleFileUpload(file)
+			console.log(ipfsHash)
 		}
-		console.log(file);
-	}, [file])
+	}, [file, ipfsHash, name])
+
+	// try insert image into editor
+	// useEffect(() => {
+	// 	if (ipfsHash) {
+	// 		// Insert image into ReactQuill editor
+	// 		const range = quillRef.current?.getEditor().getSelection()?.index
+	// 		quillRef.current
+	// 			?.getEditor()
+	// 			.insertEmbed(range!, "image", `![${ipfsHash}`)
+	// 	}
+	// }, [ipfsHash])
 
 	return (
 		<Box
@@ -127,6 +144,7 @@ export const PostPageEditor = () => {
 			border={"none"}
 		>
 			<ReactQuill
+				ref={quillRef}
 				theme="snow"
 				onChange={(value) => setValue(value)}
 				style={{ height: "40rem" }}

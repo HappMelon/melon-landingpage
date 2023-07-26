@@ -1,6 +1,7 @@
 import {
 	BettingAtom,
 	EnableBettingAtom,
+	IpfshashAtom,
 	ValueAtom,
 } from "@/components/part/post/postPageEditor"
 import { useNoteIndex } from "@/state/Note"
@@ -81,12 +82,18 @@ function NewPost({
 	externalUrls,
 	tags,
 	isChecked = false,
+	attachments,
 }: {
 	value: string
 	sources: string[]
 	externalUrls: string[]
 	tags: string[]
 	isChecked?: boolean
+	attachments?: {
+		address: string
+		alt: string
+		name: string
+	}
 }) {
 	const postNote = usePostNote()
 	const character = useAccountCharacter()
@@ -106,6 +113,7 @@ function NewPost({
 							content: value,
 							sources: newSources,
 							external_urls: externalUrls,
+							attachments: [{ address: attachments?.address, alt: "test.png", name: "test.png" }],
 							tags,
 						},
 					},
@@ -171,6 +179,9 @@ function NewPost({
 export const PostPageHeader = () => {
 	const [value] = useAtom(ValueAtom)
 	const [enable] = useAtom(EnableBettingAtom)
+	const [ipfsHash] = useAtom(IpfshashAtom)
+
+	console.log("ipfsHash:", ipfsHash)
 
 	const navigate = useNavigate()
 
@@ -220,6 +231,7 @@ export const PostPageHeader = () => {
 						externalUrls={["https://crossbell.io"]}
 						tags={["post"]}
 						isChecked={enable}
+						attachments={{ address: ipfsHash, alt: "test.png", name: "test.png" }}
 					/>
 					<AppearanceSwitch />
 					<Button marginLeft="2rem" rounded="full">

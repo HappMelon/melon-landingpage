@@ -62,6 +62,11 @@ export interface ArticleContent {
 	summary: string
 	authors?: string[]
 	date_published: string
+	attachments: Attachments[]
+}
+
+export interface Attachments {
+	address: string
 }
 
 export interface HotTopics {

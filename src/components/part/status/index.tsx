@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import { ipfsLinkToHttpLink } from "@/share/ipfs"
 import { useAccount } from "@/state/Account"
 import { useStatus } from "@/state/Status"
@@ -27,6 +28,17 @@ export default function App() {
 	)
 
 	const { data: note, isLoading } = useStatus(cid, nid)
+
+	const ipfsLink =
+		note?.metadata?.content?.attachments !== undefined
+			? note?.metadata?.content?.attachments[0]?.address
+			: ""
+
+	const ipfsRegex = /ipfs:\/\/(.*)/g
+	const match = ipfsRegex.exec(ipfsLink as string)
+	const ipfsHash = match ? match[1] : ""
+
+	const imageUrl = `https://xfeed.app/ipfs/${ipfsHash}`
 
 	const transformLinkUri = (uri: string) => {
 		return ipfsLinkToHttpLink(uri, { origin: "https://ipfs.io" })
@@ -63,6 +75,11 @@ export default function App() {
 					>
 						{note?.metadata?.content?.content as string}
 					</ReactMarkdown>
+					{ipfsLink ? (
+						<img className="w-full h-auto" src={imageUrl} alt={note?.metadata?.content?.title} />
+					) : (
+						""
+					)}
 				</div>
 			</div>
 		</div>

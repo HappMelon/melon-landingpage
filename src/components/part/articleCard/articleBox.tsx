@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
 import { ArticleTag } from "@/components/part/articleCard/articleTag"
 import { Article, Character } from "@/type"
 import { Box, BoxProps, Stack, Text, useToast } from "@chakra-ui/react"
@@ -96,6 +98,17 @@ export const ArticleBox = ({ index, data, account }: ArticleBoxProps) => {
 
 	const { data: note } = useNoteIndex(account.characterId)
 
+	const ipfsLink =
+		data?.metadata?.content?.attachments !== undefined
+			? data?.metadata?.content?.attachments[0]?.address
+			: ""
+
+	const ipfsRegex = /ipfs:\/\/(.*)/g
+	const match = ipfsRegex.exec(ipfsLink as string)
+	const ipfsHash = match ? match[1] : ""
+
+	const imageUrl = `https://xfeed.app/ipfs/${ipfsHash}`
+
 	const handleClick = async (text: string) => {
 		toast({
 			title: "Share Flare",
@@ -161,6 +174,11 @@ export const ArticleBox = ({ index, data, account }: ArticleBoxProps) => {
 						>
 							{data?.metadata?.content?.content}
 						</ReactMarkdown>
+						{ipfsLink ? (
+							<img className="w-full h-auto" src={imageUrl} alt={data?.metadata?.content?.title} />
+						) : (
+							""
+						)}
 						<Stack direction="row" align="center" spacing="1rem">
 							{data.metadata.content.sources ? (
 								data.metadata.content.sources.map((tag, i) => (

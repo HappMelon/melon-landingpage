@@ -41,6 +41,15 @@ export interface ArticleResult {
 	cursor: string
 	list: Article[]
 }
+
+export interface CommitResult {
+	count: number
+	cursor: string
+	list: Commit[]
+}
+
+export interface Commit extends Note {}
+
 export interface Article {
 	characterId: number
 	noteId: number

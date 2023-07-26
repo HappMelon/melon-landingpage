@@ -1,9 +1,14 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
+import { NoteWithAccount } from "@/components/part/trending/trendingArticleBox"
 import { ipfsLinkToHttpLink } from "@/share/ipfs"
 import { useAccount } from "@/state/Account"
+import { useCommitInfo } from "@/state/CommitInfo"
 import { useStatus } from "@/state/Status"
+import { Button, Textarea } from "@chakra-ui/react"
 import { CharacterAvatar, Loading } from "@crossbell/ui"
+import { useAccountCharacter, usePostNoteForNote } from "@flarezone/connect-kit"
 import ChakraUIRenderer from "chakra-ui-markdown-renderer"
+import { useState } from "react"
 import ReactMarkdown from "react-markdown"
 import { useNavigate, useParams } from "react-router-dom"
 import rehypeHighlight from "rehype-highlight"
@@ -13,6 +18,10 @@ export default function App() {
 	const { username, id } = useParams()
 
 	const navigate = useNavigate()
+
+	const [value, setValue] = useState("")
+
+	const character = useAccountCharacter()
 
 	const pushAccount = () => {
 		navigate(`/@${account?.handle || ""}`)
@@ -28,6 +37,10 @@ export default function App() {
 	)
 
 	const { data: note, isLoading } = useStatus(cid, nid)
+	const { data: commmit, mutate } = useCommitInfo(Number(cid), Number(nid), 20)
+
+	const co = { characterId: cid, noteId: nid }
+	const postNoteForNote = usePostNoteForNote()
 
 	const ipfsLink =
 		note?.metadata?.content?.attachments !== undefined
@@ -84,8 +97,64 @@ export default function App() {
 					) : (
 						""
 					)}
-					{/* Request URL: https://indexer.crossbell.io/v1/siwe/contract/characters/40943/notes  post commit note */}
-					<div>commit</div>
+					{/* 评论区 */}
+					<div className="mt-1rem">
+						<div className="flex gap-1rem">
+							<CharacterAvatar
+								className="!w-3rem !h-3rem !rounded-50% border-solid border-#fff shadow-lg object-cover"
+								size="4rem"
+								character={character}
+							/>
+							<Textarea
+								value={value}
+								placeholder="Here is a sample placeholder"
+								onChange={(e) => setValue(e.target.value)}
+							/>
+						</div>
+						<div className="flex justify-end mt-1rem">
+							<Button
+								colorScheme="blue"
+								onClick={() => {
+									postNoteForNote.mutate(
+										{
+											note: {
+												characterId: Number(co.characterId),
+												noteId: Number(co.noteId),
+											},
+											metadata: {
+												content: value,
+												sources: ["FlareZone Dev"],
+												external_urls: ["https://flare-zone.io"],
+												tags: ["post"],
+											},
+										},
+										{
+											onSuccess: () => {
+												mutate
+												setValue("")
+											},
+										}
+									)
+								}}
+							>
+								Reply Note
+							</Button>
+						</div>
+					</div>
+					{/* 把评论展示出来 */}
+					{commmit?.count != null &&
+						commmit.list.map((c, index) => (
+							<div key={index}>
+								<NoteWithAccount note={c}></NoteWithAccount>
+							</div>
+						))}
+					{/* https://indexer.crossbell.io/v1/notes?toCharacterId=47393&toNoteId=86&limit=20 */}
+					{/* 获取某个人某个note的详细信息 */}
+					{/* https://indexer.crossbell.io/v1/characters/49213/notes/22 */}
+					{/* note 超过20 条之后加上 cursor 处理请求 */}
+					{/* https://indexer.crossbell.io/v1/notes?toCharacterId=50854&toNoteId=54&cursor=50854_58&limit=20 */}
+					{/* 发评论 */}
+					{/*  */}
 				</div>
 			</div>
 		</div>

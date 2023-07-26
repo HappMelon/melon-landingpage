@@ -14,7 +14,7 @@ import { useNavigate } from "react-router-dom"
 import rehypeHighlight from "rehype-highlight"
 import remarkGfm from "remark-gfm"
 
-const NoteWithAccount = ({ note }: { note: Note }) => {
+export const NoteWithAccount = ({ note }: { note: Note }) => {
 	const cid = note?.characterId
 	const nid = note?.noteId
 

@@ -206,10 +206,19 @@ export const ArticleBox = ({ index, data, account }: ArticleBoxProps) => {
 								characterId={data.characterId}
 							/>
 						</div>
-						<div className="flex items-center gap-0.25rem">
+						<button
+							className="flex items-center gap-0.25rem"
+							onClick={() => {
+								navigate(
+									`/@${account?.handle}/status/${
+										note?.list[index].characterId as bigint
+									}-${note?.list[index].noteId as bigint}`
+								)
+							}}
+						>
 							<div className="i-mdi-comment-text-outline w-1rem h-1rem"></div>
 							<div>{count?.count}</div>
-						</div>
+						</button>
 						<div>
 							{data.metadata.content.sources &&
 							data.metadata.content.sources.includes("gambling") ? (

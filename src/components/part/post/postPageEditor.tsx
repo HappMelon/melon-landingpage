@@ -23,8 +23,9 @@ import "react-quill/dist/quill.snow.css"
 
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
+import { useUploadFile } from "@/hooks/useUploadFile"
 import { atom, useAtom } from "jotai"
-import { ChangeEvent, useState } from "react"
+import { ChangeEvent, useEffect, useState } from "react"
 
 export const ValueAtom = atom("")
 export const BettingAtom = atom(0)
@@ -101,6 +102,21 @@ export const PostPageEditor = () => {
 	const [file, setFile] = useState<File | null>(null)
 	const TextColor = useColorModeValue("#000", "#fff")
 	const BgColor = useColorModeValue("#F8F8F8", "#181127")
+
+	const uploadFile = useUploadFile()
+
+	const handleFileUpload = (file: File) => {
+		uploadFile(file)
+			.then((result) => console.log(result.key))
+			.catch((error) => console.error(error))
+	}
+
+	useEffect(() => {
+		if (file) {
+			handleFileUpload(file)
+		}
+		console.log(file);
+	}, [file])
 
 	return (
 		<Box

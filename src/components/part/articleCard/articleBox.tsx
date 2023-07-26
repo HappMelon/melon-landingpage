@@ -19,6 +19,7 @@ import rehypeHighlight from "rehype-highlight"
 
 import ABI from "@/contract/betting.json"
 
+import { useCommitCount } from "@/state/CommitCount"
 import {
 	useAccountCharacter,
 	useIsNoteLiked,
@@ -97,6 +98,7 @@ export const ArticleBox = ({ index, data, account }: ArticleBoxProps) => {
 	const toast = useToast()
 
 	const { data: note } = useNoteIndex(account.characterId)
+	const { data: count } = useCommitCount(data?.characterId, data?.noteId)
 
 	const ipfsLink =
 		data?.metadata?.content?.attachments !== undefined
@@ -175,7 +177,11 @@ export const ArticleBox = ({ index, data, account }: ArticleBoxProps) => {
 							{data?.metadata?.content?.content}
 						</ReactMarkdown>
 						{ipfsLink ? (
-							<img className="w-full h-auto" src={imageUrl} alt={data?.metadata?.content?.title} />
+							<img
+								className="w-full h-auto"
+								src={imageUrl}
+								alt={data?.metadata?.content?.title}
+							/>
 						) : (
 							""
 						)}
@@ -200,7 +206,10 @@ export const ArticleBox = ({ index, data, account }: ArticleBoxProps) => {
 								characterId={data.characterId}
 							/>
 						</div>
-						<div className="i-mdi-comment-text-outline w-1rem h-1rem"></div>
+						<div className="flex items-center gap-0.25rem">
+							<div className="i-mdi-comment-text-outline w-1rem h-1rem"></div>
+							<div>{count?.count}</div>
+						</div>
 						<div>
 							{data.metadata.content.sources &&
 							data.metadata.content.sources.includes("gambling") ? (

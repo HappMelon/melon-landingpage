@@ -76,10 +76,16 @@ export default function App() {
 						{note?.metadata?.content?.content as string}
 					</ReactMarkdown>
 					{ipfsLink ? (
-						<img className="w-full h-auto" src={imageUrl} alt={note?.metadata?.content?.title} />
+						<img
+							className="w-full h-auto"
+							src={imageUrl}
+							alt={note?.metadata?.content?.title}
+						/>
 					) : (
 						""
 					)}
+					{/* Request URL: https://indexer.crossbell.io/v1/siwe/contract/characters/40943/notes  post commit note */}
+					<div>commit</div>
 				</div>
 			</div>
 		</div>

@@ -54,7 +54,7 @@ export const AccountPageContainer = () => {
 	return (
 		<>
 			{account ? (
-				<Flex className="flex flex-row items-center justify-between m-2vh">
+				<Flex className="flex flex-row items-start justify-between m-2vh">
 					<ArticleStack userID={account?.characterId || 10} account={account} />
 					<Spacer />
 					<FollowingMillStack

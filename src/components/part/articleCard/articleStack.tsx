@@ -68,24 +68,25 @@ export const ArticleStack = ({
 				}
 			}
 		}
-	}, [cursor, Ref, article, articles])
+	}, [cursor, Ref, article, articles, account?.characterId])
 
 	if (!articles) {
 		return <Stack className="gap-1.5rem flex !flex-col"></Stack>
 	}
+
 	return (
 		<>
 			<Stack className="gap-1.5rem flex !flex-col mt-5vh w-full">
 				{article
 					.filter((article) => !article.deleted)
 					.map((article, i) => (
-						<div key={i} ref={Ref}>
+						<div key={i} ref={articles?.count > 20 ? Ref : null}>
 							<ArticleBox
 								index={i}
 								key={i}
 								data={article}
 								account={account as Character}
-							/>
+							></ArticleBox>
 						</div>
 					))}
 			</Stack>

@@ -9,39 +9,8 @@
 </head>
 
 <body class="h-full">
-	<div id="root" class="h-full bg-background text-foreground"></div>
+	<div id="root" class="h-full"></div>
 	<script type="module" src="/src/main.tsx"></script>
-	<script>
-		(function (doc, win) {
-			var docEI = doc.documentElement,
-				resizeEvt = 'orientationchange' in window ? 'orientataionchange' : 'resize',
-				recalc = function () {
-					var clientWidth = docEI.clientWidth;
-					if (!clientWidth) return;
-					if (clientWidth <= 576) {
-						docEI.style.fontSize = 12 * (clientWidth / 393) + 'px';
-					}
-					if (clientWidth <= 768 &&clientWidth > 576) {
-						docEI.style.fontSize = 13 * (clientWidth / 768) + 'px';
-					}
-					if (clientWidth <= 992 && clientWidth > 768) {
-						docEI.style.fontSize = 14 * (clientWidth / 992) + 'px';
-					}
-					if (clientWidth <= 1200 && clientWidth > 992) {
-						docEI.style.fontSize = 15 * (clientWidth / 1200) + 'px';
-					}
-					if (clientWidth > 1200) {
-						docEI.style.fontSize = 16 * (clientWidth / 1920) + 'px';
-					}
-
-				}
-
-			if (!doc.addEventListener) return;
-			win.addEventListener(resizeEvt, recalc, false);
-			doc.addEventListener('DOMContentLoaded', recalc, false);
-		})(document, window);
-	</script>
-
 </body>
 
 </html>

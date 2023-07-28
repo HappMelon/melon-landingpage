@@ -6,7 +6,15 @@ const config: ThemeConfig = {
 	useSystemColorMode: false,
 }
 
-const theme = extendTheme({ config })
+const breakpoints = {
+	xs: 576,
+	sm: 768,
+	md: 992,
+	lg: 1200,
+	xl: 1440,
+}
+
+const theme = extendTheme({ breakpoints, config })
 
 export const chakraCustomTheme = extendTheme({
 	config,

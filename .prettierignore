@@ -1,2 +1,3 @@
+electron-builder.json5
 pnpm-lock.yaml
-dist
+src/components/ui

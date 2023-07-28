@@ -6,7 +6,6 @@ import {
 	transformerDirectives,
 	transformerVariantGroup,
 } from "unocss"
-import { breakpoints } from "./breakpoints"
 
 export default defineConfig({
 	presets: [
@@ -60,14 +59,6 @@ export default defineConfig({
 			lg: `var(--radius)`,
 			md: `calc(var(--radius) - 2px)`,
 			sm: "calc(var(--radius) - 4px)",
-		},
-		breakpoints: {
-			// https://mantine.dev/styles/responsive/#configure-breakpoints
-			xs: `${breakpoints.xs}px`,
-			sm: `${breakpoints.sm}px`,
-			md: `${breakpoints.md}px`,
-			lg: `${breakpoints.lg}px`,
-			xl: `${breakpoints.xl}px`,
 		},
 	},
 })

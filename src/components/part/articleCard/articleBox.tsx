@@ -101,12 +101,12 @@ export const ArticleBox = ({ index, data, account }: ArticleBoxProps) => {
 	const { data: count } = useCommitCount(data?.characterId, data?.noteId)
 
 	const ipfsLink =
-		data?.metadata?.content?.attachments !== undefined
+		data?.metadata?.content?.attachments !== undefined && data?.metadata?.content?.attachments !== null
 			? data?.metadata?.content?.attachments[0]?.address
 			: ""
 
 	const ipfsRegex = /ipfs:\/\/(.*)/g
-	const match = ipfsRegex.exec(ipfsLink as string)
+	const match = ipfsRegex.exec(ipfsLink)
 	const ipfsHash = match ? match[1] : ""
 
 	const imageUrl = `https://xfeed.app/ipfs/${ipfsHash}`

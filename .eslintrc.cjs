@@ -21,9 +21,6 @@ module.exports = {
     react: {
       version: "detect",
     },
-    tailwindcss: {
-      callees: ["classnames", "cn", "cva"],
-    },
   },
   rules: {
     // https://twitter.com/Brooooook_lyn/status/1666637274757595141

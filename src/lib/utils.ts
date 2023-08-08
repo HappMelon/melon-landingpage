@@ -6,6 +6,7 @@ export function cn(...inputs: ClassValue[]) {
 	return twMerge(clsx(inputs))
 }
 
+// generate random hex color
 export function RandomHexColor(): string {
 	let letters = "0123456789ABCDEF"
 	let color = "#"
@@ -15,15 +16,18 @@ export function RandomHexColor(): string {
 	return color
 }
 
+// generate random number between min and max
 export function GenerateRandomNumber(min: number, max: number): number {
 	return Math.floor(Math.random() * (max - min + 1)) + min
 }
 
+// wei to ether
 export function Tovalue(v: string): string {
 	const value = Web3.utils.fromWei(v, "ether")
 	return value
 }
 
+// convert timestamp as how times ago
 export function CalculateDate(date: string): string {
 	const now = new Date()
 	const diff = Number(now) - Number(new Date(date))
@@ -39,9 +43,11 @@ export function CalculateDate(date: string): string {
 	if (seconds < 60) {
 		return `${seconds} seconds ago`
 	} else if (minutes < 60) {
-		return `${minutes} minute ago`
-	} else if (hours < 24) {
-		return `${hours} hour ago`
+		return `${minutes} minutes ago`
+	} else if (hours < 2) {
+		return `an hour ago`
+	} else if (2 <= hours && hours < 24) {
+		return `${hours} hours ago`
 	} else if (days < 7) {
 		return `${days} days ago`
 	} else if (weeks < 4) {
@@ -53,7 +59,10 @@ export function CalculateDate(date: string): string {
 	}
 }
 
-export function FormatTimeStamp(timeStamp: number):string {
+
+
+// convert timestamp as year-month-day hour:minute:second
+export function FormatTimeStamp(timeStamp: number): string {
 	const date = new Date(timeStamp * 1000)
 
 	const year = date.getFullYear()

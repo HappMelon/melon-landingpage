@@ -52,7 +52,7 @@
 	},
 	"overrides": [
 		{
-			// TODO: use monorepo
+			// TODO: use monorepo https://github.com/Crossbell-Box/crossbell.io/blob/main/.eslintrc.json
 			"files": ["src/**/*.ts", "src/**/*.tsx"],
 			"rules": {
 				"@typescript-eslint/no-unused-vars": "warn",

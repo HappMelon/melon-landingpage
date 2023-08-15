@@ -84,12 +84,7 @@ export const TrendingArticleBox = () => {
 	const Ref = useRef<HTMLDivElement>(null)
 
 	const { data: nd } = useTrendingNote("note", false, 10)
-	const { data: slide, isLoading } = useTrendingNoteSlide(
-		"note",
-		false,
-		20,
-		cursor
-	)
+	const { data: slide, isLoading } = useTrendingNoteSlide( "note", false, 20, cursor)
 
 	useEffect(() => {
 		if (nd) {
@@ -124,6 +119,7 @@ export const TrendingArticleBox = () => {
 	}, [slide, cursor, note])
 
 	const [showScroll, setScroll] = useState(false)
+
 	useEffect(() => {
 		const handleScrollButtonVisible = () => {
 			window.scrollY > 300 ? setScroll(true) : setScroll(false)
@@ -164,7 +160,7 @@ export const TrendingArticleBox = () => {
 						</div>
 				))
 				: !isLoading && (
-						<Box className="flex w-50rem">
+						<Box className="flex">
 							<SkeletonCircle size="3rem" />
 							<Box className="flex flex-col ml-1rem w-full">
 								<Box className="flex mt-1rem">

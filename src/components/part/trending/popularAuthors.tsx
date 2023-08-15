@@ -41,7 +41,7 @@ const CharacterWithAccount = ({
 	const navigate = useNavigate()
 
 	return (
-		<div className="flex items-center gap-1rem overflow-hidden flex-nowrap">
+		<div className="flex items-center gap-1rem overflow-hidden flex-nowrap mt-14px">
 			<CharacterAvatar
 				className="!w-3rem !h-3rem !rounded-50% border-solid border-#fff shadow-lg object-cover cursor-pointer"
 				size="4rem"

@@ -1,5 +1,6 @@
 import { TrendingUserBox } from "@/components/part/trending/trendingUserBox"
 import { Stack } from "@chakra-ui/react"
+
 export const TrendingUserStack = () => {
 	return (
 		<>

@@ -1,7 +1,7 @@
 import { Getter, atom } from "jotai"
 import { atomsWithQuery } from "jotai-tanstack-query"
 import originalKy from "ky"
-import { Album, Photo } from "../type"
+import type { Album, Photo } from "@/type"
 
 const ky = originalKy.extend({
 	prefixUrl: "https://jsonplaceholder.typicode.com",

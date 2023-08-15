@@ -1,4 +1,4 @@
-import { Note, NoteEntity } from "crossbell"
+import type { Note, NoteEntity } from "crossbell"
 import useSWR from "swr"
 
 const prefixUrl = "https://indexer.crossbell.io"

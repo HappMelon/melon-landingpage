@@ -1,5 +1,4 @@
-import { BettingNote } from "@/type"
-import { Note, NoteEntity, NoteMetadata, NoteStatEntity } from "crossbell"
+import type { BettingNote } from "@/type"
 import useSWR from "swr"
 
 const prefixUrl = "https://indexer.crossbell.io"

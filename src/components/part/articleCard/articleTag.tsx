@@ -4,7 +4,7 @@ interface ArticleTagProps extends ButtonProps {
 	content: string | ""
 	num: number | 0
 }
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
+
 export const ArticleTag = ({ content, num, ...Props }: ArticleTagProps) => {
 	const bgColors = ["#FAF3F0", "#D4E2D4", "#FFCACC", "#DBC4F0"]
 	return (

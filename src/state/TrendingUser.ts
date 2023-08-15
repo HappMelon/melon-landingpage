@@ -1,4 +1,4 @@
-import { TrendingAuthors } from "@/type"
+import type { TrendingAuthors } from "@/type"
 import useSWR from "swr"
 
 const prefixUrl = "https://recommend.crossbell.io"

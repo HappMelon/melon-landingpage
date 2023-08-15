@@ -1,5 +1,5 @@
 import { Box, BoxProps, Stack, Text } from "@chakra-ui/react"
-import { FollowingMill } from "./followingMill"
+import { FollowingMill } from "@/components/part/mill/followingMill"
 
 interface FollowingMillStackProps extends BoxProps {
 	title: string

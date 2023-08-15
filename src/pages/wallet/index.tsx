@@ -1,6 +1,6 @@
 import Layout from "@/components/layouts/RootLayout"
 import { useTx } from "@/state/tx"
-import { Result, Tx } from "@/type"
+import type { Result, Tx } from "@/type"
 
 import {
   Table,

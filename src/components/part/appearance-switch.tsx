@@ -1,5 +1,6 @@
 import { useDark } from "@/hooks/index"
 import { useColorMode } from "@chakra-ui/react"
+
 export default function AppearanceSwitch() {
 	const [isDark, toggleDark] = useDark()
 	const { colorMode, toggleColorMode } = useColorMode()

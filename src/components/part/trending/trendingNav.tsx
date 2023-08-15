@@ -72,30 +72,6 @@ export const TrendingNav = () => {
               Most Popular
             </Button>
             <Button
-              className={`py-0.375rem px-0.625rem text-1rem font-700 ${"!color-#9B9B9B"}`}
-              bg={BgColor}
-            >
-              For Me
-            </Button>
-            <Button
-              className={`py-0.375rem px-0.625rem text-1rem font-700 ${"!color-#9B9B9B"}`}
-              bg={BgColor}
-            >
-              Most Interaction
-            </Button>
-            <Button
-              className={`py-0.375rem px-0.625rem text-1rem font-700 ${"!color-#9B9B9B"}`}
-              bg={BgColor}
-            >
-              Following
-            </Button>
-            <Button
-              className={`py-0.375rem px-0.625rem text-1rem font-700 ${"!color-#9B9B9B"}`}
-              bg={BgColor}
-            >
-              Latest
-            </Button>
-            <Button
               className={`py-0.375rem px-0.625rem text-1rem font-700 !hover:color-#000 ${
                 enableShow == 1 ? "!color-#000" : "!color-#9B9B9B"
               }`}

@@ -162,7 +162,7 @@ export const TrendingArticleBox = () => {
 				: !isLoading && (
 						<Box className="flex">
 							<SkeletonCircle size="3rem" />
-							<Box className="flex flex-col ml-1rem w-full">
+							<Box className="flex flex-col ml-1rem">
 								<Box className="flex mt-1rem">
 									<Skeleton className="h-1rem w-4rem" />
 									<Skeleton className="h-1rem w-4rem ml-1rem" />

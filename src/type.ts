@@ -1,4 +1,5 @@
-import { CharacterEntity, Note } from "crossbell"
+import type { CharacterEntity, Note } from "crossbell"
+
 export interface Album {
 	id: number
 	userId: number

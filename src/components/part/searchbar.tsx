@@ -1,5 +1,5 @@
-import { Avatar } from "@/components/common/ Avatar"
-import { NotificationBtn } from "@/components/common/NotificationBtn"
+import { Avatar } from "@/components/Avatar/Avatar"
+import { NotificationBtn } from "@/components/Avatar/NotificationBtn"
 import AppearanceSwitch from "@/components/part/appearance-switch"
 import {
   Box,

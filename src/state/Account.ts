@@ -1,5 +1,4 @@
-import type { Character } from "@/type"
-import { CharacterEntity } from "crossbell"
+import type { CharacterEntity } from "crossbell"
 import useSWR from "swr"
 
 const prefixUrl = "https://indexer.crossbell.io"

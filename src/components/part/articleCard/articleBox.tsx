@@ -1,7 +1,5 @@
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
-/* eslint-disable @typescript-eslint/no-unsafe-member-access */
 import { ArticleTag } from "@/components/part/articleCard/articleTag"
-import { Article, Character } from "@/type"
+import type { Article, Character } from "@/type"
 import { Box, BoxProps, Stack, Text, useToast } from "@chakra-ui/react"
 import { CharacterAvatar } from "@crossbell/ui"
 

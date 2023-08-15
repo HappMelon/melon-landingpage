@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { ArticleBox } from "@/components/part/articleCard/articleBox"
 import { useArticlesID } from "@/state/Article"
-import { Article, ArticleResult, Character } from "@/type"
+import type { Article, ArticleResult, Character } from "@/type"
 
 import { Stack, StackProps } from "@chakra-ui/react"
 import { useEffect, useRef, useState } from "react"

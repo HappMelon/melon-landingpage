@@ -1,4 +1,4 @@
-import { Follow } from "@/components/common/Follow"
+import { Follow } from "@/components/Avatar/Follow"
 import { useAccount } from "@/state/Account"
 import { useTrendingUser } from "@/state/TrendingUser"
 import { CharacterAvatar } from "@crossbell/ui"

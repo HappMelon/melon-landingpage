@@ -1,4 +1,4 @@
-import { HotTopics } from "@/type"
+import type { HotTopics } from "@/type"
 import { Stack, Wrap, WrapItem } from "@chakra-ui/react"
 
 interface TrendingHotTopicsProps extends HotTopics {

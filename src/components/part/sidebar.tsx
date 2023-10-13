@@ -53,7 +53,7 @@ const LinkItems: Array<LinkItemProps> = [
     path: "wallet",
   },
   {
-    name: "Flare Premium",
+    name: "Melon Premium",
     icon: "/images/pages/explore/icon_premium_.svg",
     path: "premium",
   },
@@ -251,7 +251,7 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
               </Button>
             </Stack>
             <Text fontSize="0.5rem" color="#9B9B9B" className="pb-2.375rem">
-              © Flare Dapp 2023 &nbsp; | &nbsp; All Rights Reserved
+              © Melon 2023 &nbsp; | &nbsp; All Rights Reserved
             </Text>
           </Stack>
         </Stack>

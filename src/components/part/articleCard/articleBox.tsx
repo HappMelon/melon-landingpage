@@ -112,7 +112,7 @@ export const ArticleBox = ({ index, data, account }: ArticleBoxProps) => {
 
   const handleClick = async (text: string) => {
     toast({
-      title: "Share Flare",
+      title: "Share Melon",
       description: "Copied to clipboard",
       status: "success",
       duration: 9000,

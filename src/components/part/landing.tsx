@@ -1,6 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
-import { useState } from "react"
 import styles from "@/styles/landing-style.module.css"
+import { useState } from "react"
 
 type CardProps = {
 	title: string
@@ -21,11 +21,12 @@ function LandingHeader() {
 			<div className={styles.headerContainer}>
 				<div className={styles.headerLeft}>
 					<img
-						src="/logo.png"
-						alt="Flare Dapp"
-						className="lt-sm:w-23px w-3.69rem"
+						// src="/logo.png"
+						src="/logo-max-white.svg"
+						alt="melon"
+						className="lt-sm:h-23px h-3.69rem mr-1rem"
 					></img>
-					<div className={styles.headerTitle}>Flare Dapp</div>
+					{/* <div className={styles.headerTitle}>melon</div> */}
 				</div>
 				<div className={styles.headerButtonContainer}>
 					<button
@@ -45,10 +46,10 @@ function LandingHeader() {
 						<button
 							className={styles.headerButton}
 							onClick={() => {
-								window.open("https://linktr.ee/flaredapp")
+								window.open("https://www.happymelon.club/")
 							}}
 						>
-							Join Waitlist
+							Join Us
 						</button>
 					</div>
 				</div>
@@ -93,12 +94,12 @@ function LandingContent() {
 					and freedom
 				</div>
 				<div className={styles.page1Text}>
-					Flare is an aggregated information platform that combines
+					Melon is an aggregated information platform that combines
 					<br />
 					decentralized technology and principles.
 				</div>
 				<div className={styles.page1TextS}>
-					Flare is an aggregated information
+					Melon is an aggregated information
 					<br />
 					platform that combines decentralized
 					<br />
@@ -106,16 +107,16 @@ function LandingContent() {
 				</div>
 				<div className={styles.page1ButtonContainer}>
 					<button className={styles.page1Button2} onClick={() => {
-						window.open("https://linktr.ee/flaredapp")
+						window.open("https://www.happymelon.club/")
 					}}>
-						Join Waitlist
+						Join Us
 					</button>
 					<div></div>
 				</div>
 				<img
 					alt=""
 					style={{ borderTopLeftRadius: 15, borderTopRightRadius: 15 }}
-					src="/images/pages/index/flare-dapp.io.png"
+					src="/images/pages/index/happymelon.png"
 					className={styles.page1Img}
 				/>
 				<img
@@ -140,13 +141,13 @@ function LandingContent() {
 				<div className={styles.page2Text}>
 					Our goal is to create a trusted, free, and high-value social network.
 					Through mechanisms such as staking, predictions, and token incentives,
-					Flare provides you with the ability to express themselves and prevents
+					Melon provides you with the ability to express themselves and prevents
 					the spread of meaningless information.
 				</div>
 				<div className={styles.page2TextS}>
 					Our goal is to create a trusted, free, and high-value social network.
 					Through mechanisms such as staking, predictions, and token incentives,
-					Flare provides you with the ability to express themselves and prevents
+					Melon provides you with the ability to express themselves and prevents
 					the spread of meaningless <br />
 					information.
 				</div>
@@ -192,7 +193,7 @@ function LandingContent() {
 					title="DAO Consensus"
 					logo="/images/pages/index/features-dao-consensus.png"
 				>
-					We establish consensus in Flare Dapp, where we created mechanisms to
+					We establish consensus in Melon, where we created mechanisms to
 					promote a transparent environment for content creation, distribution,
 					participation, verification, and feedback. By providing reasonable
 					incentives and restrictive rules that support the dual-token model, we
@@ -228,13 +229,13 @@ function LandingContent() {
 						Systematized Information Display
 					</div>
 					<div className={styles.page4TextContent}>
-						Flare not only provides a decentralized space for sharing and
+						Melon not only provides a decentralized space for sharing and
 						accessing information but also aims to structure the complex ocean
 						of information and present it to users in an intuitive and effective
 						manner through a systematic approach.
 						<br />
 						<br />
-						Flare involves users in the information verification process,
+						Melon involves users in the information verification process,
 						allowing community members to evaluate or predict any information.
 						By harnessing collective wisdom, the platform filters out the most
 						valuable and authentic information while addressing errors or
@@ -266,7 +267,7 @@ function LandingContent() {
 				></img>
 
 				<div className={styles.page4TextContainer_wallet}>
-					<div className={styles.page4TextTitle}>Flare Wallet</div>
+					<div className={styles.page4TextTitle}>Melon Wallet</div>
 					<div className={styles.page4TextSubTitle}>
 						Introduction to the on-chain and off-
 						<br />
@@ -274,17 +275,17 @@ function LandingContent() {
 					</div>
 					<div className={styles.page4TextContent}>
 						Users can utilize centralized identity authentication and earn off-
-						chain $Flare rewards generated through platform activities.
+						chain $Melon rewards generated through platform activities.
 						<br />
 						<br />
-						Off-chain $Flare can be circulated and consumed within the platform,
+						Off-chain $Melon can be circulated and consumed within the platform,
 						such as for subscription payments, purchasing premium content, or
 						participating in predictions.
 						<br />
 						<br />
-						Off-chain $Flare is stored on centralized servers and cannot be
+						Off-chain $Melon is stored on centralized servers and cannot be
 						exchanged for fiat currency or other virtual tokens. However,
-						transitioning Web 2.0 users can withdraw off-chain $Flare to their
+						transitioning Web 2.0 users can withdraw off-chain $Melon to their
 						wallet addresses after establishing their DID, thus embarking on a
 						journey into Web3.
 					</div>
@@ -318,16 +319,16 @@ function LandingContent() {
 						"keyboard warrior" behavior.
 						<br />
 						<br />
-						Flare hopes that users, in the process of consuming content, are not
+						Melon hopes that users, in the process of consuming content, are not
 						wasting time but rather getting closer to the truth step by step.
 						Through the mechanism of staking tokens for content predictions,
-						Flare incentivizes insightful and capable users while empowering the
+						Melon incentivizes insightful and capable users while empowering the
 						community to determine the direction of events.
 					</div>
 				</div>
 			</div>
 
-			<div className={styles.page5Container}>
+			{/* <div className={styles.page5Container}>
 				<img
 					src="images/pages/index/page5shape1.svg"
 					alt=""
@@ -347,17 +348,17 @@ function LandingContent() {
 					</div>
 					<div className={styles.page5TextContainer}>
 						<div className={styles.page5TextSubTitle}>
-							Chat With Flare AI Assistant
+							Chat With Melon AI Assistant
 						</div>
 						<div className={styles.page5TextContent}>
-							With Flare AI, we help you filter news and articles based on
+							With Melon AI, we help you filter news and articles based on
 							specific topics of interest, and automatically clustering similar
 							articles or extracting keywords for you, with according public
 							opinions.
 							<br />
 							<br /> By analyzing large volumes of text data from various
 							sources such as news articles, social media posts, blogs, and
-							forums and applying natural language processing techniques, Flare
+							forums and applying natural language processing techniques, Melon
 							AI can extract key topics, sentiment, and relevant information
 							from the text. Moreover, we detect the emotions associated with
 							specific topics, in which we can identify positive, negative, or
@@ -365,7 +366,7 @@ function LandingContent() {
 						</div>
 					</div>
 				</div>
-			</div>
+			</div> */}
 
 			<div className={styles.page6container}>
 				<img
@@ -435,7 +436,7 @@ function LandingContent() {
 				<div className={styles.techText}>
 					<div className={styles.page4TextTitle}>A Robust Architecture</div>
 					<div className={styles.techTextContent}>
-						Flare's unique staking and prediction mechanism, along with the
+						Melon's unique staking and prediction mechanism, along with the
 						vision of "socialize with trust and freedom," make the team
 						prioritize information security, reliability, and transparency. We
 						use zk-SNARKs zero-knowledge proofs and on-chain data storage to
@@ -544,7 +545,7 @@ function LandingContent() {
 				<div className={styles.team}>
 					<div className={styles.page8Item}>
 						<div className="text-1.75rem font-750 mt-1rem">Oliver</div>
-						<div className={styles.page8Founder}>CEO</div>
+						<div className={styles.page8Founder}>Founder</div>
 						<div className="mt-1.75rem">
 							<ul>
 								<li>Serial Entrepreneur in Tech</li>
@@ -559,34 +560,36 @@ function LandingContent() {
 						</div>
 					</div>
 					<div className={styles.page8Item}>
-						<div className="text-1.75rem font-750 mt-1rem">Serafina</div>
-						<div className={styles.page8Founder}>CMO</div>
+						<div className="text-1.75rem font-750 mt-1rem">Luke</div>
+						<div className={styles.page8Founder}>Head of Operations</div>
 						<div className="mt-1.75rem">
 							<ul className="team_exp">
-								<li>Serial Entrepreneur in Tech</li>
-								<li>
-									Alum from Top3 design schools in the US with minors in
-									business and design matters
-								</li>
-								<li>INSEAD MBA Design Coach</li>
-								<li>ex-TCL/ex-NetEase</li>
-								<li>
-									Responsible for digital product creation radiant to &gt;1M
-									users
-								</li>
+								<li>Former SaaS Founder</li>
+								<li>AI Platform Product & Growth</li>
+								<li>Social APP Growth  for  100 Million Users</li>
+								<li>Product & Operation Partner for 0-1 Million Users</li>
+							</ul>
+						</div>
+					</div>
+					<div className={styles.page8Item}>
+						<div className="text-1.75rem font-750 mt-1rem">Apin  Shen</div>
+						<div className={styles.page8Founder}>Head of Product</div>
+						<div className="mt-1.75rem">
+							<ul className="team_exp">
+								<li>&gt;5 Years of product experience in Ali, Dewu</li>
+								<li>Serial Entrepreneur in AI&web3 </li>
+								<li>Skilled in building projects from 0 to 1, with rich experience in product and operation theory and practice</li>
 							</ul>
 						</div>
 					</div>
 					<div className={styles.page8Item}>
 						<div className="text-1.75rem font-750 mt-1rem">Rekko</div>
-						<div className={styles.page8Founder}>COO</div>
+						<div className={styles.page8Founder}>Head of Marketing</div>
 						<div className="mt-1.75rem">
 							<ul className="team_exp">
-								<li>Serial Entrepreneur in Web3</li>
-								<li>&gt;3 Years of Experiences in Web3</li>
-								<li>SeeDAO Web3 University Season1/Season 2 Lecturer</li>
-								<li>Co-founder of Lantern DAO</li>
-								<li>DAO Governance Engineer</li>
+								<li>&gt;6 years of experience in Tencent,vivo</li>
+								<li>Specializing in traffic operations and creator development</li>
+								<li>Accumulated a large creators base and business resources</li>
 							</ul>
 						</div>
 					</div>
@@ -630,17 +633,17 @@ function LandingFoot() {
 				style={{ display: "flex", flexDirection: "row", alignItems: "center" }}
 			>
 				<img
-					src="/logo.png"
+					src="/logo-max-white.svg"
 					alt="logo"
-					className="w-3.6875rem h-4.625rem"
+					className="w-auto h-4.625rem"
 				></img>
-				<p className="text-2.625rem font-600">Flare Dapp</p>
+				{/* <p className="text-2.625rem font-600">Melon</p> */}
 			</div>
 			<div className={styles.footText}>
-				© Flare Dapp 2023 | All Rights Reserved
+				© Melon 2023 | All Rights Reserved
 			</div>
 			<div className={styles.footTextS}>
-				© Flare Dapp 2023 All Rights Reserved
+				© Melon 2023 All Rights Reserved
 			</div>
 		</div>
 	)

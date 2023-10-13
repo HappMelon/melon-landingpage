@@ -67,7 +67,7 @@ export const SearchBar = () => {
               bgClip="text"
               className="text-0.875rem mx-1rem"
             >
-              Chat with Flare AI
+              Chat with Melon AI
             </Text>
           </Button>
         </InputGroup>

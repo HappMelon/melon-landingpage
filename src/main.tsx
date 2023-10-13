@@ -21,7 +21,7 @@ import App from "./App"
 
 const queryClient = new QueryClient()
 const wagmiConfig = createWagmiConfig({
-  appName: "Flare Dapp",
+  appName: "Melon",
   // WalletConnect Project ID.
   // You can create or find it at https://cloud.walletconnect.com
   walletConnectV2ProjectId: "45f79da8dad1b543b61951d77fbba1c1",

@@ -33,14 +33,14 @@ function LandingHeader() {
 						className={styles.headerLanguage}
 						onClick={handleLanguageClick}
 					>
-						<img
+						{/* <img
 							src="/images/pages/index/globe.svg"
 							alt="Language"
 							className="mr-.3125rem lt-xs:w-14px w-2rem"
-						></img>
-						<div className="text-1.25rem font-400 lh-1.25rem">
+						></img> */}
+						{/* <div className="text-1.25rem font-400 lh-1.25rem">
 							{isEnglish ? "EN" : "CN"}
-						</div>
+						</div> */}
 					</button>
 					<div>
 						<button
@@ -396,7 +396,7 @@ function LandingContent() {
 							<img
 								alt=""
 								src="/images/pages/index/dual-tone-light.png"
-								className="absolute z-9 w-42.3125rem top-5.575rem left-3.3125rem"
+								className="absolute z-9 w-38.3125rem top-7.375rem left-5.5125rem"
 							></img>
 						</div>
 					</div>
